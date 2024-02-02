@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 import { StyleSheetManager } from 'styled-components';
-import { CardProps } from './types';
-import { CardContainer } from './styles';
 import { shouldForwardProp } from '../../shared/common';
+import { CardContainer } from './styles';
+import { CardProps } from './types';
 
 export const Card = ({
     children,

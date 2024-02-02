@@ -12,7 +12,7 @@ export default defineConfig({
         react(),
         tsconfigPaths(),
         dts({
-            include: ['src/components/'],
+            include: ['src/**/*'],
         }),
         eslintPlugin
     ],
