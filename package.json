@@ -1,70 +1,114 @@
 {
-  "name": "razor-shared-library",
-  "private": false,
-  "version": "0.0.7-alpha",
-  "type": "module",
-  "author": {
-    "email": "feras.ahmad@gmx.de",
-    "name": "Feras Ahmad"
-  },
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
+    "name": "razor-shared-library",
+    "private": false,
+    "version": "0.0.12-alpha",
+    "type": "module",
+    "author": {
+        "email": "feras.ahmad@gmx.de",
+        "name": "Feras Ahmad"
+    },
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.es.js",
+            "require": "./dist/index.umd.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "/dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Eng-FerasAhmad/razor-shared-library.git"
+    },
+    "keywords": [
+        "react",
+        "vite",
+        "razor",
+        "components"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Eng-FerasAhmad/razor-shared-library/issues"
+    },
+    "homepage": "https://github.com/Eng-FerasAhmad/razor-shared-library/blob/master/README.md",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "eslint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "eslint:fix": "eslint \"./src/**/*.{ts,tsx}\" --fix",
+        "prettier": "prettier --check .",
+        "prettier:fix": "npx prettier --write . ",
+        "stylelint": "stylelint \"./src/**/styles.ts\"",
+        "stylelint:fix": "stylelint \"./src/**/styles.ts\" --fix",
+        "lint:fix": "eslint \"./src/**/*.{ts,tsx}\" --fix && npx prettier --write . && stylelint \"./src/**/styles.ts\" --fix",
+        "preview": "vite preview",
+        "test": "cross-env NODE_ENV=test jest --silent",
+        "test:verbose": "cross-env NODE_ENV=test jest",
+        "test:coverage": "cross-env NODE_ENV=test npm run test"
+    },
+    "dependencies": {
+        "@types/node": "^20.11.16",
+        "path": "^0.12.7",
+        "react": "16.8.0 || >=17.x",
+        "react-dom": "16.8.0 || >=17.x",
+        "styled-components": "^6.1.0",
+        "vite-tsconfig-paths": "^4.3.1"
+    },
+    "devDependencies": {
+        "@rollup/plugin-alias": "^5.1.0",
+        "@testing-library/dom": "^9.3.3",
+        "@testing-library/jest-dom": "^6.1.4",
+        "@testing-library/react": "^14.0.0",
+        "@testing-library/user-event": "^14.5.1",
+        "@types/jest": "^29.5.11",
+        "@types/node": "^20.10.6",
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
+        "@typescript-eslint/eslint-plugin": "^6.14.0",
+        "@typescript-eslint/parser": "^6.14.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "cross-env": "^7.0.3",
+        "cross-fetch": "^4.0.0",
+        "eslint": "^8.55.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^17.1.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.1",
+        "eslint-import-resolver-vite": "^1.3.2",
+        "eslint-plugin-import": "^2.28.1",
+        "eslint-plugin-prettier": "^5.0.1",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "eslint-plugin-unused-imports": "^3.0.0",
+        "flush-promises": "^1.0.2",
+        "jest": "^29.7.0",
+        "jest-canvas-mock": "^2.5.2",
+        "jest-environment-jsdom": "^29.7.0",
+        "jest-styled-components": "^7.2.0",
+        "jsdom": "^22.1.0",
+        "postcss-styled-syntax": "^0.6.4",
+        "prettier": "3.0.3",
+        "stylelint": "^16.1.0",
+        "stylelint-config-recommended": "^14.0.0",
+        "stylelint-config-standard": "^36.0.0",
+        "ts-jest": "^29.1.1",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.6.2",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8",
+        "vite-plugin-dts": "^3.0.2",
+        "vite-plugin-eslint": "^1.8.1"
+    },
+    "peerDependencies": {
+        "react": "16.8.0 || >=17.x",
+        "react-dom": "16.8.0 || >=17.x"
     }
-  },
-  "files": ["/dist"],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Eng-FerasAhmad/razor-shared-library.git"
-  },
-  "keywords": [
-    "react",
-    "vite",
-    "razor",
-    "components"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Eng-FerasAhmad/razor-shared-library/issues"
-  },
-  "homepage": "https://github.com/Eng-FerasAhmad/razor-shared-library/blob/master/README.md",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@types/node": "^20.11.16",
-    "path": "^0.12.7",
-    "react": "16.8.0 || >=17.x",
-    "react-dom": "16.8.0 || >=17.x",
-    "vite-tsconfig-paths": "^4.3.1"
-  },
-  "devDependencies": {
-    "@rollup/plugin-alias": "^5.1.0",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vite-plugin-dts": "^3.0.2"
-  },
-  "peerDependencies": {
-    "react": "16.8.0 || >=17.x",
-    "react-dom": "16.8.0 || >=17.x"
-  }
 }
