@@ -1,12 +1,18 @@
 import { PropsWithChildren } from 'react';
+import { StyleSheetManager } from 'styled-components';
 import { CardProps } from './types';
+import { CardContainer } from './styles';
+import { shouldForwardProp } from '../../shared/common';
 
 export const Card = ({
     children,
+    hoverColor,
 }: PropsWithChildren<CardProps>): JSX.Element => {
     return (
-            <div data-testid="card" style={{backgroundColor: 'red', width: 100, height: 100, borderRadius: 5}} >
+        <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+            <CardContainer data-testid="card" hoverColor={hoverColor}>
                 {children}
-            </div>
+            </CardContainer>
+        </StyleSheetManager>
     );
 }
