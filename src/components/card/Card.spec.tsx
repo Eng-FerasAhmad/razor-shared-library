@@ -1,5 +1,5 @@
-import { Card } from '..';
-import { render, screen } from '../../test/test-utils';
+import { Card } from './Card';
+import { render, screen } from 'src/test/test-utils';
 
 describe('<Card />', () => {
     test('should render the component', () => {

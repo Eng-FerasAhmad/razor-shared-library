@@ -1,10 +1,9 @@
 import styled from 'styled-components';
+import { CardProps } from './types';
+import { color } from 'src/shared/color';
+import { pixelToRem } from 'src/shared/common';
 
-import { CardProps } from '..';
-import { color } from '../../shared/color';
-import { pixelToRem } from '../../shared/common';
-
-const getShadowColor = (props: CardProps) => {
+const getShadowColor = (props: CardProps): string => {
     return props.hoverColor || color.customGray;
 };
 
