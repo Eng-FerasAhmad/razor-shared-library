@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Code coverage report for test/test-utils.tsx</title>
+        <title>Code coverage report for shared/color.ts</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../prettify.css" />
         <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
             <div class="pad1">
                 <h1>
                     <a href="../index.html">All files</a> /
-                    <a href="index.html">test</a> test-utils.tsx
+                    <a href="index.html">shared</a> color.ts
                 </h1>
                 <div class="clearfix">
                     <div class="fl pad1y space-right2">
                         <span class="strong">100% </span>
                         <span class="quiet">Statements</span>
-                        <span class="fraction">7/7</span>
+                        <span class="fraction">1/1</span>
                     </div>
 
                     <div class="fl pad1y space-right2">
@@ -37,13 +37,13 @@
                     <div class="fl pad1y space-right2">
                         <span class="strong">100% </span>
                         <span class="quiet">Functions</span>
-                        <span class="fraction">2/2</span>
+                        <span class="fraction">0/0</span>
                     </div>
 
                     <div class="fl pad1y space-right2">
                         <span class="strong">100% </span>
                         <span class="quiet">Lines</span>
-                        <span class="fraction">7/7</span>
+                        <span class="fraction">1/1</span>
                     </div>
                 </div>
                 <p class="quiet">
@@ -83,44 +83,77 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { render, RenderOptions } from '@testing-library/react';
-import { ReactElement } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const color = {
+    light: '#fff',
+    dark: '#22272e',
+    darkOpacity80: '#00000080',
 &nbsp;
-const AllTheProviders = ({
-    children,
-}: {
-    children: React.ReactNode;
-}): JSX.Element =&gt; {
-    return &lt;&gt;{children}&lt;/&gt;;
+    /* fonts */
+    fontPrimaryDark: '#242e30',
+    fontPrimaryLight: '#f0f3f4',
+&nbsp;
+    /* borders */
+    border: '#a6a6a6',
+    borderLight: '#e6e6e6',
+&nbsp;
+    /* custom colors */
+    customRed: '#fca5a5',
+    customBlue: '#99c6d6',
+    customYellow: '#ffe3c7',
+    customPurple: '#a5aed9',
+    customGreen: '#85e085',
+    customGray: '#cccccc',
+    customGrayLight: '#efedea',
+&nbsp;
+    /* custom colors darker */
+    customRedDarker: '#fb8383',
+    customBlueDarker: '#6dadc5',
+    customYellowDarker: '#ffcc99',
+    customPurpleDarker: '#939ed2',
+    customGreenDarker: '#5dd55d',
+    customGrayDarker: '#b3b3b3',
 };
-&nbsp;
-const customRender = (
-    ui: ReactElement,
-    options?: Omit&lt;RenderOptions, 'wrapper'&gt;
-    // eslint-disable-next-line
-): any =&gt; render(ui, { wrapper: AllTheProviders, ...options });
-&nbsp;
-export * from '@testing-library/react';
-export { customRender as render };
 &nbsp;</pre></td></tr></table></pre>
 
             <div class="push"></div>

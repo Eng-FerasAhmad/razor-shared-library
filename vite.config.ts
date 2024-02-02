@@ -5,7 +5,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import eslintPlugin from 'vite-plugin-eslint';
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
@@ -14,15 +13,15 @@ export default defineConfig({
         dts({
             include: ['src/**/*'],
         }),
-        eslintPlugin
+        eslintPlugin,
     ],
     server: {
-    port: 3033,
-    origin: ' http://127.0.0.1:3033',
+        port: 3033,
+        origin: ' http://127.0.0.1:3033',
     },
     build: {
         lib: {
-            entry: resolve('src', 'components/index.ts'),
+            entry: resolve('src', 'index.ts'),
             name: 'razor-shared-library',
             fileName: (format) => `index.${format}.js`,
         },
@@ -37,5 +36,12 @@ export default defineConfig({
         },
         sourcemap: true,
         emptyOutDir: true,
+    },
+    resolve: {
+        alias: {
+            src: '/src',
+            components: '/src/components',
+            shared: '/src/shared',
+        },
     },
 });

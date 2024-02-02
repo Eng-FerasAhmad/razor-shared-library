@@ -1,7 +1,6 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement } from 'react';
 
-
 const AllTheProviders = ({
     children,
 }: {
@@ -15,8 +14,6 @@ const customRender = (
     options?: Omit<RenderOptions, 'wrapper'>
     // eslint-disable-next-line
 ): any => render(ui, { wrapper: AllTheProviders, ...options });
-
-
 
 export * from '@testing-library/react';
 export { customRender as render };
