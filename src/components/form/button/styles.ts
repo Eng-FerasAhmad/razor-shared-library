@@ -9,22 +9,22 @@ const getColor = (props: ButtonProps): string => {
     }
 
     if (props.disabled) {
-        return color.customGrayLight;
+        return color.disabled;
     }
 
     switch (props.color) {
         case 'primary':
-            return color.customBlue;
+            return color.primary;
         case 'success':
-            return color.customGreen;
+            return color.success;
         case 'error':
-            return color.customRed;
+            return color.error;
         case 'info':
-            return color.customGray;
+            return color.info;
         case 'warning':
-            return color.customYellow;
+            return color.warning;
         default:
-            return color.customPurple;
+            return color.primary;
     }
 };
 
@@ -37,17 +37,17 @@ const getColorHover = (props: ButtonProps): string => {
 
     switch (props.color) {
         case 'primary':
-            return isDarker ? color.customBlueDarker : color.customBlue;
+            return isDarker ? color.primaryDarker : color.primary;
         case 'success':
-            return isDarker ? color.customGreenDarker : color.customGreen;
+            return isDarker ? color.successDarker : color.success;
         case 'error':
-            return isDarker ? color.customRedDarker : color.customRed;
+            return isDarker ? color.errorDarker : color.error;
         case 'info':
-            return isDarker ? color.customGrayDarker : color.customGray;
+            return isDarker ? color.infoDarker : color.info;
         case 'warning':
-            return isDarker ? color.customYellowDarker : color.customYellow;
+            return isDarker ? color.warningDarker : color.warning;
         default:
-            return isDarker ? color.customPurpleDarker : color.customPurple;
+            return isDarker ? color.primaryDarker : color.primary;
     }
 };
 
@@ -73,22 +73,22 @@ const getBorder = (props: ButtonProps): string => {
     }
 
     if (props.disabled) {
-        return color.customGrayLight;
+        return color.disabled;
     }
 
     switch (props.color) {
         case 'primary':
-            return color.customBlueDarker;
+            return color.primaryDarker;
         case 'success':
-            return color.customGreenDarker;
+            return color.successDarker;
         case 'error':
-            return color.customRedDarker;
+            return color.errorDarker;
         case 'info':
-            return color.customGrayDarker;
+            return color.infoDarker;
         case 'warning':
-            return color.customYellowDarker;
+            return color.warningDarker;
         default:
-            return color.customPurpleDarker;
+            return color.primaryDarker;
     }
 };
 
@@ -99,7 +99,7 @@ const getHeight = (props: ButtonProps): string => {
         case 'md':
             return pixelToRem(35);
         case 'lg':
-            return pixelToRem(50);
+            return pixelToRem(45);
         default:
             return pixelToRem(35);
     }
@@ -118,12 +118,7 @@ const getFontSize = (props: ButtonProps): string => {
     }
 };
 
-export const ButtonContainer = styled.div`
-    height: fit-content;
-    width: auto;
-`;
-
-export const ButtonControl = styled.button<ButtonProps>`
+export const ButtonContainer = styled.button<ButtonProps>`
     height: ${getHeight};
     width: 100%;
     margin: auto;

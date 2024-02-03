@@ -59,6 +59,7 @@
         "react": "16.8.0 || >=17.x",
         "react-dom": "16.8.0 || >=17.x",
         "react-icons": "^5.0.1",
+        "react-tabs": "^6.0.2",
         "styled-components": "^6.1.0",
         "vite-tsconfig-paths": "^4.3.1"
     },

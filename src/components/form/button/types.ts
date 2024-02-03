@@ -3,4 +3,5 @@ export interface ButtonProps {
     disabled?: boolean;
     color?: 'primary' | 'error' | 'success' | 'warning' | 'info' | 'note';
     size?: 'sm' | 'md' | 'lg';
+    style?: React.CSSProperties;
 }
