@@ -6,7 +6,7 @@ import { fontSize } from 'src/shared/fonts';
 export const DialogContainer = styled.dialog`
     background-color: ${color.darkOpacity80};
     transition: all 0.3s ease-in-out;
-    color: ${color.fontPrimaryDark};
+    color: ${color.fontDark};
     position: fixed;
     top: 0;
     left: 0;

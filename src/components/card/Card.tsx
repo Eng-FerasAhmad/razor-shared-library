@@ -7,10 +7,11 @@ import { shouldForwardProp } from 'src/shared/common';
 export function Card({
     children,
     hoverColor,
+    cursor,
 }: PropsWithChildren<CardProps>): JSX.Element {
     return (
         <StyleSheetManager shouldForwardProp={shouldForwardProp}>
-            <CardContainer data-testid="card" hoverColor={hoverColor}>
+            <CardContainer data-testid="card" hoverColor={hoverColor} cursor={cursor}>
                 {children}
             </CardContainer>
         </StyleSheetManager>

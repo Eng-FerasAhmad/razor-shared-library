@@ -1,13 +1,12 @@
 import { ReactElement } from 'react';
+import { shouldForwardProp } from 'src/shared/common';
 import { StyleSheetManager } from 'styled-components';
 import {
     ButtonContainer,
     EndIconWrapper,
-    ButtonControl,
-    StartIconWrapper,
+    StartIconWrapper
 } from './styles';
 import { ButtonProps } from './types';
-import { shouldForwardProp } from 'src/shared/common';
 
 interface Props extends ButtonProps {
     label: string;
@@ -26,24 +25,25 @@ export function Button({
     endIcon,
     loading = false,
     clickHandler,
+    style,
 }: Props): JSX.Element {
     return (
-        <ButtonContainer data-testid="button">
-            <StyleSheetManager shouldForwardProp={shouldForwardProp}>
-                <ButtonControl
-                    variant={variant}
-                    color={color}
-                    size={size}
-                    disabled={disabled}
-                    onClick={clickHandler}
-                >
-                    <StartIconWrapper>{startIcon}</StartIconWrapper>
-                    {label}
-                    <EndIconWrapper>
-                        {loading ? <>...</> : endIcon}
-                    </EndIconWrapper>
-                </ButtonControl>
-            </StyleSheetManager>
-        </ButtonContainer>
+        <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+            <ButtonContainer
+                variant={variant}
+                color={color}
+                size={size}
+                disabled={disabled}
+                onClick={clickHandler}
+                data-testid="button"
+                style={style}
+            >
+                <StartIconWrapper>{startIcon}</StartIconWrapper>
+                {label}
+                <EndIconWrapper>
+                    {loading ? <>...</> : endIcon}
+                </EndIconWrapper>
+            </ButtonContainer>
+        </StyleSheetManager>
     );
 }
