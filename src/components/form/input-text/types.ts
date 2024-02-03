@@ -5,7 +5,7 @@ export interface InputTextProps {
     hasError?: boolean;
     errorLabel?: string;
     disabled?: boolean;
-    handleChange: (e: string | undefined) => void;
+    handleChange: (e: string) => void;
     style?: React.CSSProperties;
 }
 

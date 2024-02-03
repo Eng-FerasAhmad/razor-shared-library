@@ -1,22 +1,20 @@
-import ColorPalette from 'src/ColorPalette';
-import { Button } from 'src/components/form/button/Button';
+import { useState } from 'react';
 import { InputText } from 'src/components/form/input-text/InputText';
+import ColorPalette from 'src/views/color-palette/ColorPalette';
 
 export default function App(): JSX.Element {
-    const clickHandler = (): void => {
-        console.log('clicked')
-    }
+    const [valueInput, setValueInput] = useState<string>('');
 
-    const changeHandler = (value: string | undefined): void => {
+    const changeHandler = (value: string): void => {
         console.log('value', value)
+        setValueInput(value); 
+        
     }
 
     return (
         <div>
-            <Button clickHandler={clickHandler} label='Button' style={{ marginBottom: 20 }} size='lg' color='warning' />
-            
             <div style={{ width: 250, height: 50 }}>
-                <InputText label='Name' value='' handleChange={changeHandler} />
+                <InputText label='Name' value={valueInput} handleChange={changeHandler} />
             </div>
             <ColorPalette />
         </div>

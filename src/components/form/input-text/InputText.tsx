@@ -30,7 +30,8 @@ export function InputText({
             handleChange(e?.target.value);
             setInputValue(e.target.value);
         } else {
-            handleChange(undefined);
+            handleChange('');
+            setInputValue('');
         }
     }
 
@@ -48,7 +49,8 @@ export function InputText({
     }
 
     const clearInput = (): void => {
-        handleChange(undefined);
+        handleChange('');
+        setInputValue('');
         inputRef.current?.focus();
     }
 
