@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize, fonts } from 'src/shared/fonts';
-import styled from 'styled-components';
 
 interface InputProps {
     hasValue: boolean;
@@ -15,33 +15,33 @@ export const getInputLabelColor = (props: InputProps): string => {
     if (props.disabled) {
         return color.disabled;
     }
-    
+
     if (props.hasFocus) {
         return color.primary;
     }
 
     if (props.hasError) {
-        return color.error
+        return color.error;
     }
 
     return color.gray;
-}
+};
 
 export const getInputLabelPadding = (props: InputProps): string => {
     if (props.hasFocus || props.hasValue) {
         return pixelToRem(5);
     }
 
-    return pixelToRem(16); 
-}
+    return pixelToRem(16);
+};
 
 export const getInputLabelFontsize = (props: InputProps): string => {
     if (props.hasFocus || props.hasValue) {
         return pixelToRem(fontSize.font12);
     }
 
-    return pixelToRem(fontSize.font14); 
-}
+    return pixelToRem(fontSize.font14);
+};
 
 export const getInputHeight = (props: InputProps): string => {
     if (props.hasLabel) {
@@ -49,7 +49,7 @@ export const getInputHeight = (props: InputProps): string => {
     }
 
     return 'auto';
-}
+};
 
 export const getInputColor = (props: InputProps): string => {
     if (props.disabled) {
@@ -57,8 +57,7 @@ export const getInputColor = (props: InputProps): string => {
     }
 
     return color.fontDark;
-}
-
+};
 
 export const getInputBackgroundColor = (props: InputProps): string => {
     if (props.disabled) {
@@ -66,7 +65,7 @@ export const getInputBackgroundColor = (props: InputProps): string => {
     }
 
     return color.light;
-}
+};
 
 export const getInputLineHeight = (props: InputProps): string => {
     if (props.hasLabel) {
@@ -74,7 +73,7 @@ export const getInputLineHeight = (props: InputProps): string => {
     }
 
     return pixelToRem(0);
-}
+};
 
 export const getBorderColor = (props: InputProps): string => {
     if (props.disabled) {
@@ -90,8 +89,7 @@ export const getBorderColor = (props: InputProps): string => {
     }
 
     return color.border;
-}
-
+};
 
 export const InputTextContainer = styled.div`
     width: 100%;

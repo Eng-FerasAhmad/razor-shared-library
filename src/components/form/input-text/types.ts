@@ -8,4 +8,3 @@ export interface InputTextProps {
     handleChange: (e: string) => void;
     style?: React.CSSProperties;
 }
-

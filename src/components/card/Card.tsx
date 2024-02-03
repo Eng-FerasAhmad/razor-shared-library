@@ -11,7 +11,11 @@ export function Card({
 }: PropsWithChildren<CardProps>): JSX.Element {
     return (
         <StyleSheetManager shouldForwardProp={shouldForwardProp}>
-            <CardContainer data-testid="card" hoverColor={hoverColor} cursor={cursor}>
+            <CardContainer
+                data-testid="card"
+                hoverColor={hoverColor}
+                cursor={cursor}
+            >
                 {children}
             </CardContainer>
         </StyleSheetManager>

@@ -1,11 +1,17 @@
 import { ChangeEvent, RefObject, useRef, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { ClearWrapper, ErrorLabelWrapper, InputWrapper, LabelWrapper } from 'src/components/form/input-text/styles';
+import { StyleSheetManager } from 'styled-components';
+import {
+    InputTextContainer,
+    ClearWrapper,
+    ErrorLabelWrapper,
+    InputWrapper,
+    LabelWrapper,
+} from './styles';
+
+import { InputTextProps } from './types';
 import { color } from 'src/shared/color';
 import { shouldForwardProp } from 'src/shared/common';
-import { StyleSheetManager } from 'styled-components';
-import { InputTextContainer } from './styles';
-import { InputTextProps } from './types';
 
 export function InputText({
     label,
@@ -17,13 +23,14 @@ export function InputText({
     style,
 }: InputTextProps): JSX.Element {
     const [hasFocus, setHasFocus] = useState<boolean>(false);
-    const inputRef: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
-    const [inputValue, setInputValue] = useState<string>(value)
+    const inputRef: RefObject<HTMLInputElement> =
+        useRef<HTMLInputElement>(null);
+    const [inputValue, setInputValue] = useState<string>(value);
     const clear = useRef(false);
 
     const hasLabel = label.length > 0;
     const hasValue = inputValue.trim().length > 0;
-    const hasError =  errorLabel !== undefined && errorLabel!.length > 0;
+    const hasError = errorLabel !== undefined && errorLabel!.length > 0;
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement> | null): void => {
         if (e?.target && e?.target.value.length > 0) {
@@ -33,11 +40,11 @@ export function InputText({
             handleChange('');
             setInputValue('');
         }
-    }
+    };
 
     const onFocusHandler = (): void => {
-        setHasFocus(true);   
-    }
+        setHasFocus(true);
+    };
 
     const onBlurHandler = (): void => {
         if (clear.current) {
@@ -46,30 +53,39 @@ export function InputText({
         } else {
             setHasFocus(false);
         }
-    }
+    };
 
     const clearInput = (): void => {
         handleChange('');
         setInputValue('');
         inputRef.current?.focus();
-    }
+    };
 
     const onMouseDownHandler = (): void => {
         clear.current = true;
-    }
+    };
 
     return (
         <StyleSheetManager shouldForwardProp={shouldForwardProp}>
-            <InputTextContainer data-testid="input-text">
-
+            <InputTextContainer data-testid="input-text-container">
                 {hasLabel && (
-                    <LabelWrapper hasFocus={hasFocus} hasValue={hasValue} hasLabel={hasLabel} hasError={hasError}>
+                    <LabelWrapper
+                        data-testid="input-label"
+                        hasFocus={hasFocus}
+                        hasValue={hasValue}
+                        hasLabel={hasLabel}
+                        hasError={hasError}
+                    >
                         {label}
                     </LabelWrapper>
                 )}
-                
+
                 {hasValue && hasFocus && (
-                    <ClearWrapper onMouseDown={onMouseDownHandler} onClick={clearInput}>
+                    <ClearWrapper
+                        data-testid="input-clear"
+                        onMouseDown={onMouseDownHandler}
+                        onClick={clearInput}
+                    >
                         <IoClose size={16} color={color.border} />
                     </ClearWrapper>
                 )}
@@ -77,6 +93,7 @@ export function InputText({
                 <InputWrapper
                     id="input-text"
                     role="input-text"
+                    data-testid="input-text"
                     ref={inputRef}
                     value={inputValue}
                     hasValue={hasValue}
@@ -92,7 +109,7 @@ export function InputText({
                 />
 
                 {hasError && !hasFocus && (
-                    <ErrorLabelWrapper>
+                    <ErrorLabelWrapper data-testid="input-error">
                         {errorLabel}
                     </ErrorLabelWrapper>
                 )}

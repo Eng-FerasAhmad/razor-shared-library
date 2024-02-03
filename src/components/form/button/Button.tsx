@@ -1,12 +1,8 @@
 import { ReactElement } from 'react';
-import { shouldForwardProp } from 'src/shared/common';
 import { StyleSheetManager } from 'styled-components';
-import {
-    ButtonContainer,
-    EndIconWrapper,
-    StartIconWrapper
-} from './styles';
+import { ButtonContainer, EndIconWrapper, StartIconWrapper } from './styles';
 import { ButtonProps } from './types';
+import { shouldForwardProp } from 'src/shared/common';
 
 interface Props extends ButtonProps {
     label: string;
@@ -40,9 +36,7 @@ export function Button({
             >
                 <StartIconWrapper>{startIcon}</StartIconWrapper>
                 {label}
-                <EndIconWrapper>
-                    {loading ? <>...</> : endIcon}
-                </EndIconWrapper>
+                <EndIconWrapper>{loading ? <>...</> : endIcon}</EndIconWrapper>
             </ButtonContainer>
         </StyleSheetManager>
     );
