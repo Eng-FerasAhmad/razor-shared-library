@@ -61,3 +61,5 @@ export default function Example() {
     )
 }
 ```
+## License
+[MIT](https://github.com/Eng-FerasAhmad/razor-shared-library/blob/master/LICENSE)

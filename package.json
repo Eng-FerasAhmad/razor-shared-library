@@ -31,7 +31,7 @@
         "react",
         "vite",
         "razor",
-        "components"
+        "styled-components"
     ],
     "license": "MIT",
     "bugs": {
