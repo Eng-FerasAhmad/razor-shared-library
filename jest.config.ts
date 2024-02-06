@@ -34,5 +34,10 @@ const config: Config.InitialOptions = {
     globals: {
         API_DOMAIN: '/',
     },
+    coveragePathIgnorePatterns: [
+        'App.tsx',
+        'main.jsx',
+        'index.ts',
+    ]
 };
 export default config;
