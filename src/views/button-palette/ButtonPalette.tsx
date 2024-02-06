@@ -23,7 +23,11 @@ const buttonVariants: Pick<ButtonProps, 'color' | 'variant'>[] = [
 
 export default function ButtonPalette(): JSX.Element {
     const [count, setCount] = useState<number>(0);
-
+    const [submit, setSubmit] = useState<string>('');
+    const [icon, setIcon] = useState<string>('');
+    const [iconBack, setIconBack] = useState<string>('');
+    const [_disabledButton, setDisabledButton] = useState<string>('');
+    
     return (
         <ButtonPaletteContainer data-testid="button-palette">
             <ButtonLGContainer>
@@ -48,8 +52,8 @@ export default function ButtonPalette(): JSX.Element {
                             data-testid="outline-button"
                             key={idx}
                             color={item.color}
-                            label={`Clicked ${count}`}
-                            clickHandler={() => setCount(count + 1)}
+                            label={submit ? submit : 'Click'}
+                            clickHandler={() => setSubmit('Submit')}
                             variant={item.variant}
                             size="lg"
                         />
@@ -59,34 +63,25 @@ export default function ButtonPalette(): JSX.Element {
 
             <ButtonLGContainer>
                 <Button
-                    color="primary"
-                    disabled={true}
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
                     color="error"
                     disabled={true}
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
+                    label={'disabled'}
+                    clickHandler={() => setDisabledButton('disabled')}
                     data-testid="default-button"
                     size="lg"
                 />
                 <Button
                     color="success"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
+                    label={icon ? icon : 'Icon'}
+                    clickHandler={() => setIcon('Icon Button')}
                     data-testid="default-button"
                     size="lg"
                     endIcon={<IoAddOutline size={24} />}
                 />
                 <Button
                     color="info"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
+                    label={iconBack ? iconBack : 'Back'}
+                    clickHandler={() => setIconBack('Button Back')}
                     data-testid="default-button"
                     size="lg"
                     startIcon={<IoArrowBackSharp size={20} />}
