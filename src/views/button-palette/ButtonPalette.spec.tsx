@@ -15,7 +15,9 @@ describe('<ButtonPalette>', () => {
 
         expect(screen.getByTestId('button-palette')).toBeInTheDocument();
 
-        const defaultButton = screen.getAllByRole('button', { name: 'Clicked 0' })[0];
+        const defaultButton = screen.getAllByRole('button', {
+            name: 'Clicked 0',
+        })[0];
         expect(defaultButton).toBeInTheDocument();
 
         await act(async () => {

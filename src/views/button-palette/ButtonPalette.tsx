@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IoAddOutline, IoArrowBackSharp } from 'react-icons/io5';
-import { Button, ButtonProps } from 'src/index';
 import { ButtonLGContainer, ButtonPaletteContainer } from './style';
+import { Button, ButtonProps } from 'src/index';
 
 const buttonColors: Pick<ButtonProps, 'color'>[] = [
     { color: 'primary' },
@@ -9,7 +9,7 @@ const buttonColors: Pick<ButtonProps, 'color'>[] = [
     { color: 'success' },
     { color: 'info' },
     { color: 'warning' },
-    { color: 'note' }
+    { color: 'note' },
 ];
 
 const buttonVariants: Pick<ButtonProps, 'color' | 'variant'>[] = [
@@ -18,16 +18,15 @@ const buttonVariants: Pick<ButtonProps, 'color' | 'variant'>[] = [
     { color: 'success', variant: 'outline' },
     { color: 'info', variant: 'outline' },
     { color: 'warning', variant: 'outline' },
-    { color: 'note', variant: 'outline' }
-]
+    { color: 'note', variant: 'outline' },
+];
 
 export default function ButtonPalette(): JSX.Element {
     const [count, setCount] = useState<number>(0);
     const [submit, setSubmit] = useState<string>('');
     const [icon, setIcon] = useState<string>('');
     const [iconBack, setIconBack] = useState<string>('');
-    const [_disabledButton, setDisabledButton] = useState<string>('');
-    
+
     return (
         <ButtonPaletteContainer data-testid="button-palette">
             <ButtonLGContainer>
@@ -52,7 +51,7 @@ export default function ButtonPalette(): JSX.Element {
                             data-testid="outline-button"
                             key={idx}
                             color={item.color}
-                            label={submit ? submit : 'Click'}
+                            label={submit || 'Click'}
                             clickHandler={() => setSubmit('Submit')}
                             variant={item.variant}
                             size="lg"
@@ -66,13 +65,13 @@ export default function ButtonPalette(): JSX.Element {
                     color="error"
                     disabled={true}
                     label={'disabled'}
-                    clickHandler={() => setDisabledButton('disabled')}
+                    clickHandler={() => setCount(count + 1)}
                     data-testid="default-button"
                     size="lg"
                 />
                 <Button
                     color="success"
-                    label={icon ? icon : 'Icon'}
+                    label={icon || 'Icon'}
                     clickHandler={() => setIcon('Icon Button')}
                     data-testid="default-button"
                     size="lg"
@@ -80,7 +79,7 @@ export default function ButtonPalette(): JSX.Element {
                 />
                 <Button
                     color="info"
-                    label={iconBack ? iconBack : 'Back'}
+                    label={iconBack || 'Back'}
                     clickHandler={() => setIconBack('Button Back')}
                     data-testid="default-button"
                     size="lg"

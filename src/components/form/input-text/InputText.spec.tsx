@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
-import { render, screen } from 'src/test/test-utils';
 import { InputText } from './InputText';
-import {color} from 'src/shared/color';
+import { color } from 'src/shared/color';
+import { render, screen } from 'src/test/test-utils';
 
 describe('<InputText />', () => {
     test('should render the component', () => {
@@ -72,7 +72,6 @@ describe('<InputText />', () => {
             await userEvent.clear(input);
         });
 
-    
         expect(handleChange).toHaveBeenCalledWith('');
     });
 
@@ -88,6 +87,8 @@ describe('<InputText />', () => {
         );
 
         expect(screen.getByTestId('input-text')).toBeInTheDocument();
-        expect(screen.getByTestId('input-text')).toHaveStyle(`background-color:${color.disabled}`);
+        expect(screen.getByTestId('input-text')).toHaveStyle(
+            `background-color:${color.disabled}`
+        );
     });
 });
