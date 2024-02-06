@@ -1,5 +1,5 @@
-import { render, screen } from 'src/test/test-utils';
 import ColorPalette from './ColorPalette';
+import { render, screen } from 'src/test/test-utils';
 
 describe('<ColorPalette />', () => {
     test('Should render the component', () => {

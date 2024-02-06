@@ -1,6 +1,6 @@
-import {render, screen, act} from 'src/test/test-utils';
-import InputTextPalette from './InputTextPalette';
 import userEvent from '@testing-library/user-event';
+import InputTextPalette from './InputTextPalette';
+import { render, screen, act } from 'src/test/test-utils';
 
 describe('<InputTextPalette>', () => {
     test('Should render the component', () => {
@@ -22,6 +22,6 @@ describe('<InputTextPalette>', () => {
             await user.type(defaultInput, 'new value');
         });
 
-        expect(defaultInput).toHaveAttribute('value','new value')
+        expect(defaultInput).toHaveAttribute('value', 'new value');
     });
 });

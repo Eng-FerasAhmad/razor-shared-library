@@ -31,11 +31,18 @@ export function Dialog({
 
     return (
         <DialogContainer open={open} onClick={handleClose} data-testid="dialog">
-            <DialogContentWrapper onClick={stopPropagation} data-testid="dialog-content">
+            <DialogContentWrapper
+                onClick={stopPropagation}
+                data-testid="dialog-content"
+            >
                 <DialogHeaderWrapper>
                     <DialogTitleWrapper>{title}</DialogTitleWrapper>
                     <DialogCloseWrapper>
-                        <IoCloseSharp size={32} onClick={handleClose} data-testid="close-icon" />
+                        <IoCloseSharp
+                            size={32}
+                            onClick={handleClose}
+                            data-testid="close-icon"
+                        />
                     </DialogCloseWrapper>
                 </DialogHeaderWrapper>
                 {children}

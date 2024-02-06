@@ -23,6 +23,8 @@ const getBackgroundColor = (props: ButtonProps): string => {
             return color.info;
         case 'warning':
             return color.warning;
+        case 'note':
+            return color.gray;
         default:
             return color.primary;
     }
@@ -37,26 +39,66 @@ const getColorHover = (props: ButtonProps): string => {
 
     switch (props.color) {
         case 'primary':
-            return isDarker ? color.primaryDarker : color.primary;
+            return isDarker ? color.primaryDark : color.primary;
         case 'success':
-            return isDarker ? color.successDarker : color.success;
+            return isDarker ? color.successDark : color.success;
         case 'error':
-            return isDarker ? color.errorDarker : color.error;
+            return isDarker ? color.errorDark : color.error;
         case 'info':
-            return isDarker ? color.infoDarker : color.info;
+            return isDarker ? color.infoDark : color.info;
         case 'warning':
-            return isDarker ? color.warningDarker : color.warning;
+            return isDarker ? color.warningDark : color.warning;
+        case 'note':
+            return isDarker ? color.grayDark : color.gray;
         default:
-            return isDarker ? color.primaryDarker : color.primary;
+            return isDarker ? color.primaryDark : color.primary;
     }
 };
 
 const getFontColor = (props: ButtonProps): string => {
     if (props.disabled) {
-        return color.border;
+        return color.grayDarker;
     }
 
-    return color.dark;
+    switch (props.color) {
+        case 'primary':
+            return color.primaryDarker;
+        case 'success':
+            return color.successDarker;
+        case 'error':
+            return color.errorDarker;
+        case 'info':
+            return color.infoDarker;
+        case 'warning':
+            return color.warningDarker;
+        case 'note':
+            return color.grayDarker;
+        default:
+            return color.primaryDarker;
+    }
+};
+
+const getFontColorHover = (props: ButtonProps): string => {
+    if (props.disabled) {
+        return color.grayDarker;
+    }
+
+    switch (props.color) {
+        case 'primary':
+            return color.primaryDarker;
+        case 'success':
+            return color.successDarker;
+        case 'error':
+            return color.errorDarker;
+        case 'info':
+            return color.infoDarker;
+        case 'warning':
+            return color.warningDarker;
+        case 'note':
+            return color.grayDarker;
+        default:
+            return color.primaryDarker;
+    }
 };
 
 const getCursor = (props: ButtonProps): string => {
@@ -73,22 +115,24 @@ const getBorder = (props: ButtonProps): string => {
     }
 
     if (props.disabled) {
-        return color.disabled;
+        return '';
     }
 
     switch (props.color) {
         case 'primary':
-            return color.primaryDarker;
+            return color.primary;
         case 'success':
-            return color.successDarker;
+            return color.success;
         case 'error':
-            return color.errorDarker;
+            return color.error;
         case 'info':
-            return color.infoDarker;
+            return color.info;
         case 'warning':
-            return color.warningDarker;
+            return color.warning;
+        case 'note':
+            return color.gray;
         default:
-            return color.primaryDarker;
+            return color.primary;
     }
 };
 
@@ -145,6 +189,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
             solid ${getColorHover};
         text-decoration: ${(props) =>
             props.variant !== 'text' ? '' : 'underline'};
+        color: ${getFontColorHover};
     }
 
     &:active {

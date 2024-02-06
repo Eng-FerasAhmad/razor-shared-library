@@ -1,5 +1,4 @@
-import { pixelToRem } from './common';
-import {shouldForwardProp} from 'src/shared/common';
+import { pixelToRem, shouldForwardProp } from './common';
 
 describe('common Utils', () => {
     test('pixelToRem', () => {

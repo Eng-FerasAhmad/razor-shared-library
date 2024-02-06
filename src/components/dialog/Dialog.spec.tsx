@@ -19,14 +19,14 @@ describe('<Dialog />', () => {
     });
 
     test('Should handle click on dialog', async () => {
-        const user = userEvent.setup()
+        const user = userEvent.setup();
         render(<Dialog handleClose={jest.fn()} open={true} title="dialog" />);
 
         expect(screen.getByTestId('dialog')).toBeInTheDocument();
 
         const dialogContent = screen.getByTestId('dialog-content');
         expect(dialogContent).toBeInTheDocument();
-        
+
         await user.click(dialogContent);
 
         expect(screen.getByTestId('dialog')).toBeInTheDocument();
