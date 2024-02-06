@@ -40,8 +40,8 @@
     "homepage": "https://github.com/Eng-FerasAhmad/razor-shared-library/blob/master/README.md",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
-        "eslint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "build": "npm run eslint && npm run prettier && npm run test && tsc && vite build",
+        "eslint": "eslint \"./src/**/*.{ts,tsx}\"",
         "eslint:fix": "eslint \"./src/**/*.{ts,tsx}\" --fix",
         "prettier": "prettier --check .",
         "prettier:fix": "npx prettier --write . ",

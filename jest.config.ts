@@ -10,8 +10,8 @@ const config: Config.InitialOptions = {
         '\\.(jpg|jpeg|png|svg|ttf|woof|woof2)$':
             '<rootDir>/__mocks__/file-mock.ts',
         'src/(.*)': '<rootDir>/src/$1',
-        "^.+\\.(css|less|scss)$": "identity-obj-proxy",
-        "^.+\\.svg$": "jest-svg-transformer",
+        '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+        '^.+\\.svg$': 'jest-svg-transformer',
     },
     clearMocks: true,
     collectCoverage: true,
@@ -34,10 +34,6 @@ const config: Config.InitialOptions = {
     globals: {
         API_DOMAIN: '/',
     },
-    coveragePathIgnorePatterns: [
-        'App.tsx',
-        'main.jsx',
-        'index.ts',
-    ]
+    coveragePathIgnorePatterns: ['App.tsx', 'main.jsx', 'index.ts'],
 };
 export default config;

@@ -1,7 +1,7 @@
+import { Button } from './Button';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { render, screen } from 'src/test/test-utils';
-import { Button } from './Button';
 
 describe('<Button />', () => {
     test('should render the primary button', () => {
@@ -59,7 +59,7 @@ describe('<Button />', () => {
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute('color', 'note');
     });
-    
+
     test('should render the default button', () => {
         render(<Button label="button" clickHandler={jest.fn()} />);
 
@@ -67,7 +67,7 @@ describe('<Button />', () => {
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute('color', 'primary');
     });
-    
+
     test('should render the disabled button', () => {
         render(
             <Button label="button" clickHandler={jest.fn()} disabled={true} />
@@ -79,9 +79,7 @@ describe('<Button />', () => {
     });
 
     test('should render the large button', () => {
-        render(
-            <Button label="button" clickHandler={jest.fn()} size='lg' />
-        );
+        render(<Button label="button" clickHandler={jest.fn()} size="lg" />);
 
         const button = screen.getByRole('button', { name: 'button' });
         expect(button).toBeInTheDocument();
@@ -89,19 +87,15 @@ describe('<Button />', () => {
     });
 
     test('should render the small button', () => {
-        render(
-            <Button label="button" clickHandler={jest.fn()} size='sm' />
-        );
+        render(<Button label="button" clickHandler={jest.fn()} size="sm" />);
 
         const button = screen.getByRole('button', { name: 'button' });
         expect(button).toBeInTheDocument();
         expect(button).toHaveStyle(`height:${pixelToRem(28)}`);
     });
-    
+
     test('should render the default size button', () => {
-        render(
-            <Button label="button" clickHandler={jest.fn()} />
-        );
+        render(<Button label="button" clickHandler={jest.fn()} />);
 
         const button = screen.getByRole('button', { name: 'button' });
         expect(button).toBeInTheDocument();
