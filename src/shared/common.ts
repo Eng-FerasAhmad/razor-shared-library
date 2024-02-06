@@ -6,14 +6,6 @@ const exchangeToRem = (pixel: number, base = 16): string =>
 export const pixelToRem = (...pixel: Array<number>): string =>
     pixel.map((px: number) => exchangeToRem(px)).join(' ');
 
-export const getPastedValue = (event: ClipboardEvent): string | undefined => {
-    // eslint-disable-next-line
-    const clipboardData = event.clipboardData || (window as any).clipboardData;
-    const pastedValue = clipboardData.getData('Text');
-
-    return pastedValue || undefined;
-};
-
 export const shouldForwardProp = (
     propName: string,
     target: unknown

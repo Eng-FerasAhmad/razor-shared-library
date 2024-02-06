@@ -3,7 +3,7 @@ import { ButtonProps } from './types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
-const getColor = (props: ButtonProps): string => {
+const getBackgroundColor = (props: ButtonProps): string => {
     if (props.variant !== 'contained') {
         return color.light;
     }
@@ -126,7 +126,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
     justify-content: center;
     align-items: center;
     border-radius: ${pixelToRem(5)};
-    background-color: ${getColor};
+    background-color: ${getBackgroundColor};
     font-size: ${getFontSize};
     font-weight: 550;
     color: ${getFontColor};

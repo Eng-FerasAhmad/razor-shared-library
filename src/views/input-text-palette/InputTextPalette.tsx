@@ -5,11 +5,10 @@ export default function InputTextPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
 
     const changeHandler = (value: string): void => {
-        console.log('value', value);
         setValueInput(value);
     };
     return (
-        <div>
+        <div data-testid="input-text-palette">
             <InputText
                 label="Name"
                 value={valueInput}

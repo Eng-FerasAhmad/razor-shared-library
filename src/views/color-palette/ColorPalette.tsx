@@ -18,7 +18,7 @@ export default function ColorPalette(): JSX.Element {
     }, []);
 
     return (
-        <ColorPaletteContainer>
+        <ColorPaletteContainer data-testid="color-palette">
             {colorList.map((item) => {
                 return (
                     <ColorItemWrapper
