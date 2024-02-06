@@ -6,7 +6,7 @@ import InputTextPalette from 'src/views/input-text-palette/InputTextPalette';
 
 export default function App(): JSX.Element {
     return (
-        <div>
+        <div data-testid="app">
             <Tabs>
                 <TabList>
                     <Tab>Color</Tab>

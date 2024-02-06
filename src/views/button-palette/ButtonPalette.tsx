@@ -1,7 +1,25 @@
 import { useState } from 'react';
 import { IoAddOutline, IoArrowBackSharp } from 'react-icons/io5';
+import { Button, ButtonProps } from 'src/index';
 import { ButtonLGContainer, ButtonPaletteContainer } from './style';
-import { Button } from 'src/index';
+
+const buttonColors: Pick<ButtonProps, 'color'>[] = [
+    { color: 'primary' },
+    { color: 'error' },
+    { color: 'success' },
+    { color: 'info' },
+    { color: 'warning' },
+    { color: 'note' }
+];
+
+const buttonVariants: Pick<ButtonProps, 'color' | 'variant'>[] = [
+    { color: 'primary', variant: 'outline' },
+    { color: 'error', variant: 'outline' },
+    { color: 'success', variant: 'outline' },
+    { color: 'info', variant: 'outline' },
+    { color: 'warning', variant: 'outline' },
+    { color: 'note', variant: 'outline' }
+]
 
 export default function ButtonPalette(): JSX.Element {
     const [count, setCount] = useState<number>(0);
@@ -9,99 +27,36 @@ export default function ButtonPalette(): JSX.Element {
     return (
         <ButtonPaletteContainer data-testid="button-palette">
             <ButtonLGContainer>
-                <Button
-                    color="primary"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="error"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="success"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="warning"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="info"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="note"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
+                {buttonColors.map((item, idx) => {
+                    return (
+                        <Button
+                            key={idx}
+                            color={item.color}
+                            label={`Clicked ${count}`}
+                            clickHandler={() => setCount(count + 1)}
+                            data-testid="default-button"
+                            size="lg"
+                        />
+                    );
+                })}
             </ButtonLGContainer>
+
             <ButtonLGContainer>
-                <Button
-                    color="primary"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="error"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="success"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="warning"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="info"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
-                <Button
-                    color="note"
-                    variant="outline"
-                    label={`Clicked ${count}`}
-                    clickHandler={() => setCount(count + 1)}
-                    data-testid="default-button"
-                    size="lg"
-                />
+                {buttonVariants.map((item, idx) => {
+                    return (
+                        <Button
+                            data-testid="outline-button"
+                            key={idx}
+                            color={item.color}
+                            label={`Clicked ${count}`}
+                            clickHandler={() => setCount(count + 1)}
+                            variant={item.variant}
+                            size="lg"
+                        />
+                    );
+                })}
             </ButtonLGContainer>
+
             <ButtonLGContainer>
                 <Button
                     color="primary"

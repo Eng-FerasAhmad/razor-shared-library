@@ -1,4 +1,4 @@
-import ColorPalette from './ColorPalette';
+import { ColorPalette } from './ColorPalette';
 import { render, screen } from 'src/test/test-utils';
 
 describe('<ColorPalette />', () => {
