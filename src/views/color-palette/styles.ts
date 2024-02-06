@@ -5,8 +5,7 @@ import { pixelToRem } from 'src/shared/common';
 export const ColorPaletteContainer = styled.div`
     margin: ${pixelToRem(50)};
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     border: 2px solid ${color.border};
     border-radius: ${pixelToRem(20)};
 `;

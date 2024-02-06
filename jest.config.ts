@@ -10,6 +10,8 @@ const config: Config.InitialOptions = {
         '\\.(jpg|jpeg|png|svg|ttf|woof|woof2)$':
             '<rootDir>/__mocks__/file-mock.ts',
         'src/(.*)': '<rootDir>/src/$1',
+        "^.+\\.(css|less|scss)$": "identity-obj-proxy",
+        "^.+\\.svg$": "jest-svg-transformer",
     },
     clearMocks: true,
     collectCoverage: true,
