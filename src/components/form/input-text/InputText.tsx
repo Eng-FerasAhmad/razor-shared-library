@@ -15,6 +15,7 @@ import { shouldForwardProp } from 'src/shared/common';
 
 export function InputText({
     label,
+    placeholder,
     value,
     handleChange,
     autoFocus,
@@ -28,7 +29,7 @@ export function InputText({
     const [inputValue, setInputValue] = useState<string>(value);
     const clear = useRef(false);
 
-    const hasLabel = label.length > 0;
+    const hasLabel = label && label.length > 0;
     const hasValue = inputValue.trim().length > 0;
     const hasError = errorLabel !== undefined && errorLabel!.length > 0;
 
@@ -80,33 +81,37 @@ export function InputText({
                     </LabelWrapper>
                 )}
 
-                {hasValue && hasFocus && (
-                    <ClearWrapper
-                        data-testid="input-clear"
-                        onMouseDown={onMouseDownHandler}
-                        onClick={clearInput}
-                    >
-                        <IoClose size={16} color={color.border} />
-                    </ClearWrapper>
-                )}
-
                 <InputWrapper
                     id="input-text"
                     role="input-text"
                     data-testid="input-text"
                     ref={inputRef}
                     value={inputValue}
+                    placeholder={placeholder}
                     hasValue={hasValue}
                     hasError={hasError}
                     autoFocus={autoFocus}
                     disabled={disabled}
-                    hasLabel={hasLabel}
                     hasFocus={hasFocus}
                     onChange={onChangeHandler}
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
+                    hasLabel={!!hasLabel}
                     style={style}
                 />
+
+                {hasValue && hasFocus && (
+                    <ClearWrapper
+                        hasLabel={!!hasLabel}
+                        hasValue={hasValue}
+                        hasFocus={hasFocus}
+                        data-testid="input-clear"
+                        onMouseDown={onMouseDownHandler}
+                        onClick={clearInput}
+                    >
+                        <IoClose size={24} color={color.border} />
+                    </ClearWrapper>
+                )}
 
                 {hasError && !hasFocus && (
                     <ErrorLabelWrapper data-testid="input-error">
