@@ -1,8 +1,8 @@
 export interface InputTextProps {
-    label: string;
+    label?: string;
+    placeholder?: string;
     value: string;
     autoFocus?: boolean;
-    hasError?: boolean;
     errorLabel?: string;
     disabled?: boolean;
     handleChange: (e: string) => void;

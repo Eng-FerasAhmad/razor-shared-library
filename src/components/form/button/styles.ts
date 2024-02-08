@@ -62,7 +62,7 @@ const getFontColor = (props: ButtonProps): string => {
 
     switch (props.color) {
         case 'primary':
-            return color.primaryDarker;
+            return color.light;
         case 'success':
             return color.successDarker;
         case 'error':
@@ -85,7 +85,7 @@ const getFontColorHover = (props: ButtonProps): string => {
 
     switch (props.color) {
         case 'primary':
-            return color.primaryDarker;
+            return color.light;
         case 'success':
             return color.successDarker;
         case 'error':

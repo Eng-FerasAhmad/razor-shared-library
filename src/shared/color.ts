@@ -4,9 +4,9 @@ export const color = {
     darkOpacity80: '#00000080',
 
     /* action colors: */
-    primary: '#66a3ff',
-    primaryDark: '#3385ff',
-    primaryDarker: '#003d99',
+    primary: '#00a894',
+    primaryDark: '#009695',
+    primaryDarker: '#008592',
     error: '#fca5a5',
     errorDark: '#fb8383',
     errorDarker: '#940505',
@@ -19,6 +19,9 @@ export const color = {
     info: '#a7adf1',
     infoDark: '#7b84ea',
     infoDarker: '#18239a',
+    blue: '#66a3ff',
+    blueDark: '#3385ff',
+    blueDarker: '#003d99',
     gray: '#cccccc',
     grayDark: '#b3b3b3',
     grayDarker: '#595959',
