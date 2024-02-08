@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize, fonts } from 'src/shared/fonts';
-import styled from 'styled-components';
 
 interface InputProps {
     hasValue: boolean;
@@ -34,7 +34,6 @@ export const clearPaddingTop = (props: InputProps): string => {
 
     return pixelToRem(16);
 };
-
 
 export const getInputColor = (props: InputProps): string => {
     if (props.disabled) {

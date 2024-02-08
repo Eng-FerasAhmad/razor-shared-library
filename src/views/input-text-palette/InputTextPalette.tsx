@@ -13,7 +13,7 @@ export default function InputTextPalette(): JSX.Element {
                 label="Name"
                 value={valueInput}
                 handleChange={changeHandler}
-                placeholder='Your name'
+                placeholder="Your name"
             />
         </div>
     );
