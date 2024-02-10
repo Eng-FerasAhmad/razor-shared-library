@@ -4,7 +4,7 @@ export { Carousel } from './components/carousel/Carousel';
 export { CategoryCard } from './components/category-card/CategoryCard';
 export { Datepicker } from './components/datepicker/Datepicker';
 export { Dialog } from './components/dialog/Dialog';
-export { Button } from './components/form/button/Button';
+export { ButtonCustom } from './components/form/button/Button';
 export { Checkbox } from './components/form/checkbox/Checkbox';
 export { InputDate } from './components/form/input-date/InputDate';
 export { InputDigit } from './components/form/input-digit/InputDigit';

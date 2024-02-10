@@ -1,12 +1,11 @@
 import { PropsWithChildren } from 'react';
-import { IoCloseSharp } from 'react-icons/io5';
 
 import {
+    DialogCloseWrapper,
     DialogContainer,
     DialogContentWrapper,
     DialogHeaderWrapper,
     DialogTitleWrapper,
-    DialogCloseWrapper,
 } from './styles';
 
 interface Props {
@@ -38,11 +37,7 @@ export function Dialog({
                 <DialogHeaderWrapper>
                     <DialogTitleWrapper>{title}</DialogTitleWrapper>
                     <DialogCloseWrapper>
-                        <IoCloseSharp
-                            size={32}
-                            onClick={handleClose}
-                            data-testid="close-icon"
-                        />
+                        <>icon</>
                     </DialogCloseWrapper>
                 </DialogHeaderWrapper>
                 {children}

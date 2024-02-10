@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { InputText } from 'src/index';
 
 export default function InputTextPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
 
-    const changeHandler = (value: string): void => {
-        setValueInput(value);
+    const changeHandler = (
+        e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    ): void => {
+        setValueInput(e.target.value);
     };
+
     return (
         <div data-testid="input-text-palette">
             <InputText
                 label="Name"
                 value={valueInput}
-                handleChange={changeHandler}
-                placeholder="Your name"
+                onChange={(e) => changeHandler(e)}
             />
         </div>
     );
