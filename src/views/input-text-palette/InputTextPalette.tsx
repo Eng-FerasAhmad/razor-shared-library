@@ -8,7 +8,6 @@ export default function InputTextPalette(): JSX.Element {
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         setValueInput(e.target.value);
-        console.log('e', e.target.value);
     };
 
     return (

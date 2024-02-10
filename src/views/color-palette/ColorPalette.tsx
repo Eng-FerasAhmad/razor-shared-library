@@ -11,7 +11,7 @@ export const ColorPalette = (): JSX.Element => {
     const generateColors = useCallback(() => {
         const colorItems: Color[] = [];
 
-        Object.entries(color).forEach((item) => {
+        Object.entries(color).forEach(() => {
             // colorItems.push({ key: item[0], value: item[1].toString });
         });
         setColorList(colorItems);
