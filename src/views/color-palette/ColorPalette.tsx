@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ColorPaletteContainer, ColorItemWrapper } from './styles';
 import { color } from 'src/shared/color';
 
 interface Color {
@@ -13,7 +12,7 @@ export const ColorPalette = (): JSX.Element => {
         const colorItems: Color[] = [];
 
         Object.entries(color).forEach((item) => {
-            colorItems.push({ key: item[0], value: item[1] });
+            // colorItems.push({ key: item[0], value: item[1].toString });
         });
         setColorList(colorItems);
     }, []);
@@ -23,18 +22,15 @@ export const ColorPalette = (): JSX.Element => {
     }, [generateColors]);
 
     return (
-        <ColorPaletteContainer data-testid="color-palette">
+        <div data-testid="color-palette">
             {colorList.map((item) => {
                 return (
-                    <ColorItemWrapper
-                        key={item.key}
-                        style={{ backgroundColor: item.value }}
-                    >
+                    <div key={item.key} style={{ backgroundColor: item.value }}>
                         <div>{item.key}</div>
                         <div>{item.value}</div>
-                    </ColorItemWrapper>
+                    </div>
                 );
             })}
-        </ColorPaletteContainer>
+        </div>
     );
 };
