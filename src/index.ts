@@ -1,9 +1,9 @@
 /* components */
-export { Card } from './components/card/Card';
+export { CardCustom } from './components/card/Card';
 export { Carousel } from './components/carousel/Carousel';
 export { CategoryCard } from './components/category-card/CategoryCard';
 export { Datepicker } from './components/datepicker/Datepicker';
-export { Dialog } from './components/dialog/Dialog';
+export { DialogCustom } from './components/dialog/Dialog';
 export { ButtonCustom } from './components/form/button/Button';
 export { Checkbox } from './components/form/checkbox/Checkbox';
 export { InputDate } from './components/form/input-date/InputDate';
@@ -18,10 +18,3 @@ export { Skeleton } from './components/skeleton/Skeleton';
 export { Spinner } from './components/spinner/Spinner';
 export { Stepper } from './components/stepper/Stepper';
 export { Toast } from './components/toast/Toast';
-
-/* Types */
-export type { CardProps } from './components/card/types';
-export type { ButtonProps } from './components/form/button/types';
-
-/* constants */
-export { color } from './shared/color';
