@@ -6,7 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren, ReactNode } from 'react';
-import {Template} from 'src/components/_template/Template';
+import { Template } from 'src/components/_template/Template';
 
 interface Props {
     handleClose: () => void;
@@ -36,53 +36,56 @@ export function DialogCustom({
 }: PropsWithChildren<DialogProps & Props>): JSX.Element {
     return (
         <Template>
-        <BootstrapDialog
-            onClose={handleClose}
-            aria-labelledby="customized-dialog-title"
-            open={open}
-            {...props}
-            data-testid="dialog"
-        >
-            {title && (
-                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                    {title}
-                </DialogTitle>
-            )}
-
-            {hasCloseIcon && (
-                <IconButton
-                    aria-label="close"
-                    onClick={handleClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        fontFamily: 'inherit',
-                        color: (theme) => theme.palette.grey[500],
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
-            )}
-
-            <DialogContent
-                dividers
-                sx={{
-                    fontFamily: 'inherit',
-                }}
+            <BootstrapDialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+                {...props}
+                data-testid="dialog"
             >
-                {children}
-            </DialogContent>
+                {title && (
+                    <DialogTitle
+                        sx={{ m: 0, p: 2 }}
+                        id="customized-dialog-title"
+                    >
+                        {title}
+                    </DialogTitle>
+                )}
 
-            {actions && (
-                <DialogActions
+                {hasCloseIcon && (
+                    <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: 'absolute',
+                            right: 8,
+                            top: 8,
+                            fontFamily: 'inherit',
+                            color: (theme) => theme.palette.grey[500],
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                )}
+
+                <DialogContent
+                    dividers
                     sx={{
                         fontFamily: 'inherit',
                     }}
                 >
-                    {actions}
-                </DialogActions>
-            )}
+                    {children}
+                </DialogContent>
+
+                {actions && (
+                    <DialogActions
+                        sx={{
+                            fontFamily: 'inherit',
+                        }}
+                    >
+                        {actions}
+                    </DialogActions>
+                )}
             </BootstrapDialog>
         </Template>
     );

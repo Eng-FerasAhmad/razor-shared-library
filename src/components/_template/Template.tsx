@@ -18,10 +18,6 @@ const theme = createTheme({
     },
 });
 
-export const Template = ({children}: Props): JSX.Element => {
-    return (
-        <ThemeProvider theme={theme}>
-            {children}
-        </ThemeProvider>
-    );
-}
+export const Template = ({ children }: Props): JSX.Element => {
+    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};

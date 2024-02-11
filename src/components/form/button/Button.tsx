@@ -3,7 +3,7 @@ import { Template } from 'src/components/_template/Template';
 
 interface Props {
     label: string;
-    size?: "large" | "medium" | "small"
+    size?: 'large' | 'medium' | 'small';
 }
 
 export function ButtonCustom({
@@ -13,39 +13,44 @@ export function ButtonCustom({
 }: ButtonProps & Props): JSX.Element {
     const height = (): number => {
         switch (size) {
-            case "large":
+            case 'large':
                 return 56;
             case 'medium':
                 return 40;
-            case "small":
+            case 'small':
                 return 30;
             default:
                 return 40;
         }
-    }
+    };
 
     const fontSize = (): number => {
         switch (size) {
-            case "large":
+            case 'large':
                 return 17;
             case 'medium':
                 return 15;
-            case "small":
+            case 'small':
                 return 13;
             default:
                 return 15;
         }
-    }
+    };
 
     return (
         <Template>
             <Button
                 {...props}
                 size={size}
-                sx={{ textTransform: 'capitalize', fontFamily: 'inherit', height: height, fontSize: fontSize }}
+                sx={{
+                    textTransform: 'capitalize',
+                    fontFamily: 'inherit',
+                    height,
+                    fontSize,
+                }}
             >
                 {label}
-                </Button>
+            </Button>
         </Template>
     );
 }

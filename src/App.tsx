@@ -9,30 +9,30 @@ import InputTextPalette from 'src/views/input-text-palette/InputTextPalette';
 
 export default function App(): JSX.Element {
     return (
-            <Tabs style={{ fontFamily: fonts.primary }}>
-                <TabList>
-                    <Tab>Color</Tab>
-                    <Tab>Button</Tab>
-                    <Tab>input-text</Tab>
-                    <Tab>Card</Tab>
-                    <Tab>Dialog</Tab>
-                </TabList>
+        <Tabs style={{ fontFamily: fonts.primary }}>
+            <TabList>
+                <Tab>Color</Tab>
+                <Tab>Button</Tab>
+                <Tab>input-text</Tab>
+                <Tab>Card</Tab>
+                <Tab>Dialog</Tab>
+            </TabList>
 
-                <TabPanel>
-                    <ColorPalette />
-                </TabPanel>
-                <TabPanel>
-                    <ButtonPalette />
-                </TabPanel>
-                <TabPanel>
-                    <InputTextPalette />
-                </TabPanel>
-                <TabPanel>
-                    <CardPalette />
-                </TabPanel>
-                <TabPanel>
-                    <DialogPalette />
-                </TabPanel>
-            </Tabs>
+            <TabPanel>
+                <ColorPalette />
+            </TabPanel>
+            <TabPanel>
+                <ButtonPalette />
+            </TabPanel>
+            <TabPanel>
+                <InputTextPalette />
+            </TabPanel>
+            <TabPanel>
+                <CardPalette />
+            </TabPanel>
+            <TabPanel>
+                <DialogPalette />
+            </TabPanel>
+        </Tabs>
     );
 }

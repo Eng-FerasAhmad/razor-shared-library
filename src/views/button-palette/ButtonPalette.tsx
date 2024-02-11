@@ -1,17 +1,16 @@
 import { Box } from '@mui/material';
-import {Button, InputText} from 'src/index';
+import { ChangeEvent, useState } from 'react';
+import { Button, InputText } from 'src/index';
 import { fonts } from 'src/shared/fonts';
-import {ChangeEvent, useState} from 'react';
 
 export default function ButtonPalette(): JSX.Element {
-        const [valueInput, setValueInput] = useState<string>('');
+    const [valueInput, setValueInput] = useState<string>('');
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         setValueInput(e.target.value);
     };
-
 
     return (
         <Box sx={{ fontFamily: fonts.primary }} data-testid="button-palette">
@@ -21,10 +20,10 @@ export default function ButtonPalette(): JSX.Element {
                 size="medium"
                 color="primary"
             />
-                        <InputText
+            <InputText
                 label="Name"
                 value={valueInput}
-                size='small'
+                size="small"
                 onChange={(e) => changeHandler(e)}
             />
         </Box>

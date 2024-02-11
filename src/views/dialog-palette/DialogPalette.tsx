@@ -19,7 +19,7 @@ export function DialogPalette(): JSX.Element {
             <Button
                 label="Dialog"
                 variant="contained"
-                size='small'
+                size="small"
                 onClick={handleClickOpen}
             />
             <Dialog
