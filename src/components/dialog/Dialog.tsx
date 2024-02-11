@@ -6,6 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren, ReactNode } from 'react';
+import {Template} from 'src/components/_template/Template';
 
 interface Props {
     handleClose: () => void;
@@ -34,6 +35,7 @@ export function DialogCustom({
     ...props
 }: PropsWithChildren<DialogProps & Props>): JSX.Element {
     return (
+        <Template>
         <BootstrapDialog
             onClose={handleClose}
             aria-labelledby="customized-dialog-title"
@@ -81,6 +83,7 @@ export function DialogCustom({
                     {actions}
                 </DialogActions>
             )}
-        </BootstrapDialog>
+            </BootstrapDialog>
+        </Template>
     );
 }

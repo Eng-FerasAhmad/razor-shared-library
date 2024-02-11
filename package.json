@@ -1,7 +1,7 @@
 {
     "name": "razor-shared-library",
     "private": false,
-    "version": "0.2.0",
+    "version": "0.2.5",
     "type": "module",
     "author": {
         "email": "feras.ahmad@gmx.de",
@@ -39,7 +39,8 @@
     "homepage": "https://github.com/Eng-FerasAhmad/razor-shared-library/blob/master/README.md",
     "scripts": {
         "dev": "vite",
-        "build": "npm run eslint && npm run prettier && npm run test && tsc && vite build",
+        "vite:build": "vite build"
+,       "build": "npm run eslint && npm run prettier && npm run test && tsc && vite build",
         "eslint": "eslint \"./src/**/*.{ts,tsx}\"",
         "eslint:fix": "eslint \"./src/**/*.{ts,tsx}\" --fix",
         "prettier": "prettier --check .",

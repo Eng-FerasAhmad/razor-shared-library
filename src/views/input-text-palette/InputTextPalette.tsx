@@ -15,6 +15,7 @@ export default function InputTextPalette(): JSX.Element {
             <InputText
                 label="Name"
                 value={valueInput}
+                size='small'
                 onChange={(e) => changeHandler(e)}
             />
         </div>
