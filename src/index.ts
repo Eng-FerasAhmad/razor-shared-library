@@ -5,6 +5,7 @@ export { CategoryCard } from './components/category-card/CategoryCard';
 export { Datepicker } from './components/datepicker/Datepicker';
 export { DialogCustom as Dialog } from './components/dialog/Dialog';
 export { ButtonCustom as Button } from './components/form/button/Button';
+export { MenuCustom as Menu } from './components/menu/Menu';
 export { Checkbox } from './components/form/checkbox/Checkbox';
 export { InputDate } from './components/form/input-date/InputDate';
 export { InputDigit } from './components/form/input-digit/InputDigit';
