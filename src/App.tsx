@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { fonts } from './shared/fonts';
 import ButtonPalette from './views/button-palette/ButtonPalette';
 import { CardPalette } from './views/card-palette/CardPalette';
+import { MenuPalette } from './views/MenuPalette';
 import { ColorPalette } from 'src/views/color-palette/ColorPalette';
 import { DialogPalette } from 'src/views/dialog-palette/DialogPalette';
 import InputTextPalette from 'src/views/input-text-palette/InputTextPalette';
@@ -16,6 +17,7 @@ export default function App(): JSX.Element {
                 <Tab>input-text</Tab>
                 <Tab>Card</Tab>
                 <Tab>Dialog</Tab>
+                <Tab>Menu</Tab>
             </TabList>
 
             <TabPanel>
@@ -32,6 +34,9 @@ export default function App(): JSX.Element {
             </TabPanel>
             <TabPanel>
                 <DialogPalette />
+            </TabPanel>
+            <TabPanel>
+                <MenuPalette />
             </TabPanel>
         </Tabs>
     );
