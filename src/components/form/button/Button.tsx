@@ -47,6 +47,7 @@ export function ButtonCustom({
                     fontFamily: 'inherit',
                     height,
                     fontSize,
+                    width: '100%',
                 }}
             >
                 {label}

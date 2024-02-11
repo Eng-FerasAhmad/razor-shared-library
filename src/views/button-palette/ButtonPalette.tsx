@@ -14,18 +14,23 @@ export default function ButtonPalette(): JSX.Element {
 
     return (
         <Box sx={{ fontFamily: fonts.primary }} data-testid="button-palette">
-            <Button
-                label="Primary"
-                variant="contained"
-                size="medium"
-                color="primary"
-            />
-            <InputText
-                label="Name"
-                value={valueInput}
-                size="small"
-                onChange={(e) => changeHandler(e)}
-            />
+            <Box sx={{ width: 200 }}>
+                <Button
+                    label="Primary"
+                    variant="contained"
+                    size="medium"
+                    color="primary"
+                />
+            </Box>
+
+            <Box sx={{ width: 300 }}>
+                <InputText
+                    label="Name"
+                    value={valueInput}
+                    size="small"
+                    onChange={(e) => changeHandler(e)}
+                />
+            </Box>
         </Box>
     );
 }
