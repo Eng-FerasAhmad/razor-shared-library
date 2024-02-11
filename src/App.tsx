@@ -3,7 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { fonts } from './shared/fonts';
 import ButtonPalette from './views/button-palette/ButtonPalette';
 import { CardPalette } from './views/card-palette/CardPalette';
-import { MenuPalette } from './views/MenuPalette';
+import { MenuPalette } from './views/menu-palette/MenuPalette';
 import { ColorPalette } from 'src/views/color-palette/ColorPalette';
 import { DialogPalette } from 'src/views/dialog-palette/DialogPalette';
 import InputTextPalette from 'src/views/input-text-palette/InputTextPalette';

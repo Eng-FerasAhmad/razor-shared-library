@@ -39,7 +39,7 @@ export function MenuPalette(): JSX.Element {
     ];
 
     return (
-        <Box sx={{ margin: 2, width: 200 }}>
+        <Box sx={{ margin: 2, width: 200 }} data-testid="menu-palette">
             <ButtonCustom
                 id="demo-positioned-button"
                 aria-controls={open ? 'demo-positioned-menu' : undefined}
