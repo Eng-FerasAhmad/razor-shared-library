@@ -15,7 +15,7 @@ export function DialogPalette(): JSX.Element {
     };
 
     return (
-        <Box sx={{ margin: 2, width: 300, fontFamily: fonts.primary }}>
+        <Box sx={{ margin: 2, width: 300, height: 1000,fontFamily: fonts.primary }}>
             <Button
                 label="Dialog"
                 variant="contained"
