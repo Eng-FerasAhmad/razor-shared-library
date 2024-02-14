@@ -16,9 +16,7 @@ describe('<MenuCustom />', () => {
         render(
             <MenuCustom
                 items={itemsMenu}
-                open={true}
-                anchorEl={null}
-                handleClose={jest.fn()}
+                anchor={<div>click</div>}
             />
         );
 
