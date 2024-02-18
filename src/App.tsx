@@ -5,6 +5,7 @@ import ButtonPalette from './views/button-palette/ButtonPalette';
 import { CardPalette } from './views/card-palette/CardPalette';
 import { MenuPalette } from './views/menu-palette/MenuPalette';
 import { ColorPalette } from 'src/views/color-palette/ColorPalette';
+import { DatepickerPalette } from 'src/views/date-picker-palette/DatepickerPalette';
 import { DialogPalette } from 'src/views/dialog-palette/DialogPalette';
 import InputTextPalette from 'src/views/input-text-palette/InputTextPalette';
 
@@ -18,6 +19,7 @@ export default function App(): JSX.Element {
                 <Tab>Card</Tab>
                 <Tab>Dialog</Tab>
                 <Tab>Menu</Tab>
+                <Tab>Datepicker</Tab>
             </TabList>
 
             <TabPanel>
@@ -37,6 +39,9 @@ export default function App(): JSX.Element {
             </TabPanel>
             <TabPanel>
                 <MenuPalette />
+            </TabPanel>
+            <TabPanel>
+                <DatepickerPalette />
             </TabPanel>
         </Tabs>
     );

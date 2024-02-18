@@ -1,7 +1,7 @@
 {
     "name": "razor-shared-library",
     "private": false,
-    "version": "0.2.71",
+    "version": "0.2.72",
     "type": "module",
     "author": {
         "email": "feras.ahmad@gmx.de",
@@ -58,7 +58,9 @@
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.15.9",
         "@mui/material": "^5.15.9",
+        "@mui/x-date-pickers": "^6.19.4",
         "@types/node": "^20.11.16",
+        "dayjs": "^1.11.10",
         "path": "^0.12.7",
         "react": "^17.0.0 || ^18.0.0",
         "react-dom": "^17.0.0 || ^18.0.0",
