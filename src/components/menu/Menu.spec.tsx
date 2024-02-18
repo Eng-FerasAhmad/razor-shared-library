@@ -13,12 +13,7 @@ describe('<MenuCustom />', () => {
                 action: jest.fn(),
             },
         ];
-        render(
-            <MenuCustom
-                items={itemsMenu}
-                anchor={<div>click</div>}
-            />
-        );
+        render(<MenuCustom items={itemsMenu} anchor={<div>click</div>} />);
 
         expect(screen.getByTestId('menu')).toBeInTheDocument();
     });
