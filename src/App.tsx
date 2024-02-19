@@ -44,10 +44,7 @@ function a11yProps(index: number): { id: string; 'aria-controls': string } {
 export default function VerticalTabs(): JSX.Element {
     const [value, setValue] = useState(0);
 
-    const handleChange = (
-        _event: SyntheticEvent,
-        newValue: number
-    ): void => {
+    const handleChange = (_event: SyntheticEvent, newValue: number): void => {
         setValue(newValue);
     };
 
