@@ -1,4 +1,4 @@
-import ButtonPalette from './ButtonPalette';
+import ButtonPalette from './FormPalette';
 import { render, screen } from 'src/test/test-utils';
 
 describe('<ButtonPalette>', () => {

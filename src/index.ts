@@ -6,8 +6,7 @@ export { DatepickerCustom as Datepicker } from './components/datepicker/Datepick
 export { DialogCustom as Dialog } from './components/dialog/Dialog';
 export { ButtonCustom as Button } from './components/form/button/Button';
 export { MenuCustom as Menu } from './components/menu/Menu';
-export { Checkbox } from './components/form/checkbox/Checkbox';
-export { InputDate } from './components/form/input-date/InputDate';
+export { CheckboxCustom as Checkbox } from './components/form/checkbox/Checkbox';
 export { InputDigit } from './components/form/input-digit/InputDigit';
 export { InputNumber } from './components/form/input-number/InputNumber';
 export { InputRadio } from './components/form/input-radio/InputRadio';

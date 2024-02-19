@@ -2,6 +2,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Dayjs } from 'dayjs';
+import { Template } from 'src/components/_template/Template';
 import 'dayjs/locale/de';
 import 'dayjs/locale/en-gb';
 
@@ -14,8 +15,13 @@ export function DatepickerCustom({
     ...props
 }: DatePickerProps<Dayjs> & DatepickerProps): JSX.Element {
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-            <DatePicker {...props} data-testid="datepicker" />
-        </LocalizationProvider>
+        <Template>
+            <LocalizationProvider
+                dateAdapter={AdapterDayjs}
+                adapterLocale={locale}
+            >
+                <DatePicker {...props} data-testid="datepicker" />
+            </LocalizationProvider>
+        </Template>
     );
 }
