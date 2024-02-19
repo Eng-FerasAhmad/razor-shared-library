@@ -1,8 +1,12 @@
-import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Typography from '@mui/material/Typography';
-import * as React from 'react';
+import { SyntheticEvent, useState } from 'react';
+import { fonts } from './shared/fonts';
+import { CardPalette } from './views/card-palette/CardPalette';
+import { DateTimePalette } from './views/date-time-palette/DateTimePalette';
+import { DialogPalette } from './views/dialog-palette/DialogPalette';
+import FormPalette from './views/form-palette/FormPalette';
+import { MenuPalette } from './views/menu-palette/MenuPalette';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -10,7 +14,7 @@ interface TabPanelProps {
     value: number;
 }
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props: TabPanelProps): JSX.Element {
     const { children, value, index, ...other } = props;
 
     return (
@@ -22,35 +26,39 @@ function TabPanel(props: TabPanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
-                </Box>
+                <div style={{ padding: 16 }}>
+                    <div>{children}</div>
+                </div>
             )}
         </div>
     );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index: number): { id: string; 'aria-controls': string } {
     return {
         id: `vertical-tab-${index}`,
         'aria-controls': `vertical-tabpanel-${index}`,
     };
 }
 
-export default function App() {
-    const [value, setValue] = React.useState(0);
+export default function VerticalTabs(): JSX.Element {
+    const [value, setValue] = useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (
+        _event: SyntheticEvent,
+        newValue: number
+    ): void => {
         setValue(newValue);
     };
 
     return (
-        <Box
-            sx={{
+        <div
+            style={{
                 flexGrow: 1,
-                bgcolor: 'background.paper',
+                backgroundColor: 'background.paper',
                 display: 'flex',
                 height: '95vh',
+                fontFamily: fonts.primary,
             }}
         >
             <Tabs
@@ -61,35 +69,35 @@ export default function App() {
                 aria-label="Vertical tabs example"
                 sx={{ borderRight: 1, borderColor: 'divider' }}
             >
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-                <Tab label="Item Four" {...a11yProps(3)} />
-                <Tab label="Item Five" {...a11yProps(4)} />
-                <Tab label="Item Six" {...a11yProps(5)} />
-                <Tab label="Item Seven" {...a11yProps(6)} />
+                <Tab label="Form" {...a11yProps(0)} />
+                <Tab label="Menu" {...a11yProps(1)} />
+                <Tab label="Dialog" {...a11yProps(2)} />
+                <Tab label="Date & Time" {...a11yProps(3)} />
+                <Tab label="Card" {...a11yProps(4)} />
+                <Tab label="Carousel" {...a11yProps(5)} />
+                <Tab label="Toast" {...a11yProps(6)} />
             </Tabs>
             <TabPanel value={value} index={0}>
-                Item One
+                <FormPalette />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <MenuPalette />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                <DialogPalette />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                Item Four
+                <DateTimePalette />
             </TabPanel>
             <TabPanel value={value} index={4}>
-                Item Five
+                <CardPalette />
             </TabPanel>
             <TabPanel value={value} index={5}>
-                Item Six
+                Carousel
             </TabPanel>
             <TabPanel value={value} index={6}>
-                Item Seven
+                Toast
             </TabPanel>
-        </Box>
+        </div>
     );
 }
