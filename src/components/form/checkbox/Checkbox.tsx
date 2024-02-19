@@ -1,9 +1,21 @@
-import { CheckboxContainer } from './styles';
+import { Checkbox, CheckboxProps } from '@mui/material';
+import { Template } from 'src/components/_template/Template';
 
-export function Checkbox(): JSX.Element {
+interface Props {
+    label?: string;
+}
+export function CheckboxCustom({
+    label,
+    ...props
+}: CheckboxProps & Props): JSX.Element {
     return (
-        <CheckboxContainer data-testid="checkbox">
-            <>checkbox</>
-        </CheckboxContainer>
+        <Template>
+            <Checkbox
+                id={`${label}-checkbox`}
+                {...props}
+                data-testid="checkbox"
+            />
+            <label htmlFor={`${label}-checkbox`}>{label}</label>
+        </Template>
     );
 }

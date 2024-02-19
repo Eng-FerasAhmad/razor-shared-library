@@ -3,7 +3,7 @@ import { Dayjs } from 'dayjs';
 import { useState } from 'react';
 import { DatepickerCustom } from 'src/components/datepicker/Datepicker';
 
-export function DatepickerPalette(): JSX.Element {
+export function DateTimePalette(): JSX.Element {
     const [value, setValue] = useState<Dayjs | null>(null);
     const changeHandler = (val: Dayjs): void => {
         setValue(val);

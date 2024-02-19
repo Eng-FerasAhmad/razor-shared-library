@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { Button, InputText } from 'src/index';
+import { Button, Checkbox, InputText } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
-export default function ButtonPalette(): JSX.Element {
+export default function FormPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
 
     const changeHandler = (
@@ -23,13 +23,17 @@ export default function ButtonPalette(): JSX.Element {
                 />
             </Box>
 
-            <Box sx={{ width: 300 }}>
+            <Box sx={{ width: 300, marginTop: 2 }}>
                 <InputText
                     label="Name"
                     value={valueInput}
                     size="small"
                     onChange={(e) => changeHandler(e)}
                 />
+            </Box>
+
+            <Box sx={{ marginTop: 2 }}>
+                <Checkbox size="medium" label="Checkbox" />
             </Box>
         </Box>
     );

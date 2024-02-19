@@ -1,7 +1,7 @@
 {
     "name": "razor-shared-library",
     "private": false,
-    "version": "0.2.72",
+    "version": "0.2.8",
     "type": "module",
     "author": {
         "email": "feras.ahmad@gmx.de",
@@ -64,7 +64,6 @@
         "path": "^0.12.7",
         "react": "^17.0.0 || ^18.0.0",
         "react-dom": "^17.0.0 || ^18.0.0",
-        "react-tabs": "^6.0.2",
         "vite-tsconfig-paths": "^4.3.1"
     },
     "devDependencies": {

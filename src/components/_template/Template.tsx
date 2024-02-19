@@ -1,6 +1,5 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material';
 import { ReactNode } from 'react';
-import 'react-tabs/style/react-tabs.css';
 import { color } from 'src/shared/color';
 
 interface Props {
