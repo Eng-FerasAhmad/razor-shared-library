@@ -1,9 +1,37 @@
-import { ToastContainer } from './styles';
+import { Alert, Snackbar, SnackbarProps } from '@mui/material';
+import { Template } from '../_template/Template';
 
-export function Toast(): JSX.Element {
+interface Props {
+    text: string;
+    handleClose: () => void;
+    open: boolean;
+    severity: 'success' | 'error' | 'warning' | 'info';
+}
+
+export function Toast({
+    text,
+    handleClose,
+    open,
+    severity,
+    ...props
+}: Props & SnackbarProps): JSX.Element {
     return (
-        <ToastContainer data-testid="toast">
-            <>Card</>
-        </ToastContainer>
+        <Template>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                {...props}
+            >
+                <Alert
+                    onClose={handleClose}
+                    severity={severity}
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                >
+                    {text}
+                </Alert>
+            </Snackbar>
+        </Template>
     );
 }

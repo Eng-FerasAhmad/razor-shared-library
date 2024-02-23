@@ -7,6 +7,7 @@ import { DateTimePalette } from './views/date-time-palette/DateTimePalette';
 import { DialogPalette } from './views/dialog-palette/DialogPalette';
 import FormPalette from './views/form-palette/FormPalette';
 import { MenuPalette } from './views/menu-palette/MenuPalette';
+import { ToastPalette } from './views/toast-palette/ToastPalette';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -44,10 +45,7 @@ function a11yProps(index: number): { id: string; 'aria-controls': string } {
 export default function VerticalTabs(): JSX.Element {
     const [value, setValue] = useState(0);
 
-    const handleChange = (
-        _event: SyntheticEvent,
-        newValue: number
-    ): void => {
+    const handleChange = (_event: SyntheticEvent, newValue: number): void => {
         setValue(newValue);
     };
 
@@ -96,7 +94,7 @@ export default function VerticalTabs(): JSX.Element {
                 Carousel
             </TabPanel>
             <TabPanel value={value} index={6}>
-                Toast
+                <ToastPalette />
             </TabPanel>
         </div>
     );
