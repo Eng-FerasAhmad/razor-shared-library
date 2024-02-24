@@ -84,6 +84,7 @@ export const MenuCustom = ({
                 aria-expanded={open ? 'true' : undefined}
                 aria-haspopup="true"
                 onClick={handleToggle}
+                data-testid="menu"
             >
                 {anchor}
             </Box>

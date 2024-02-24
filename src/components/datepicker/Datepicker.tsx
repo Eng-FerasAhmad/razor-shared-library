@@ -19,8 +19,9 @@ export function DatepickerCustom({
             <LocalizationProvider
                 dateAdapter={AdapterDayjs}
                 adapterLocale={locale}
+                data-testid="datepicker"
             >
-                <DatePicker {...props} data-testid="datepicker" />
+                <DatePicker {...props} />
             </LocalizationProvider>
         </Template>
     );

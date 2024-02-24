@@ -31,7 +31,11 @@ export function InputSelect({
 }: Props): JSX.Element {
     return (
         <Template>
-            <FormControl sx={{ m: 1, width: '100%' }} size="small">
+            <FormControl
+                sx={{ m: 1, width: '100%' }}
+                size="small"
+                data-testid="input-select-form"
+            >
                 <InputLabel id="input-select-label">{label}</InputLabel>
                 <Select
                     labelId="input-select-label"
