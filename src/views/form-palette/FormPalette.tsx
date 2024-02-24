@@ -1,15 +1,20 @@
-import { Box } from '@mui/material';
+import { Box, SelectChangeEvent } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { Button, Checkbox, InputText } from 'src/index';
+import { Button, Checkbox, InputSelect, InputText } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
 export default function FormPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
+    const [selectInput, setSelectInput] = useState<string>('');
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         setValueInput(e.target.value);
+    };
+
+    const handleChangeSelect = (event: SelectChangeEvent): void => {
+        setSelectInput(event.target.value);
     };
 
     return (
@@ -34,6 +39,18 @@ export default function FormPalette(): JSX.Element {
 
             <Box sx={{ marginTop: 2 }}>
                 <Checkbox size="medium" label="Checkbox" />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <InputSelect
+                    items={[
+                        { label: 'Barber', value: '1' },
+                        { label: 'Body Care', value: '2' },
+                    ]}
+                    label="Choose Shop"
+                    value={selectInput}
+                    handleChange={handleChangeSelect}
+                />
             </Box>
         </Box>
     );
