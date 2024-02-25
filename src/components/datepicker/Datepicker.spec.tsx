@@ -1,10 +1,11 @@
-import { Datepicker } from './Datepicker';
+import { DatepickerCustom } from './Datepicker';
 import { render, screen } from 'src/test/test-utils';
 
 describe('<Datepicker />', () => {
     test('should render the component', () => {
-        render(<Datepicker />);
+        render(<DatepickerCustom locale="en-gb" />);
 
-        expect(screen.getByTestId('datepicker')).toBeInTheDocument();
+        expect(screen.getByRole('textbox')).toBeInTheDocument();
+        expect(screen.getByTestId('CalendarIcon')).toBeInTheDocument();
     });
 });

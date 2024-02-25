@@ -84,6 +84,7 @@ export const MenuCustom = ({
                 aria-expanded={open ? 'true' : undefined}
                 aria-haspopup="true"
                 onClick={handleToggle}
+                data-testid="menu"
             >
                 {anchor}
             </Box>
@@ -94,6 +95,7 @@ export const MenuCustom = ({
                 placement={position}
                 transition
                 disablePortal
+                data-testid="popper"
             >
                 {({ TransitionProps, placement }) => (
                     <Grow
@@ -112,6 +114,7 @@ export const MenuCustom = ({
                                     id="composition-menu"
                                     aria-labelledby="composition-button"
                                     onKeyDown={handleListKeyDown}
+                                    data-testid="menu-list"
                                 >
                                     {items.map((item, idx) => {
                                         return (

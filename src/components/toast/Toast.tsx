@@ -22,6 +22,7 @@ export function Toast({
                 autoHideDuration={6000}
                 onClose={handleClose}
                 {...props}
+                data-testid="toast"
             >
                 <Alert
                     onClose={handleClose}
