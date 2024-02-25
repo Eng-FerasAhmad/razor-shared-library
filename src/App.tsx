@@ -5,6 +5,7 @@ import { fonts } from './shared/fonts';
 import { CardPalette } from './views/card-palette/CardPalette';
 import { DateTimePalette } from './views/date-time-palette/DateTimePalette';
 import { DialogPalette } from './views/dialog-palette/DialogPalette';
+import { DrawerPalette } from './views/drawer-palette/DrawerPalette';
 import FormPalette from './views/form-palette/FormPalette';
 import { MenuPalette } from './views/menu-palette/MenuPalette';
 import { ToastPalette } from './views/toast-palette/ToastPalette';
@@ -74,6 +75,7 @@ export default function VerticalTabs(): JSX.Element {
                 <Tab label="Card" {...a11yProps(4)} />
                 <Tab label="Carousel" {...a11yProps(5)} />
                 <Tab label="Toast" {...a11yProps(6)} />
+                <Tab label="Drawer" {...a11yProps(7)} />
             </Tabs>
             <TabPanel value={value} index={0}>
                 <FormPalette />
@@ -95,6 +97,9 @@ export default function VerticalTabs(): JSX.Element {
             </TabPanel>
             <TabPanel value={value} index={6}>
                 <ToastPalette />
+            </TabPanel>
+            <TabPanel value={value} index={7}>
+                <DrawerPalette />
             </TabPanel>
         </div>
     );
