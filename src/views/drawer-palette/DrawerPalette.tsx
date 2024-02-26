@@ -22,6 +22,7 @@ export function DrawerPalette(): JSX.Element {
     return (
         <Box>
             <DrawerCustom
+                isOpen={true}
                 header={<>title</>}
                 drawerTitle="Components"
                 headerIcon={<>=</>}

@@ -18,6 +18,7 @@ interface Props {
     closeDrawerIcon?: ReactNode;
     drawerTitle: string;
     listItems: DrawerListItems[];
+    isOpen: boolean;
 }
 
 export function DrawerCustom({
@@ -26,8 +27,9 @@ export function DrawerCustom({
     closeDrawerIcon,
     drawerTitle,
     listItems,
+    isOpen,
 }: Props): JSX.Element {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(isOpen);
 
     const handleDrawerOpen = (): void => {
         setOpen(true);
