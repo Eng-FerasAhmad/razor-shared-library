@@ -1,6 +1,5 @@
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
 
