@@ -5,14 +5,14 @@ import { ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
 
 interface Props {
-    headerTitle: string;
+    header: ReactNode;
     open: boolean;
     headerIcon?: ReactNode;
     appClickHandler: () => void;
 }
 
 export default function AppToolbar({
-    headerTitle,
+    header,
     open,
     headerIcon,
     appClickHandler,
@@ -29,9 +29,7 @@ export default function AppToolbar({
                 >
                     {headerIcon}
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">
-                    {headerTitle}
-                </Typography>
+                {header}
             </Toolbar>
         </DrawerAppBar>
     );

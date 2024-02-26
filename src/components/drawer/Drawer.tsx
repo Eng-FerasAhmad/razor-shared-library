@@ -13,7 +13,7 @@ import { color } from 'src/shared/color';
 import { fontSize } from 'src/shared/fonts';
 
 interface Props {
-    headerTitle: string;
+    header: ReactNode;
     headerIcon?: ReactNode;
     closeDrawerIcon?: ReactNode;
     drawerTitle: string;
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function DrawerCustom({
-    headerTitle,
+    header,
     headerIcon,
     closeDrawerIcon,
     drawerTitle,
@@ -42,7 +42,7 @@ export function DrawerCustom({
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppToolbar
-                    headerTitle={headerTitle}
+                    header={header}
                     open={open}
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
