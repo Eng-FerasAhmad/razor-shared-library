@@ -1,4 +1,3 @@
-import CloseIcon from '@mui/icons-material/Close';
 import { Dialog, DialogProps } from '@mui/material';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -12,7 +11,7 @@ interface Props {
     handleClose: () => void;
     title?: string;
     actions?: ReactNode;
-    hasCloseIcon?: boolean;
+    closeIcon?: ReactNode;
     open: boolean;
 }
 
@@ -29,7 +28,7 @@ export function DialogCustom({
     handleClose,
     title,
     actions,
-    hasCloseIcon,
+    closeIcon,
     open,
     children,
     ...props
@@ -52,7 +51,7 @@ export function DialogCustom({
                     </DialogTitle>
                 )}
 
-                {hasCloseIcon && (
+                {closeIcon && (
                     <IconButton
                         aria-label="close"
                         onClick={handleClose}
@@ -64,7 +63,7 @@ export function DialogCustom({
                             color: (theme) => theme.palette.grey[500],
                         }}
                     >
-                        <CloseIcon />
+                        {closeIcon}
                     </IconButton>
                 )}
 

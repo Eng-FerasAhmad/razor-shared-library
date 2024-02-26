@@ -1,4 +1,3 @@
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -16,9 +15,7 @@ export default function DrawerList({ listItems }: Props): JSX.Element {
             {listItems.map((item) => (
                 <ListItem key={item.text} disablePadding>
                     <ListItemButton>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText
                             primary={item.text}
                             onClick={item.clickHandler}

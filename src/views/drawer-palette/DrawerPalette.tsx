@@ -1,20 +1,19 @@
 import { Box } from '@mui/material';
-import PersistentDrawerLeft, {
-    DrawerListItems,
-} from 'src/components/drawer/Drawer';
+import { DrawerCustom } from 'src/components/drawer/Drawer';
+import { DrawerListItems } from 'src/components/drawer/types';
 
 export function DrawerPalette(): JSX.Element {
     const listItems: DrawerListItems[] = [
         {
             text: 'Mail',
-            icon: 'Mail',
+            icon: <>ico</>,
             clickHandler: () => {
                 console.log('Im Mail');
             },
         },
         {
             text: 'Address',
-            icon: 'add',
+            icon: <>ico</>,
             clickHandler: () => {
                 console.log('Im Address');
             },
@@ -22,8 +21,11 @@ export function DrawerPalette(): JSX.Element {
     ];
     return (
         <Box>
-            <PersistentDrawerLeft
+            <DrawerCustom
                 headerTitle="Dashboard"
+                drawerTitle="Components"
+                headerIcon={<>=</>}
+                closeDrawerIcon={<>{'<'}</>}
                 listItems={listItems}
             />
         </Box>

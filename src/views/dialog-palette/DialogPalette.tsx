@@ -31,7 +31,7 @@ export function DialogPalette(): JSX.Element {
                 title="Card Title"
                 sx={{ fontFamily: fonts.primary }}
                 actions={<Button label="Action" />}
-                hasCloseIcon={true}
+                closeIcon={<>icon</>}
             >
                 <Box sx={{ width: 300 }}>Content 1</Box>
             </Dialog>

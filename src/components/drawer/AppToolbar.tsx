@@ -1,18 +1,20 @@
-import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
 
 interface Props {
     headerTitle: string;
     open: boolean;
+    headerIcon?: ReactNode;
     appClickHandler: () => void;
 }
 
 export default function AppToolbar({
     headerTitle,
     open,
+    headerIcon,
     appClickHandler,
 }: Props): JSX.Element {
     return (
@@ -25,7 +27,7 @@ export default function AppToolbar({
                     edge="start"
                     sx={{ mr: 2, ...(open && { display: 'none' }) }}
                 >
-                    <MenuIcon />
+                    {headerIcon}
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
                     {headerTitle}
