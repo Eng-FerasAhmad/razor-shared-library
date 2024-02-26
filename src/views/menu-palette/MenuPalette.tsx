@@ -1,5 +1,3 @@
-import Login from '@mui/icons-material/Login';
-import Logout from '@mui/icons-material/Logout';
 import { Box } from '@mui/material';
 import { useState } from 'react';
 import { ButtonCustom } from 'src/components/form/button/Button';
@@ -14,14 +12,14 @@ export function MenuPalette(): JSX.Element {
             action: () => {
                 setSelected('item 11');
             },
-            icon: <Logout />,
+            icon: <div>icon</div>,
         },
         {
             title: 'item 22',
             action: () => {
                 setSelected('item 22');
             },
-            icon: <Login />,
+            icon: <div>icon</div>,
         },
     ];
 
