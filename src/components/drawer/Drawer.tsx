@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import DrawerList from './DrawerList';
 import { DrawerHeader, MainDrawer, drawerWidth } from './styles';
 import { DrawerListItems } from './types';
@@ -18,7 +18,8 @@ interface Props {
     closeDrawerIcon?: ReactNode;
     drawerTitle: string;
     listItems: DrawerListItems[];
-    isOpen: boolean;
+    open: boolean;
+    handleDrawerOpen: () => void;
 }
 
 export function DrawerCustom({
@@ -27,18 +28,9 @@ export function DrawerCustom({
     closeDrawerIcon,
     drawerTitle,
     listItems,
-    isOpen,
+    open,
+    handleDrawerOpen,
 }: Props): JSX.Element {
-    const [open, setOpen] = useState(isOpen);
-
-    const handleDrawerOpen = (): void => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = (): void => {
-        setOpen(false);
-    };
-
     return (
         <Template>
             <Box sx={{ display: 'flex' }}>
@@ -82,7 +74,7 @@ export function DrawerCustom({
                             {drawerTitle}
                         </Box>
                         <IconButton
-                            onClick={handleDrawerClose}
+                            onClick={handleDrawerOpen}
                             sx={{ color: color.light }}
                         >
                             {closeDrawerIcon}
