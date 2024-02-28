@@ -1,8 +1,11 @@
 import { Box } from '@mui/material';
+import { useState } from 'react';
 import { DrawerCustom } from 'src/components/drawer/Drawer';
 import { DrawerListItems } from 'src/components/drawer/types';
 
 export function DrawerPalette(): JSX.Element {
+    const [open, setOpen] = useState(true);
+
     const listItems: DrawerListItems[] = [
         {
             text: 'Mail',
@@ -19,15 +22,21 @@ export function DrawerPalette(): JSX.Element {
             },
         },
     ];
+
+    const handleDrawerOpen = (): void => {
+        setOpen(!open);
+    };
+
     return (
         <Box>
             <DrawerCustom
-                isOpen={true}
+                open={open}
                 header={<>title</>}
                 drawerTitle="Components"
                 headerIcon={<>=</>}
                 closeDrawerIcon={<>{'<'}</>}
                 listItems={listItems}
+                handleDrawerOpen={handleDrawerOpen}
             />
         </Box>
     );
