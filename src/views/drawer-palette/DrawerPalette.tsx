@@ -24,8 +24,8 @@ export function DrawerPalette(): JSX.Element {
     ];
 
     const handleDrawerOpen = (): void => {
-        setOpen(!open)
-    }
+        setOpen(!open);
+    };
 
     return (
         <Box>
