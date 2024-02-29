@@ -41,14 +41,17 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
         [page, rowsPerPage]
     );
 
-    const buildCell= (row: T): ReactNode => {
+    const buildCell= (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
-            console.log('key', key);
+            const isNumber = !isNaN(row[key]);
+            if (key !== 'id') {
             return (
-                <TableCell key={key} component="th" id={'labelId'} scope="row" padding="none">
+                <TableCell key={key} component="th" id={'labelId'} scope="row" padding={isNumber ? 'normal' : 'none'} align={isNumber ? 'right' : 'left'}>
                     {row[key]}
                 </TableCell>
             );
+            }
+
         })
     };
 
