@@ -1,15 +1,12 @@
-import {ChangeEvent, MouseEvent, useState} from 'react';
-import {Order, RowProps} from 'src/components/table/types';
+import { ChangeEvent, MouseEvent, useState } from 'react';
+import { RowProps } from 'src/components/table/types';
 
-interface Props<T> {
+interface Props {
     isSelected: (id: number) => boolean;
     emptyRows: number;
     selected: readonly number[];
-    order: Order;
-    orderBy: keyof T | undefined;
     page: number;
     rowsPerPage: number;
-    handleRequestSort: (_event: MouseEvent<unknown>, property: keyof T) => void;
     handleSelectAllClick: (event: ChangeEvent<HTMLInputElement>) => void;
     handleClick: (_event: MouseEvent<unknown>, id: number) => void;
     handleChangePage: (_event: unknown, newPage: number) => void;
@@ -17,21 +14,11 @@ interface Props<T> {
 
 }
 
-export default function useTable<T extends RowProps>(rows: T[]): Props<T> {
-    const [order, setOrder] = useState<Order>('asc');
-    const [orderBy, setOrderBy] = useState<keyof T | undefined>(undefined);
+export default function useTable<T extends RowProps>(rows: T[]): Props {
     const [selected, setSelected] = useState<readonly number[]>([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
 
-    const handleRequestSort = (
-        _event: MouseEvent<unknown>,
-        property: keyof T | undefined
-    ): void => {
-        const isAsc = orderBy === property && order === 'asc';
-        setOrder(isAsc ? 'desc' : 'asc');
-        setOrderBy(property);
-    };
 
     const handleSelectAllClick = (
         event: ChangeEvent<HTMLInputElement>
@@ -84,11 +71,8 @@ export default function useTable<T extends RowProps>(rows: T[]): Props<T> {
         isSelected,
         emptyRows,
         selected,
-        order,
-        orderBy,
         page,
         rowsPerPage,
-        handleRequestSort,
         handleSelectAllClick,
         handleClick,
         handleChangePage,

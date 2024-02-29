@@ -8,17 +8,14 @@ export interface RowProps {
 
 export interface EnhancedTableProps<T> {
     numSelected: number;
-    onRequestSort: (event: MouseEvent<unknown>, property: number) => void;
     onSelectAllClick: (event: ChangeEvent<HTMLInputElement>) => void;
-    order: Order;
-    orderBy: keyof T | undefined ;
     rowCount: number;
-    headCells: HeadCell[];
+    headCells: HeadCell<T>[];
 }
 
-export interface HeadCell {
+export interface HeadCell<T> {
     disablePadding: boolean;
-    id: string;
+    id: keyof T;
     label: string;
     numeric: boolean;
 }

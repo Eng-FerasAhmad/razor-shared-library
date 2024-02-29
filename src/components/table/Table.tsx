@@ -8,15 +8,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useMemo } from 'react';
-import { getComparator, stableSort } from 'src/components/table/utils';
+import { HeadCell, RowProps } from 'src/components/table/types';
+import { stableSort } from 'src/components/table/utils';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
-import {RowProps, HeadCell} from 'src/components/table/types';
 
 interface Props<T> {
     rows: T[];
-    headCells: HeadCell[];
+    headCells: HeadCell<T>[];
 }
 
 export function TableCustom<T extends RowProps>(props: Props<T>) {
@@ -24,11 +24,8 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
         isSelected,
         emptyRows,
         selected,
-        order,
-        orderBy,
         page,
         rowsPerPage,
-        handleRequestSort,
         handleSelectAllClick,
         handleClick,
         handleChangePage,
@@ -37,11 +34,11 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
 
     const visibleRows = useMemo(
         () =>
-            stableSort(props.rows, getComparator(order, orderBy)).slice(
+            stableSort(props.rows).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage
             ),
-        [order, orderBy, page, rowsPerPage]
+        [page, rowsPerPage]
     );
 
     return (
@@ -56,23 +53,20 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
                     >
                         <TableHead
                             numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
                             onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
                             rowCount={props.rows.length}
                             headCells={props.headCells}
                         />
                         <TableBody>
                             {visibleRows.map((row, index) => {
-                                const isItemSelected = isSelected(row.id);
+                                const isItemSelected = isSelected(row.id as number);
                                 const labelId = `enhanced-table-checkbox-${index}`;
 
                                 return (
                                     <TableRow
                                         hover
                                         onClick={(event) =>
-                                            handleClick(event, row.id)
+                                            handleClick(event, row.id as number)
                                         }
                                         role="checkbox"
                                         aria-checked={isItemSelected}
