@@ -8,7 +8,7 @@ interface Props {
     numSelected: number;
 }
 
-export default function TableToolbar(props: Props) {
+export default function TableToolbar(props: Props): JSX.Element {
     const { numSelected } = props;
 
     return (

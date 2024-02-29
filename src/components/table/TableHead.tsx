@@ -4,7 +4,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { EnhancedTableProps } from 'src/components/table/types';
 
-export default function EnhancedTableHead<T>(props: EnhancedTableProps<T>) {
+export default function EnhancedTableHead<T>(
+    props: EnhancedTableProps<T>
+): JSX.Element {
     const { onSelectAllClick, numSelected, rowCount, headCells } = props;
     return (
         <TableHead>

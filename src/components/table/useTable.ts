@@ -59,7 +59,7 @@ export default function useTable<T extends RowProps>(rows: T[]): Props {
         setPage(0);
     };
 
-    const isSelected = (id: number) => selected.indexOf(id) !== -1;
+    const isSelected = (id: number): boolean => selected.indexOf(id) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =

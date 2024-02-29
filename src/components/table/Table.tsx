@@ -8,18 +8,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { ReactNode, useMemo } from 'react';
-import { HeadCell, RowProps } from 'src/components/table/types';
-import { stableSort } from 'src/components/table/utils';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
+import { HeadCell, RowProps } from 'src/components/table/types';
+import { stableSort } from 'src/components/table/utils';
 
 interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
 }
 
-export function TableCustom<T extends RowProps>(props: Props<T>) {
+export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
     const {
         isSelected,
         emptyRows,
@@ -38,21 +38,27 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage
             ),
-        [page, rowsPerPage]
+        [page, rowsPerPage, props.rows]
     );
 
-    const buildCell= (row: any): ReactNode => {
+    // eslint-disable-next-line
+    const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
+            if (key === 'id') return;
             const isNumber = !isNaN(row[key]);
-            if (key !== 'id') {
             return (
-                <TableCell key={key} component="th" id={'labelId'} scope="row" padding={isNumber ? 'normal' : 'none'} align={isNumber ? 'right' : 'left'}>
+                <TableCell
+                    key={key}
+                    component="th"
+                    id={`id-${key}`}
+                    scope="row"
+                    padding={isNumber ? 'normal' : 'none'}
+                    align={isNumber ? 'right' : 'left'}
+                >
                     {row[key]}
                 </TableCell>
             );
-            }
-
-        })
+        });
     };
 
     return (
