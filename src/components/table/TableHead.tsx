@@ -5,12 +5,7 @@ import TableRow from '@mui/material/TableRow';
 import { EnhancedTableProps } from 'src/components/table/types';
 
 export default function EnhancedTableHead<T>(props: EnhancedTableProps<T>) {
-    const {
-        onSelectAllClick,
-        numSelected,
-        rowCount,
-        headCells,
-    } = props;
+    const { onSelectAllClick, numSelected, rowCount, headCells } = props;
     return (
         <TableHead>
             <TableRow>

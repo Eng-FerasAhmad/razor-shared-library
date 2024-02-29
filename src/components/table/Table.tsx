@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { HeadCell, RowProps } from 'src/components/table/types';
 import { stableSort } from 'src/components/table/utils';
 import TableHead from './TableHead';
@@ -41,6 +41,17 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
         [page, rowsPerPage]
     );
 
+    const buildCell= (row: T): ReactNode => {
+        return Object.keys(row).map((key: string) => {
+            console.log('key', key);
+            return (
+                <TableCell key={key} component="th" id={'labelId'} scope="row" padding="none">
+                    {row[key]}
+                </TableCell>
+            );
+        })
+    };
+
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
@@ -58,8 +69,10 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
                             headCells={props.headCells}
                         />
                         <TableBody>
-                            {visibleRows.map((row, index) => {
-                                const isItemSelected = isSelected(row.id as number);
+                            {visibleRows.map((row: T, index) => {
+                                const isItemSelected = isSelected(
+                                    row.id as number
+                                );
                                 const labelId = `enhanced-table-checkbox-${index}`;
 
                                 return (
@@ -84,26 +97,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>) {
                                                 }}
                                             />
                                         </TableCell>
-                                        <TableCell
-                                            component="th"
-                                            id={labelId}
-                                            scope="row"
-                                            padding="none"
-                                        >
-                                            {row.name}
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            {row.calories}
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            {row.fat}
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            {row.carbs}
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            {row.protein}
-                                        </TableCell>
+                                        {buildCell(row)}
                                     </TableRow>
                                 );
                             })}

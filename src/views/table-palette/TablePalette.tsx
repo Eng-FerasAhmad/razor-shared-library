@@ -28,7 +28,7 @@ function createData(
     };
 }
 
-export const headCells: HeadCell[] = [
+export const headCells: HeadCell<Data>[] = [
     {
         id: 'name',
         numeric: false,
@@ -61,7 +61,6 @@ export const headCells: HeadCell[] = [
     },
 ];
 
-
 const rows = [
     createData(1, 'Cupcake', 305, 3.7, 67, 4.3),
     createData(2, 'Donut', 452, 25.0, 51, 4.9),
@@ -78,10 +77,63 @@ const rows = [
     createData(13, 'Oreo', 437, 18.0, 63, 4.0),
 ];
 
+// -------------------------------------------
+export interface DataNew {
+    id: number;
+    last: string;
+    color: number;
+    age: number;
+}
+
+export const headCellsNew: HeadCell<DataNew>[] = [
+    {
+        id: 'last',
+        numeric: false,
+        disablePadding: true,
+        label: 'Last',
+    },
+    {
+        id: 'color',
+        numeric: true,
+        disablePadding: false,
+        label: 'Color',
+    },
+    {
+        id: 'age',
+        numeric: true,
+        disablePadding: false,
+        label: 'Age',
+    },
+];
+
+function createDataNew(
+    id: number,
+    last: string,
+    color: number,
+    age: number
+): DataNew {
+    return {
+        id,
+        last,
+        color,
+        age,
+    };
+}
+
+const rowsNew = [
+    createDataNew(1, 'Last 1', 305, 12),
+    createDataNew(2, 'Last 2', 452, 23),
+    createDataNew(3, 'Last 3', 262, 34),
+    createDataNew(4, 'Last 4', 159, 45),
+    createDataNew(5, 'Last 5', 356, 56),
+    createDataNew(6, 'Last 5', 408, 67),
+];
 export default function TablePalette(): JSX.Element {
     return (
         <>
             <TableCustom<Data> rows={rows} headCells={headCells} />
+
+            <TableCustom<DataNew> rows={rowsNew} headCells={headCellsNew} />
         </>
     );
 }

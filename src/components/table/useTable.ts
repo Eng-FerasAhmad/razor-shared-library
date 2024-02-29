@@ -11,7 +11,6 @@ interface Props {
     handleClick: (_event: MouseEvent<unknown>, id: number) => void;
     handleChangePage: (_event: unknown, newPage: number) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
-
 }
 
 export default function useTable<T extends RowProps>(rows: T[]): Props {
@@ -19,12 +18,11 @@ export default function useTable<T extends RowProps>(rows: T[]): Props {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
 
-
     const handleSelectAllClick = (
         event: ChangeEvent<HTMLInputElement>
     ): void => {
         if (event.target.checked) {
-            const newSelected = rows.map((n:T) => n.id);
+            const newSelected = rows.map((n: T) => n.id);
             setSelected(newSelected);
             return;
         }
@@ -77,5 +75,5 @@ export default function useTable<T extends RowProps>(rows: T[]): Props {
         handleClick,
         handleChangePage,
         handleChangeRowsPerPage,
-    }
+    };
 }
