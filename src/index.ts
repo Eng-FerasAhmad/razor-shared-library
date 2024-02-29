@@ -20,6 +20,7 @@ export { Spinner } from './components/spinner/Spinner';
 export { Stepper } from './components/stepper/Stepper';
 export { Toast } from './components/toast/Toast';
 export { DrawerCustom as Drawer } from './components/drawer/Drawer';
+export { TableCustom as Table } from './components/table/Table';
 
 /* Types */
 export type { DrawerListItems } from './components/drawer/types';
