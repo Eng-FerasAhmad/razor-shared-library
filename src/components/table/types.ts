@@ -1,20 +1,24 @@
 import { ChangeEvent, MouseEvent } from 'react';
-import { Data } from 'src/views/table-palette/TablePalette';
 
 export type Order = 'asc' | 'desc';
 
-export interface HeadCell {
-    disablePadding: boolean;
-    id: keyof Data;
-    label: string;
-    numeric: boolean;
+export interface RowProps {
+    id: number;
 }
 
-export interface EnhancedTableProps {
+export interface EnhancedTableProps<T> {
     numSelected: number;
-    onRequestSort: (event: MouseEvent<unknown>, property: keyof Data) => void;
+    onRequestSort: (event: MouseEvent<unknown>, property: number) => void;
     onSelectAllClick: (event: ChangeEvent<HTMLInputElement>) => void;
     order: Order;
-    orderBy: string;
+    orderBy: keyof T | undefined ;
     rowCount: number;
+    headCells: HeadCell[];
+}
+
+export interface HeadCell {
+    disablePadding: boolean;
+    id: string;
+    label: string;
+    numeric: boolean;
 }

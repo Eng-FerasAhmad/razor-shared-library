@@ -7,18 +7,19 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { useMemo } from 'react';
+import { getComparator, stableSort } from 'src/components/table/utils';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
-import { Data } from 'src/views/table-palette/TablePalette';
-import {useMemo} from 'react';
-import {getComparator, stableSort} from 'src/components/table/utils';
 import useTable from './useTable';
+import {RowProps, HeadCell} from 'src/components/table/types';
 
-interface Props {
-    rows: Data[];
+interface Props<T> {
+    rows: T[];
+    headCells: HeadCell[];
 }
 
-export function TableCustom({ rows }: Props) {
+export function TableCustom<T extends RowProps>(props: Props<T>) {
     const {
         isSelected,
         emptyRows,
@@ -32,11 +33,11 @@ export function TableCustom({ rows }: Props) {
         handleClick,
         handleChangePage,
         handleChangeRowsPerPage,
-    } = useTable(rows);
+    } = useTable(props.rows);
 
     const visibleRows = useMemo(
         () =>
-            stableSort(rows, getComparator(order, orderBy)).slice(
+            stableSort(props.rows, getComparator(order, orderBy)).slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage
             ),
@@ -59,7 +60,8 @@ export function TableCustom({ rows }: Props) {
                             orderBy={orderBy}
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
-                            rowCount={rows.length}
+                            rowCount={props.rows.length}
+                            headCells={props.headCells}
                         />
                         <TableBody>
                             {visibleRows.map((row, index) => {
@@ -126,7 +128,7 @@ export function TableCustom({ rows }: Props) {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={rows.length}
+                    count={props.rows.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

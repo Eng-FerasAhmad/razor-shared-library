@@ -6,10 +6,8 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import { visuallyHidden } from '@mui/utils';
 import { EnhancedTableProps } from 'src/components/table/types';
-import { headCells } from 'src/components/table/utils';
-import { Data } from 'src/views/table-palette/TablePalette';
 
-export default function EnhancedTableHead(props: EnhancedTableProps) {
+export default function EnhancedTableHead<T>(props: EnhancedTableProps<T>) {
     const {
         onSelectAllClick,
         order,
@@ -17,9 +15,10 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
         numSelected,
         rowCount,
         onRequestSort,
+        headCells,
     } = props;
     const createSortHandler =
-        (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+        (property: keyof T) => (event: React.MouseEvent<unknown>) => {
             onRequestSort(event, property);
         };
 

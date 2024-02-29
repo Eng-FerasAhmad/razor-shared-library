@@ -1,11 +1,12 @@
 import { TableCustom } from 'src/components/table/Table';
+import { HeadCell } from 'src/components/table/types';
 
 export interface Data {
     id: number;
-    calories: number;
-    carbs: number;
-    fat: number;
     name: string;
+    calories: number;
+    fat: number;
+    carbs: number;
     protein: number;
 }
 
@@ -27,6 +28,40 @@ function createData(
     };
 }
 
+export const headCells: HeadCell[] = [
+    {
+        id: 'name',
+        numeric: false,
+        disablePadding: true,
+        label: 'Dessert (100g serving)',
+    },
+    {
+        id: 'calories',
+        numeric: true,
+        disablePadding: false,
+        label: 'Calories',
+    },
+    {
+        id: 'fat',
+        numeric: true,
+        disablePadding: false,
+        label: 'Fat (g)',
+    },
+    {
+        id: 'carbs',
+        numeric: true,
+        disablePadding: false,
+        label: 'Carbs (g)',
+    },
+    {
+        id: 'protein',
+        numeric: true,
+        disablePadding: false,
+        label: 'Protein (g)',
+    },
+];
+
+
 const rows = [
     createData(1, 'Cupcake', 305, 3.7, 67, 4.3),
     createData(2, 'Donut', 452, 25.0, 51, 4.9),
@@ -46,7 +81,7 @@ const rows = [
 export default function TablePalette(): JSX.Element {
     return (
         <>
-            <TableCustom rows={rows} />
+            <TableCustom<Data> rows={rows} headCells={headCells} />
         </>
     );
 }
