@@ -52,7 +52,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
     const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
             if (key === 'id') return;
-            const isNumber = !isNaN(row[key]);
+            const isNumber = !isNaN(row[key]) || key === 'actions';
             return (
                 <TableCell
                     key={key}
@@ -155,6 +155,10 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                         page={page}
                         onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage}
+                        sx={{
+                            borderTop: `${pixelToRem(2)} solid lightgrey`,
+                            marginTop: `${pixelToRem(-1)}`,
+                        }}
                     />
                 </Paper>
             </Box>
