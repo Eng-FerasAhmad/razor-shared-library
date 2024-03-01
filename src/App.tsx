@@ -8,6 +8,7 @@ import { DialogPalette } from './views/dialog-palette/DialogPalette';
 import { DrawerPalette } from './views/drawer-palette/DrawerPalette';
 import FormPalette from './views/form-palette/FormPalette';
 import { MenuPalette } from './views/menu-palette/MenuPalette';
+import TabPalette from './views/tab-palette/TabPalette';
 import TablePalette from './views/table-palette/TablePalette';
 import { ToastPalette } from './views/toast-palette/ToastPalette';
 
@@ -78,6 +79,7 @@ export default function VerticalTabs(): JSX.Element {
                 <Tab label="Toast" {...a11yProps(6)} />
                 <Tab label="Drawer" {...a11yProps(7)} />
                 <Tab label="Table" {...a11yProps(8)} />
+                <Tab label="Tab" {...a11yProps(9)} />
             </Tabs>
             <TabPanel value={value} index={0}>
                 <FormPalette />
@@ -105,6 +107,9 @@ export default function VerticalTabs(): JSX.Element {
             </TabPanel>
             <TabPanel value={value} index={8}>
                 <TablePalette />
+            </TabPanel>
+            <TabPanel value={value} index={9}>
+                <TabPalette />
             </TabPanel>
         </div>
     );
