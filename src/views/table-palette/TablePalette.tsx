@@ -77,63 +77,16 @@ const rows = [
     createData(13, 'Oreo', 437, 18.0, 63, 4.0),
 ];
 
-// -------------------------------------------
-export interface DataNew {
-    id: number;
-    last: string;
-    color: number;
-    age: number;
-}
-
-export const headCellsNew: HeadCell<DataNew>[] = [
-    {
-        id: 'last',
-        numeric: false,
-        disablePadding: true,
-        label: 'Last',
-    },
-    {
-        id: 'color',
-        numeric: true,
-        disablePadding: false,
-        label: 'Color',
-    },
-    {
-        id: 'age',
-        numeric: true,
-        disablePadding: false,
-        label: 'Age',
-    },
-];
-
-function createDataNew(
-    id: number,
-    last: string,
-    color: number,
-    age: number
-): DataNew {
-    return {
-        id,
-        last,
-        color,
-        age,
-    };
-}
-
-const rowsNew = [
-    createDataNew(1, 'Last 1', 305, 12),
-    createDataNew(2, 'Last 2', 452, 23),
-    createDataNew(3, 'Last 3', 262, 34),
-    createDataNew(4, 'Last 4', 159, 45),
-    createDataNew(5, 'Last 5', 356, 56),
-    createDataNew(6, 'Last 5', 408, 67),
-];
 export default function TablePalette(): JSX.Element {
     return (
-        <>
-            <TableCustom<Data> rows={rows} headCells={headCells} />
-
-            <TableCustom<DataNew> rows={rowsNew} headCells={headCellsNew} />
-        </>
+        <TableCustom<Data>
+            title={'Custom Table'}
+            rows={rows}
+            headCells={headCells}
+            deleteIcon={<>del</>}
+            filterIcon={<>flt</>}
+            deleteAction={() => console.log('delete items')}
+            filterAction={() => console.log('filter items')}
+        />
     );
 }
