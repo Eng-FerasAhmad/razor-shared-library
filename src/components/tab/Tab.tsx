@@ -1,0 +1,60 @@
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { SyntheticEvent, useState } from 'react';
+import { Template } from 'src/components/_template/Template';
+import TabPanel from 'src/components/tab/TabPanel';
+import { TabItem } from 'src/components/tab/types';
+
+interface Props {
+    tabItem: TabItem[];
+}
+
+function a11yProps(index: number): {
+    id: string;
+    'aria-controls': string;
+} {
+    return {
+        id: `tab-${index}`,
+        'aria-controls': `tabpanel-${index}`,
+    };
+}
+
+export function TabCustom({ tabItem }: Props): JSX.Element {
+    const [value, setValue] = useState(0);
+
+    const handleChange = (_event: SyntheticEvent, newValue: number): void => {
+        setValue(newValue);
+    };
+
+    return (
+        <Template>
+            <Box sx={{ width: '100%' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        aria-label="custom tabs"
+                    >
+                        {tabItem.map((item, index) => {
+                            return (
+                                <Tab
+                                    label={item.label}
+                                    {...a11yProps(index)}
+                                    key={index}
+                                />
+                            );
+                        })}
+                    </Tabs>
+                </Box>
+                {tabItem.map((item, index) => {
+                    return (
+                        <TabPanel value={value} index={index} key={index}>
+                            {item.content}
+                        </TabPanel>
+                    );
+                })}
+            </Box>
+        </Template>
+    );
+}

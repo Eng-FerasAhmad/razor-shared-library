@@ -21,6 +21,9 @@ export { Stepper } from './components/stepper/Stepper';
 export { Toast } from './components/toast/Toast';
 export { DrawerCustom as Drawer } from './components/drawer/Drawer';
 export { TableCustom as Table } from './components/table/Table';
+export { TabCustom as Tab } from './components/tab/Tab';
 
 /* Types */
 export type { DrawerListItems } from './components/drawer/types';
+export type { HeadCell } from './components/table/types';
+export type { TabItem } from './components/tab/types';
