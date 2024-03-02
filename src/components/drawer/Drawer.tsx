@@ -10,8 +10,8 @@ import { DrawerListItems } from './types';
 import { Template } from 'src/components/_template/Template';
 import AppToolbar from 'src/components/drawer/AppToolbar';
 import { color } from 'src/shared/color';
-import { fontSize } from 'src/shared/fonts';
 import { pixelToRem } from 'src/shared/common';
+import { fontSize } from 'src/shared/fonts';
 
 interface Props {
     header: ReactNode;
@@ -24,7 +24,6 @@ interface Props {
 }
 
 export function DrawerCustom({
-    header,
     headerIcon,
     closeDrawerIcon,
     drawerTitle,
@@ -37,11 +36,11 @@ export function DrawerCustom({
             <Box sx={{ display: 'flex', height: pixelToRem(64) }}>
                 <CssBaseline />
                 <AppToolbar
-                    header={header}
                     open={open}
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
                     data-testid="app-toolbar"
+                    drawerTitle={drawerTitle}
                 />
                 <Drawer
                     sx={{
