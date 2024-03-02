@@ -1,21 +1,19 @@
-import { Box } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import { ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
-import { fontSize } from 'src/shared/fonts';
 
 interface Props {
+    header: ReactNode;
     open: boolean;
     headerIcon?: ReactNode;
-    drawerTitle: ReactNode;
     appClickHandler: () => void;
 }
 
 export default function AppToolbar({
+    header,
     open,
     headerIcon,
-    drawerTitle,
     appClickHandler,
 }: Props): JSX.Element {
     return (
@@ -29,10 +27,8 @@ export default function AppToolbar({
                     sx={{ mr: 2, ...(open && { display: 'none' }) }}
                 >
                     {headerIcon}
-                    <Box sx={{ ml: 2, fontSize: fontSize.font20 }}>
-                        {drawerTitle}
-                    </Box>
                 </IconButton>
+                {header}
             </Toolbar>
         </DrawerAppBar>
     );
