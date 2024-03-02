@@ -11,12 +11,13 @@ import { Template } from 'src/components/_template/Template';
 import AppToolbar from 'src/components/drawer/AppToolbar';
 import { color } from 'src/shared/color';
 import { fontSize } from 'src/shared/fonts';
+import { pixelToRem } from 'src/shared/common';
 
 interface Props {
     header: ReactNode;
     headerIcon?: ReactNode;
     closeDrawerIcon?: ReactNode;
-    drawerTitle: string;
+    drawerTitle: ReactNode;
     listItems: DrawerListItems[];
     open: boolean;
     handleDrawerOpen: () => void;
@@ -33,13 +34,14 @@ export function DrawerCustom({
 }: Props): JSX.Element {
     return (
         <Template>
-            <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex', height: pixelToRem(64) }}>
                 <CssBaseline />
                 <AppToolbar
                     header={header}
                     open={open}
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
+                    data-testid="app-toolbar"
                 />
                 <Drawer
                     sx={{

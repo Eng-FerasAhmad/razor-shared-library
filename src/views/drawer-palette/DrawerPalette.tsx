@@ -32,12 +32,13 @@ export function DrawerPalette(): JSX.Element {
             <DrawerCustom
                 open={open}
                 header={<>title</>}
-                drawerTitle="Components"
+                drawerTitle={<>Admin Tools</>}
                 headerIcon={<>=</>}
                 closeDrawerIcon={<>{'<'}</>}
                 listItems={listItems}
                 handleDrawerOpen={handleDrawerOpen}
             />
+            <>value</>
         </Box>
     );
 }
