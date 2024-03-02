@@ -24,6 +24,7 @@ interface Props {
 }
 
 export function DrawerCustom({
+    header,
     headerIcon,
     closeDrawerIcon,
     drawerTitle,
@@ -40,7 +41,7 @@ export function DrawerCustom({
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
                     data-testid="app-toolbar"
-                    drawerTitle={drawerTitle}
+                    header={header}
                 />
                 <Drawer
                     sx={{
