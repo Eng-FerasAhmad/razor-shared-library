@@ -52,7 +52,9 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
     const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
             if (key === 'id') return;
+            // eslint-disable-next-line
             const isNumber = !isNaN(row[key]) || key === 'actions';
+            // eslint-disable-next-line
             return (
                 <TableCell
                     key={key}
