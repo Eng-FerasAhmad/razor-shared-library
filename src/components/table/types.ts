@@ -3,7 +3,7 @@ import { ChangeEvent } from 'react';
 export type Order = 'asc' | 'desc';
 
 export interface RowProps {
-    id: number;
+    rowId: number;
 }
 
 export interface EnhancedTableProps<T> {

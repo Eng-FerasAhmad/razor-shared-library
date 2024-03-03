@@ -2,13 +2,13 @@ import { ChangeEvent, MouseEvent, useState } from 'react';
 import { RowProps } from 'src/components/table/types';
 
 interface Props {
-    isSelected: (id: number) => boolean;
+    isSelected: (rowId: number) => boolean;
     emptyRows: number;
     selected: readonly number[];
     page: number;
     rowsPerPage: number;
     handleSelectAllClick: (event: ChangeEvent<HTMLInputElement>) => void;
-    handleClick: (_event: MouseEvent<unknown>, id: number) => void;
+    handleClick: (_event: MouseEvent<unknown>, rowId: number) => void;
     handleChangePage: (_event: unknown, newPage: number) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -22,19 +22,19 @@ export default function useTable<T extends RowProps>(rows: T[]): Props {
         event: ChangeEvent<HTMLInputElement>
     ): void => {
         if (event.target.checked) {
-            const newSelected = rows.map((n: T) => n.id);
+            const newSelected = rows.map((n: T) => n.rowId);
             setSelected(newSelected);
             return;
         }
         setSelected([]);
     };
 
-    const handleClick = (_event: MouseEvent<unknown>, id: number): void => {
-        const selectedIndex = selected.indexOf(id);
+    const handleClick = (_event: MouseEvent<unknown>, rowId: number): void => {
+        const selectedIndex = selected.indexOf(rowId);
         let newSelected: readonly number[] = [];
 
         if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, id);
+            newSelected = newSelected.concat(selected, rowId);
         } else if (selectedIndex === 0) {
             newSelected = newSelected.concat(selected.slice(1));
         } else if (selectedIndex === selected.length - 1) {
@@ -59,7 +59,8 @@ export default function useTable<T extends RowProps>(rows: T[]): Props {
         setPage(0);
     };
 
-    const isSelected = (id: number): boolean => selected.indexOf(id) !== -1;
+    const isSelected = (rowId: number): boolean =>
+        selected.indexOf(rowId) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
