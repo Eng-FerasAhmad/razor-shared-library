@@ -51,7 +51,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
-            if (key === 'id') return;
+            if (key === 'rowId') return;
             // eslint-disable-next-line
             const isNumber = !isNaN(row[key]) || key === 'actions';
             // eslint-disable-next-line
@@ -103,7 +103,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                             <TableBody>
                                 {visibleRows.map((row: T, index) => {
                                     const isItemSelected = isSelected(
-                                        row.id as number
+                                        row.rowId as number
                                     );
                                     const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -113,13 +113,13 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                                             onClick={(event) =>
                                                 handleClick(
                                                     event,
-                                                    row.id as number
+                                                    row.rowId as number
                                                 )
                                             }
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.id}
+                                            key={row.rowId}
                                             selected={isItemSelected}
                                             sx={{ cursor: 'pointer' }}
                                         >
