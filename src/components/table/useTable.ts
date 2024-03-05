@@ -8,9 +8,9 @@ interface Props {
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function useTable<T>(rows: T[]): Props {
+export default function useTable<T>(rows: T[], pageRows: number): Props {
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(pageRows);
 
     const handleChangePage = (_event: unknown, newPage: number): void => {
         setPage(newPage);

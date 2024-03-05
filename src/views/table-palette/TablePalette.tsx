@@ -112,6 +112,7 @@ export default function TablePalette(): JSX.Element {
             title={'Custom Table'}
             rows={rows}
             headCells={headCells}
+            pageRows={10}
         />
     );
 }

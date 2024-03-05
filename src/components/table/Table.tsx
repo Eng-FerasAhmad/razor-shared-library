@@ -20,6 +20,7 @@ interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     title: string;
+    pageRows: number;
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
@@ -29,7 +30,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         rowsPerPage,
         handleChangePage,
         handleChangeRowsPerPage,
-    } = useTable(props.rows);
+    } = useTable(props.rows, props.pageRows);
 
     const visibleRows = useMemo(
         () =>
