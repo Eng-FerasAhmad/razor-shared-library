@@ -21,6 +21,7 @@ interface Props<T> {
     headCells: HeadCell<T>[];
     title: string;
     pageRows: number;
+    onClickRow: (row: T) => void;
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
@@ -94,6 +95,9 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                     return (
                                         <TableRow
                                             role="checkbox"
+                                            onClick={() =>
+                                                props.onClickRow(row)
+                                            }
                                             tabIndex={-1}
                                             key={index}
                                             sx={{

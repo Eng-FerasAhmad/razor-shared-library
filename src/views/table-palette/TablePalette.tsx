@@ -83,12 +83,17 @@ const rows = [
 ];
 
 export default function TablePalette(): JSX.Element {
+    const clickHandler = (row: Data): void => {
+        console.log('row', row);
+    };
+
     return (
         <TableCustom<Data>
             title={'Custom Table'}
             rows={rows}
             headCells={headCells}
             pageRows={10}
+            onClickRow={clickHandler}
         />
     );
 }
