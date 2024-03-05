@@ -19,7 +19,12 @@ function a11yProps(index: number): {
     };
 }
 
-export function TabCustom({ tabItem,value, onChange, ...props }: Props & TabsProps): JSX.Element {
+export function TabCustom({
+    tabItem,
+    value,
+    onChange,
+    ...props
+}: Props & TabsProps): JSX.Element {
     return (
         <Template>
             <Box sx={{ width: '100%' }}>
