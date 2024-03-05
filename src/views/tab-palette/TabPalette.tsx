@@ -19,7 +19,7 @@ const tabItem: TabItem[] = [
 export default function TabPalette(): JSX.Element {
     const [value, setValue] = useState(0);
 
-    const handleClick = (_e: SyntheticEvent, val: number):void => {
+    const handleClick = (_e: SyntheticEvent, val: number): void => {
         setValue(val);
     };
 
