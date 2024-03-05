@@ -1,34 +1,29 @@
-import Checkbox from '@mui/material/Checkbox';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { EnhancedTableProps } from 'src/components/table/types';
+import { HeadCell } from 'src/components/table/types';
+import { pixelToRem } from 'src/shared/common';
+import { fontSize } from 'src/shared/fonts';
 
-export default function EnhancedTableHead<T>(
-    props: EnhancedTableProps<T>
-): JSX.Element {
-    const { onSelectAllClick, numSelected, rowCount, headCells } = props;
+export interface Props<T> {
+    headCells: HeadCell<T>[];
+}
+
+export default function EnhancedTableHead<T>({
+    headCells,
+}: Props<T>): JSX.Element {
     return (
         <TableHead>
             <TableRow>
-                <TableCell padding="checkbox">
-                    <Checkbox
-                        color="primary"
-                        indeterminate={
-                            numSelected > 0 && numSelected < rowCount
-                        }
-                        checked={rowCount > 0 && numSelected === rowCount}
-                        onChange={onSelectAllClick}
-                        inputProps={{
-                            'aria-label': 'select all desserts',
-                        }}
-                    />
-                </TableCell>
                 {headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}
                         align={headCell.numeric ? 'right' : 'left'}
-                        padding={headCell.disablePadding ? 'none' : 'normal'}
+                        padding={'normal'}
+                        sx={{
+                            fontWeight: 500,
+                            fontSize: pixelToRem(fontSize.font17),
+                        }}
                     >
                         {headCell.label}
                     </TableCell>

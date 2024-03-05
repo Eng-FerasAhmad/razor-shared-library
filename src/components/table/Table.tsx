@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,32 +11,26 @@ import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
 import { Template } from 'src/components/_template/Template';
-import { HeadCell, RowProps } from 'src/components/table/types';
+import { HeadCell } from 'src/components/table/types';
 import { stableSort } from 'src/components/table/utils';
+import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
 interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     title: string;
-    deleteIcon: ReactNode;
-    deleteAction: () => void;
-    filterIcon: ReactNode;
-    filterAction: () => void;
+    pageRows: number;
 }
 
-export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
+export function TableCustom<T>(props: Props<T>): JSX.Element {
     const {
-        isSelected,
         emptyRows,
-        selected,
         page,
         rowsPerPage,
-        handleSelectAllClick,
-        handleClick,
         handleChangePage,
         handleChangeRowsPerPage,
-    } = useTable(props.rows);
+    } = useTable(props.rows, props.pageRows);
 
     const visibleRows = useMemo(
         () =>
@@ -48,20 +41,28 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
         [page, rowsPerPage, props.rows]
     );
 
+    const createIgnoreCells = (): string[] => {
+        const ignoredRows: string[] = [];
+        props.headCells.forEach((cell) => {
+            ignoredRows.push(cell.id as string);
+        });
+
+        return ignoredRows;
+    };
+
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
-        return Object.keys(row).map((key: string) => {
-            if (key === 'rowId' || key === 'id') return;
-            // eslint-disable-next-line
-            const isNumber = !isNaN(row[key]) || key === 'actions';
-            // eslint-disable-next-line
+        return Object.keys(row).map((key: string): ReactNode => {
+            if (!createIgnoreCells().includes(key)) return undefined;
+            const isNumber =
+                !Number.isNaN(Number(row[key])) || key === 'actions';
             return (
                 <TableCell
                     key={key}
                     component="th"
                     id={`id-${key}`}
                     scope="row"
-                    padding={isNumber ? 'normal' : 'none'}
+                    sx={{ padding: pixelToRem(10, 16) }}
                     align={isNumber ? 'right' : 'left'}
                 >
                     {row[key]}
@@ -80,59 +81,29 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                         border: `${pixelToRem(1)} solid lightGray`,
                     }}
                 >
-                    <TableToolbar
-                        title={props.title}
-                        numSelected={selected.length}
-                        deleteIcon={props.deleteIcon}
-                        deleteAction={props.deleteAction}
-                        filterIcon={props.filterIcon}
-                        filterAction={props.filterAction}
-                    />
+                    <TableToolbar title={props.title} />
                     <TableContainer>
                         <Table
                             sx={{ minWidth: 750 }}
                             aria-labelledby="tableTitle"
                             size={'medium'}
                         >
-                            <TableHead
-                                numSelected={selected.length}
-                                onSelectAllClick={handleSelectAllClick}
-                                rowCount={props.rows.length}
-                                headCells={props.headCells}
-                            />
+                            <TableHead headCells={props.headCells} />
                             <TableBody>
                                 {visibleRows.map((row: T, index) => {
-                                    const isItemSelected = isSelected(
-                                        row.rowId as number
-                                    );
-                                    const labelId = `enhanced-table-checkbox-${index}`;
-
                                     return (
                                         <TableRow
-                                            hover
-                                            onClick={(event) =>
-                                                handleClick(
-                                                    event,
-                                                    row.rowId as number
-                                                )
-                                            }
                                             role="checkbox"
-                                            aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.rowId}
-                                            selected={isItemSelected}
-                                            sx={{ cursor: 'pointer' }}
+                                            key={index}
+                                            sx={{
+                                                cursor: 'pointer',
+                                                ':hover': {
+                                                    backgroundColor:
+                                                        color.hover,
+                                                },
+                                            }}
                                         >
-                                            <TableCell padding="checkbox">
-                                                <Checkbox
-                                                    color="primary"
-                                                    checked={isItemSelected}
-                                                    inputProps={{
-                                                        'aria-labelledby':
-                                                            labelId,
-                                                    }}
-                                                />
-                                            </TableCell>
                                             {buildCell(row)}
                                         </TableRow>
                                     );

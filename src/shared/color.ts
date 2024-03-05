@@ -2,6 +2,7 @@ export const color = {
     light: '#fff',
     dark: '#22272e',
     darkOpacity80: '#00000080',
+    hover: 'rgba(0, 150, 149, 0.08)',
 
     /* action colors: */
     disabled: '#cccccc',
