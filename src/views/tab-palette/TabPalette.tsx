@@ -19,11 +19,13 @@ const tabItem: TabItem[] = [
 export default function TabPalette(): JSX.Element {
     const [value, setValue] = useState(0);
 
-    const handleClick = (_e: SyntheticEvent,val: number)=> {
-        setValue(val)    
-    }
+    const handleClick = (_e: SyntheticEvent, val: number):void => {
+        setValue(val);
+    };
 
-    return (<>
-        <TabCustom tabItem={tabItem} value={value} onChange={handleClick}/>
-    </>);
+    return (
+        <>
+            <TabCustom tabItem={tabItem} value={value} onChange={handleClick} />
+        </>
+    );
 }
