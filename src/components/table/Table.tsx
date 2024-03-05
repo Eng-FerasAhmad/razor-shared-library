@@ -51,7 +51,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string) => {
-            if (key === 'rowId') return;
+            if (key === 'rowId' || key === 'id') return;
             // eslint-disable-next-line
             const isNumber = !isNaN(row[key]) || key === 'actions';
             // eslint-disable-next-line

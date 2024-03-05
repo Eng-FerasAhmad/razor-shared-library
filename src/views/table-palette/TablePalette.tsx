@@ -41,12 +41,6 @@ function createData(
 
 export const headCells: HeadCell<Data>[] = [
     {
-        id: 'id',
-        numeric: false,
-        disablePadding: true,
-        label: '',
-    },
-    {
         id: 'name',
         numeric: false,
         disablePadding: true,
