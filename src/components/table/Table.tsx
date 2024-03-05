@@ -54,7 +54,8 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
     const buildCell = (row: any): ReactNode => {
         return Object.keys(row).map((key: string): ReactNode => {
             if (!createIgnoreCells().includes(key)) return undefined;
-            const isNumber = !isNaN(row[key]) || key === 'actions';
+            const isNumber =
+                !Number.isNaN(Number(row[key])) || key === 'actions';
             return (
                 <TableCell
                     key={key}
