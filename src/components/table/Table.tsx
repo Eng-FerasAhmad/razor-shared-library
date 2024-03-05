@@ -7,14 +7,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { ReactNode, useMemo } from 'react';
-import { Template } from 'src/components/_template/Template';
-import { HeadCell } from 'src/components/table/types';
-import { stableSort } from 'src/components/table/utils';
-import { pixelToRem } from 'src/shared/common';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
+import { Template } from 'src/components/_template/Template';
+import { HeadCell } from 'src/components/table/types';
+import { stableSort } from 'src/components/table/utils';
 import { color } from 'src/shared/color';
+import { pixelToRem } from 'src/shared/common';
 
 interface Props<T> {
     rows: T[];
@@ -41,20 +41,27 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         [page, rowsPerPage, props.rows]
     );
 
+    const createIgnoreCells = (): string[] => {
+        const ignoredRows: string[] = [];
+        props.headCells.forEach((cell) => {
+            ignoredRows.push(cell.id as string);
+        });
+
+        return ignoredRows;
+    };
+
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
-        return Object.keys(row).map((key: string) => {
-            if (key === 'rowId' || key === 'id') return;
-            // eslint-disable-next-line
+        return Object.keys(row).map((key: string): ReactNode => {
+            if (!createIgnoreCells().includes(key)) return undefined;
             const isNumber = !isNaN(row[key]) || key === 'actions';
-            // eslint-disable-next-line
             return (
                 <TableCell
                     key={key}
                     component="th"
                     id={`id-${key}`}
                     scope="row"
-                    sx={{padding: pixelToRem(10, 16)}}
+                    sx={{ padding: pixelToRem(10, 16) }}
                     align={isNumber ? 'right' : 'left'}
                 >
                     {row[key]}
@@ -73,30 +80,27 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                         border: `${pixelToRem(1)} solid lightGray`,
                     }}
                 >
-                    <TableToolbar
-                        title={props.title}
-                    />
+                    <TableToolbar title={props.title} />
                     <TableContainer>
                         <Table
                             sx={{ minWidth: 750 }}
                             aria-labelledby="tableTitle"
                             size={'medium'}
                         >
-                            <TableHead
-                                headCells={props.headCells}
-                            />
+                            <TableHead headCells={props.headCells} />
                             <TableBody>
                                 {visibleRows.map((row: T, index) => {
                                     return (
                                         <TableRow
-                                            
                                             role="checkbox"
                                             tabIndex={-1}
                                             key={index}
                                             sx={{
-                                                cursor: 'pointer', ":hover": {
-                                                    backgroundColor: color.hover
-                                            }
+                                                cursor: 'pointer',
+                                                ':hover': {
+                                                    backgroundColor:
+                                                        color.hover,
+                                                },
                                             }}
                                         >
                                             {buildCell(row)}
