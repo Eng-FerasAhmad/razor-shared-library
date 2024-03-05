@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,33 +7,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { ReactNode, useMemo } from 'react';
+import { Template } from 'src/components/_template/Template';
+import { HeadCell } from 'src/components/table/types';
+import { stableSort } from 'src/components/table/utils';
+import { pixelToRem } from 'src/shared/common';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
-import { Template } from 'src/components/_template/Template';
-import { HeadCell, RowProps } from 'src/components/table/types';
-import { stableSort } from 'src/components/table/utils';
-import { pixelToRem } from 'src/shared/common';
+import { color } from 'src/shared/color';
 
 interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     title: string;
-    deleteIcon: ReactNode;
-    deleteAction: () => void;
-    filterIcon: ReactNode;
-    filterAction: () => void;
 }
 
-export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
+export function TableCustom<T>(props: Props<T>): JSX.Element {
     const {
-        isSelected,
         emptyRows,
-        selected,
         page,
         rowsPerPage,
-        handleSelectAllClick,
-        handleClick,
         handleChangePage,
         handleChangeRowsPerPage,
     } = useTable(props.rows);
@@ -61,7 +53,7 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                     component="th"
                     id={`id-${key}`}
                     scope="row"
-                    padding={isNumber ? 'normal' : 'none'}
+                    sx={{padding: pixelToRem(10, 16)}}
                     align={isNumber ? 'right' : 'left'}
                 >
                     {row[key]}
@@ -82,11 +74,6 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                 >
                     <TableToolbar
                         title={props.title}
-                        numSelected={selected.length}
-                        deleteIcon={props.deleteIcon}
-                        deleteAction={props.deleteAction}
-                        filterIcon={props.filterIcon}
-                        filterAction={props.filterAction}
                     />
                     <TableContainer>
                         <Table
@@ -95,44 +82,22 @@ export function TableCustom<T extends RowProps>(props: Props<T>): JSX.Element {
                             size={'medium'}
                         >
                             <TableHead
-                                numSelected={selected.length}
-                                onSelectAllClick={handleSelectAllClick}
-                                rowCount={props.rows.length}
                                 headCells={props.headCells}
                             />
                             <TableBody>
                                 {visibleRows.map((row: T, index) => {
-                                    const isItemSelected = isSelected(
-                                        row.rowId as number
-                                    );
-                                    const labelId = `enhanced-table-checkbox-${index}`;
-
                                     return (
                                         <TableRow
-                                            hover
-                                            onClick={(event) =>
-                                                handleClick(
-                                                    event,
-                                                    row.rowId as number
-                                                )
-                                            }
+                                            
                                             role="checkbox"
-                                            aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.rowId}
-                                            selected={isItemSelected}
-                                            sx={{ cursor: 'pointer' }}
+                                            key={index}
+                                            sx={{
+                                                cursor: 'pointer', ":hover": {
+                                                    backgroundColor: color.hover
+                                            }
+                                            }}
                                         >
-                                            <TableCell padding="checkbox">
-                                                <Checkbox
-                                                    color="primary"
-                                                    checked={isItemSelected}
-                                                    inputProps={{
-                                                        'aria-labelledby':
-                                                            labelId,
-                                                    }}
-                                                />
-                                            </TableCell>
                                             {buildCell(row)}
                                         </TableRow>
                                     );
