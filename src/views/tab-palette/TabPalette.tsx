@@ -1,3 +1,4 @@
+import { SyntheticEvent, useState } from 'react';
 import { TabCustom } from 'src/components/tab/Tab';
 import { TabItem } from 'src/components/tab/types';
 
@@ -16,5 +17,13 @@ const tabItem: TabItem[] = [
     },
 ];
 export default function TabPalette(): JSX.Element {
-    return <TabCustom tabItem={tabItem} />;
+    const [value, setValue] = useState(0);
+
+    const handleClick = (_e: SyntheticEvent,val: number)=> {
+        setValue(val)    
+    }
+
+    return (<>
+        <TabCustom tabItem={tabItem} value={value} onChange={handleClick}/>
+    </>);
 }

@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import { SyntheticEvent, useState } from 'react';
+import Tabs, { TabsProps } from '@mui/material/Tabs';
 import { Template } from 'src/components/_template/Template';
 import TabPanel from 'src/components/tab/TabPanel';
 import { TabItem } from 'src/components/tab/types';
@@ -20,21 +19,16 @@ function a11yProps(index: number): {
     };
 }
 
-export function TabCustom({ tabItem }: Props): JSX.Element {
-    const [value, setValue] = useState(0);
-
-    const handleChange = (_event: SyntheticEvent, newValue: number): void => {
-        setValue(newValue);
-    };
-
+export function TabCustom({ tabItem,value, onChange, ...props }: Props & TabsProps): JSX.Element {
     return (
         <Template>
             <Box sx={{ width: '100%' }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs
                         value={value}
-                        onChange={handleChange}
+                        onChange={onChange}
                         aria-label="custom tabs"
+                        {...props}
                     >
                         {tabItem.map((item, index) => {
                             return (
