@@ -83,7 +83,7 @@ const rows = [
 ];
 
 export default function TablePalette(): JSX.Element {
-    const clickHandler = (row: Data, index:number): void => {
+    const clickHandler = (row: Data, index: number): void => {
         console.log('row', row, index);
     };
 

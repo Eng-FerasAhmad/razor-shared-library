@@ -26,7 +26,9 @@ interface Props<T> {
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
-    const [selectedIndex, setSelectedIndex] = useState<number>(props.selectedRow);
+    const [selectedIndex, setSelectedIndex] = useState<number>(
+        props.selectedRow
+    );
 
     const {
         emptyRows,
