@@ -21,11 +21,14 @@ interface Props<T> {
     headCells: HeadCell<T>[];
     title: string;
     pageRows: number;
-    onClickRow: (row: T) => void;
+    selectedRow: number;
+    onClickRow: (row: T, selected: number) => void;
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
-    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+    const [selectedIndex, setSelectedIndex] = useState<number>(
+        props.selectedRow
+    );
 
     const {
         emptyRows,
@@ -36,7 +39,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
     } = useTable(props.rows, props.pageRows);
 
     const handleDlClick = (row: T, index: number): void => {
-        props.onClickRow(row);
+        props.onClickRow(row, index);
         setSelectedIndex(index);
     };
 
@@ -70,7 +73,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                     component="th"
                     id={`id-${key}`}
                     scope="row"
-                    sx={{ padding: pixelToRem(10, 16) }}
+                    sx={{ padding: pixelToRem(16) }}
                     align={isNumber ? 'right' : 'left'}
                 >
                     {row[key]}

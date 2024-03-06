@@ -83,8 +83,8 @@ const rows = [
 ];
 
 export default function TablePalette(): JSX.Element {
-    const clickHandler = (row: Data): void => {
-        console.log('row', row);
+    const clickHandler = (row: Data, index: number): void => {
+        console.log('row', row, index);
     };
 
     return (
@@ -94,6 +94,7 @@ export default function TablePalette(): JSX.Element {
             headCells={headCells}
             pageRows={10}
             onClickRow={clickHandler}
+            selectedRow={-1}
         />
     );
 }
