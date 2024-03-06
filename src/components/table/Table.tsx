@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import useTable from './useTable';
@@ -25,6 +25,8 @@ interface Props<T> {
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
+    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+
     const {
         emptyRows,
         page,
@@ -32,6 +34,11 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         handleChangePage,
         handleChangeRowsPerPage,
     } = useTable(props.rows, props.pageRows);
+
+    const handleDlClick = (row: T, index: number): void => {
+        props.onClickRow(row);
+        setSelectedIndex(index);
+    };
 
     const visibleRows = useMemo(
         () =>
@@ -95,12 +102,20 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                     return (
                                         <TableRow
                                             role="checkbox"
-                                            onClick={() =>
-                                                props.onClickRow(row)
+                                            onDoubleClick={() =>
+                                                handleDlClick(row, index)
                                             }
                                             tabIndex={-1}
                                             key={index}
                                             sx={{
+                                                borderLeft:
+                                                    selectedIndex === index
+                                                        ? `2px solid ${color.primary.main}`
+                                                        : '',
+                                                backgroundColor:
+                                                    selectedIndex === index
+                                                        ? color.hover
+                                                        : '',
                                                 cursor: 'pointer',
                                                 ':hover': {
                                                     backgroundColor:
