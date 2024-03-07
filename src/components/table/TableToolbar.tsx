@@ -1,11 +1,12 @@
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { ReactNode } from 'react';
 
 interface Props {
-    title: string;
+    headerTools: ReactNode;
 }
 
-export default function TableToolbar({ title }: Props): JSX.Element {
+export default function TableToolbar({ headerTools }: Props): JSX.Element {
     return (
         <Toolbar
             sx={{
@@ -18,7 +19,7 @@ export default function TableToolbar({ title }: Props): JSX.Element {
                 id="tableTitle"
                 component="div"
             >
-                {title}
+                {headerTools}
             </Typography>
         </Toolbar>
     );
