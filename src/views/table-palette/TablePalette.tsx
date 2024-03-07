@@ -1,5 +1,7 @@
 import { Box } from '@mui/material';
 import { ReactNode } from 'react';
+import { FloatButton } from 'src/components/form/float-button/FloatButton';
+import { InputText } from 'src/components/form/input-text/InputText';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell } from 'src/components/table/types';
 
@@ -89,7 +91,13 @@ export default function TablePalette(): JSX.Element {
 
     return (
         <TableCustom<Data>
-            title={'Custom Table'}
+            headerTools={
+                <>
+                    <>Title</>
+                    <InputText size="small" label="Search" type="search" />
+                    <FloatButton size="medium" color="primary" icon={<>+</>} />
+                </>
+            }
             rows={rows}
             headCells={headCells}
             pageRows={10}

@@ -19,7 +19,7 @@ import { pixelToRem } from 'src/shared/common';
 interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
-    title: string;
+    headerTools: ReactNode;
     pageRows: number;
     selectedRow: number;
     onClickRow: (row: T, selected: number) => void;
@@ -92,7 +92,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                         border: `${pixelToRem(1)} solid lightGray`,
                     }}
                 >
-                    <TableToolbar title={props.title} />
+                    <TableToolbar headerTools={props.headerTools} />
                     <TableContainer>
                         <Table
                             sx={{ minWidth: 750 }}
