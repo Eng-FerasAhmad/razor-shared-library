@@ -14,12 +14,13 @@ export default function EnhancedTableHead<T>({
 }: Props<T>): JSX.Element {
     return (
         <TableHead>
-            <TableRow>
+            <TableRow
+                sx={{ backgroundColor: `#ffe3c7`, padding: pixelToRem(10, 16) }}
+            >
                 {headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}
                         align={headCell.numeric ? 'right' : 'left'}
-                        padding={'normal'}
                         sx={{
                             fontWeight: 500,
                             fontSize: pixelToRem(fontSize.font17),
