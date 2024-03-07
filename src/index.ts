@@ -22,6 +22,7 @@ export { Toast } from './components/toast/Toast';
 export { DrawerCustom as Drawer } from './components/drawer/Drawer';
 export { TableCustom as Table } from './components/table/Table';
 export { TabCustom as Tab } from './components/tab/Tab';
+export { FloatButton } from './components/form/float-button/FloatButton';
 
 /* Types */
 export type { DrawerListItems } from './components/drawer/types';
