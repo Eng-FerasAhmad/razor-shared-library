@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import { ReactNode } from 'react';
 import { pixelToRem } from 'src/shared/common';
@@ -14,7 +15,14 @@ export default function TableToolbar({ headerTools }: Props): JSX.Element {
                 borderBottom: `${pixelToRem(1)} solid lightGray`,
             }}
         >
-            {headerTools}
+            <Typography
+                sx={{ flex: '1 1 100%' }}
+                variant="h6"
+                id="tableTools"
+                component="div"
+            >
+                {headerTools}
+            </Typography>
         </Toolbar>
     );
 }
