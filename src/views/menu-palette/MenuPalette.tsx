@@ -1,7 +1,9 @@
 import { Box } from '@mui/material';
 import { useState } from 'react';
+import { AlertCustom } from 'src/components/alert/Alert';
 import { ButtonCustom } from 'src/components/form/button/Button';
 import { MenuCustom } from 'src/components/menu/Menu';
+import { PaperCustom } from 'src/components/paper/Paper';
 
 export function MenuPalette(): JSX.Element {
     const [selected, setSelected] = useState<string>('');
@@ -30,6 +32,21 @@ export function MenuPalette(): JSX.Element {
                 selected={selected}
                 anchor={<ButtonCustom label="Click" variant="contained" />}
             />
+            <AlertCustom color="info" variant="standard" text="Alert Text" />
+
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    '& > :not(style)': {
+                        m: 1,
+                        width: 128,
+                        height: 128,
+                    },
+                }}
+            >
+                <PaperCustom elevation={3}>content</PaperCustom>
+            </Box>
         </Box>
     );
 }
