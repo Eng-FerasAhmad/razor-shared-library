@@ -1,13 +1,13 @@
 import { Box } from '@mui/material';
 import { useState } from 'react';
-import {Loading} from 'src/components/loading/Loading';
+import { Loading } from 'src/components/loading/Loading';
 import { Button, Dialog } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
 export function DialogPalette(): JSX.Element {
     const [open, setOpen] = useState(false);
     const [openLoading, setOpenLoading] = useState(false);
-    
+
     const handleClickOpen = (): void => {
         setOpen(true);
     };
@@ -18,7 +18,7 @@ export function DialogPalette(): JSX.Element {
 
     const handleClose = (): void => {
         setOpen(false);
-        setOpenLoading(false)
+        setOpenLoading(false);
     };
 
     return (

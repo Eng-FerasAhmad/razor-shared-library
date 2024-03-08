@@ -1,7 +1,5 @@
 import { Box } from '@mui/material';
 import { ReactNode } from 'react';
-import { FloatButton } from 'src/components/form/float-button/FloatButton';
-import { InputText } from 'src/components/form/input-text/InputText';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell } from 'src/components/table/types';
 

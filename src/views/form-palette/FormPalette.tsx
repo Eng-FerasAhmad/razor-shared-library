@@ -1,11 +1,15 @@
 import { Box, SelectChangeEvent } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { Button, Checkbox, InputSelect, InputText } from 'src/index';
+import { RatingCustom } from 'src/components/form/rating/Rating';
+import { SearchCustom } from 'src/components/form/search/Search';
+import { SwitchCustom } from 'src/components/form/switch/Switch';
+import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
 export default function FormPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
     const [selectInput, setSelectInput] = useState<string>('');
+    const [rating, setRating] = useState<number | null>(2);
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -15,6 +19,12 @@ export default function FormPalette(): JSX.Element {
 
     const handleChangeSelect = (event: SelectChangeEvent): void => {
         setSelectInput(event.target.value);
+    };
+
+    const handleChangeSwitch = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        console.log(event.target.checked);
     };
 
     return (
@@ -50,6 +60,40 @@ export default function FormPalette(): JSX.Element {
                     label="Choose Shop"
                     value={selectInput}
                     handleChange={handleChangeSelect}
+                />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <SwitchCustom
+                    label="Switch"
+                    labelPlacement="start"
+                    color="primary"
+                    onChange={handleChangeSwitch}
+                />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <Textarea
+                    label="Textarea"
+                    value={valueInput}
+                    size="small"
+                    onChange={(e) => changeHandler(e)}
+                    rows={10}
+                />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <SearchCustom icon={<>i</>} placeholder="Search" size="small" />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <RatingCustom
+                    label="Rating"
+                    value={rating}
+                    onChange={(_e, newValue) => {
+                        setRating(newValue);
+                        console.log(newValue);
+                    }}
                 />
             </Box>
         </Box>
