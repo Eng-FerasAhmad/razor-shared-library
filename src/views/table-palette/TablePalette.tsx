@@ -94,8 +94,6 @@ export default function TablePalette(): JSX.Element {
             headerTools={
                 <>
                     <>Title</>
-                    <InputText size="small" label="Search" type="search" />
-                    <FloatButton size="medium" color="primary" icon={<>+</>} />
                 </>
             }
             rows={rows}

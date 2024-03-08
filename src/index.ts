@@ -25,6 +25,7 @@ export { TabCustom as Tab } from './components/tab/Tab';
 export { TableCustom as Table } from './components/table/Table';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
+export { Loading } from './components/loading/Loading';
 
 /* Types */
 export type { DrawerListItems } from './components/drawer/types';
