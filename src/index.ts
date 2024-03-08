@@ -32,4 +32,3 @@ export { Toast } from './components/toast/Toast';
 export type { DrawerListItems } from './components/drawer/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
-

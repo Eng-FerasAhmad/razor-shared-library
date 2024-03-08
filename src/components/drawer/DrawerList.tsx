@@ -12,8 +12,8 @@ interface Props {
 export default function DrawerList({ listItems }: Props): JSX.Element {
     return (
         <List>
-            {listItems.map((item) => (
-                <ListItem key={item.text} disablePadding>
+            {listItems.map((item, index) => (
+                <ListItem key={index} disablePadding>
                     <ListItemButton onClick={item.clickHandler}>
                         <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.text} />
