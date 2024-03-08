@@ -14,7 +14,7 @@ export default function EnhancedTableHead<T>({
 }: Props<T>): JSX.Element {
     return (
         <TableHead>
-            <TableRow sx={{ color: `#008592` }}>
+            <TableRow sx={{ color: `#00a894` }}>
                 {headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}
@@ -22,7 +22,7 @@ export default function EnhancedTableHead<T>({
                         sx={{
                             fontSize: pixelToRem(fontSize.font17),
                             padding: pixelToRem(10, 16),
-                            color: `#008592`,
+                            color: `#009695`,
                         }}
                     >
                         {headCell.label}

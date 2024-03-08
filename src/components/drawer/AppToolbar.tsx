@@ -1,7 +1,9 @@
+import { Box } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import { ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
+import { fontSize } from 'src/shared/fonts';
 
 interface Props {
     header: ReactNode;
@@ -28,6 +30,15 @@ export default function AppToolbar({
                 >
                     {headerIcon}
                 </IconButton>
+                <Box
+                    sx={{
+                        fontSize: fontSize.font18,
+                        mr: 2,
+                        ...(open && { display: 'none' }),
+                    }}
+                >
+                    Razor Admin
+                </Box>
                 {header}
             </Toolbar>
         </DrawerAppBar>

@@ -16,10 +16,10 @@ export function SearchCustom({
             variant="outlined"
             component="form"
             sx={{
-                p: '2px 4px',
+                p: '4px 2px 0px 0px',
                 display: 'flex',
                 alignItems: 'center',
-                width: 400,
+                height: 40,
             }}
         >
             <InputBase
