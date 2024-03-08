@@ -8,15 +8,13 @@ export function DrawerPalette(): JSX.Element {
 
     const listItems: DrawerListItems[] = [
         {
-            text: 'Mail',
-            icon: <>ico</>,
+            icon: <>Item 1</>,
             clickHandler: () => {
                 console.log('Im Mail');
             },
         },
         {
-            text: 'Address',
-            icon: <>ico</>,
+            icon: <>Item 2</>,
             clickHandler: () => {
                 console.log('Im Address');
             },
