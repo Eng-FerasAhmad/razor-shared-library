@@ -28,6 +28,7 @@ export function DrawerPalette(): JSX.Element {
     return (
         <Box>
             <DrawerCustom
+                appTitle="Razor Admin"
                 open={open}
                 header={<>title</>}
                 drawerTitle={<>Admin Tools</>}

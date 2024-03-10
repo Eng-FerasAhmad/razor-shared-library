@@ -5,15 +5,16 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import { ReactNode } from 'react';
 import DrawerList from './DrawerList';
+import DrawerToolbar from './DrawerToolbar';
 import { DrawerHeader, MainDrawer, drawerWidth } from './styles';
 import { DrawerListItems } from './types';
 import { Template } from 'src/components/_template/Template';
-import AppToolbar from 'src/components/drawer/AppToolbar';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
 
 interface Props {
+    appTitle: string;
     header: ReactNode;
     headerIcon?: ReactNode;
     closeDrawerIcon?: ReactNode;
@@ -24,6 +25,7 @@ interface Props {
 }
 
 export function DrawerCustom({
+    appTitle,
     header,
     headerIcon,
     closeDrawerIcon,
@@ -36,7 +38,8 @@ export function DrawerCustom({
         <Template>
             <Box sx={{ display: 'flex', height: pixelToRem(64) }}>
                 <CssBaseline />
-                <AppToolbar
+                <DrawerToolbar
+                    appTitle={appTitle}
                     open={open}
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
