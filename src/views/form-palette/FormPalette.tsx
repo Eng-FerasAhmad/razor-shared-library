@@ -1,15 +1,33 @@
 import { Box, SelectChangeEvent } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
+import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
+import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 import { RatingCustom } from 'src/components/form/rating/Rating';
 import { SearchCustom } from 'src/components/form/search/Search';
 import { SwitchCustom } from 'src/components/form/switch/Switch';
 import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
+const autoOptions: AutoCompleteOptions[] = [
+    {
+        label: 'Name',
+        value: 'name',
+        icon: <>i</>,
+    },
+    {
+        label: 'Age',
+        value: 10,
+        icon: <>i</>,
+    },
+];
+
 export default function FormPalette(): JSX.Element {
     const [valueInput, setValueInput] = useState<string>('');
     const [selectInput, setSelectInput] = useState<string>('');
     const [rating, setRating] = useState<number | null>(2);
+    const [autoValue, setAutoValue] = useState<AutoCompleteOptions | null>(
+        null
+    );
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -25,6 +43,13 @@ export default function FormPalette(): JSX.Element {
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
         console.log(event.target.checked);
+    };
+
+    const handleChangeAutoComplete = (
+        newValue: AutoCompleteOptions | null
+    ): void => {
+        setAutoValue(newValue);
+        console.log('auto value', newValue);
     };
 
     return (
@@ -94,6 +119,15 @@ export default function FormPalette(): JSX.Element {
                         setRating(newValue);
                         console.log(newValue);
                     }}
+                />
+            </Box>
+
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <AutoCompleteCustom
+                    label="User"
+                    options={autoOptions}
+                    value={autoValue}
+                    onChange={handleChangeAutoComplete}
                 />
             </Box>
         </Box>
