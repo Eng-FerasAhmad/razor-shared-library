@@ -1,5 +1,6 @@
 /* components */
 export { AlertCustom as Alert } from './components/alert/Alert';
+export { AutoCompleteCustom as AutoComplete } from './components/auto-complete/AutoComplete';
 export { CardCustom as Card } from './components/card/Card';
 export { Carousel } from './components/carousel/Carousel';
 export { CategoryCard } from './components/category-card/CategoryCard';
@@ -17,6 +18,7 @@ export { RatingCustom as Rating } from './components/form/rating/Rating';
 export { SearchCustom as Search } from './components/form/search/Search';
 export { SwitchCustom as Switch } from './components/form/switch/Switch';
 export { Textarea } from './components/form/textarea/Textarea';
+export { IconSelector } from './components/icon-selector/IconSelector';
 export { Loading } from './components/loading/Loading';
 export { MenuCustom as Menu } from './components/menu/Menu';
 export { PaperCustom as Paper } from './components/paper/Paper';
@@ -27,10 +29,10 @@ export { TabCustom as Tab } from './components/tab/Tab';
 export { TableCustom as Table } from './components/table/Table';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
-export { AutoCompleteCustom as AutoComplete } from './components/auto-complete/AutoComplete';
 
 /* Types */
+export type { AutoCompleteOptions } from './components/auto-complete/types';
 export type { DrawerListItems } from './components/drawer/types';
+export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
-export type { AutoCompleteOptions } from './components/auto-complete/types';

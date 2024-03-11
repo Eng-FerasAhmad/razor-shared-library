@@ -1,17 +1,17 @@
 import { Box, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
-import { AutoCompleteOptions } from 'src/components/auto-complete/types';
+import { ReactNode, useState } from 'react';
+import { IconOptions } from 'src/components/icon-selector/types';
 
 interface Props {
-    options: AutoCompleteOptions[];
+    options: IconOptions[];
     label: string;
-    value: AutoCompleteOptions | null;
-    onChange: (selected: AutoCompleteOptions | null) => void;
+    value: IconOptions | null;
+    onChange: (selected: IconOptions | null) => void;
 }
 
-export function AutoCompleteCustom({
+export function IconSelector({
     options,
     label,
     value,
@@ -22,7 +22,7 @@ export function AutoCompleteCustom({
     const changeHandler = (
         // eslint-disable-next-line
         _e: any,
-        newValue: AutoCompleteOptions | null
+        newValue: IconOptions | null
     ): void => {
         onChange(newValue);
     };
@@ -41,16 +41,23 @@ export function AutoCompleteCustom({
             }}
             isOptionEqualToValue={(option, val) => option.value === val.value}
             renderInput={(params) => <TextField {...params} label={label} />}
-            renderOption={(props, option) => (
-                <Box
-                    component="li"
-                    sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                    {...props}
-                >
-                    {option.icon}
-                    <Typography sx={{ ml: 2 }}>{option.label}</Typography>
-                </Box>
-            )}
+            renderOption={(props, option) => {
+                const hasIcon = option.icon;
+                const icon: ReactNode = option.icon && option.icon({});
+
+                return (
+                    <Box
+                        component="li"
+                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                        {...props}
+                    >
+                        {icon}
+                        <Typography sx={{ ml: hasIcon ? 2 : 0 }}>
+                            {option.label}
+                        </Typography>
+                    </Box>
+                );
+            }}
         />
     );
 }
