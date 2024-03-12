@@ -13,12 +13,13 @@ npm install razor-shared-library
 -   React
 -   Vite
 -   Typescript
--   Styled-components
+-   Material UI
 -   Jest
--   Testing Library
 -   Eslint
 
 ## Components
+
+We are using Material UI, with some custom styling to pass our style system.
 
 The library still in development phase, so any new components and feature of this components will be added as soon as it is ready:
 
@@ -29,7 +30,7 @@ import { Card } from 'razor-shared-library';
 
 export default function Example() {
     return (
-        <Card cursor={true} hoverColor="red">
+        <Card>
             <div>card content</div>
         </Card>
     );
@@ -43,22 +44,13 @@ import { Button } from 'razor-shared-library';
 
 export default function Example() {
     return (
-        <Button label="Submit" variant="contained" color="primary" size="md" />
+        <Button
+            label="Submit"
+            variant="contained"
+            color="primary"
+            size="medium"
+        />
     );
-}
-```
-
-### Input Text
-
-```tsx
-import { Button } from 'razor-shared-library';
-
-export default function Example() {
-    const handleChange = (value: string): void => {
-        console.log(value);
-    };
-
-    return <InputText label="Name" value="value" handleChange={handleChange} />;
 }
 ```
 

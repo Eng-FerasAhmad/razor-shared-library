@@ -2,6 +2,7 @@ import { Box, SelectChangeEvent } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
 import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
+import { RadioGroupCustom } from 'src/components/form/radio-group/RadioGroup';
 import { RatingCustom } from 'src/components/form/rating/Rating';
 import { SearchCustom } from 'src/components/form/search/Search';
 import { SwitchCustom } from 'src/components/form/switch/Switch';
@@ -28,6 +29,7 @@ export default function FormPalette(): JSX.Element {
     const [autoValue, setAutoValue] = useState<AutoCompleteOptions | null>(
         null
     );
+    const [radioValue, setRadioValue] = useState<string>('');
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -50,6 +52,11 @@ export default function FormPalette(): JSX.Element {
     ): void => {
         setAutoValue(newValue);
         console.log('auto value', newValue);
+    };
+
+    const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRadioValue(event.target.value);
+        console.log(event.target.value);
     };
 
     return (
@@ -128,6 +135,17 @@ export default function FormPalette(): JSX.Element {
                     options={autoOptions}
                     value={autoValue}
                     onChange={handleChangeAutoComplete}
+                />
+            </Box>
+            <Box sx={{ marginTop: 2, width: '300px' }}>
+                <RadioGroupCustom
+                    label="Radio"
+                    radioItems={[
+                        { label: 'True', value: 'true' },
+                        { label: 'False', value: 'false' },
+                    ]}
+                    defaultValue="true"
+                    onChange={handleChangeRadio}
                 />
             </Box>
         </Box>
