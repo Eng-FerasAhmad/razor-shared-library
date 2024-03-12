@@ -29,8 +29,8 @@ export { TabCustom as Tab } from './components/tab/Tab';
 export { TableCustom as Table } from './components/table/Table';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
-export  {RadioGroupCustom as RadioGroup} from 'src/components/form/radio-group/RadioGroup';
-export  {FormCreator} from 'src/components/form-creator/FormCreator';
+export { RadioGroupCustom as RadioGroup } from 'src/components/form/radio-group/RadioGroup';
+export { FormCreator } from 'src/components/form-creator/FormCreator';
 
 /* Types */
 export type { AutoCompleteOptions } from './components/auto-complete/types';
@@ -38,6 +38,6 @@ export type { DrawerListItems } from './components/drawer/types';
 export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
-export type { SelectItems } from 'src/components/form/input-select/types'
+export type { SelectItems } from 'src/components/form/input-select/types';
 export type { FormDataSet } from 'src/components/form-creator/types';
-export type  {RadioItems} from 'src/components/form/radio-group/types';
+export type { RadioItems } from 'src/components/form/radio-group/types';

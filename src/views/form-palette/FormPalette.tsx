@@ -56,9 +56,9 @@ export default function FormPalette(): JSX.Element {
 
     const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue(event.target.value);
-        console.log(event.target.value)
+        console.log(event.target.value);
     };
-    
+
     return (
         <Box sx={{ fontFamily: fonts.primary }} data-testid="button-palette">
             <Box sx={{ width: 200 }}>
@@ -140,8 +140,11 @@ export default function FormPalette(): JSX.Element {
             <Box sx={{ marginTop: 2, width: '300px' }}>
                 <RadioGroupCustom
                     label="Radio"
-                    radioItems={[{label: 'True', value: 'true'}, {label: 'False', value: 'false'}]}
-                    defaultValue='true'
+                    radioItems={[
+                        { label: 'True', value: 'true' },
+                        { label: 'False', value: 'false' },
+                    ]}
+                    defaultValue="true"
                     onChange={handleChangeRadio}
                 />
             </Box>
