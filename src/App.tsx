@@ -6,6 +6,7 @@ import { CardPalette } from './views/card-palette/CardPalette';
 import { DateTimePalette } from './views/date-time-palette/DateTimePalette';
 import { DialogPalette } from './views/dialog-palette/DialogPalette';
 import { DrawerPalette } from './views/drawer-palette/DrawerPalette';
+import FormGenericPalette from './views/form-generic-palette/FormGenericPalette';
 import FormPalette from './views/form-palette/FormPalette';
 import { MenuPalette } from './views/menu-palette/MenuPalette';
 import TabPalette from './views/tab-palette/TabPalette';
@@ -80,6 +81,7 @@ export default function VerticalTabs(): JSX.Element {
                 <Tab label="Drawer" {...a11yProps(7)} />
                 <Tab label="Table" {...a11yProps(8)} />
                 <Tab label="Tab" {...a11yProps(9)} />
+                <Tab label="Form creator" {...a11yProps(10)} />
             </Tabs>
             <TabPanel value={value} index={0}>
                 <FormPalette />
@@ -110,6 +112,9 @@ export default function VerticalTabs(): JSX.Element {
             </TabPanel>
             <TabPanel value={value} index={9}>
                 <TabPalette />
+            </TabPanel>
+            <TabPanel value={value} index={10}>
+                <FormGenericPalette />
             </TabPanel>
         </div>
     );

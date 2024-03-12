@@ -5,9 +5,10 @@ import { Dayjs } from 'dayjs';
 import { Template } from 'src/components/_template/Template';
 import 'dayjs/locale/de';
 import 'dayjs/locale/en-gb';
+import { DatepickerLocale } from '../datepicker/types';
 
 interface DatepickerProps {
-    locale: 'de' | 'en-gb';
+    locale: DatepickerLocale;
 }
 
 export function TimePickerCustom({

@@ -7,14 +7,10 @@ import {
     SelectChangeEvent,
 } from '@mui/material';
 import { Template } from 'src/components/_template/Template';
-
-interface Items {
-    value: string;
-    label: string;
-}
+import { SelectItems } from 'src/components/form/input-select/types';
 
 interface Props {
-    items: Items[];
+    items: SelectItems[];
     value: string;
     label: string;
     noneValue?: boolean;
@@ -32,7 +28,7 @@ export function InputSelect({
     return (
         <Template>
             <FormControl
-                sx={{ m: 1, width: '100%' }}
+                sx={{ width: '100%' }}
                 size="small"
                 data-testid="input-select-form"
             >
