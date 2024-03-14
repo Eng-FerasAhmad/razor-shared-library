@@ -2,10 +2,10 @@ import { TimePicker, TimePickerProps } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Dayjs } from 'dayjs';
+import { DatepickerLocale } from '../datepicker/types';
 import { Template } from 'src/components/_template/Template';
 import 'dayjs/locale/de';
 import 'dayjs/locale/en-gb';
-import { DatepickerLocale } from '../datepicker/types';
 
 interface DatepickerProps {
     locale: DatepickerLocale;
