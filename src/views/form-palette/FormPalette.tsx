@@ -29,7 +29,6 @@ export default function FormPalette(): JSX.Element {
     const [autoValue, setAutoValue] = useState<AutoCompleteOptions | null>(
         null
     );
-    const [radioValue, setRadioValue] = useState<string>('');
 
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -51,12 +50,6 @@ export default function FormPalette(): JSX.Element {
         newValue: AutoCompleteOptions | null
     ): void => {
         setAutoValue(newValue);
-        console.log('auto value', newValue);
-    };
-
-    const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRadioValue(event.target.value);
-        console.log(event.target.value);
     };
 
     return (
@@ -144,8 +137,9 @@ export default function FormPalette(): JSX.Element {
                         { label: 'True', value: 'true' },
                         { label: 'False', value: 'false' },
                     ]}
-                    defaultValue="true"
-                    onChange={handleChangeRadio}
+                    value="true"
+                    onChange={() => undefined}
+                    disabled={false}
                 />
             </Box>
         </Box>

@@ -15,6 +15,8 @@ interface Props {
     label: string;
     noneValue?: boolean;
     helperText?: string;
+    error?: boolean;
+    disabled?: boolean;
     handleChange: (event: SelectChangeEvent) => void;
 }
 export function InputSelect({
@@ -23,13 +25,15 @@ export function InputSelect({
     label,
     noneValue,
     helperText,
+    error,
+    disabled,
     handleChange,
 }: Props): JSX.Element {
     return (
         <Template>
             <FormControl
                 sx={{ width: '100%' }}
-                size="small"
+                size="medium"
                 data-testid="input-select-form"
             >
                 <InputLabel id="input-select-label">{label}</InputLabel>
@@ -38,6 +42,8 @@ export function InputSelect({
                     id="input-select"
                     value={value}
                     label={label}
+                    error={error}
+                    disabled={disabled}
                     onChange={handleChange}
                     sx={{ width: '100%' }}
                 >

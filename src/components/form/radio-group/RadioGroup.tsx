@@ -9,12 +9,14 @@ import { Template } from 'src/components/_template/Template';
 interface Props {
     label: string;
     radioItems: RadioItems[];
-    defaultValue: string;
+    value: string;
+    disabled: boolean;
 }
 export function RadioGroupCustom({
     label,
     radioItems,
-    defaultValue,
+    value,
+    disabled,
     ...props
 }: Props & RadioGroupProps): JSX.Element {
     return (
@@ -23,7 +25,7 @@ export function RadioGroupCustom({
                 <FormLabel id="radio-buttons-group-label">{label}</FormLabel>
                 <RadioGroup
                     aria-labelledby="radio-buttons-group-label"
-                    defaultValue={defaultValue}
+                    value={value}
                     name="radio-buttons-group"
                     row
                     {...props}
@@ -35,6 +37,7 @@ export function RadioGroupCustom({
                                 value={item.value}
                                 control={<Radio />}
                                 label={item.label}
+                                disabled={disabled}
                             />
                         );
                     })}
