@@ -26,6 +26,10 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
     const [, setRadio] = useState<string>('');
     const [, setTextArea] = useState<string>('');
 
+    const [textChanged, setTextChanged] = useState<boolean>(false);
+    const [numChanged, setNumChanged] = useState<boolean>(false);
+    const [textAreaChanged, setTextAreaChanged] = useState<boolean>(false);
+
     useEffect(() => {
         const d: FormDataSet[] = [];
         formDataSet.map((item) => d.push(item));
@@ -47,6 +51,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
     ): void => {
         setText(e.target.value);
         updateDataForm(index, e.target.value);
+        setTextChanged(true);
     };
 
     const numberChangeHandler = (
@@ -55,6 +60,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
     ): void => {
         setNum(Number.parseInt(e.target.value, 10));
         updateDataForm(index, e.target.value);
+        setNumChanged(true);
     };
 
     const selectChangeHandler = (e: SelectChangeEvent, index: number): void => {
@@ -84,6 +90,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
     ): void => {
         setTextArea(e.target.value);
         updateDataForm(index, e.target.value);
+        setTextAreaChanged(true);
     };
 
     const radioChangeHandler = (
@@ -114,7 +121,9 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
                         label={item.label}
                         size="medium"
                         onChange={(e) => textChangeHandler(e, index)}
-                        error={item.required && item.value === ''}
+                        error={
+                            item.required && item.value === '' && textChanged
+                        }
                         disabled={item.disable}
                         required={item.required}
                     />
@@ -126,7 +135,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
                         label={item.label}
                         size="medium"
                         onChange={(e) => numberChangeHandler(e, index)}
-                        error={item.required && item.value === ''}
+                        error={item.required && item.value === '' && numChanged}
                         disabled={item.disable}
                         required={item.required}
                     />
@@ -165,7 +174,11 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
                 return (
                     <Textarea
                         disabled={item.disable}
-                        error={item.required && item.value === ''}
+                        error={
+                            item.required &&
+                            item.value === '' &&
+                            textAreaChanged
+                        }
                         label={item.label}
                         value={item.value}
                         size="medium"
