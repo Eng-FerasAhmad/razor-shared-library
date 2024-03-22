@@ -7,7 +7,7 @@ export default function FormGenericPalette(): JSX.Element {
     const d: FormDataSet[] = [
         {
             label: 'color',
-            value: 'red',
+            value: '',
             controller: 'TEXT',
             error: false,
             errorLabel: 'none',
@@ -20,7 +20,7 @@ export default function FormGenericPalette(): JSX.Element {
             controller: 'TEXT',
             error: false,
             errorLabel: 'none',
-            required: false,
+            required: true,
             disable: false,
         },
         {
