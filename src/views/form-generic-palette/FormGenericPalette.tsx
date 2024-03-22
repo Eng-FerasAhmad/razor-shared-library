@@ -1,16 +1,24 @@
 import dayjs from 'dayjs';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FormCreator } from 'src/components/form-creator/FormCreator';
-import { Controller, FormDataSet } from 'src/components/form-creator/types';
+import { FormDataSet } from 'src/components/form-creator/types';
 
 export default function FormGenericPalette(): JSX.Element {
     const d: FormDataSet[] = [
         {
             label: 'color',
             value: 'red',
-            newCreate: false,
-            controller: Controller.TEXT,
-            error: true,
+            controller: 'TEXT',
+            error: false,
+            errorLabel: 'none',
+            required: true,
+            disable: false,
+        },
+        {
+            label: 'color new',
+            value: 'false',
+            controller: 'TEXT',
+            error: false,
             errorLabel: 'none',
             required: false,
             disable: false,
@@ -18,8 +26,16 @@ export default function FormGenericPalette(): JSX.Element {
         {
             label: 'rgb',
             value: 123,
-            newCreate: false,
-            controller: Controller.NUMBER,
+            controller: 'NUMBER',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'rgb2',
+            value: 1234,
+            controller: 'NUMBER',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -28,8 +44,7 @@ export default function FormGenericPalette(): JSX.Element {
         {
             label: 'select',
             value: 'value1',
-            newCreate: false,
-            controller: Controller.SELECT,
+            controller: 'SELECT',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -40,10 +55,31 @@ export default function FormGenericPalette(): JSX.Element {
             ],
         },
         {
+            label: 'select2',
+            value: 'value3',
+            controller: 'SELECT',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+            selectItems: [
+                { label: 'item3', value: 'value3' },
+                { label: 'item4', value: 'value4' },
+            ],
+        },
+        {
             label: 'checkbox',
             value: true,
-            newCreate: false,
-            controller: Controller.CHECKBOX,
+            controller: 'CHECKBOX',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'checkbox2',
+            value: false,
+            controller: 'CHECKBOX',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -52,8 +88,16 @@ export default function FormGenericPalette(): JSX.Element {
         {
             label: 'switch',
             value: false,
-            newCreate: false,
-            controller: Controller.SWITCH,
+            controller: 'SWITCH',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'switch2',
+            value: true,
+            controller: 'SWITCH',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -62,8 +106,16 @@ export default function FormGenericPalette(): JSX.Element {
         {
             label: 'textarea',
             value: 'text area value',
-            newCreate: false,
-            controller: Controller.TEXTAREA,
+            controller: 'TEXTAREA',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'textarea2',
+            value: 'example',
+            controller: 'TEXTAREA',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -72,8 +124,7 @@ export default function FormGenericPalette(): JSX.Element {
         {
             label: 'Radio',
             value: 'radio1',
-            newCreate: false,
-            controller: Controller.RADIO,
+            controller: 'RADIO',
             radioItems: [
                 { label: 'Radio 1', value: 'radio1' },
                 { label: 'Radio 2', value: 'radio2' },
@@ -84,22 +135,53 @@ export default function FormGenericPalette(): JSX.Element {
             disable: false,
         },
         {
-            label: 'datepicker',
-            value: dayjs(),
-            locale: 'en-gb',
-            newCreate: false,
-            controller: Controller.DATEPICKER,
+            label: 'Radio2',
+            value: 'radio3',
+            controller: 'RADIO',
+            radioItems: [
+                { label: 'Radio 3', value: 'radio3' },
+                { label: 'Radio 4', value: 'radio4' },
+            ],
             error: false,
             errorLabel: 'none',
             required: false,
-            disable: true,
+            disable: false,
+        },
+        {
+            label: 'datepicker',
+            value: dayjs(),
+            locale: 'en-gb',
+            controller: 'DATEPICKER',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'datepicker2',
+            value: dayjs(),
+            locale: 'en-gb',
+            controller: 'DATEPICKER',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
         },
         {
             label: 'time picker',
             value: dayjs(),
             locale: 'de',
-            newCreate: false,
-            controller: Controller.TIMEPICKER,
+            controller: 'TIMEPICKER',
+            error: false,
+            errorLabel: 'none',
+            required: false,
+            disable: false,
+        },
+        {
+            label: 'time picker2',
+            value: dayjs(),
+            locale: 'de',
+            controller: 'TIMEPICKER',
             error: false,
             errorLabel: 'none',
             required: false,
@@ -109,21 +191,11 @@ export default function FormGenericPalette(): JSX.Element {
 
     const [formDataSet, setFormDataSet] = useState<FormDataSet[]>(d);
 
-    useEffect(() => {
-        setFormDataSet(d);
+    const onUpdateFrom = useCallback((data: FormDataSet[]): void => {
+        setFormDataSet(data);
     }, []);
 
-    const onUpdateFrom = (data: FormDataSet[]): void => {
-        console.log('return data', data);
-        // setFormDataSet(data);
-    };
-
     return (
-        <>
-            <FormCreator
-                formDataSet={formDataSet}
-                onUpdateFrom={onUpdateFrom}
-            />
-        </>
+        <FormCreator formDataSet={formDataSet} onUpdateFrom={onUpdateFrom} />
     );
 }
