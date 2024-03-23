@@ -6,10 +6,9 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState, ChangeEvent } from 'react';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
-import useTable from './useTable';
 import { Template } from 'src/components/_template/Template';
 import { HeadCell } from 'src/components/table/types';
 import { stableSort } from 'src/components/table/utils';
@@ -20,23 +19,22 @@ interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     headerTools: ReactNode;
-    pageRows: number;
+    pageSize: number; // as API
+    totalResultCounts: number; // as API
+    pageNumber: number; // as API
     selectedRow: number;
     onClickRow: (row: T, selected: number) => void;
+    handleChangePage: (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+        page: number
+    ) => void;
+    handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
     const [selectedIndex, setSelectedIndex] = useState<number>(
         props.selectedRow
     );
-
-    const {
-        emptyRows,
-        page,
-        rowsPerPage,
-        handleChangePage,
-        handleChangeRowsPerPage,
-    } = useTable(props.rows, props.pageRows);
 
     const handleDlClick = (row: T, index: number): void => {
         props.onClickRow(row, index);
@@ -46,10 +44,10 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
     const visibleRows = useMemo(
         () =>
             stableSort(props.rows).slice(
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage
+                props.pageNumber * props.pageSize,
+                props.pageNumber * props.pageSize + props.pageSize
             ),
-        [page, rowsPerPage, props.rows]
+        [props.pageSize, props.pageNumber, props.rows]
     );
 
     const createIgnoreCells = (): string[] => {
@@ -60,6 +58,15 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
 
         return ignoredRows;
     };
+
+    // Avoid a layout jump when reaching the last page with empty rows.
+    const emptyRows =
+        props.pageNumber > 0
+            ? Math.max(
+                  0,
+                  (1 + props.pageNumber) * props.pageSize - props.rows.length
+              )
+            : 0;
 
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
@@ -145,11 +152,19 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 25, 50]}
                         component="div"
-                        count={props.rows.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage}
+                        count={props.totalResultCounts}
+                        rowsPerPage={props.pageSize}
+                        page={props.pageNumber}
+                        onPageChange={(
+                            event: React.MouseEvent<
+                                HTMLButtonElement,
+                                MouseEvent
+                            > | null,
+                            page: number
+                        ) => props.handleChangePage(event, page)}
+                        onRowsPerPageChange={(
+                            event: ChangeEvent<HTMLInputElement>
+                        ) => props.handleChangeRowsPerPage(event)}
                         sx={{
                             borderTop: `${pixelToRem(2)} solid lightgrey`,
                             marginTop: `${pixelToRem(-1)}`,

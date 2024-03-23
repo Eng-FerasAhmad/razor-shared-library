@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { ReactNode } from 'react';
+import { ReactNode, useState, ChangeEvent } from 'react';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell } from 'src/components/table/types';
 
@@ -83,8 +83,22 @@ const rows = [
 ];
 
 export default function TablePalette(): JSX.Element {
+    const [pageSize, setPageSize] = useState<number>(5);
+    const [pageNumber, setPageNumber] = useState<number>(0);
+
     const clickHandler = (row: Data, index: number): void => {
         console.log('row', row, index);
+    };
+
+    const handleChangePage = (_event: unknown, newPage: number): void => {
+        setPageNumber(newPage);
+    };
+
+    const handleChangeRowsPerPage = (
+        event: ChangeEvent<HTMLInputElement>
+    ): void => {
+        setPageSize(parseInt(event.target.value, 10));
+        setPageNumber(0);
     };
 
     return (
@@ -94,11 +108,20 @@ export default function TablePalette(): JSX.Element {
                     <>Title</>
                 </>
             }
+            pageSize={pageSize}
+            pageNumber={pageNumber}
+            totalResultCounts={13}
             rows={rows}
             headCells={headCells}
-            pageRows={10}
-            onClickRow={clickHandler}
             selectedRow={-1}
+            onClickRow={clickHandler}
+            handleChangePage={(
+                event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+                page: number
+            ) => handleChangePage(event, page)}
+            handleChangeRowsPerPage={(event: ChangeEvent<HTMLInputElement>) =>
+                handleChangeRowsPerPage(event)
+            }
         />
     );
 }
