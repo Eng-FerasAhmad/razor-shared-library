@@ -6,13 +6,11 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { ReactNode, useMemo, useState } from 'react';
+import { ChangeEvent, ReactNode, useState } from 'react';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
-import useTable from './useTable';
 import { Template } from 'src/components/_template/Template';
 import { HeadCell } from 'src/components/table/types';
-import { stableSort } from 'src/components/table/utils';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
@@ -20,9 +18,16 @@ interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     headerTools: ReactNode;
-    pageRows: number;
+    pageSize: number;
+    totalResultCounts: number;
+    pageNumber: number;
     selectedRow: number;
     onClickRow: (row: T, selected: number) => void;
+    handleChangePage: (
+        event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+        page: number
+    ) => void;
+    handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function TableCustom<T>(props: Props<T>): JSX.Element {
@@ -30,27 +35,10 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         props.selectedRow
     );
 
-    const {
-        emptyRows,
-        page,
-        rowsPerPage,
-        handleChangePage,
-        handleChangeRowsPerPage,
-    } = useTable(props.rows, props.pageRows);
-
     const handleDlClick = (row: T, index: number): void => {
         props.onClickRow(row, index);
         setSelectedIndex(index);
     };
-
-    const visibleRows = useMemo(
-        () =>
-            stableSort(props.rows).slice(
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage
-            ),
-        [page, rowsPerPage, props.rows]
-    );
 
     const createIgnoreCells = (): string[] => {
         const ignoredRows: string[] = [];
@@ -101,7 +89,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                         >
                             <TableHead headCells={props.headCells} />
                             <TableBody>
-                                {visibleRows.map((row: T, index) => {
+                                {props.rows.map((row: T, index) => {
                                     return (
                                         <TableRow
                                             role="checkbox"
@@ -126,30 +114,37 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                                 },
                                             }}
                                         >
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{ padding: pixelToRem(16) }}
+                                                align={'left'}
+                                            >
+                                                {index + 1}
+                                            </TableCell>
                                             {buildCell(row)}
                                         </TableRow>
                                     );
                                 })}
-                                {emptyRows > 0 && (
-                                    <TableRow
-                                        style={{
-                                            height: 53 * emptyRows,
-                                        }}
-                                    >
-                                        <TableCell colSpan={6} />
-                                    </TableRow>
-                                )}
                             </TableBody>
                         </Table>
                     </TableContainer>
                     <TablePagination
-                        rowsPerPageOptions={[5, 10, 25, 50]}
+                        rowsPerPageOptions={[5, 10, 25, 50, 75, 100]}
                         component="div"
-                        count={props.rows.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage}
+                        count={props.totalResultCounts}
+                        rowsPerPage={props.pageSize}
+                        page={props.pageNumber}
+                        onPageChange={(
+                            event: React.MouseEvent<
+                                HTMLButtonElement,
+                                MouseEvent
+                            > | null,
+                            page: number
+                        ) => props.handleChangePage(event, page)}
+                        onRowsPerPageChange={(
+                            event: ChangeEvent<HTMLInputElement>
+                        ) => props.handleChangeRowsPerPage(event)}
                         sx={{
                             borderTop: `${pixelToRem(2)} solid lightgrey`,
                             marginTop: `${pixelToRem(-1)}`,

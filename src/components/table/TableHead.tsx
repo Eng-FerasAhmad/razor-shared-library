@@ -15,6 +15,16 @@ export default function EnhancedTableHead<T>({
     return (
         <TableHead>
             <TableRow sx={{ color: `#00a894` }}>
+                <TableCell
+                    align={'left'}
+                    sx={{
+                        fontSize: pixelToRem(fontSize.font17),
+                        padding: pixelToRem(10, 16),
+                        color: `#009695`,
+                    }}
+                >
+                    #
+                </TableCell>
                 {headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}
