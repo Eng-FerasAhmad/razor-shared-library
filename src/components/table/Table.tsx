@@ -114,6 +114,14 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                                 },
                                             }}
                                         >
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{ padding: pixelToRem(16) }}
+                                                align={'left'}
+                                            >
+                                                {index + 1}
+                                            </TableCell>
                                             {buildCell(row)}
                                         </TableRow>
                                     );
