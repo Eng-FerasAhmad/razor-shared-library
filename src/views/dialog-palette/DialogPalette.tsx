@@ -34,6 +34,7 @@ export function DialogPalette(): JSX.Element {
             />
             <Dialog
                 handleClose={handleClose}
+                headerColor="red"
                 open={open}
                 title="Card Title"
                 sx={{ fontFamily: fonts.primary }}

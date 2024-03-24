@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren, ReactNode } from 'react';
 import { Template } from 'src/components/_template/Template';
+import { color } from 'src/shared/color';
 
 interface Props {
     handleClose: () => void;
@@ -13,6 +14,8 @@ interface Props {
     actions?: ReactNode;
     closeIcon?: ReactNode;
     open: boolean;
+    headerColor?: string;
+    headerFontColor?: string;
 }
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -30,6 +33,8 @@ export function DialogCustom({
     actions,
     closeIcon,
     open,
+    headerColor,
+    headerFontColor,
     children,
     ...props
 }: PropsWithChildren<DialogProps & Props>): JSX.Element {
@@ -41,10 +46,16 @@ export function DialogCustom({
                 open={open}
                 {...props}
                 data-testid="dialog"
+                sx={{}}
             >
                 {title && (
                     <DialogTitle
-                        sx={{ m: 0, p: 2 }}
+                        sx={{
+                            m: 0,
+                            p: 2,
+                            backgroundColor: headerColor || color.light,
+                            color: headerFontColor || color.dark,
+                        }}
                         id="customized-dialog-title"
                     >
                         {title}
