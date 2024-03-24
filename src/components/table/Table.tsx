@@ -6,12 +6,11 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { ReactNode, useMemo, useState, ChangeEvent } from 'react';
+import { ChangeEvent, ReactNode, useState } from 'react';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import { Template } from 'src/components/_template/Template';
 import { HeadCell } from 'src/components/table/types';
-import { stableSort } from 'src/components/table/utils';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
@@ -19,9 +18,9 @@ interface Props<T> {
     rows: T[];
     headCells: HeadCell<T>[];
     headerTools: ReactNode;
-    pageSize: number; // as API
-    totalResultCounts: number; // as API
-    pageNumber: number; // as API
+    pageSize: number;
+    totalResultCounts: number;
+    pageNumber: number;
     selectedRow: number;
     onClickRow: (row: T, selected: number) => void;
     handleChangePage: (
@@ -41,15 +40,6 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         setSelectedIndex(index);
     };
 
-    const visibleRows = useMemo(
-        () =>
-            stableSort(props.rows).slice(
-                props.pageNumber * props.pageSize,
-                props.pageNumber * props.pageSize + props.pageSize
-            ),
-        [props.pageSize, props.pageNumber, props.rows]
-    );
-
     const createIgnoreCells = (): string[] => {
         const ignoredRows: string[] = [];
         props.headCells.forEach((cell) => {
@@ -58,15 +48,6 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
 
         return ignoredRows;
     };
-
-    // Avoid a layout jump when reaching the last page with empty rows.
-    const emptyRows =
-        props.pageNumber > 0
-            ? Math.max(
-                  0,
-                  (1 + props.pageNumber) * props.pageSize - props.rows.length
-              )
-            : 0;
 
     // eslint-disable-next-line
     const buildCell = (row: any): ReactNode => {
@@ -108,7 +89,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                         >
                             <TableHead headCells={props.headCells} />
                             <TableBody>
-                                {visibleRows.map((row: T, index) => {
+                                {props.rows.map((row: T, index) => {
                                     return (
                                         <TableRow
                                             role="checkbox"
@@ -137,20 +118,11 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                         </TableRow>
                                     );
                                 })}
-                                {emptyRows > 0 && (
-                                    <TableRow
-                                        style={{
-                                            height: 53 * emptyRows,
-                                        }}
-                                    >
-                                        <TableCell colSpan={6} />
-                                    </TableRow>
-                                )}
                             </TableBody>
                         </Table>
                     </TableContainer>
                     <TablePagination
-                        rowsPerPageOptions={[5, 10, 25, 50]}
+                        rowsPerPageOptions={[5, 10, 25, 50, 75, 100]}
                         component="div"
                         count={props.totalResultCounts}
                         rowsPerPage={props.pageSize}
