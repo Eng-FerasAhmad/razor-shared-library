@@ -7,12 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { ChangeEvent, ReactNode, useState } from 'react';
-import TableHead from './TableHead';
-import TableToolbar from './TableToolbar';
 import { Template } from 'src/components/_template/Template';
 import { HeadCell } from 'src/components/table/types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
+import { AlertCustom } from '../alert/Alert';
+import TableHead from './TableHead';
+import TableToolbar from './TableToolbar';
 
 interface Props<T> {
     rows: T[];
@@ -22,6 +23,7 @@ interface Props<T> {
     totalResultCounts: number;
     pageNumber: number;
     selectedRow: number;
+    noDataCaption: string;
     onClickRow: (row: T, selected: number) => void;
     handleChangePage: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -70,6 +72,13 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
         });
     };
 
+    const noDataRow = (): ReactNode => {
+        return (
+            <caption>
+                <AlertCustom color='info' text={props.noDataCaption} />
+            </caption>
+        )
+    }
     return (
         <Template>
             <Box sx={{ width: '100%' }}>
@@ -87,6 +96,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                             aria-labelledby="tableTitle"
                             size={'medium'}
                         >
+                            {props.rows.length === 0 && noDataRow()}
                             <TableHead headCells={props.headCells} />
                             <TableBody>
                                 {props.rows.map((row: T, index) => {
@@ -126,6 +136,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                         </TableRow>
                                     );
                                 })}
+                                
                             </TableBody>
                         </Table>
                     </TableContainer>

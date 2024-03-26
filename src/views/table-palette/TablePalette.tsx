@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { ReactNode, useState, ChangeEvent } from 'react';
+import { ChangeEvent, ReactNode, useState } from 'react';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell } from 'src/components/table/types';
 
@@ -112,6 +112,7 @@ export default function TablePalette(): JSX.Element {
             pageNumber={pageNumber}
             totalResultCounts={13}
             rows={rows}
+            noDataCaption='No Data Found!'
             headCells={headCells}
             selectedRow={-1}
             onClickRow={clickHandler}
