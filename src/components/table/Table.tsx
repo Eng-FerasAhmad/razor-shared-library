@@ -7,13 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { ChangeEvent, ReactNode, useState } from 'react';
+import { AlertCustom } from '../alert/Alert';
+import TableHead from './TableHead';
+import TableToolbar from './TableToolbar';
 import { Template } from 'src/components/_template/Template';
 import { HeadCell } from 'src/components/table/types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
-import { AlertCustom } from '../alert/Alert';
-import TableHead from './TableHead';
-import TableToolbar from './TableToolbar';
 
 interface Props<T> {
     rows: T[];
@@ -75,10 +75,10 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
     const noDataRow = (): ReactNode => {
         return (
             <caption>
-                <AlertCustom color='info' text={props.noDataCaption} />
+                <AlertCustom color="info" text={props.noDataCaption} />
             </caption>
-        )
-    }
+        );
+    };
     return (
         <Template>
             <Box sx={{ width: '100%' }}>
@@ -136,7 +136,6 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                         </TableRow>
                                     );
                                 })}
-                                
                             </TableBody>
                         </Table>
                     </TableContainer>

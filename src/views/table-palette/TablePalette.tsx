@@ -112,7 +112,7 @@ export default function TablePalette(): JSX.Element {
             pageNumber={pageNumber}
             totalResultCounts={13}
             rows={rows}
-            noDataCaption='No Data Found!'
+            noDataCaption="No Data Found!"
             headCells={headCells}
             selectedRow={-1}
             onClickRow={clickHandler}
