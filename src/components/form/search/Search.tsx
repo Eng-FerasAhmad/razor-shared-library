@@ -4,13 +4,17 @@ import Paper from '@mui/material/Paper';
 import React, { ReactNode } from 'react';
 
 interface Props {
-    icon: ReactNode;
+    searchIcon: ReactNode;
+    clearIcon: ReactNode;
     submitHandler: () => void;
+    clearHandler: () => void;
 }
 
 export function SearchCustom({
-    icon,
+    searchIcon,
+    clearIcon,
     submitHandler,
+    clearHandler,
     ...props
 }: Props & InputBaseProps): JSX.Element {
     const clickSubmitHandler = (
@@ -41,9 +45,17 @@ export function SearchCustom({
                 type="button"
                 sx={{ p: '10px' }}
                 aria-label="search"
+                onClick={clearHandler}
+            >
+                {clearIcon}
+            </IconButton>
+            <IconButton
+                type="button"
+                sx={{ p: '10px' }}
+                aria-label="search"
                 onClick={clickSubmitHandler}
             >
-                {icon}
+                {searchIcon}
             </IconButton>
         </Paper>
     );

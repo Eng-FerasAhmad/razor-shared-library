@@ -57,6 +57,10 @@ export default function FormPalette(): JSX.Element {
         console.log('submit from parent');
     };
 
+    const clearSearchHandler = (): void => {
+        console.log('clear search');
+    };
+
     return (
         <Box sx={{ fontFamily: fonts.primary }} data-testid="button-palette">
             <Box sx={{ width: 200 }}>
@@ -114,11 +118,13 @@ export default function FormPalette(): JSX.Element {
 
             <Box sx={{ marginTop: 2, width: '300px' }}>
                 <SearchCustom
-                    icon={<>i</>}
+                    searchIcon={<>i</>}
+                    clearIcon={<>x</>}
                     placeholder="Search"
                     size="small"
                     submitHandler={submitSearch}
                     onChange={(e) => changeHandler(e)}
+                    clearHandler={clearSearchHandler}
                 />
             </Box>
 
