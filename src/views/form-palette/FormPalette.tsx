@@ -33,6 +33,7 @@ export default function FormPalette(): JSX.Element {
     const changeHandler = (
         e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
+        console.log('e', e.target.value);
         setValueInput(e.target.value);
     };
 
@@ -50,6 +51,10 @@ export default function FormPalette(): JSX.Element {
         newValue: AutoCompleteOptions | null
     ): void => {
         setAutoValue(newValue);
+    };
+
+    const submitSearch = (): void => {
+        console.log('submit from parent');
     };
 
     return (
@@ -108,7 +113,13 @@ export default function FormPalette(): JSX.Element {
             </Box>
 
             <Box sx={{ marginTop: 2, width: '300px' }}>
-                <SearchCustom icon={<>i</>} placeholder="Search" size="small" />
+                <SearchCustom
+                    icon={<>i</>}
+                    placeholder="Search"
+                    size="small"
+                    submitHandler={submitSearch}
+                    onChange={(e) => changeHandler(e)}
+                />
             </Box>
 
             <Box sx={{ marginTop: 2, width: '300px' }}>
