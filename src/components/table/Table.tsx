@@ -11,7 +11,7 @@ import { AlertCustom } from '../alert/Alert';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import { Template } from 'src/components/_template/Template';
-import { HeadCell } from 'src/components/table/types';
+import { HeadCell, Order } from 'src/components/table/types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
@@ -24,6 +24,10 @@ interface Props<T> {
     pageNumber: number;
     selectedRow: number;
     noDataCaption: string;
+    orderBy: string;
+    order: Order;
+    resetSort: () => void;
+    handleHeaderClick: (label: string) => void;
     onClickRow: (row: T, selected: number) => void;
     handleChangePage: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -79,6 +83,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
             </caption>
         );
     };
+
     return (
         <Template>
             <Box sx={{ width: '100%' }}>
@@ -97,7 +102,13 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                             size={'medium'}
                         >
                             {props.rows.length === 0 && noDataRow()}
-                            <TableHead headCells={props.headCells} />
+                            <TableHead
+                                headCells={props.headCells}
+                                handleHeaderClick={props.handleHeaderClick}
+                                resetSort={props.resetSort}
+                                order={props.order}
+                                orderBy={props.orderBy}
+                            />
                             <TableBody>
                                 {props.rows.map((row: T, index) => {
                                     return (

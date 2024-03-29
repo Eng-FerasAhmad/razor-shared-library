@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
+import { SortDirection } from '@mui/material/TableCell';
 import { ChangeEvent, ReactNode, useState } from 'react';
 import { TableCustom } from 'src/components/table/Table';
-import { HeadCell } from 'src/components/table/types';
+import { HeadCell, Order } from 'src/components/table/types';
 
 export interface Data {
     id: string;
@@ -85,6 +86,19 @@ const rows = [
 export default function TablePalette(): JSX.Element {
     const [pageSize, setPageSize] = useState<number>(5);
     const [pageNumber, setPageNumber] = useState<number>(0);
+    const [orderBy, setOrderBy] = useState<string>('');
+    const [order, setOrder] = useState<Order>('asc');
+
+    const handleHeaderClick = (label: string): void => {
+        const direction: SortDirection = order === 'asc' ? 'desc' : 'asc';
+        setOrderBy(label);
+        setOrder(direction);
+    };
+
+    const resetSort = (): void => {
+        setOrderBy('');
+        setOrder('asc');
+    };
 
     const clickHandler = (row: Data, index: number): void => {
         console.log('row', row, index);
@@ -108,6 +122,10 @@ export default function TablePalette(): JSX.Element {
                     <>Title</>
                 </>
             }
+            handleHeaderClick={handleHeaderClick}
+            resetSort={resetSort}
+            order={order}
+            orderBy={orderBy}
             pageSize={pageSize}
             pageNumber={pageNumber}
             totalResultCounts={13}
