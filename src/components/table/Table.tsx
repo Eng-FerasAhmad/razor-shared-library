@@ -145,7 +145,8 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                             >
                                                 {index +
                                                     1 +
-                                                    props.pageSize * index}
+                                                    props.pageSize *
+                                                        props.pageNumber}
                                             </TableCell>
                                             {buildCell(row)}
                                         </TableRow>
