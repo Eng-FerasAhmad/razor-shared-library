@@ -1,5 +1,6 @@
 import {
     Box,
+    BoxProps,
     ClickAwayListener,
     MenuItem,
     MenuList,
@@ -28,7 +29,8 @@ export const MenuCustom = ({
     selected,
     anchor,
     position = 'bottom-start',
-}: Props): JSX.Element => {
+    ...props
+}: Props & Omit<BoxProps, 'position'>): JSX.Element => {
     const [open, setOpen] = useState(false);
     const anchorRef = useRef<HTMLDivElement>(null);
 
@@ -85,6 +87,7 @@ export const MenuCustom = ({
                 aria-haspopup="true"
                 onClick={handleToggle}
                 data-testid="menu"
+                {...props}
             >
                 {anchor}
             </Box>

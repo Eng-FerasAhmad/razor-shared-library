@@ -26,8 +26,9 @@ interface Props<T> {
     noDataCaption: string;
     orderBy: string;
     order: Order;
+    statusFilter?: ReactNode;
     resetSort: () => void;
-    handleHeaderClick: (label: string) => void;
+    handleHeaderClick: (sortLabel: string) => void;
     onClickRow: (row: T, selected: number) => void;
     handleChangePage: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -108,6 +109,7 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                 resetSort={props.resetSort}
                                 order={props.order}
                                 orderBy={props.orderBy}
+                                statusFilter={props.statusFilter}
                             />
                             <TableBody>
                                 {props.rows.map((row: T, index) => {
@@ -141,7 +143,9 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                                 sx={{ padding: pixelToRem(16) }}
                                                 align={'left'}
                                             >
-                                                {index + 1}
+                                                {index +
+                                                    1 +
+                                                    props.pageSize * index}
                                             </TableCell>
                                             {buildCell(row)}
                                         </TableRow>

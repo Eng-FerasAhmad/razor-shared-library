@@ -11,7 +11,7 @@ export interface Data {
     fat: number;
     carbs: number;
     protein: number;
-    actions: ReactNode;
+    statusText: ReactNode;
 }
 
 function createData(
@@ -21,7 +21,7 @@ function createData(
     fat: number,
     carbs: number,
     protein: number,
-    actions: ReactNode
+    statusText: ReactNode
 ): Data {
     return {
         id,
@@ -30,7 +30,7 @@ function createData(
         fat,
         carbs,
         protein,
-        actions,
+        statusText,
     };
 }
 
@@ -39,16 +39,19 @@ export const headCells: HeadCell<Data>[] = [
         id: 'name',
         numeric: false,
         label: 'Dessert (100g serving)',
+        sortLabel: 'Dessert',
     },
     {
         id: 'protein',
         numeric: true,
         label: 'Protein (g)',
+        sortLabel: 'Protein ',
     },
     {
-        id: 'actions',
+        id: 'statusText',
         numeric: true,
-        label: 'Actions',
+        label: 'statusText',
+        sortLabel: 'Status',
     },
 ];
 
@@ -133,6 +136,7 @@ export default function TablePalette(): JSX.Element {
             noDataCaption="No Data Found!"
             headCells={headCells}
             selectedRow={-1}
+            statusFilter={<div style={{ display: 'inline' }}>:</div>}
             onClickRow={clickHandler}
             handleChangePage={(
                 event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,

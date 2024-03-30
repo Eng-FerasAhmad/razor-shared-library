@@ -2,6 +2,7 @@ import { TableSortLabel } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { ReactNode } from 'react';
 import { HeadCell, Order } from 'src/components/table/types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
@@ -11,14 +12,16 @@ export interface Props<T> {
     headCells: HeadCell<T>[];
     orderBy: string;
     order: Order;
+    statusFilter?: ReactNode;
     resetSort: () => void;
-    handleHeaderClick: (label: string) => void;
+    handleHeaderClick: (sortLabel: string) => void;
 }
 
 export default function EnhancedTableHead<T>({
     headCells,
     orderBy,
     order,
+    statusFilter,
     resetSort,
     handleHeaderClick,
 }: Props<T>): JSX.Element {
@@ -26,8 +29,8 @@ export default function EnhancedTableHead<T>({
         resetSort();
     };
 
-    const headerClick = (label: string): void => {
-        handleHeaderClick(label);
+    const headerClick = (sortLabel: string): void => {
+        handleHeaderClick(sortLabel);
     };
 
     return (
@@ -57,14 +60,17 @@ export default function EnhancedTableHead<T>({
                         }}
                     >
                         <TableSortLabel
-                            active={orderBy === headCell.label}
+                            active={orderBy === headCell.sortLabel}
                             direction={
-                                orderBy === headCell.label ? order : 'asc'
+                                orderBy === headCell.sortLabel ? order : 'asc'
                             }
-                            onClick={() => headerClick(headCell.label)}
+                            onClick={() => headerClick(headCell.sortLabel)}
                         >
                             {headCell.label}
                         </TableSortLabel>
+                        {headCell.id === 'statusText' && statusFilter && (
+                            <>{statusFilter}</>
+                        )}
                     </TableCell>
                 ))}
             </TableRow>
