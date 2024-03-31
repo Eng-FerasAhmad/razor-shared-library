@@ -91,10 +91,7 @@ export function DialogCustom({
                     <DialogActions
                         sx={{
                             fontFamily: 'inherit',
-                            mt: 2,
-                            mb: 2,
-                            mr: 1,
-                            ml: 1,
+                            m: 1,
                         }}
                     >
                         {actions}
