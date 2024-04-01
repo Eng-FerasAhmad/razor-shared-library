@@ -29,8 +29,9 @@ export function AutoCompleteCustom({
 
     return (
         <Autocomplete
+            data-testid="auto-complete"
             disablePortal
-            id="combo-box-demo"
+            id="auto-complete"
             value={value}
             options={options}
             sx={{ width: '100%' }}
