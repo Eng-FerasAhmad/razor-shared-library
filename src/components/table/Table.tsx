@@ -11,6 +11,7 @@ import { AlertCustom } from '../alert/Alert';
 import TableHead from './TableHead';
 import TableToolbar from './TableToolbar';
 import { Template } from 'src/components/_template/Template';
+import TableCellCustom from 'src/components/table/TableCell';
 import { HeadCell, Order } from 'src/components/table/types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
@@ -45,36 +46,6 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
     const handleDlClick = (row: T, index: number): void => {
         props.onClickRow(row, index);
         setSelectedIndex(index);
-    };
-
-    const createIgnoreCells = (): string[] => {
-        const ignoredRows: string[] = [];
-        props.headCells.forEach((cell) => {
-            ignoredRows.push(cell.id as string);
-        });
-
-        return ignoredRows;
-    };
-
-    // eslint-disable-next-line
-    const buildCell = (row: any): ReactNode => {
-        return Object.keys(row).map((key: string): ReactNode => {
-            if (!createIgnoreCells().includes(key)) return undefined;
-            const isNumber =
-                !Number.isNaN(Number(row[key])) || key === 'actions';
-            return (
-                <TableCell
-                    key={key}
-                    component="th"
-                    id={`id-${key}`}
-                    scope="row"
-                    sx={{ padding: pixelToRem(16) }}
-                    align={isNumber ? 'right' : 'left'}
-                >
-                    {row[key]}
-                </TableCell>
-            );
-        });
     };
 
     const noDataRow = (): ReactNode => {
@@ -148,7 +119,10 @@ export function TableCustom<T>(props: Props<T>): JSX.Element {
                                                     props.pageSize *
                                                         props.pageNumber}
                                             </TableCell>
-                                            {buildCell(row)}
+                                            <TableCellCustom
+                                                headCells={props.headCells}
+                                                row={row}
+                                            />
                                         </TableRow>
                                     );
                                 })}
