@@ -48,7 +48,12 @@ export function TabCustom({
                 </Box>
                 {tabItem.map((item, index) => {
                     return (
-                        <TabPanel value={value} index={index} key={index} data-testid="tab-panel">
+                        <TabPanel
+                            value={value}
+                            index={index}
+                            key={index}
+                            data-testid="tab-panel"
+                        >
                             {item.content}
                         </TabPanel>
                     );

@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import DrawerList from 'src/components/drawer/DrawerList';
-import {DrawerListItems} from 'src/components/drawer/types';
+import { DrawerListItems } from 'src/components/drawer/types';
 
 describe('<DrawerList />', () => {
-            const listItems: DrawerListItems[] = [
+    const listItems: DrawerListItems[] = [
         {
             icon: <>Item 1</>,
             clickHandler: () => {
@@ -14,15 +14,13 @@ describe('<DrawerList />', () => {
         {
             icon: <>Item 2</>,
             clickHandler: () => {
-               jest.fn();
+                jest.fn();
             },
         },
     ];
 
     test('Should render the component', async () => {
-        render(
-            <DrawerList listItems={listItems} />
-        );
+        render(<DrawerList listItems={listItems} />);
 
         expect(screen.getByTestId('drawer-list')).toBeInTheDocument();
     });

@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/dom';
 import { render } from '@testing-library/react';
-import {DrawerCustom} from 'src/components/drawer/Drawer';
-import {DrawerListItems} from 'src/components/drawer/types';
+import { DrawerCustom } from 'src/components/drawer/Drawer';
+import { DrawerListItems } from 'src/components/drawer/types';
 
 describe('<DrawerCustom />', () => {
-        const listItems: DrawerListItems[] = [
+    const listItems: DrawerListItems[] = [
         {
             icon: <>Item 1</>,
             clickHandler: () => {
@@ -14,14 +14,23 @@ describe('<DrawerCustom />', () => {
         {
             icon: <>Item 2</>,
             clickHandler: () => {
-               jest.fn();
+                jest.fn();
             },
         },
     ];
 
     test('Should render the component', async () => {
         render(
-            <DrawerCustom header={<>header</>} listItems={listItems} open={true} appTitle="drawer" handleDrawerOpen={jest.fn()} closeDrawerIcon={<>icon</>} headerIcon={ <>icon</>} drawerTitle={<>title</>} />
+            <DrawerCustom
+                header={<>header</>}
+                listItems={listItems}
+                open={true}
+                appTitle="drawer"
+                handleDrawerOpen={jest.fn()}
+                closeDrawerIcon={<>icon</>}
+                headerIcon={<>icon</>}
+                drawerTitle={<>title</>}
+            />
         );
 
         expect(screen.getByTestId('drawer')).toBeInTheDocument();
@@ -33,7 +42,16 @@ describe('<DrawerCustom />', () => {
 
     test('Should render the closed drawer', async () => {
         render(
-            <DrawerCustom header={<>header</>} listItems={listItems} open={false} appTitle="drawer" handleDrawerOpen={jest.fn()} closeDrawerIcon={<>icon</>} headerIcon={ <>icon</>} drawerTitle={<>title</>} />
+            <DrawerCustom
+                header={<>header</>}
+                listItems={listItems}
+                open={false}
+                appTitle="drawer"
+                handleDrawerOpen={jest.fn()}
+                closeDrawerIcon={<>icon</>}
+                headerIcon={<>icon</>}
+                drawerTitle={<>title</>}
+            />
         );
 
         expect(screen.getByTestId('drawer')).toBeInTheDocument();

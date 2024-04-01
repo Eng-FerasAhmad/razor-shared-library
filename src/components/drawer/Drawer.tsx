@@ -36,7 +36,10 @@ export function DrawerCustom({
 }: Props): JSX.Element {
     return (
         <Template>
-            <Box sx={{ display: 'flex', height: pixelToRem(64) }} data-testid="drawer">
+            <Box
+                sx={{ display: 'flex', height: pixelToRem(64) }}
+                data-testid="drawer"
+            >
                 <CssBaseline />
                 <DrawerToolbar
                     appTitle={appTitle}
@@ -88,7 +91,10 @@ export function DrawerCustom({
                         </IconButton>
                     </DrawerHeader>
                     <Divider />
-                    <DrawerList listItems={listItems} data-testid="drawer-list" />
+                    <DrawerList
+                        listItems={listItems}
+                        data-testid="drawer-list"
+                    />
                 </Drawer>
                 <MainDrawer open={open}>
                     <DrawerHeader />

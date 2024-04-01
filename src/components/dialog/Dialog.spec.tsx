@@ -5,7 +5,13 @@ import { DialogCustom } from './Dialog';
 describe('<Dialog />', () => {
     test('Should render the component', async () => {
         render(
-            <DialogCustom open={true} title="dialog" handleClose={jest.fn()} actions={<>action</>} closeIcon={<>ico</>} />
+            <DialogCustom
+                open={true}
+                title="dialog"
+                handleClose={jest.fn()}
+                actions={<>action</>}
+                closeIcon={<>ico</>}
+            />
         );
 
         expect(screen.getByTestId('dialog')).toBeInTheDocument();
