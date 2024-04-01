@@ -6,15 +6,3 @@ const exchangeToRem = (pixel: number, base = 16): string =>
 export const pixelToRem = (...pixel: Array<number>): string =>
     pixel.map((px: number) => exchangeToRem(px)).join(' ');
 
-export const shouldForwardProp = (
-    propName: string,
-    target: unknown
-): boolean => {
-    // function needed for styled component to forward props to custom wrappers
-    if (typeof target === 'string') {
-        // For HTML elements, forward the prop if it is a valid HTML attribute
-        return isPropValid(propName);
-    }
-    // For other elements, forward all props
-    return true;
-};

@@ -1,4 +1,4 @@
-import { pixelToRem, shouldForwardProp } from './common';
+import { pixelToRem } from './common';
 
 describe('common Utils', () => {
     test('pixelToRem', () => {
@@ -8,9 +8,5 @@ describe('common Utils', () => {
         expect(pixelToRem(10, 10, 10, 10)).toBe(
             '0.625rem 0.625rem 0.625rem 0.625rem'
         );
-    });
-
-    test('shouldForwardProp', () => {
-        expect(shouldForwardProp('color', '')).toBe(true);
     });
 });
