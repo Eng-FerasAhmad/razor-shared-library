@@ -50,13 +50,14 @@ export function DialogCustom({
             >
                 {title && (
                     <DialogTitle
+                        data-testid="dialog-title"
                         sx={{
                             m: 0,
                             p: 2,
                             backgroundColor: headerColor || color.light,
                             color: headerFontColor || color.dark,
                         }}
-                        id="customized-dialog-title"
+                        id="dialog-title"
                     >
                         {title}
                     </DialogTitle>
@@ -73,6 +74,7 @@ export function DialogCustom({
                             fontFamily: 'inherit',
                             color: (theme) => theme.palette.grey[500],
                         }}
+                        data-testid="dialog-close-icon"
                     >
                         {closeIcon}
                     </IconButton>
@@ -83,6 +85,7 @@ export function DialogCustom({
                     sx={{
                         fontFamily: 'inherit',
                     }}
+                    data-testid="dialog-content"
                 >
                     {children}
                 </DialogContent>
@@ -93,6 +96,7 @@ export function DialogCustom({
                             fontFamily: 'inherit',
                             m: 1,
                         }}
+                        data-testid="dialog-action"
                     >
                         {actions}
                     </DialogActions>

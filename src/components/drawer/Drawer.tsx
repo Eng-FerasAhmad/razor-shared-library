@@ -36,14 +36,13 @@ export function DrawerCustom({
 }: Props): JSX.Element {
     return (
         <Template>
-            <Box sx={{ display: 'flex', height: pixelToRem(64) }}>
+            <Box sx={{ display: 'flex', height: pixelToRem(64) }} data-testid="drawer">
                 <CssBaseline />
                 <DrawerToolbar
                     appTitle={appTitle}
                     open={open}
                     appClickHandler={handleDrawerOpen}
                     headerIcon={headerIcon}
-                    data-testid="app-toolbar"
                     header={header}
                 />
                 <Drawer
@@ -60,6 +59,7 @@ export function DrawerCustom({
                     open={open}
                 >
                     <DrawerHeader
+                        data-testid="drawer-header"
                         sx={{
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -75,18 +75,20 @@ export function DrawerCustom({
                                 fontWeight: 500,
                                 fontSize: fontSize.font20,
                             }}
+                            data-testid="drawer-title"
                         >
                             {drawerTitle}
                         </Box>
                         <IconButton
                             onClick={handleDrawerOpen}
                             sx={{ color: color.light }}
+                            data-testid="drawer-open-button"
                         >
                             {closeDrawerIcon}
                         </IconButton>
                     </DrawerHeader>
                     <Divider />
-                    <DrawerList listItems={listItems} />
+                    <DrawerList listItems={listItems} data-testid="drawer-list" />
                 </Drawer>
                 <MainDrawer open={open}>
                     <DrawerHeader />
