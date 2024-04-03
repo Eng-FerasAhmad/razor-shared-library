@@ -21,7 +21,7 @@ export default function DrawerToolbar({
     appClickHandler,
 }: Props): JSX.Element {
     return (
-        <DrawerAppBar position="fixed" open={open}>
+        <DrawerAppBar position="fixed" open={open} data-testid="drawer-app-bar">
             <Toolbar>
                 <IconButton
                     color="inherit"

@@ -10,7 +10,7 @@ interface Props {
 
 export default function DrawerList({ listItems }: Props): JSX.Element {
     return (
-        <List>
+        <List data-testid="drawer-list">
             {listItems.map((item, index) => (
                 <ListItem key={index} disablePadding>
                     <ListItemButton onClick={item.clickHandler}>

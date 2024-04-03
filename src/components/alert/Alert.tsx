@@ -11,7 +11,7 @@ export function AlertCustom({
 }: Props & AlertProps): JSX.Element {
     return (
         <Template>
-            <Stack sx={{ width: '100%' }} spacing={2}>
+            <Stack sx={{ width: '100%' }} spacing={2} data-testid="alert">
                 <Alert {...props}>{text}</Alert>
             </Stack>
         </Template>

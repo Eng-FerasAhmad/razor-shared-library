@@ -6,7 +6,7 @@ import { fontSize } from 'src/shared/fonts';
 export function CardPalette(): JSX.Element {
     return (
         <Box sx={{ margin: 2, width: 500 }}>
-            <Card>
+            <Card variant="elevation" elevation={4}>
                 <Box sx={{ margin: 2, fontSize: fontSize.font24 }}>
                     Card content
                 </Box>

@@ -27,7 +27,7 @@ export function TabCustom({
 }: Props & TabsProps): JSX.Element {
     return (
         <Template>
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '100%' }} data-testid="tab">
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs
                         value={value}
@@ -48,7 +48,12 @@ export function TabCustom({
                 </Box>
                 {tabItem.map((item, index) => {
                     return (
-                        <TabPanel value={value} index={index} key={index}>
+                        <TabPanel
+                            value={value}
+                            index={index}
+                            key={index}
+                            data-testid="tab-panel"
+                        >
                             {item.content}
                         </TabPanel>
                     );

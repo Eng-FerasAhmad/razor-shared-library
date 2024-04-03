@@ -2,35 +2,20 @@ import { TableSortLabel } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { ReactNode } from 'react';
-import { HeadCell, Order } from 'src/components/table/types';
+import { TableProps } from './types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
 
-export interface Props<T> {
-    headCells: HeadCell<T>[];
-    orderBy: string;
-    order: Order;
-    statusFilter?: ReactNode;
-    resetSort: () => void;
-    handleHeaderClick: (sortLabel: string) => void;
-}
-
-export default function EnhancedTableHead<T>({
-    headCells,
-    orderBy,
-    order,
-    statusFilter,
-    resetSort,
-    handleHeaderClick,
-}: Props<T>): JSX.Element {
+export default function EnhancedTableHead<T>(
+    props: TableProps<T>
+): JSX.Element {
     const resetSortHandler = (): void => {
-        resetSort();
+        props.resetSort();
     };
 
     const headerClick = (sortLabel: string): void => {
-        handleHeaderClick(sortLabel);
+        props.handleHeaderClick(sortLabel);
     };
 
     return (
@@ -48,7 +33,7 @@ export default function EnhancedTableHead<T>({
                 >
                     #
                 </TableCell>
-                {headCells.map((headCell, idx) => (
+                {props.headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}
                         align={headCell.numeric ? 'right' : 'left'}
@@ -60,16 +45,18 @@ export default function EnhancedTableHead<T>({
                         }}
                     >
                         <TableSortLabel
-                            active={orderBy === headCell.sortLabel}
+                            active={props.orderBy === headCell.sortLabel}
                             direction={
-                                orderBy === headCell.sortLabel ? order : 'asc'
+                                props.orderBy === headCell.sortLabel
+                                    ? props.order
+                                    : 'asc'
                             }
                             onClick={() => headerClick(headCell.sortLabel)}
                         >
                             {headCell.label}
                         </TableSortLabel>
-                        {headCell.id === 'statusText' && statusFilter && (
-                            <>{statusFilter}</>
+                        {headCell.id === 'statusText' && props.statusFilter && (
+                            <>{props.statusFilter}</>
                         )}
                     </TableCell>
                 ))}

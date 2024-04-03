@@ -34,7 +34,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
         const d: FormDataSet[] = [];
         formDataSet.map((item) => d.push(item));
         setFormData(d);
-    }, [formData]);
+    }, [formData, formDataSet]);
 
     const updateDataForm = useCallback(
         (index: number, value: string | number | boolean | Dayjs) => {
@@ -42,7 +42,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
             setFormData(formData);
             onUpdateFrom(formData);
         },
-        [formData]
+        [formData, onUpdateFrom]
     );
 
     const textChangeHandler = (

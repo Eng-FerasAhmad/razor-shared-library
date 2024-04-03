@@ -21,7 +21,7 @@ export function TimePickerCustom({
                 dateAdapter={AdapterDayjs}
                 adapterLocale={locale}
             >
-                <TimePicker {...props} />
+                <TimePicker {...props} data-testid="time-picker" />
             </LocalizationProvider>
         </Template>
     );

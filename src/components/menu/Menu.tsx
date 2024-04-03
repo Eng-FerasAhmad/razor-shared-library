@@ -111,7 +111,10 @@ export const MenuCustom = ({
                         }}
                     >
                         <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
+                            <ClickAwayListener
+                                onClickAway={handleClose}
+                                data-testid="click-away-listener"
+                            >
                                 <MenuList
                                     autoFocusItem={open}
                                     id="composition-menu"
@@ -126,6 +129,7 @@ export const MenuCustom = ({
                                                 selected={
                                                     selected === item.title
                                                 }
+                                                data-testid="menu-item"
                                                 onClick={(e) =>
                                                     handleClickItem(e, item)
                                                 }
