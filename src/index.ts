@@ -41,4 +41,3 @@ export type { RadioItems } from './components/form/radio-group/types';
 export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
-

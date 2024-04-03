@@ -22,7 +22,10 @@ export function TableCustom<T>(props: TableProps<T>): JSX.Element {
                         border: `${pixelToRem(1)} solid lightGray`,
                     }}
                 >
-                    <TableToolbar headerTools={props.headerTools} data-testid="table-toolbar"/>
+                    <TableToolbar
+                        headerTools={props.headerTools}
+                        data-testid="table-toolbar"
+                    />
                     <TableContainer>
                         <Table
                             sx={{ minWidth: 750 }}
