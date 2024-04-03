@@ -14,7 +14,7 @@ import { pixelToRem } from 'src/shared/common';
 export function TableCustom<T>(props: TableProps<T>): JSX.Element {
     return (
         <Template>
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '100%' }} data-testid="table-container">
                 <Paper
                     sx={{
                         width: '100%',
@@ -22,7 +22,7 @@ export function TableCustom<T>(props: TableProps<T>): JSX.Element {
                         border: `${pixelToRem(1)} solid lightGray`,
                     }}
                 >
-                    <TableToolbar headerTools={props.headerTools} />
+                    <TableToolbar headerTools={props.headerTools} data-testid="table-toolbar"/>
                     <TableContainer>
                         <Table
                             sx={{ minWidth: 750 }}
