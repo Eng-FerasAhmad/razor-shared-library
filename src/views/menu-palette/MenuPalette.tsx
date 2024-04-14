@@ -4,6 +4,7 @@ import { AlertCustom } from 'src/components/alert/Alert';
 import { ButtonCustom } from 'src/components/form/button/Button';
 import { MenuCustom } from 'src/components/menu/Menu';
 import { PaperCustom } from 'src/components/paper/Paper';
+import {ToolTipCustom} from 'src/components/tooltip/ToolTip';
 
 export function MenuPalette(): JSX.Element {
     const [selected, setSelected] = useState<string>('');
@@ -46,6 +47,10 @@ export function MenuPalette(): JSX.Element {
                 }}
             >
                 <PaperCustom elevation={3}>content</PaperCustom>
+            </Box>
+
+            <Box sx={{background: 'green'}}>
+                <ToolTipCustom title='this is tooltip'><div>Tooltip</div></ToolTipCustom>
             </Box>
         </Box>
     );

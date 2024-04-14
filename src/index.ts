@@ -31,6 +31,7 @@ export { TabCustom as Tab } from './components/tab/Tab';
 export { TableCustom as Table } from './components/table/Table';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
+export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
 
 /* Types */
 export type { AutoCompleteOptions } from './components/auto-complete/types';
