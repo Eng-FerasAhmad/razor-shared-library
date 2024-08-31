@@ -1,5 +1,6 @@
 import { DatepickerCustom } from './Datepicker';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<Datepicker />', () => {
     test('should render the component', () => {

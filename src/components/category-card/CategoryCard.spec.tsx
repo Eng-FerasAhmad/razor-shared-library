@@ -1,5 +1,6 @@
 import { CategoryCard } from './CategoryCard';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<CategoryCard />', () => {
     test('should render the component', () => {

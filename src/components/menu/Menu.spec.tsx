@@ -1,6 +1,7 @@
 import { userEvent } from '@testing-library/user-event';
 import { MenuCustom } from './Menu';
-import { fireEvent, render, screen } from 'src/test/test-utils';
+import { fireEvent, render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<MenuCustom />', () => {
     const itemsMenu = [

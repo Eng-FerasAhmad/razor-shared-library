@@ -1,5 +1,6 @@
 import { TimePickerCustom } from 'src/components/time-picker/TimePicker';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<TabCustom />', () => {
     test('should render the component', () => {

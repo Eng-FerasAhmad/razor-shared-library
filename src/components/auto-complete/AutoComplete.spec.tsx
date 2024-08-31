@@ -1,5 +1,6 @@
 import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<AutoCompleteCustom />', () => {
     test('should render the component', () => {

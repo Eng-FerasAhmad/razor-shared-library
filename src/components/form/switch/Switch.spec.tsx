@@ -1,5 +1,6 @@
 import { SwitchCustom } from './Switch';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<Switch />', () => {
     test('should render the component', () => {

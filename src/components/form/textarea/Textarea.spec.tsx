@@ -1,5 +1,6 @@
 import { Textarea } from './Textarea';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<Textarea />', () => {
     test('should render the component', () => {

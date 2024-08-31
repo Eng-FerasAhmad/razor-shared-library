@@ -1,5 +1,6 @@
 import TabPanel from 'src/components/tab/TabPanel';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<TabPanel />', () => {
     test('should render the component', () => {

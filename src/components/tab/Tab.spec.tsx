@@ -1,6 +1,7 @@
 import { TabCustom } from 'src/components/tab/Tab';
 import { TabItem } from 'src/components/tab/types';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<TabCustom />', () => {
     const tabItem: TabItem[] = [

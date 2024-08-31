@@ -1,5 +1,6 @@
 import { AlertCustom } from './Alert';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<Alert />', () => {
     test('should render the component', () => {

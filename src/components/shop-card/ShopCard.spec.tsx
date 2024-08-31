@@ -1,5 +1,6 @@
 import { ShopCard } from './ShopCard';
-import { render, screen } from 'src/test/test-utils';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 
 describe('<ShopCard />', () => {
     test('should render the component', () => {
