@@ -1,10 +1,39 @@
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { DrawerCustom } from 'src/components/drawer/Drawer';
 import { DrawerListItems } from 'src/components/drawer/types';
 
-export function DrawerPalette(): JSX.Element {
+export function DrawerPalette(): ReactElement {
     const [open, setOpen] = useState(true);
+
+    const subListItems1: DrawerListItems[] = [
+        {
+            icon: <>Sub Item 1.1</>,
+            clickHandler: () => {
+                console.log('Im sub Mail 1.1');
+            },
+        },
+        {
+            icon: <>Sub Item 1.2</>,
+            clickHandler: () => {
+                console.log('Im sub Mail 1.2');
+            },
+        },
+    ];
+    const subListItems2: DrawerListItems[] = [
+        {
+            icon: <>Sub Item 2.1</>,
+            clickHandler: () => {
+                console.log('Im sub address 2.1');
+            },
+        },
+        {
+            icon: <>Sub Item 2.2</>,
+            clickHandler: () => {
+                console.log('Im sub address 2.2');
+            },
+        },
+    ];
 
     const listItems: DrawerListItems[] = [
         {
@@ -12,11 +41,19 @@ export function DrawerPalette(): JSX.Element {
             clickHandler: () => {
                 console.log('Im Mail');
             },
+            subMenu: subListItems1,
         },
         {
             icon: <>Item 2</>,
             clickHandler: () => {
                 console.log('Im Address');
+            },
+            subMenu: subListItems2,
+        },
+        {
+            icon: <>Item 3</>,
+            clickHandler: () => {
+                console.log('Im Item 3');
             },
         },
     ];
