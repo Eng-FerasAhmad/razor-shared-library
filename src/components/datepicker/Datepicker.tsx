@@ -6,6 +6,7 @@ import 'dayjs/locale/de';
 import 'dayjs/locale/en-gb';
 import { Template } from 'src/components/_template/Template';
 import { DatepickerLocale } from 'src/components/datepicker/types';
+import { ReactElement } from 'react';
 
 interface DatepickerProps {
     locale: DatepickerLocale;
@@ -14,7 +15,7 @@ interface DatepickerProps {
 export function DatepickerCustom({
     locale,
     ...props
-}: DatePickerProps<Dayjs> & DatepickerProps): JSX.Element {
+}: DatePickerProps<Dayjs> & DatepickerProps): ReactElement {
     return (
         <Template>
             <LocalizationProvider

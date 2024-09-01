@@ -1,5 +1,5 @@
 import TableCell from '@mui/material/TableCell';
-import { useCallback, useEffect, useState } from 'react';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import { HeadCell } from 'src/components/table/types';
 import { pixelToRem } from 'src/shared/common';
 
@@ -16,7 +16,7 @@ interface Props<T> {
 export default function TableCellCustom<T>({
     headCells,
     row,
-}: Props<T>): JSX.Element {
+}: Props<T>): ReactElement {
     const [keys, setKeys] = useState<RowKeys[]>([]);
 
     const createRowKeys = useCallback(() => {

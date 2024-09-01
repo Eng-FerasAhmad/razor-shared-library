@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
-import { useCallback, useState } from 'react';
+import { ReactElement, useCallback, useState } from 'react';
 import { FormCreator } from 'src/components/form-creator/FormCreator';
 import { FormDataSet } from 'src/components/form-creator/types';
 
-export default function FormGenericPalette(): JSX.Element {
+export default function FormGenericPalette(): ReactElement {
     const d: FormDataSet[] = [
         {
             label: 'color',

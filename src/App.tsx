@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { SyntheticEvent, useState } from 'react';
+import { ReactElement, SyntheticEvent, useState } from 'react';
 import { fonts } from './shared/fonts';
 import { CardPalette } from './views/card-palette/CardPalette';
 import { DateTimePalette } from './views/date-time-palette/DateTimePalette';
@@ -19,7 +19,7 @@ interface TabPanelProps {
     value: number;
 }
 
-function TabPanel(props: TabPanelProps): JSX.Element {
+function TabPanel(props: TabPanelProps): ReactElement {
     const { children, value, index, ...other } = props;
 
     return (
@@ -46,7 +46,7 @@ function a11yProps(index: number): { id: string; 'aria-controls': string } {
     };
 }
 
-export default function VerticalTabs(): JSX.Element {
+export default function VerticalTabs(): ReactElement {
     const [value, setValue] = useState(0);
 
     const handleChange = (_event: SyntheticEvent, newValue: number): void => {

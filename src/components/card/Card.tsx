@@ -1,11 +1,11 @@
 import { Card, CardProps } from '@mui/material';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import { Template } from 'src/components/_template/Template';
 
 export function CardCustom({
     children,
     ...props
-}: PropsWithChildren<CardProps>): JSX.Element {
+}: PropsWithChildren<CardProps>): ReactElement {
     return (
         <Template>
             <Card

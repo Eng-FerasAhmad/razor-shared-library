@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { AlertCustom } from 'src/components/alert/Alert';
 import { ButtonCustom } from 'src/components/form/button/Button';
 import { MenuCustom } from 'src/components/menu/Menu';
 import { PaperCustom } from 'src/components/paper/Paper';
 import { ToolTipCustom } from 'src/components/tooltip/ToolTip';
 
-export function MenuPalette(): JSX.Element {
+export function MenuPalette(): ReactElement {
     const [selected, setSelected] = useState<string>('');
 
     const itemsMenu = [

@@ -1,6 +1,7 @@
 import Alert, { AlertProps } from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { Template } from 'src/components/_template/Template';
+import { ReactElement } from 'react';
 
 interface Props {
     text: string;
@@ -8,7 +9,7 @@ interface Props {
 export function AlertCustom({
     text,
     ...props
-}: Props & AlertProps): JSX.Element {
+}: Props & AlertProps): ReactElement {
     return (
         <Template>
             <Stack sx={{ width: '100%' }} spacing={2} data-testid="alert">

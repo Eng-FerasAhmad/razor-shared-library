@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import DrawerList from './DrawerList';
 import DrawerToolbar from './DrawerToolbar';
 import { DrawerHeader, MainDrawer, drawerWidth } from './styles';
@@ -33,7 +33,7 @@ export function DrawerCustom({
     listItems,
     open,
     handleDrawerOpen,
-}: Props): JSX.Element {
+}: Props): ReactElement {
     return (
         <Template>
             <Box

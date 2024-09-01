@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 import { Dayjs } from 'dayjs';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { DatepickerCustom } from 'src/components/datepicker/Datepicker';
 import { TimePickerCustom } from 'src/components/time-picker/TimePicker';
 
-export function DateTimePalette(): JSX.Element {
+export function DateTimePalette(): ReactElement {
     const [value, setValue] = useState<Dayjs | null>(null);
     const changeHandler = (val: Dayjs): void => {
         setValue(val);

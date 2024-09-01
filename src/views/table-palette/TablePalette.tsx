@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { SortDirection } from '@mui/material/TableCell';
-import { ChangeEvent, ReactNode, useState } from 'react';
+import { ChangeEvent, ReactNode, useState, ReactElement } from 'react';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell, Order } from 'src/components/table/types';
 
@@ -78,7 +78,7 @@ const rows = [
     createData('5', 'Gingerbread', 356, 16.0, 49, 3.9, handleAction(5)),
 ];
 
-export default function TablePalette(): JSX.Element {
+export default function TablePalette(): ReactElement {
     const [pageSize, setPageSize] = useState<number>(5);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const [orderBy, setOrderBy] = useState<string>('');

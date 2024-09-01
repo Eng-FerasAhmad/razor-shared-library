@@ -1,13 +1,13 @@
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { TableProps } from './types';
 import TableCellCustom from 'src/components/table/TableCell';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 
-export default function TableBodyCustom<T>(props: TableProps<T>): JSX.Element {
+export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
     const [selectedIndex, setSelectedIndex] = useState<number>(
         props.selectedRow
     );

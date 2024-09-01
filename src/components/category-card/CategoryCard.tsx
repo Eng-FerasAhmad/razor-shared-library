@@ -1,6 +1,7 @@
 import { CategoryCardContainer } from './styles';
+import { ReactElement } from 'react';
 
-export function CategoryCard(): JSX.Element {
+export function CategoryCard(): ReactElement {
     return (
         <CategoryCardContainer data-testid="category-card">
             <>category card</>

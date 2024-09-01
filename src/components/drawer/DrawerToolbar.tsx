@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { DrawerAppBar } from 'src/components/drawer/styles';
 import { fontSize } from 'src/shared/fonts';
 
@@ -19,7 +19,7 @@ export default function DrawerToolbar({
     open,
     headerIcon,
     appClickHandler,
-}: Props): JSX.Element {
+}: Props): ReactElement {
     return (
         <DrawerAppBar position="fixed" open={open} data-testid="drawer-app-bar">
             <Toolbar>

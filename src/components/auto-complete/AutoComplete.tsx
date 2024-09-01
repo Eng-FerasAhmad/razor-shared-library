@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 
 interface Props {
@@ -16,7 +16,7 @@ export function AutoCompleteCustom({
     label,
     value,
     onChange,
-}: Props): JSX.Element {
+}: Props): ReactElement {
     const [inputValue, setInputValue] = useState('');
 
     const changeHandler = (

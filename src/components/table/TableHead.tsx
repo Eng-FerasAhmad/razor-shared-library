@@ -6,10 +6,11 @@ import { TableProps } from './types';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
+import { ReactElement } from 'react';
 
 export default function EnhancedTableHead<T>(
     props: TableProps<T>
-): JSX.Element {
+): ReactElement {
     const resetSortHandler = (): void => {
         props.resetSort();
     };

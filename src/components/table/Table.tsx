@@ -10,8 +10,9 @@ import TableEmptyRow from 'src/components/table/TableEmptyRow';
 import TablePaginationCustom from 'src/components/table/TablePagination';
 import { TableProps } from 'src/components/table/types';
 import { pixelToRem } from 'src/shared/common';
+import { ReactElement } from 'react';
 
-export function TableCustom<T>(props: TableProps<T>): JSX.Element {
+export function TableCustom<T>(props: TableProps<T>): ReactElement {
     return (
         <Template>
             <Box sx={{ width: '100%' }} data-testid="table-container">

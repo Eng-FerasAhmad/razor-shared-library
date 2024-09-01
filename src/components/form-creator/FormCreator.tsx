@@ -1,6 +1,12 @@
 import { Box, SelectChangeEvent } from '@mui/material';
 import { Dayjs } from 'dayjs';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import {
+    ChangeEvent,
+    ReactElement,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import { InputSelect } from '../form/input-select/InputSelect';
 import { InputText } from '../form/input-text/InputText';
 import { RadioGroupCustom } from '../form/radio-group/RadioGroup';
@@ -16,7 +22,10 @@ interface Props {
     onUpdateFrom: (formData: FormDataSet[]) => void;
 }
 
-export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
+export function FormCreator({
+    formDataSet,
+    onUpdateFrom,
+}: Props): ReactElement {
     const [formData, setFormData] = useState<FormDataSet[]>([]);
     const [, setText] = useState<string>('');
     const [, setNum] = useState<number>(0);
@@ -112,7 +121,7 @@ export function FormCreator({ formDataSet, onUpdateFrom }: Props): JSX.Element {
     const createController = (
         item: FormDataSet,
         index: number
-    ): JSX.Element => {
+    ): ReactElement => {
         switch (item.controller) {
             case 'TEXT':
                 return (

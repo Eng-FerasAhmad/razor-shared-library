@@ -1,5 +1,6 @@
 import { Checkbox, CheckboxProps } from '@mui/material';
 import { Template } from 'src/components/_template/Template';
+import { ReactElement } from 'react';
 
 interface Props {
     label?: string;
@@ -7,7 +8,7 @@ interface Props {
 export function CheckboxCustom({
     label,
     ...props
-}: CheckboxProps & Props): JSX.Element {
+}: CheckboxProps & Props): ReactElement {
     return (
         <Template>
             <Checkbox

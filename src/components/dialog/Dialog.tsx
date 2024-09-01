@@ -4,7 +4,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { Template } from 'src/components/_template/Template';
 import { color } from 'src/shared/color';
 
@@ -37,7 +37,7 @@ export function DialogCustom({
     headerFontColor,
     children,
     ...props
-}: PropsWithChildren<DialogProps & Props>): JSX.Element {
+}: PropsWithChildren<DialogProps & Props>): ReactElement {
     return (
         <Template>
             <BootstrapDialog

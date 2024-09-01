@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { ReactElement, SyntheticEvent, useState } from 'react';
 import { TabCustom } from 'src/components/tab/Tab';
 import { TabItem } from 'src/components/tab/types';
 
@@ -16,7 +16,7 @@ const tabItem: TabItem[] = [
         content: <div>three</div>,
     },
 ];
-export default function TabPalette(): JSX.Element {
+export default function TabPalette(): ReactElement {
     const [value, setValue] = useState(0);
 
     const handleClick = (_e: SyntheticEvent, val: number): void => {

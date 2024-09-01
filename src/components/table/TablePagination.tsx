@@ -1,11 +1,11 @@
 import TablePagination from '@mui/material/TablePagination';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, ReactElement } from 'react';
 import { TableProps } from './types';
 import { pixelToRem } from 'src/shared/common';
 
 export default function TablePaginationCustom<T>(
     props: TableProps<T>
-): JSX.Element {
+): ReactElement {
     return (
         <TablePagination
             rowsPerPageOptions={[5, 10, 25, 50, 75, 100]}

@@ -8,7 +8,14 @@ import {
     Popper,
 } from '@mui/material';
 import Grow from '@mui/material/Grow';
-import { KeyboardEvent, ReactNode, useEffect, useRef, useState } from 'react';
+import {
+    KeyboardEvent,
+    ReactElement,
+    ReactNode,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import { Template } from 'src/components/_template/Template';
 
 interface Items {
@@ -30,7 +37,7 @@ export const MenuCustom = ({
     anchor,
     position = 'bottom-start',
     ...props
-}: Props & Omit<BoxProps, 'position'>): JSX.Element => {
+}: Props & Omit<BoxProps, 'position'>): ReactElement => {
     const [open, setOpen] = useState(false);
     const anchorRef = useRef<HTMLDivElement>(null);
 

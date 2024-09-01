@@ -5,6 +5,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup, { RadioGroupProps } from '@mui/material/RadioGroup';
 import { RadioItems } from './types';
 import { Template } from 'src/components/_template/Template';
+import { ReactElement } from 'react';
 
 interface Props {
     label: string;
@@ -18,7 +19,7 @@ export function RadioGroupCustom({
     value,
     disabled,
     ...props
-}: Props & RadioGroupProps): JSX.Element {
+}: Props & RadioGroupProps): ReactElement {
     return (
         <Template>
             <FormControl>

@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { color } from 'src/shared/color';
 
 interface Props {
@@ -17,6 +17,6 @@ const theme = createTheme({
     },
 });
 
-export const Template = ({ children }: Props): JSX.Element => {
+export const Template = ({ children }: Props): ReactElement => {
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

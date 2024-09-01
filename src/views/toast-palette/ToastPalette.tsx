@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { useState, ReactElement } from 'react';
 import { Button, Toast } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
-export function ToastPalette(): JSX.Element {
+export function ToastPalette(): ReactElement {
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = (): void => {

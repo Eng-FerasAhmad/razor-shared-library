@@ -1,5 +1,5 @@
 import { Box, SelectChangeEvent } from '@mui/material';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ReactElement, useState } from 'react';
 import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 import { RadioGroupCustom } from 'src/components/form/radio-group/RadioGroup';
@@ -22,7 +22,7 @@ const autoOptions: AutoCompleteOptions[] = [
     },
 ];
 
-export default function FormPalette(): JSX.Element {
+export default function FormPalette(): ReactElement {
     const [valueInput, setValueInput] = useState<string>('');
     const [selectInput, setSelectInput] = useState<string>('');
     const [rating, setRating] = useState<number | null>(2);

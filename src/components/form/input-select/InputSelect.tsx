@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { Template } from 'src/components/_template/Template';
 import { SelectItems } from 'src/components/form/input-select/types';
+import { ReactElement } from 'react';
 
 interface Props {
     items: SelectItems[];
@@ -28,7 +29,7 @@ export function InputSelect({
     error,
     disabled,
     handleChange,
-}: Props): JSX.Element {
+}: Props): ReactElement {
     return (
         <Template>
             <FormControl

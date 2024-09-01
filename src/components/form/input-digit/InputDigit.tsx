@@ -1,6 +1,7 @@
 import { InputDigitContainer } from './styles';
+import { ReactElement } from 'react';
 
-export function InputDigit(): JSX.Element {
+export function InputDigit(): ReactElement {
     return (
         <InputDigitContainer data-testid="input-digit">
             <>input digit</>

@@ -2,8 +2,9 @@ import { Box } from '@mui/material';
 import { ButtonCustom } from 'src/components/form/button/Button';
 import { Card } from 'src/index';
 import { fontSize } from 'src/shared/fonts';
+import { ReactElement } from 'react';
 
-export function CardPalette(): JSX.Element {
+export function CardPalette(): ReactElement {
     return (
         <Box sx={{ margin: 2, width: 500 }}>
             <Card variant="elevation" elevation={4}>

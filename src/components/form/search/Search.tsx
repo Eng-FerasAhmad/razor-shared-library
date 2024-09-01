@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import InputBase, { InputBaseProps } from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 interface Props {
     searchIcon: ReactNode;
@@ -16,7 +16,7 @@ export function SearchCustom({
     submitHandler,
     clearHandler,
     ...props
-}: Props & InputBaseProps): JSX.Element {
+}: Props & InputBaseProps): ReactElement {
     const clickSubmitHandler = (
         e: React.FormEvent<HTMLFormElement | HTMLButtonElement>
     ): void => {

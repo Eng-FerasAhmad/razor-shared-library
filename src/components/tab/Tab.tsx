@@ -4,6 +4,7 @@ import Tabs, { TabsProps } from '@mui/material/Tabs';
 import { Template } from 'src/components/_template/Template';
 import TabPanel from 'src/components/tab/TabPanel';
 import { TabItem } from 'src/components/tab/types';
+import { ReactElement } from 'react';
 
 interface Props {
     tabItem: TabItem[];
@@ -24,7 +25,7 @@ export function TabCustom({
     value,
     onChange,
     ...props
-}: Props & TabsProps): JSX.Element {
+}: Props & TabsProps): ReactElement {
     return (
         <Template>
             <Box sx={{ width: '100%' }} data-testid="tab">

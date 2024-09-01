@@ -1,5 +1,6 @@
 import { Alert, Snackbar, SnackbarProps } from '@mui/material';
 import { Template } from '../_template/Template';
+import { ReactElement } from 'react';
 
 interface Props {
     text: string;
@@ -14,7 +15,7 @@ export function Toast({
     open,
     severity,
     ...props
-}: Props & SnackbarProps): JSX.Element {
+}: Props & SnackbarProps): ReactElement {
     return (
         <Template>
             <Snackbar

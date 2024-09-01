@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { ReactNode, useState } from 'react';
+import { ReactElement, ReactNode, useState } from 'react';
 import { IconOptions } from 'src/components/icon-selector/types';
 
 interface Props {
@@ -16,7 +16,7 @@ export function IconSelector({
     label,
     value,
     onChange,
-}: Props): JSX.Element {
+}: Props): ReactElement {
     const [inputValue, setInputValue] = useState('');
 
     const changeHandler = (

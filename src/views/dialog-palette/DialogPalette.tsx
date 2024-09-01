@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { Loading } from 'src/components/loading/Loading';
 import { Button, Dialog } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
-export function DialogPalette(): JSX.Element {
+export function DialogPalette(): ReactElement {
     const [open, setOpen] = useState(false);
     const [openLoading, setOpenLoading] = useState(false);
 

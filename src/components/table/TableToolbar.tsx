@@ -1,13 +1,13 @@
 import { Typography } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { pixelToRem } from 'src/shared/common';
 
 interface Props {
     headerTools: ReactNode;
 }
 
-export default function TableToolbar({ headerTools }: Props): JSX.Element {
+export default function TableToolbar({ headerTools }: Props): ReactElement {
     return (
         <Toolbar
             sx={{

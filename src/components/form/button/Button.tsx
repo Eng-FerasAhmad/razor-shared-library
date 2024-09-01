@@ -1,5 +1,6 @@
 import Button, { ButtonProps } from '@mui/material/Button';
 import { Template } from 'src/components/_template/Template';
+import { ReactElement } from 'react';
 
 interface Props {
     label: string;
@@ -10,7 +11,7 @@ export function ButtonCustom({
     label,
     size,
     ...props
-}: ButtonProps & Props): JSX.Element {
+}: ButtonProps & Props): ReactElement {
     const height = (): number => {
         switch (size) {
             case 'large':

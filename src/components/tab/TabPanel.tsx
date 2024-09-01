@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 interface Props {
     children?: ReactNode;
@@ -7,7 +7,7 @@ interface Props {
     value: number;
 }
 
-export default function TabPanel(props: Props): JSX.Element {
+export default function TabPanel(props: Props): ReactElement {
     const { children, value, index, ...other } = props;
 
     return (
