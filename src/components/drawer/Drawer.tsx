@@ -22,6 +22,8 @@ interface Props {
     listItems: DrawerListItems[];
     open: boolean;
     handleDrawerOpen: () => void;
+    collapseIconOpen?: ReactNode;
+    collapseIconClose?: ReactNode;
 }
 
 export function DrawerCustom({
@@ -33,6 +35,8 @@ export function DrawerCustom({
     listItems,
     open,
     handleDrawerOpen,
+    collapseIconOpen,
+    collapseIconClose,
 }: Props): ReactElement {
     return (
         <Template>
@@ -93,6 +97,8 @@ export function DrawerCustom({
                     <Divider />
                     <DrawerList
                         listItems={listItems}
+                        collapseIconOpen={collapseIconOpen}
+                        collapseIconClose={collapseIconClose}
                         data-testid="drawer-list"
                     />
                 </Drawer>

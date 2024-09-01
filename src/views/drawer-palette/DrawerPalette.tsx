@@ -73,6 +73,8 @@ export function DrawerPalette(): ReactElement {
                 closeDrawerIcon={<>{'<'}</>}
                 listItems={listItems}
                 handleDrawerOpen={handleDrawerOpen}
+                collapseIconOpen={7}
+                collapseIconClose={8}
             />
             <>value</>
         </Box>
