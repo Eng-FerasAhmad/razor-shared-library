@@ -43,13 +43,27 @@ export default function DrawerList({
                                 justifyContent: 'space-between',
                             }}
                         >
-                            <ListItemIcon>{item.icon}</ListItemIcon>
+                            <ListItemIcon
+                                style={{
+                                    display: 'flex',
+                                    justifyItems: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                {item.icon}
+                            </ListItemIcon>
                             {item.subMenu && (
-                                <div>
+                                <Box
+                                    style={{
+                                        display: 'flex',
+                                        justifyItems: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                >
                                     {openItems[index]
                                         ? collapseIconOpen
                                         : collapseIconClose}
-                                </div>
+                                </Box>
                             )}
                         </ListItemButton>
                     </ListItem>
