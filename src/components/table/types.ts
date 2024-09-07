@@ -22,6 +22,7 @@ export interface TableProps<T> {
         page: number
     ) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
+    isCustomTable?: boolean;
 }
 
 export interface HeadCell<T> {

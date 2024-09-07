@@ -137,6 +137,7 @@ export default function TablePalette(): ReactElement {
             handleChangeRowsPerPage={(event: ChangeEvent<HTMLInputElement>) =>
                 handleChangeRowsPerPage(event)
             }
+            isCustomTable={true}
         />
     );
 }
