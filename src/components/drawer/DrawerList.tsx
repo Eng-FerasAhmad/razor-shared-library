@@ -49,6 +49,7 @@ export default function DrawerList({
                                     justifyItems: 'center',
                                     alignItems: 'center',
                                 }}
+                                data-testid="mui-list-item-icon"
                             >
                                 {item.icon}
                             </ListItemIcon>

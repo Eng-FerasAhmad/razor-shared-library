@@ -106,6 +106,9 @@ export const MenuCustom = ({
                 transition
                 disablePortal
                 data-testid="popper"
+                style={{
+                    zIndex: 1000,
+                }}
             >
                 {({ TransitionProps, placement }) => (
                     <Grow

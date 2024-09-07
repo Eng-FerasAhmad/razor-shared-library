@@ -39,7 +39,7 @@ export default function EnhancedTableHead<T>(
                         key={idx}
                         align={headCell.numeric ? 'right' : 'left'}
                         sx={{
-                            fontSize: pixelToRem(fontSize.font17),
+                            fontSize: pixelToRem(fontSize.font16),
                             padding: pixelToRem(10, 16),
                             color: color.primary.main,
                             cursor: 'pointer',
