@@ -37,7 +37,6 @@ export default function DrawerList({
                         onClick={() => handleClick(index)}
                     >
                         <ListItemButton
-                            onClick={item.clickHandler}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
@@ -50,6 +49,7 @@ export default function DrawerList({
                                     alignItems: 'center',
                                 }}
                                 data-testid="mui-list-item-icon"
+                                onClick={item.clickHandler}
                             >
                                 {item.icon}
                             </ListItemIcon>
