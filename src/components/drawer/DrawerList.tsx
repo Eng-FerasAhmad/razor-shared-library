@@ -47,7 +47,7 @@ export default function DrawerList({
                                 }}
                                 data-testid="mui-list-item-icon"
                             >
-                                {item.icon} X
+                                {item.icon}
                             </ListItemIcon>
                             {item.subMenu && (
                                 <Box
