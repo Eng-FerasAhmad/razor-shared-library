@@ -13,7 +13,12 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
     );
 
     const handleDlClick = (row: T, index: number): void => {
-        props.onClickRow(row, index);
+        props.onDlClickRow(row, index);
+        setSelectedIndex(index);
+    };
+
+    const handleOneClick = (row: T, index: number): void => {
+        props.onOneClickRow(row, index);
         setSelectedIndex(index);
     };
 
@@ -24,6 +29,7 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
                     <TableRow
                         role="checkbox"
                         onDoubleClick={() => handleDlClick(row, index)}
+                        onClick={() => handleOneClick(row, index)}
                         tabIndex={-1}
                         key={index}
                         sx={{
