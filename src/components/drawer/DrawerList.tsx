@@ -31,12 +31,9 @@ export default function DrawerList({
         <List data-testid="drawer-list">
             {listItems.map((item, index) => (
                 <Box key={index}>
-                    <ListItem
-                        key={index}
-                        disablePadding
-                        onClick={() => handleClick(index)}
-                    >
+                    <ListItem key={index} disablePadding>
                         <ListItemButton
+                            onClick={item.clickHandler}
                             style={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
@@ -49,9 +46,8 @@ export default function DrawerList({
                                     alignItems: 'center',
                                 }}
                                 data-testid="mui-list-item-icon"
-                                onClick={item.clickHandler}
                             >
-                                {item.icon}
+                                {item.icon} X
                             </ListItemIcon>
                             {item.subMenu && (
                                 <Box
@@ -60,6 +56,7 @@ export default function DrawerList({
                                         justifyItems: 'center',
                                         alignItems: 'center',
                                     }}
+                                    onClick={() => handleClick(index)}
                                 >
                                     {openItems[index]
                                         ? collapseIconOpen

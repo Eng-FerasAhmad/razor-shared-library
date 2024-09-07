@@ -23,6 +23,7 @@ export interface TableProps<T> {
     ) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
     isCustomTable?: boolean;
+    noBorderLeft?: boolean;
 }
 
 export interface HeadCell<T> {

@@ -23,6 +23,7 @@ export function TableCustom<T>(props: TableProps<T>): ReactElement {
                         border: `${pixelToRem(1)} solid lightGray`,
                         boxShadow: `none`,
                         borderRadius: `${!props.isCustomTable ? 0 : 10}`,
+                        borderLeftWidth: `${props.noBorderLeft ? 0 : 1}`,
                     }}
                 >
                     <TableToolbar
