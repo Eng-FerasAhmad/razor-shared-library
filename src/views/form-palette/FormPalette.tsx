@@ -8,6 +8,7 @@ import { SearchCustom } from 'src/components/form/search/Search';
 import { SwitchCustom } from 'src/components/form/switch/Switch';
 import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
 import { fonts } from 'src/shared/fonts';
+import { BadgeCustom } from 'components/badge/Badge';
 
 const autoOptions: AutoCompleteOptions[] = [
     {
@@ -158,6 +159,11 @@ export default function FormPalette(): ReactElement {
                     onChange={() => undefined}
                     disabled={false}
                 />
+            </Box>
+            <Box>
+                <BadgeCustom badgeContent={4} color={'primary'}>
+                    BadgeCustom
+                </BadgeCustom>
             </Box>
         </Box>
     );
