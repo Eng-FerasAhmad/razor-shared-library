@@ -16,8 +16,8 @@ export interface TableProps<T> {
     statusFilter?: ReactNode;
     resetSort: () => void;
     handleHeaderClick: (sortLabel: string) => void;
-    onDlClickRow: (row: T, selected: number) => void;
-    onOneClickRow: (row: T, selected: number) => void;
+    onDlClickRow?: (row: T, selected: number) => void;
+    onOneClickRow?: (row: T, selected: number) => void;
     handleChangePage: (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
         page: number
