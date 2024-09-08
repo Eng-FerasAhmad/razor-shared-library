@@ -32,7 +32,7 @@ export { TableCustom as Table } from './components/table/Table';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
 export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
-export { BadgeCustom as badge } from './components/badge/Badge';
+export { BadgeCustom as Badge } from './components/badge/Badge';
 
 /* Types */
 export type { AutoCompleteOptions } from './components/auto-complete/types';
