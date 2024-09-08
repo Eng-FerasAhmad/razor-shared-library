@@ -129,7 +129,6 @@ export default function TablePalette(): ReactElement {
             headCells={headCells}
             selectedRow={-1}
             statusFilter={<div style={{ display: 'inline' }}>:</div>}
-            onDlClickRow={clickHandler}
             onOneClickRow={clickHandler}
             handleChangePage={(
                 event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,

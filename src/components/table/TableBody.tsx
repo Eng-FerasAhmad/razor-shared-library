@@ -13,12 +13,16 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
     );
 
     const handleDlClick = (row: T, index: number): void => {
-        props.onDlClickRow!(row, index);
+        if (props.onDlClickRow) {
+            props.onDlClickRow(row, index);
+        }
         setSelectedIndex(index);
     };
 
     const handleOneClick = (row: T, index: number): void => {
-        props.onOneClickRow!(row, index);
+        if (props.onOneClickRow) {
+            props.onOneClickRow(row, index);
+        }
         setSelectedIndex(index);
     };
 
