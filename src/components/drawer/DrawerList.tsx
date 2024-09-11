@@ -4,29 +4,24 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { DrawerListItems } from './types';
 import { Collapse } from '@mui/material';
-import { ReactElement, ReactNode, useState } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import Box from '@mui/material/Box';
 
 interface Props {
     listItems: DrawerListItems[];
     collapseIconOpen?: ReactNode;
     collapseIconClose?: ReactNode;
+    openItems: { [key: number]: boolean };
+    handleClick: (index: number) => void;
 }
 
 export default function DrawerList({
     listItems,
     collapseIconOpen,
     collapseIconClose,
+    openItems,
+    handleClick,
 }: Props): ReactElement {
-    const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
-
-    const handleClick = (index: number) => {
-        setOpenItems((prevState) => ({
-            ...prevState,
-            [index]: !prevState[index],
-        }));
-    };
-
     return (
         <List data-testid="drawer-list">
             {listItems.map((item, index) => (

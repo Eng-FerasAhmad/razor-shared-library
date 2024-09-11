@@ -63,6 +63,15 @@ export function DrawerPalette(): ReactElement {
         setOpen(!open);
     };
 
+    const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
+
+    const handleClick = (index: number) => {
+        setOpenItems((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
+    };
+
     return (
         <Box>
             <DrawerCustom
@@ -76,6 +85,8 @@ export function DrawerPalette(): ReactElement {
                 handleDrawerOpen={handleDrawerOpen}
                 collapseIconOpen={7}
                 collapseIconClose={8}
+                openSubItems={openItems}
+                handleSubItemClick={handleClick}
             />
             <>value</>
         </Box>
