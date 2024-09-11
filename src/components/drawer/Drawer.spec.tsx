@@ -30,6 +30,7 @@ describe('<DrawerCustom />', () => {
                 closeDrawerIcon={<>icon</>}
                 headerIcon={<>icon</>}
                 drawerTitle={<>title</>}
+                handleSubItemClick={jest.fn}
             />
         );
 
@@ -51,6 +52,7 @@ describe('<DrawerCustom />', () => {
                 closeDrawerIcon={<>icon</>}
                 headerIcon={<>icon</>}
                 drawerTitle={<>title</>}
+                handleSubItemClick={jest.fn}
             />
         );
 
