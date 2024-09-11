@@ -26,7 +26,6 @@ describe('DrawerList Component', () => {
                 listItems={mockListItems}
                 collapseIconOpen={<span>▲</span>}
                 collapseIconClose={<span>▼</span>}
-                openItems={{}}
                 handleClick={mockHandleClick}
             />
         );
@@ -42,7 +41,6 @@ describe('DrawerList Component', () => {
                 listItems={mockListItems}
                 collapseIconOpen={<span>▲</span>}
                 collapseIconClose={<span>▼</span>}
-                openItems={{}}
                 handleClick={mockHandleClick}
             />
         );
@@ -61,7 +59,6 @@ describe('DrawerList Component', () => {
                 listItems={mockListItems}
                 collapseIconOpen={<span>▲</span>}
                 collapseIconClose={<span>▼</span>}
-                openItems={{ 0: false }}
                 handleClick={mockHandleClick}
             />
         );
@@ -81,7 +78,6 @@ describe('DrawerList Component', () => {
                 listItems={mockListItems}
                 collapseIconOpen={<span>▲</span>}
                 collapseIconClose={<span>▼</span>}
-                openItems={{ 0: true }}
                 handleClick={mockHandleClick}
             />
         );

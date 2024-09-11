@@ -5,6 +5,15 @@ import { DrawerListItems } from 'src/components/drawer/types';
 
 export function DrawerPalette(): ReactElement {
     const [open, setOpen] = useState(true);
+    const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
+
+    const handleClick = (index: number) => {
+        console.log('index', index);
+        setOpenItems((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
+    };
 
     const subListItems1: DrawerListItems[] = [
         {
@@ -42,6 +51,7 @@ export function DrawerPalette(): ReactElement {
                 console.log('Im Mail');
             },
             subMenu: subListItems1,
+            isOpen: openItems[0],
         },
         {
             icon: <>Item 2</>,
@@ -49,7 +59,7 @@ export function DrawerPalette(): ReactElement {
                 console.log('Im Address');
             },
             subMenu: subListItems2,
-            isOpen: true,
+            isOpen: openItems[1],
         },
         {
             icon: <>Item 3</>,
@@ -61,15 +71,6 @@ export function DrawerPalette(): ReactElement {
 
     const handleDrawerOpen = (): void => {
         setOpen(!open);
-    };
-
-    const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
-
-    const handleClick = (index: number) => {
-        setOpenItems((prevState) => ({
-            ...prevState,
-            [index]: !prevState[index],
-        }));
     };
 
     return (
@@ -85,7 +86,6 @@ export function DrawerPalette(): ReactElement {
                 handleDrawerOpen={handleDrawerOpen}
                 collapseIconOpen={7}
                 collapseIconClose={8}
-                openSubItems={openItems}
                 handleSubItemClick={handleClick}
             />
             <>value</>

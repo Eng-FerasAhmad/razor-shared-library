@@ -11,7 +11,6 @@ interface Props {
     listItems: DrawerListItems[];
     collapseIconOpen?: ReactNode;
     collapseIconClose?: ReactNode;
-    openItems: { [key: number]: boolean };
     handleClick: (index: number) => void;
 }
 
@@ -19,7 +18,6 @@ export default function DrawerList({
     listItems,
     collapseIconOpen,
     collapseIconClose,
-    openItems,
     handleClick,
 }: Props): ReactElement {
     return (
@@ -53,7 +51,7 @@ export default function DrawerList({
                                     }}
                                     onClick={() => handleClick(index)}
                                 >
-                                    {openItems[index] || item.isOpen
+                                    {item.isOpen
                                         ? collapseIconOpen
                                         : collapseIconClose}
                                 </Box>
@@ -61,11 +59,7 @@ export default function DrawerList({
                         </ListItemButton>
                     </ListItem>
                     {item.subMenu && (
-                        <Collapse
-                            in={openItems[index] || item.isOpen}
-                            timeout="auto"
-                            unmountOnExit
-                        >
+                        <Collapse in={item.isOpen} timeout="auto" unmountOnExit>
                             <List data-testid="drawer-list-sub-menu">
                                 {item.subMenu!.map((subItem, subIndex) => (
                                     <ListItem key={subIndex} disablePadding>
