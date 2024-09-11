@@ -25,6 +25,7 @@ export interface TableProps<T> {
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
     isCustomTable?: boolean;
     noBorderLeft?: boolean;
+    resetIcon: ReactNode;
 }
 
 export interface HeadCell<T> {

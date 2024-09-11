@@ -58,7 +58,7 @@ export default function DrawerList({
                                     }}
                                     onClick={() => handleClick(index)}
                                 >
-                                    {openItems[index]
+                                    {openItems[index] || item.isOpen
                                         ? collapseIconOpen
                                         : collapseIconClose}
                                 </Box>
@@ -67,7 +67,7 @@ export default function DrawerList({
                     </ListItem>
                     {item.subMenu && (
                         <Collapse
-                            in={openItems[index]}
+                            in={openItems[index] || item.isOpen}
                             timeout="auto"
                             unmountOnExit
                         >

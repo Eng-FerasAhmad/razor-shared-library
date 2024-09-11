@@ -49,6 +49,7 @@ export function DrawerPalette(): ReactElement {
                 console.log('Im Address');
             },
             subMenu: subListItems2,
+            isOpen: true,
         },
         {
             icon: <>Item 3</>,

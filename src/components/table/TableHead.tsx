@@ -32,7 +32,7 @@ export default function EnhancedTableHead<T>(
                     }}
                     onClick={resetSortHandler}
                 >
-                    #
+                    {props.resetIcon}
                 </TableCell>
                 {props.headCells.map((headCell, idx) => (
                     <TableCell

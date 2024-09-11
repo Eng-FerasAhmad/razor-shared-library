@@ -138,6 +138,7 @@ export default function TablePalette(): ReactElement {
                 handleChangeRowsPerPage(event)
             }
             isCustomTable={true}
+            resetIcon={<>x</>}
         />
     );
 }
