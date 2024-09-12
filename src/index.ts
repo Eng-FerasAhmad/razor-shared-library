@@ -33,6 +33,7 @@ export { TimePickerCustom as TimePicker } from './components/time-picker/TimePic
 export { Toast } from './components/toast/Toast';
 export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
 export { BadgeCustom as Badge } from './components/badge/Badge';
+export { AccordionCustom as Accordion } from './components/accordion/Accordion';
 
 /* Types */
 export type { AutoCompleteOptions } from './components/auto-complete/types';
@@ -43,3 +44,4 @@ export type { RadioItems } from './components/form/radio-group/types';
 export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
+export type { AccordionItems } from './components/accordion/types';
