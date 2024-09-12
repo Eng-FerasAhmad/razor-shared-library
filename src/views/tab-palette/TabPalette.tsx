@@ -1,6 +1,8 @@
 import { ReactElement, SyntheticEvent, useState } from 'react';
 import { TabCustom } from 'src/components/tab/Tab';
 import { TabItem } from 'src/components/tab/types';
+import { AccordionCustom } from 'components/accordion/Accordion';
+import { AccordionItems } from 'components/accordion/types';
 
 const tabItem: TabItem[] = [
     {
@@ -23,9 +25,36 @@ export default function TabPalette(): ReactElement {
         setValue(val);
     };
 
+    const accordionItems: AccordionItems[] = [
+        {
+            title: 'accordion 1',
+            details: 'Details 1',
+            onOpenAction: () => console.log('accordion 1'),
+            icon: <>7</>,
+        },
+        {
+            title: 'accordion 2',
+            details: 'Details 2',
+            onOpenAction: () => console.log('accordion 2'),
+            icon: <>7</>,
+        },
+        {
+            title: 'accordion 3',
+            details: 'Details 3',
+            onOpenAction: () => console.log('accordion 3'),
+            icon: <>7</>,
+            actions: (
+                <div>
+                    <button>Ok</button>
+                </div>
+            ),
+        },
+    ];
+
     return (
         <>
             <TabCustom tabItem={tabItem} value={value} onChange={handleClick} />
+            <AccordionCustom items={accordionItems} />
         </>
     );
 }
