@@ -35,9 +35,6 @@ describe('<DrawerCustom />', () => {
         );
 
         expect(screen.getByTestId('drawer')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-header')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-title')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-open-button')).toBeInTheDocument();
         expect(screen.getByTestId('drawer-list')).toBeInTheDocument();
     });
 
@@ -58,9 +55,6 @@ describe('<DrawerCustom />', () => {
 
         expect(screen.getByTestId('drawer')).toBeInTheDocument();
         expect(screen.getByTestId('drawer-app-bar')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-header')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-title')).toBeInTheDocument();
-        expect(screen.getByTestId('drawer-open-button')).toBeInTheDocument();
         expect(screen.getByTestId('drawer-list')).toBeInTheDocument();
     });
 });

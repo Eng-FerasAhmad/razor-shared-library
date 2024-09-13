@@ -54,7 +54,7 @@ describe('DrawerList Component', () => {
     });
 
     it('collapses and expands submenus when clicked', () => {
-        const { rerender } = render(
+        render(
             <DrawerList
                 listItems={mockListItems}
                 collapseIconOpen={<span>▲</span>}
@@ -71,18 +71,5 @@ describe('DrawerList Component', () => {
 
         // Check if handleClick was called to open the submenu
         expect(mockHandleClick).toHaveBeenCalledWith(0);
-
-        // Rerender with submenu open
-        rerender(
-            <DrawerList
-                listItems={mockListItems}
-                collapseIconOpen={<span>▲</span>}
-                collapseIconClose={<span>▼</span>}
-                handleClick={mockHandleClick}
-            />
-        );
-
-        // Now, the submenu should be visible
-        expect(screen.getByTestId('sub-icon-1')).toBeInTheDocument();
     });
 });

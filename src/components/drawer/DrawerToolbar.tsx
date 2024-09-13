@@ -21,23 +21,39 @@ export default function DrawerToolbar({
     appClickHandler,
 }: Props): ReactElement {
     return (
-        <DrawerAppBar position="fixed" open={open} data-testid="drawer-app-bar">
-            <Toolbar>
+        <DrawerAppBar
+            position="fixed"
+            open={open}
+            data-testid="drawer-app-bar"
+            sx={{
+                minHeight: '50px',
+                height: '50px',
+            }}
+        >
+            <Toolbar
+                data-testid="drawer-toolbar"
+                style={{
+                    minHeight: '50px',
+                    height: '50px',
+                }}
+            >
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={appClickHandler}
                     edge="start"
-                    sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                    sx={{
+                        mr: 2,
+                    }}
                 >
                     {headerIcon}
                 </IconButton>
                 <Box
+                    data-testid="app-title"
                     sx={{
                         fontSize: fontSize.font18,
                         width: '100%',
                         mr: 2,
-                        ...(open && { display: 'none' }),
                     }}
                 >
                     {appTitle}
