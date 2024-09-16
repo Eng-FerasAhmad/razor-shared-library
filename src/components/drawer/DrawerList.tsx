@@ -6,6 +6,7 @@ import { DrawerListItems } from './types';
 import { Collapse } from '@mui/material';
 import { ReactElement, ReactNode } from 'react';
 import Box from '@mui/material/Box';
+import { fontSize } from 'shared/fonts.ts';
 
 interface Props {
     listItems: DrawerListItems[];
@@ -37,6 +38,7 @@ export default function DrawerList({
                                     display: 'flex',
                                     justifyItems: 'center',
                                     alignItems: 'center',
+                                    fontSize: fontSize.font16,
                                 }}
                                 data-testid="mui-list-item-icon"
                             >
@@ -65,7 +67,10 @@ export default function DrawerList({
                                     <ListItem key={subIndex} disablePadding>
                                         <ListItemButton
                                             onClick={subItem.clickHandler}
-                                            sx={{ pl: 4 }}
+                                            sx={{
+                                                pl: 4,
+                                                fontSize: fontSize.font15,
+                                            }}
                                         >
                                             <ListItemIcon>
                                                 {subItem.icon}

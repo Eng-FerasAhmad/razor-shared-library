@@ -45,3 +45,4 @@ export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
 export type { AccordionItems } from './components/accordion/types';
+export type { MenuItems } from './components/menu/types';
