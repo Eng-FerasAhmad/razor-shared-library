@@ -12,6 +12,7 @@ export default function TableToolbar({ headerTools }: Props): ReactElement {
         <Toolbar
             sx={{
                 pl: { sm: 2 },
+                pr: { sm: 2 },
                 borderBottom: `${pixelToRem(1)} solid lightGray`,
             }}
         >

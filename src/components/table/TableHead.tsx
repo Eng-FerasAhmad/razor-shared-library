@@ -21,7 +21,9 @@ export default function EnhancedTableHead<T>(
 
     return (
         <TableHead>
-            <TableRow sx={{ color: color.primary.main }}>
+            <TableRow
+                sx={{ color: color.primary.main, paddingRight: pixelToRem(16) }}
+            >
                 <TableCell
                     align={'left'}
                     sx={{
