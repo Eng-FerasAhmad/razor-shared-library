@@ -34,6 +34,7 @@ export { Toast } from './components/toast/Toast';
 export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
 export { BadgeCustom as Badge } from './components/badge/Badge';
 export { AccordionCustom as Accordion } from './components/accordion/Accordion';
+export { ChipCustom as Chip } from './components/chip/Chip';
 
 /* Types */
 export type { AutoCompleteOptions } from './components/auto-complete/types';

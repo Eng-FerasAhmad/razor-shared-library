@@ -9,6 +9,7 @@ import { SwitchCustom } from 'src/components/form/switch/Switch';
 import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 import { BadgeCustom } from 'components/badge/Badge';
+import { ChipCustom } from 'components/chip/Chip.tsx';
 
 const autoOptions: AutoCompleteOptions[] = [
     {
@@ -164,6 +165,9 @@ export default function FormPalette(): ReactElement {
                 <BadgeCustom badgeContent={4} color={'primary'}>
                     BadgeCustom
                 </BadgeCustom>
+            </Box>
+            <Box>
+                <ChipCustom label={'Chip'} variant={'filled'} />
             </Box>
         </Box>
     );
