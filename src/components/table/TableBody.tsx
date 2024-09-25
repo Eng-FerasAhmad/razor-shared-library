@@ -31,6 +31,16 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
 
         // Construct the new menu items based on props
         const newItemsMenu: MenuItems[] = [];
+        if (props.actionDetails) {
+            newItemsMenu.push({
+                title: 'Details',
+                icon: (
+                    <FormatListBulleted fontSize={'small'} color={'primary'} />
+                ),
+                action: props.actionDetails,
+            });
+        }
+
         if (props.actionEdit) {
             newItemsMenu.push({
                 title: 'Edit',
@@ -43,15 +53,6 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
                 title: 'Delete',
                 icon: <DeleteIcon fontSize={'small'} color={'error'} />,
                 action: props.actionDelete,
-            });
-        }
-        if (props.actionDetails) {
-            newItemsMenu.push({
-                title: 'Details',
-                icon: (
-                    <FormatListBulleted fontSize={'small'} color={'primary'} />
-                ),
-                action: props.actionDetails,
             });
         }
 

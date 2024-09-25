@@ -40,4 +40,5 @@ export interface HeadCell<T> {
     numeric: boolean;
     sortLabel: string;
     filterIcon?: boolean;
+    width?: string;
 }

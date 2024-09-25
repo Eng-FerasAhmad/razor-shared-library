@@ -7,6 +7,7 @@ import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
 import { ReactElement } from 'react';
+import { AutoFixHigh } from '@mui/icons-material';
 
 export default function EnhancedTableHead<T>(
     props: TableProps<T>
@@ -45,6 +46,7 @@ export default function EnhancedTableHead<T>(
                             padding: pixelToRem(10, 16),
                             color: color.primary.main,
                             cursor: 'pointer',
+                            width: headCell.width,
                         }}
                     >
                         <TableSortLabel
@@ -69,10 +71,11 @@ export default function EnhancedTableHead<T>(
                         fontSize: pixelToRem(fontSize.font17),
                         padding: pixelToRem(10, 16),
                         color: color.primary.main,
+                        width: '60px',
                     }}
                     onClick={resetSortHandler}
                 >
-                    actions
+                    <AutoFixHigh fontSize={'small'} color={'primary'} />
                 </TableCell>
             </TableRow>
         </TableHead>

@@ -20,6 +20,7 @@ import {
 import { Template } from 'src/components/_template/Template';
 import { MenuItems } from 'components/menu/types';
 import { color } from 'shared/color.ts';
+import { fontSize } from 'shared/fonts.ts';
 
 interface Props extends Omit<BoxProps, 'position'> {
     items: MenuItems[];
@@ -121,6 +122,7 @@ export const MenuCustom = ({
                                             sx={{
                                                 display: 'flex',
                                                 alignItems: 'center',
+                                                fontSize: fontSize.font14,
                                             }}
                                         >
                                             <Box sx={{ mr: 1, height: '20px' }}>
