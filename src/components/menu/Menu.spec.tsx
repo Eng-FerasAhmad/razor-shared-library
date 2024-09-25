@@ -1,58 +1,72 @@
-import { userEvent } from '@testing-library/user-event';
-import { MenuCustom } from './Menu';
-import { fireEvent, render } from '@testing-library/react';
-import { screen } from '@testing-library/dom';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { MenuItems } from 'components/menu/types';
+import { MenuCustom } from 'components/menu/Menu'; // Adjust the import for your MenuItems type
 
-describe('<MenuCustom />', () => {
-    const itemsMenu = [
-        {
-            title: 'item1',
-            action: jest.fn(),
-        },
-        {
-            title: 'item2',
-            action: jest.fn(),
-        },
+describe('MenuCustom Component', () => {
+    const mockItems: MenuItems[] = [
+        { title: 'Item 1', action: jest.fn(), icon: <div>Icon 1</div> },
+        { title: 'Item 2', action: jest.fn(), icon: <div>Icon 2</div> },
     ];
 
-    test('should render the component', () => {
-        render(<MenuCustom items={itemsMenu} anchor={<div>click</div>} />);
+    const anchorElement = <button>Open Menu</button>;
 
-        expect(screen.queryByTestId('popper')).not.toBeInTheDocument();
-        expect(screen.getByTestId('menu')).toBeInTheDocument();
+    beforeEach(() => {
+        jest.clearAllMocks(); // Clear mock function calls before each test
     });
 
-    test('should render open menu', () => {
-        render(<MenuCustom items={itemsMenu} anchor={<div>click</div>} />);
-
-        expect(screen.queryByTestId('popper')).not.toBeInTheDocument();
-        expect(screen.getByTestId('menu')).toBeInTheDocument();
-
-        fireEvent.click(screen.getByTestId('menu'));
-        expect(screen.getByTestId('menu-list')).toBeInTheDocument();
+    test('renders the anchor element', () => {
+        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+        expect(
+            screen.getByRole('button', { name: /open menu/i })
+        ).toBeInTheDocument();
     });
 
-    test('should close menu list', async () => {
-        render(<MenuCustom items={itemsMenu} anchor={<div>click</div>} />);
+    test('opens the menu when anchor is clicked', () => {
+        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
 
-        expect(screen.queryByTestId('popper')).not.toBeInTheDocument();
+        // Click the anchor to open the menu
+        fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
 
-        fireEvent.click(screen.getByTestId('menu'));
-        expect(screen.getByTestId('menu-list')).toBeInTheDocument();
-
-        fireEvent.click(screen.getAllByTestId('menu-item')[0]);
-        expect(itemsMenu[0].action).toHaveBeenCalled();
+        expect(screen.getByRole('menu')).toBeInTheDocument(); // Ensure menu is rendered
     });
 
-    test('should handle tab click', async () => {
-        render(<MenuCustom items={itemsMenu} anchor={<div>click</div>} />);
+    test('calls the action of the clicked item', () => {
+        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
 
-        expect(screen.queryByTestId('popper')).not.toBeInTheDocument();
+        // Open the menu
+        fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
 
-        fireEvent.click(screen.getByTestId('menu'));
-        expect(screen.getByTestId('menu-list')).toBeInTheDocument();
+        // Click on the first menu item
+        fireEvent.click(screen.getByText('Item 1'));
 
-        await userEvent.tab();
-        expect(screen.queryByTestId('menu-list')).not.toBeInTheDocument();
+        expect(mockItems[0].action).toHaveBeenCalled(); // Ensure the action was called
+    });
+
+    test('closes the menu when an item is clicked', async () => {
+        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+
+        // Open the menu
+        fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
+
+        // Click on the first menu item
+        fireEvent.click(screen.getByText('Item 1'));
+
+        await waitFor(() => {
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument(); // Ensure menu is closed
+        });
+    });
+
+    test('closes the menu when escape key is pressed', async () => {
+        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+
+        // Open the menu
+        fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
+
+        // Simulate pressing the escape key
+        fireEvent.keyDown(screen.getByRole('menu'), { key: 'Escape' });
+
+        await waitFor(() => {
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument(); // Ensure menu is closed
+        });
     });
 });

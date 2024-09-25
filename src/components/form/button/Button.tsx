@@ -5,11 +5,22 @@ import { ReactElement } from 'react';
 interface Props {
     label: string;
     size?: 'large' | 'medium' | 'small';
+    variant?: 'text' | 'outlined' | 'contained';
+    color?:
+        | 'inherit'
+        | 'primary'
+        | 'secondary'
+        | 'success'
+        | 'error'
+        | 'info'
+        | 'warning';
 }
 
 export function ButtonCustom({
     label,
     size,
+    variant,
+    color,
     ...props
 }: ButtonProps & Props): ReactElement {
     const height = (): number => {
@@ -43,6 +54,8 @@ export function ButtonCustom({
             <Button
                 {...props}
                 size={size}
+                variant={variant}
+                color={color}
                 sx={{
                     textTransform: 'capitalize',
                     fontFamily: 'inherit',

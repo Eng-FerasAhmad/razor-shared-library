@@ -51,7 +51,9 @@
         "preview": "vite preview",
         "test": "cross-env NODE_ENV=test jest --silent",
         "test:verbose": "cross-env NODE_ENV=test jest",
-        "test:coverage": "cross-env NODE_ENV=test npm run test"
+        "test:coverage": "cross-env NODE_ENV=test npm run test",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
     },
     "dependencies": {
         "@emotion/react": "^11.13.3",
@@ -67,7 +69,16 @@
         "vite-tsconfig-paths": "^4.3.1"
     },
     "devDependencies": {
+        "@chromatic-com/storybook": "^1.9.0",
         "@rollup/plugin-alias": "^5.1.0",
+        "@storybook/addon-essentials": "^8.3.3",
+        "@storybook/addon-interactions": "^8.3.3",
+        "@storybook/addon-links": "^8.3.3",
+        "@storybook/addon-onboarding": "^8.3.3",
+        "@storybook/blocks": "^8.3.3",
+        "@storybook/react": "^8.3.3",
+        "@storybook/react-vite": "^8.3.3",
+        "@storybook/test": "^8.3.3",
         "@testing-library/dom": "^9.3.4",
         "@testing-library/jest-dom": "^6.1.4",
         "@testing-library/react": "^14.0.0",
@@ -92,6 +103,7 @@
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
+        "eslint-plugin-storybook": "^0.8.0",
         "eslint-plugin-unused-imports": "^3.0.0",
         "flush-promises": "^1.0.2",
         "identity-obj-proxy": "^3.0.0",
@@ -102,6 +114,7 @@
         "jsdom": "^22.1.0",
         "postcss-styled-syntax": "^0.6.4",
         "prettier": "3.0.3",
+        "storybook": "^8.3.3",
         "stylelint": "^16.1.0",
         "stylelint-config-recommended": "^14.0.0",
         "stylelint-config-standard": "^36.0.0",

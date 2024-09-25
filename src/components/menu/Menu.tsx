@@ -69,7 +69,7 @@ export const MenuCustom = ({
     };
 
     return (
-        <Template>
+        <Template data-testid="menu">
             <Box
                 ref={anchorRef}
                 aria-controls={open ? 'composition-menu' : undefined}

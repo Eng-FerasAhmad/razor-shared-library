@@ -23,6 +23,7 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
+        'plugin:storybook/recommended',
     ],
     plugins: [
         'react-refresh',
