@@ -9,7 +9,7 @@ import { SwitchCustom } from 'src/components/form/switch/Switch';
 import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 import { BadgeCustom } from 'components/badge/Badge';
-import { ChipCustom } from 'components/chip/Chip.tsx';
+import { ChipCustom } from 'components/chip/Chip';
 
 const autoOptions: AutoCompleteOptions[] = [
     {

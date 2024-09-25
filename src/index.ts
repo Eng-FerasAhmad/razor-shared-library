@@ -47,3 +47,7 @@ export type { TabItem } from './components/tab/types';
 export type { HeadCell } from './components/table/types';
 export type { AccordionItems } from './components/accordion/types';
 export type { MenuItems } from './components/menu/types';
+
+// icons:
+export { default as AccessAlarmIcon } from '@mui/icons-material/AccessAlarm';
+export { default as ThreeDRotation } from '@mui/icons-material/ThreeDRotation';

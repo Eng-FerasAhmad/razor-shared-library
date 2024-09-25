@@ -6,7 +6,7 @@ import { DrawerListItems } from './types';
 import { Collapse } from '@mui/material';
 import { ReactElement, ReactNode } from 'react';
 import Box from '@mui/material/Box';
-import { fontSize } from 'shared/fonts.ts';
+import { fontSize } from 'shared/fonts';
 
 interface Props {
     listItems: DrawerListItems[];

@@ -54,10 +54,11 @@
         "test:coverage": "cross-env NODE_ENV=test npm run test"
     },
     "dependencies": {
-        "@emotion/react": "^11.11.3",
-        "@emotion/styled": "^11.11.0",
-        "@mui/material": "^5.15.9",
-        "@mui/x-date-pickers": "^6.19.4",
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
+        "@mui/icons-material": "^6.1.1",
+        "@mui/material": "^6.1.1",
+        "@mui/x-date-pickers": "^7.18.0",
         "@types/node": "^20.11.16",
         "dayjs": "^1.11.10",
         "path": "^0.12.7",
