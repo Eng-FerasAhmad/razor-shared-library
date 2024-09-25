@@ -1,6 +1,5 @@
-import { Box } from '@mui/material';
 import { SortDirection } from '@mui/material/TableCell';
-import { ChangeEvent, ReactNode, useState, ReactElement } from 'react';
+import { ChangeEvent, useState, ReactElement } from 'react';
 import { TableCustom } from 'src/components/table/Table';
 import { HeadCell, Order } from 'src/components/table/types';
 
@@ -11,7 +10,6 @@ export interface Data {
     fat: number;
     carbs: number;
     protein: number;
-    statusText: ReactNode;
 }
 
 function createData(
@@ -20,8 +18,7 @@ function createData(
     calories: number,
     fat: number,
     carbs: number,
-    protein: number,
-    statusText: ReactNode
+    protein: number
 ): Data {
     return {
         id,
@@ -30,7 +27,6 @@ function createData(
         fat,
         carbs,
         protein,
-        statusText,
     };
 }
 
@@ -47,35 +43,14 @@ export const headCells: HeadCell<Data>[] = [
         label: 'Protein (g)',
         sortLabel: 'Protein ',
     },
-    {
-        id: 'statusText',
-        numeric: true,
-        label: 'statusText',
-        sortLabel: 'Status',
-    },
 ];
 
-const handleAction = (id: number): ReactNode => {
-    const deleteHandler = (): void => {
-        console.log('delete id', id);
-    };
-
-    return (
-        <Box sx={{ display: 'flex', flexDirection: 'row-reverse' }}>
-            <Box sx={{ padding: 1 }} onClick={() => deleteHandler()}>
-                X
-            </Box>
-            <Box sx={{ padding: 1 }}>E</Box>
-        </Box>
-    );
-};
-
 const rows = [
-    createData('1', 'Cupcake', 305, 4.7, 67, 25.3, handleAction(1)),
-    createData('2', 'Donut', 452, 25.0, 51, 4.9, handleAction(2)),
-    createData('3', 'Eclair', 262, 16.0, 24, 6.0, handleAction(3)),
-    createData('4', 'Frozen yoghurt', 159, 6.0, 24, 4.0, handleAction(4)),
-    createData('5', 'Gingerbread', 356, 16.0, 49, 3.9, handleAction(5)),
+    createData('1', 'Cupcake', 305, 4.7, 67, 25.3),
+    createData('2', 'Donut', 452, 25.0, 51, 4.9),
+    createData('3', 'Eclair', 262, 16.0, 24, 6.0),
+    createData('4', 'Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('5', 'Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
 export default function TablePalette(): ReactElement {
@@ -139,6 +114,10 @@ export default function TablePalette(): ReactElement {
             }
             isCustomTable={true}
             resetIcon={<>x</>}
+            actionEdit={() => console.log('edit')}
+            actionDelete={() => console.log('delete')}
+            actionDetails={() => console.log('delete')}
+            noBorderTop={true}
         />
     );
 }

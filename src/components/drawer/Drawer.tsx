@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import { ReactElement, ReactNode } from 'react';
 import DrawerList from './DrawerList';
@@ -42,7 +41,6 @@ export function DrawerCustom({
                 }}
                 data-testid="drawer"
             >
-                <CssBaseline />
                 <DrawerToolbar
                     appTitle={appTitle}
                     open={open}

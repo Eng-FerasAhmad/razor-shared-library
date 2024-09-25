@@ -19,6 +19,7 @@ import {
 } from 'react';
 import { Template } from 'src/components/_template/Template';
 import { MenuItems } from 'components/menu/types';
+import { color } from 'shared/color.ts';
 
 interface Props extends Omit<BoxProps, 'position'> {
     items: MenuItems[];
@@ -97,6 +98,8 @@ export const MenuCustom = ({
                                 placement === 'bottom-start'
                                     ? 'left top'
                                     : 'left bottom',
+                            padding: 0,
+                            color: color.secondary.dark,
                         }}
                     >
                         <Paper>
@@ -106,6 +109,7 @@ export const MenuCustom = ({
                                     id="composition-menu"
                                     aria-labelledby="composition-button"
                                     onKeyDown={handleListKeyDown}
+                                    sx={{ p: 0 }}
                                 >
                                     {items.map((item, idx) => (
                                         <MenuItem
@@ -114,8 +118,12 @@ export const MenuCustom = ({
                                             onClick={(e) =>
                                                 handleClickItem(e, item)
                                             }
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                            }}
                                         >
-                                            <Box sx={{ mr: 1 }}>
+                                            <Box sx={{ mr: 1, height: '20px' }}>
                                                 {item.icon}
                                             </Box>
                                             {item.title}

@@ -63,6 +63,17 @@ export default function EnhancedTableHead<T>(
                         )}
                     </TableCell>
                 ))}
+                <TableCell
+                    align={'right'}
+                    sx={{
+                        fontSize: pixelToRem(fontSize.font17),
+                        padding: pixelToRem(10, 16),
+                        color: color.primary.main,
+                    }}
+                    onClick={resetSortHandler}
+                >
+                    actions
+                </TableCell>
             </TableRow>
         </TableHead>
     );
