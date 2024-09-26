@@ -88,6 +88,16 @@ export default function FormPalette(): ReactElement {
                     size={'small'}
                     icon={<AddIcon />}
                 />
+                <FloatButton
+                    color={'primary'}
+                    size={'medium'}
+                    icon={<AddIcon />}
+                />
+                <FloatButton
+                    color={'primary'}
+                    size={'large'}
+                    icon={<AddIcon />}
+                />
             </Box>
 
             <Box sx={{ width: 300, marginTop: 2 }}>

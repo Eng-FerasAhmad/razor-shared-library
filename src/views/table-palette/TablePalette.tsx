@@ -10,6 +10,7 @@ export interface Data {
     fat: number;
     carbs: number;
     protein: number;
+    status: string;
 }
 
 function createData(
@@ -18,7 +19,8 @@ function createData(
     calories: number,
     fat: number,
     carbs: number,
-    protein: number
+    protein: number,
+    status: string
 ): Data {
     return {
         id,
@@ -27,6 +29,7 @@ function createData(
         fat,
         carbs,
         protein,
+        status,
     };
 }
 
@@ -43,14 +46,20 @@ export const headCells: HeadCell<Data>[] = [
         label: 'Protein (g)',
         sortLabel: 'Protein ',
     },
+    {
+        id: 'status',
+        numeric: false,
+        label: 'Status',
+        sortLabel: 'Status',
+    },
 ];
 
 const rows = [
-    createData('1', 'Cupcake', 305, 4.7, 67, 25.3),
-    createData('2', 'Donut', 452, 25.0, 51, 4.9),
-    createData('3', 'Eclair', 262, 16.0, 24, 6.0),
-    createData('4', 'Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('5', 'Gingerbread', 356, 16.0, 49, 3.9),
+    createData('1', 'Cupcake', 305, 4.7, 67, 25.3, 'Pending'),
+    createData('2', 'Donut', 452, 25.0, 51, 4.9, 'Active'),
+    createData('3', 'Eclair', 262, 16.0, 24, 6.0, 'Pending'),
+    createData('4', 'Frozen yoghurt', 159, 6.0, 24, 4.0, 'Deleted'),
+    createData('5', 'Gingerbread', 356, 16.0, 49, 3.9, 'Blocked'),
 ];
 
 export default function TablePalette(): ReactElement {
@@ -116,7 +125,6 @@ export default function TablePalette(): ReactElement {
             actionEdit={() => console.log('edit')}
             actionDelete={() => console.log('delete')}
             actionDetails={() => console.log('delete')}
-            noBorderTop={true}
         />
     );
 }

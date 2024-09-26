@@ -41,3 +41,24 @@ export interface HeadCell<T> {
     filterIcon?: boolean;
     width?: string;
 }
+
+export const statusLabels = {
+    active: 'Active',
+    blocked: 'Blocked',
+    canceled: 'Canceled',
+    completed: 'Completed',
+    deleted: 'Deleted',
+    expired: 'Expired',
+    inactive: 'Inactive',
+    pending: 'Pending',
+    rejected: 'Rejected',
+};
+
+export type StandardColor =
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'info'
+    | 'success'
+    | 'warning';

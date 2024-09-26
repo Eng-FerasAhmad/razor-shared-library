@@ -2,6 +2,8 @@ import TableCell from '@mui/material/TableCell';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
 import { HeadCell } from 'src/components/table/types';
 import { pixelToRem } from 'src/shared/common';
+import { color } from 'shared/color';
+import TabelCellStatus from 'components/table/TabelCellStatus.tsx';
 
 interface RowKeys {
     k: string;
@@ -54,10 +56,17 @@ export default function TableCellCustom<T>({
                         component="th"
                         id={`id-${key}`}
                         scope="row"
-                        sx={{ padding: pixelToRem(16) }}
+                        sx={{
+                            padding: pixelToRem(16),
+                            color: color.secondary.dark,
+                        }}
                         align={key.isNumber ? 'right' : 'left'}
                     >
-                        {key.v}
+                        {key.k === 'status' ? (
+                            <TabelCellStatus status={key.v as string} />
+                        ) : (
+                            key.v
+                        )}
                     </TableCell>
                 );
             })}

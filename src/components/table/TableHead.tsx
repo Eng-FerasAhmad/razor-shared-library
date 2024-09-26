@@ -26,7 +26,7 @@ export default function EnhancedTableHead<T>(
                 sx={{ color: color.primary.main, paddingRight: pixelToRem(16) }}
             >
                 <TableCell
-                    align={'left'}
+                    align={'center'}
                     sx={{
                         fontSize: pixelToRem(fontSize.font17),
                         padding: pixelToRem(10, 16),

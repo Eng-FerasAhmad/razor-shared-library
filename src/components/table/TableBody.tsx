@@ -84,7 +84,7 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
                         component="th"
                         scope="row"
                         sx={{ padding: pixelToRem(16) }}
-                        align="left"
+                        align="center"
                     >
                         {index + 1 + props.pageSize * props.pageNumber}
                     </TableCell>
