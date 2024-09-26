@@ -10,7 +10,6 @@ describe('<Dialog />', () => {
                 title="dialog"
                 handleClose={jest.fn()}
                 actions={<>action</>}
-                closeIcon={<>ico</>}
             />
         );
 

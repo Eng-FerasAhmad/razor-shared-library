@@ -106,3 +106,7 @@ export { default as StoreIcon } from '@mui/icons-material/Store';
 export { default as CalendarViewMonthIcon } from '@mui/icons-material/CalendarViewMonth';
 export { default as CameraEnhanceIcon } from '@mui/icons-material/CameraEnhance';
 export { default as ChildCareIcon } from '@mui/icons-material/ChildCare';
+export { default as SearchIcon } from '@mui/icons-material/Search';
+export { default as InstagramIcon } from '@mui/icons-material/Instagram';
+export { default as WarningIcon } from '@mui/icons-material/Warning';
+export { default as AutoAwesomeMosaicIcon } from '@mui/icons-material/AutoAwesomeMosaic';

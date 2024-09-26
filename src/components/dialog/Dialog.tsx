@@ -6,13 +6,13 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { Template } from 'src/components/_template/Template';
-import { color } from 'src/shared/color';
+import { CloseIcon } from 'src/index.ts';
+import { pixelToRem } from 'shared/common.ts';
 
 interface Props {
     handleClose: () => void;
     title?: string;
     actions?: ReactNode;
-    closeIcon?: ReactNode;
     open: boolean;
     headerColor?: string;
     headerFontColor?: string;
@@ -25,13 +25,15 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogActions-root': {
         padding: theme.spacing(1),
     },
+    '& .MuiDialog-paper': {
+        maxWidth: 1000,
+    },
 }));
 
 export function DialogCustom({
     handleClose,
     title,
     actions,
-    closeIcon,
     open,
     headerColor,
     headerFontColor,
@@ -46,44 +48,35 @@ export function DialogCustom({
                 open={open}
                 {...props}
                 data-testid="dialog"
-                sx={{}}
             >
                 {title && (
-                    <DialogTitle
-                        data-testid="dialog-title"
-                        sx={{
-                            m: 0,
-                            p: 2,
-                            backgroundColor: headerColor || color.light,
-                            color: headerFontColor || color.dark,
-                        }}
-                        id="dialog-title"
-                    >
+                    <DialogTitle data-testid="dialog-title" id="dialog-title">
                         {title}
                     </DialogTitle>
                 )}
 
-                {closeIcon && (
-                    <IconButton
-                        aria-label="close"
-                        onClick={handleClose}
-                        sx={{
-                            position: 'absolute',
-                            right: 8,
-                            top: 8,
-                            fontFamily: 'inherit',
-                            color: (theme) => theme.palette.grey[500],
-                        }}
-                        data-testid="dialog-close-icon"
-                    >
-                        {closeIcon}
-                    </IconButton>
-                )}
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        fontFamily: 'inherit',
+                    }}
+                    data-testid="dialog-close-icon"
+                >
+                    <CloseIcon />
+                </IconButton>
 
                 <DialogContent
                     dividers
                     sx={{
                         fontFamily: 'inherit',
+                        '&.MuiDialogContent-root': {
+                            p: pixelToRem(16, 24),
+                            margin: 0,
+                        },
                     }}
                     data-testid="dialog-content"
                 >
@@ -94,7 +87,11 @@ export function DialogCustom({
                     <DialogActions
                         sx={{
                             fontFamily: 'inherit',
-                            m: 1,
+                            margin: pixelToRem(16, 24),
+                            p: 0,
+                            '&.MuiDialogActions-root': {
+                                p: 0,
+                            },
                         }}
                         data-testid="dialog-action"
                     >

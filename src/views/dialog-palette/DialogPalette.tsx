@@ -34,14 +34,12 @@ export function DialogPalette(): ReactElement {
             />
             <Dialog
                 handleClose={handleClose}
-                headerColor="red"
                 open={open}
                 title="Card Title"
                 sx={{ fontFamily: fonts.primary }}
                 actions={<Button label="Action" variant="contained" />}
-                closeIcon={<>icon</>}
             >
-                <Box sx={{ width: 300 }}>Content 1</Box>
+                <Box sx={{ width: 300, height: 300 }}>Content 1</Box>
             </Dialog>
 
             <Button

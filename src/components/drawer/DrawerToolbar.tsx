@@ -28,6 +28,7 @@ export default function DrawerToolbar({
             sx={{
                 minHeight: '50px',
                 height: '50px',
+                boxShadow: 'none',
             }}
         >
             <Toolbar

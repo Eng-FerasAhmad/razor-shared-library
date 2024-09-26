@@ -6,7 +6,15 @@ import { RadioGroupCustom } from 'src/components/form/radio-group/RadioGroup';
 import { RatingCustom } from 'src/components/form/rating/Rating';
 import { SearchCustom } from 'src/components/form/search/Search';
 import { SwitchCustom } from 'src/components/form/switch/Switch';
-import { Button, Checkbox, InputSelect, InputText, Textarea } from 'src/index';
+import {
+    AddIcon,
+    Button,
+    Checkbox,
+    FloatButton,
+    InputSelect,
+    InputText,
+    Textarea,
+} from 'src/index';
 import { fonts } from 'src/shared/fonts';
 import { BadgeCustom } from 'components/badge/Badge';
 import { ChipCustom } from 'components/chip/Chip';
@@ -71,6 +79,14 @@ export default function FormPalette(): ReactElement {
                     variant="contained"
                     size="medium"
                     color="primary"
+                />
+            </Box>
+
+            <Box sx={{ width: 200 }}>
+                <FloatButton
+                    color={'primary'}
+                    size={'small'}
+                    icon={<AddIcon />}
                 />
             </Box>
 
