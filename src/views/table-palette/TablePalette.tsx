@@ -113,7 +113,6 @@ export default function TablePalette(): ReactElement {
                 handleChangeRowsPerPage(event)
             }
             isCustomTable={true}
-            resetIcon={<>x</>}
             actionEdit={() => console.log('edit')}
             actionDelete={() => console.log('delete')}
             actionDetails={() => console.log('delete')}

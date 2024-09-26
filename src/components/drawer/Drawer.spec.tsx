@@ -28,7 +28,6 @@ describe('<DrawerCustom />', () => {
                 appTitle="drawer"
                 handleDrawerOpen={jest.fn()}
                 closeDrawerIcon={<>icon</>}
-                headerIcon={<>icon</>}
                 drawerTitle={<>title</>}
                 handleSubItemClick={jest.fn}
             />
@@ -47,7 +46,6 @@ describe('<DrawerCustom />', () => {
                 appTitle="drawer"
                 handleDrawerOpen={jest.fn()}
                 closeDrawerIcon={<>icon</>}
-                headerIcon={<>icon</>}
                 drawerTitle={<>title</>}
                 handleSubItemClick={jest.fn}
             />

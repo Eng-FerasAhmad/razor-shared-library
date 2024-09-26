@@ -27,7 +27,6 @@ export interface TableProps<T> {
     noBorderLeft?: boolean;
     noBorderTop?: boolean;
     noBorderRight?: boolean;
-    resetIcon: ReactNode;
     actionAdd?: () => void;
     actionEdit?: () => void;
     actionDelete?: () => void;

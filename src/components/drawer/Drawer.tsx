@@ -7,30 +7,25 @@ import { drawerWidth } from './styles';
 import { DrawerListItems } from './types';
 import { Template } from 'src/components/_template/Template';
 import { pixelToRem } from 'src/shared/common';
+import { ChevronRight, ExpandMore, Menu } from '@mui/icons-material';
 
 interface Props {
     appTitle: string;
     header: ReactNode;
-    headerIcon?: ReactNode;
     closeDrawerIcon?: ReactNode;
     drawerTitle?: ReactNode;
     listItems: DrawerListItems[];
     open: boolean;
     handleDrawerOpen: () => void;
-    collapseIconOpen?: ReactNode;
-    collapseIconClose?: ReactNode;
     handleSubItemClick: (index: number) => void;
 }
 
 export function DrawerCustom({
     appTitle,
     header,
-    headerIcon,
     listItems,
     open,
     handleDrawerOpen,
-    collapseIconOpen,
-    collapseIconClose,
     handleSubItemClick,
 }: Props): ReactElement {
     return (
@@ -45,7 +40,7 @@ export function DrawerCustom({
                     appTitle={appTitle}
                     open={open}
                     appClickHandler={handleDrawerOpen}
-                    headerIcon={headerIcon}
+                    headerIcon={<Menu />}
                     header={header}
                 />
                 <Drawer
@@ -64,8 +59,8 @@ export function DrawerCustom({
                 >
                     <DrawerList
                         listItems={listItems}
-                        collapseIconOpen={collapseIconOpen}
-                        collapseIconClose={collapseIconClose}
+                        collapseIconOpen={<ExpandMore color={'secondary'} />}
+                        collapseIconClose={<ChevronRight color={'secondary'} />}
                         data-testid="drawer-list"
                         handleClick={handleSubItemClick}
                     />

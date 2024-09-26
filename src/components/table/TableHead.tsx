@@ -7,7 +7,7 @@ import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
 import { ReactElement } from 'react';
-import { AutoFixHigh } from '@mui/icons-material';
+import { AutoFixHigh, Autorenew } from '@mui/icons-material';
 
 export default function EnhancedTableHead<T>(
     props: TableProps<T>
@@ -32,10 +32,11 @@ export default function EnhancedTableHead<T>(
                         padding: pixelToRem(10, 16),
                         color: color.primary.main,
                         cursor: 'pointer',
+                        width: '50px',
                     }}
                     onClick={resetSortHandler}
                 >
-                    {props.resetIcon}
+                    <Autorenew />
                 </TableCell>
                 {props.headCells.map((headCell, idx) => (
                     <TableCell

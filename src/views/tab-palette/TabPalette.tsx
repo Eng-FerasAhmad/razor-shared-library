@@ -30,19 +30,16 @@ export default function TabPalette(): ReactElement {
             title: 'accordion 1',
             details: 'Details 1',
             onOpenAction: () => console.log('accordion 1'),
-            icon: <>7</>,
         },
         {
             title: 'accordion 2',
             details: 'Details 2',
             onOpenAction: () => console.log('accordion 2'),
-            icon: <>7</>,
         },
         {
             title: 'accordion 3',
             details: 'Details 3',
             onOpenAction: () => console.log('accordion 3'),
-            icon: <>7</>,
             actions: (
                 <div>
                     <button>Ok</button>

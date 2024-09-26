@@ -80,12 +80,8 @@ export function DrawerPalette(): ReactElement {
                 open={open}
                 header={<>title</>}
                 drawerTitle={<>Admin Tools</>}
-                headerIcon={<>=</>}
-                closeDrawerIcon={<>{'<'}</>}
                 listItems={listItems}
                 handleDrawerOpen={handleDrawerOpen}
-                collapseIconOpen={7}
-                collapseIconClose={8}
                 handleSubItemClick={handleClick}
             />
             <>value</>

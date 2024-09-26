@@ -7,6 +7,7 @@ import {
     AccordionSummary,
 } from '@mui/material';
 import { AccordionItems } from 'components/accordion/types';
+import { ExpandLess } from '@mui/icons-material';
 
 interface Props {
     items: AccordionItems[];
@@ -18,7 +19,7 @@ export function AccordionCustom({ items, ...props }: Props): ReactElement {
                 return (
                     <Accordion {...props} key={index}>
                         <AccordionSummary
-                            expandIcon={item.icon}
+                            expandIcon={<ExpandLess />}
                             onClick={item.onOpenAction}
                             aria-controls={`panel${index}-content`}
                             id={`panel${index}-header`}
