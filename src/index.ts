@@ -123,3 +123,5 @@ export { default as SearchIcon } from '@mui/icons-material/Search';
 export { default as InstagramIcon } from '@mui/icons-material/Instagram';
 export { default as WarningIcon } from '@mui/icons-material/Warning';
 export { default as AutoAwesomeMosaicIcon } from '@mui/icons-material/AutoAwesomeMosaic';
+export { default as ReplayIcon } from '@mui/icons-material/Replay';
+export { default as SaveIcon } from '@mui/icons-material/Save';
