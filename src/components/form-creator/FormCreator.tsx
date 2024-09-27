@@ -103,7 +103,7 @@ export function FormCreator({
     };
 
     const radioChangeHandler = (
-        e: React.ChangeEvent<HTMLInputElement>,
+        e: ChangeEvent<HTMLInputElement>,
         index: number
     ): void => {
         setRadio(e.target.value);
@@ -241,7 +241,10 @@ export function FormCreator({
                     return (
                         <Box
                             sx={{
-                                mt: item.controller === 'NONE' ? 0 : 3,
+                                mt:
+                                    index === 0 || item.controller === 'NONE'
+                                        ? 0
+                                        : 3,
                             }}
                             key={index}
                         >
