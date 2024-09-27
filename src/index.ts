@@ -55,6 +55,9 @@ export type {
     StandardVariant,
 } from './shared/types';
 
+// colors:
+export { RazorBrandColor, color } from './shared/color';
+
 // icons:
 export { default as AccessAlarmIcon } from '@mui/icons-material/AccessAlarm';
 export { default as AccessTimeIcon } from '@mui/icons-material/AccessTime';

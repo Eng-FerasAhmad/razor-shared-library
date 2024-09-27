@@ -6,7 +6,7 @@ export const color = {
 
     /* action colors: */
     disabled: '#cccccc',
-    fontDark: '#242e30',
+    fontDark: '#1a1e23',
     border: '#a6a6a6',
     borderLight: '#e6e6e6',
 
@@ -52,5 +52,44 @@ export const color = {
         dark: '#2e7d32',
         contrastText: '#fff',
         border: '#3ea843',
+    },
+};
+
+export const RazorBrandColor = {
+    red: {
+        light: '#fdcece',
+        primary: '#fca5a5',
+        dark: '#fb8383',
+        darker: '#c50707',
+    },
+    blue: {
+        light: '#b3d1ff',
+        primary: '#66a3ff',
+        dark: '#3385ff',
+        darker: '#0052cc',
+    },
+    yellow: {
+        light: '#ffe3c7',
+        primary: '#ffcc99',
+        dark: '#ffb366',
+        darker: '#ff9933',
+    },
+    purple: {
+        light: '#cfb7fb',
+        primary: '#9763f6',
+        dark: '#8e56f5',
+        darker: '#6e26f2',
+    },
+    green: {
+        light: '#c3efdd',
+        primary: '#5ed4a5',
+        dark: '#2ba172',
+        darker: '#207955',
+    },
+    gray: {
+        light: '#f2f2f2',
+        primary: '#cccccc',
+        dark: '#b3b3b3',
+        darker: '#595959',
     },
 };

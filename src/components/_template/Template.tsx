@@ -15,6 +15,9 @@ const theme = createTheme({
         error: color.error,
         info: color.info,
         success: color.success,
+        text: {
+            primary: color.fontDark,
+        },
     },
 
     typography: {
@@ -22,14 +25,17 @@ const theme = createTheme({
         h1: {
             fontSize: '2rem',
             fontWeight: 500,
+            color: color.fontDark,
         },
         h2: {
             fontSize: '1.75rem',
             fontWeight: 500,
+            color: color.fontDark,
         },
         body1: {
             fontSize: '1rem',
             fontWeight: 400,
+            color: color.fontDark,
         },
     },
     transitions: {
