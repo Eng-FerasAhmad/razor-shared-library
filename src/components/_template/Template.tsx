@@ -2,6 +2,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import { ReactElement, ReactNode } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { color } from 'shared/color';
+import { fonts, fontSize } from 'shared/fonts';
 
 interface Props {
     children: ReactNode;
@@ -21,19 +22,19 @@ const theme = createTheme({
     },
 
     typography: {
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: fonts.primary,
         h1: {
-            fontSize: '2rem',
+            fontSize: fontSize.font24,
             fontWeight: 500,
             color: color.fontDark,
         },
         h2: {
-            fontSize: '1.75rem',
+            fontSize: fontSize.font22,
             fontWeight: 500,
             color: color.fontDark,
         },
         body1: {
-            fontSize: '1rem',
+            fontSize: fontSize.font16,
             fontWeight: 400,
             color: color.fontDark,
         },

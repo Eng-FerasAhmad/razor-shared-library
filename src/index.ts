@@ -58,6 +58,9 @@ export type {
 // colors:
 export { RazorBrandColor, color } from './shared/color';
 
+// fonts
+export { fonts, fontSize } from './shared/fonts';
+
 // icons:
 export { default as AccessAlarmIcon } from '@mui/icons-material/AccessAlarm';
 export { default as AccessTimeIcon } from '@mui/icons-material/AccessTime';

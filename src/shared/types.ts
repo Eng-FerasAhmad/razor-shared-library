@@ -1,5 +1,4 @@
 export type StandardColor =
-    | 'default'
     | 'primary'
     | 'secondary'
     | 'error'

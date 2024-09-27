@@ -13,7 +13,6 @@ export default function UnitCustomTableStatusCell({
     k,
     v,
 }: Props): ReactElement {
-    console.log('key', k);
     if (k === 'status' || k === 'statusText') {
         const getColor = (): StandardColor => {
             switch (v) {
@@ -39,5 +38,5 @@ export default function UnitCustomTableStatusCell({
         );
     }
 
-    return <>{v}</>; // Renders value as plain text if not a status key
+    return <>{v}</>;
 }
