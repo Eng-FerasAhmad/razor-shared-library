@@ -80,6 +80,12 @@ export default function FormPalette(): ReactElement {
                     size="medium"
                     color="primary"
                 />
+                <Button
+                    label="Secondary"
+                    variant="outlined"
+                    size="medium"
+                    color="secondary"
+                />
             </Box>
 
             <Box sx={{ width: 200 }}>
