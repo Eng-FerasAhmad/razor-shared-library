@@ -9,7 +9,7 @@ import { fontSize } from 'src/shared/fonts';
 import { ReactElement } from 'react';
 import { AutoFixHigh, Autorenew } from '@mui/icons-material';
 
-export default function EnhancedTableHead<T>(
+export default function UnitCustomTableHead<T>(
     props: TableProps<T>
 ): ReactElement {
     const resetSortHandler = (): void => {

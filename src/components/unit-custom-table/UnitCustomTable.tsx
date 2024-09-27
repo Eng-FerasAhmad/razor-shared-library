@@ -2,24 +2,20 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
-import TableBodyCustom from './TableBody';
-import TableHead from './TableHead';
-import TableToolbar from './TableToolbar';
+import TableBodyCustom from './UnitCustomTableBody';
+import TableHead from './UnitCustomTableHead';
+import UnitCustomTableToolbar from './UnitCustomTableToolbar';
 import { Template } from 'src/components/_template/Template';
-import TableEmptyRow from 'src/components/table/TableEmptyRow';
-import TablePaginationCustom from 'src/components/table/TablePagination';
-import { TableProps } from 'src/components/table/types';
+import UnitCustomTableEmptyRow from 'components/unit-custom-table/UnitCustomTableEmptyRow';
+import TablePaginationCustom from 'components/unit-custom-table/UnitCustomTablePagination';
+import { TableProps } from 'components/unit-custom-table/types';
 import { pixelToRem } from 'src/shared/common';
 import { ReactElement } from 'react';
-import { color } from 'shared/color';
 
-export function TableCustom<T>(props: TableProps<T>): ReactElement {
+export function UnitCustomTable<T>(props: TableProps<T>): ReactElement {
     return (
         <Template>
-            <Box
-                sx={{ width: '100%', color: color.secondary.dark }}
-                data-testid="table-container"
-            >
+            <Box sx={{ width: '100%' }} data-testid="table-container">
                 <Paper
                     sx={{
                         width: '100%',
@@ -27,13 +23,10 @@ export function TableCustom<T>(props: TableProps<T>): ReactElement {
                         border: `${pixelToRem(1)} solid lightGray`,
                         color: 'inherit',
                         boxShadow: `none`,
-                        borderRadius: `${!props.isCustomTable ? 0 : 10}`,
-                        borderLeftWidth: `${props.noBorderLeft ? 0 : 1}`,
-                        borderTopWidth: `${props.noBorderTop ? 0 : 1}`,
-                        borderRightWidth: `${props.noBorderRight ? 0 : 1}`,
+                        borderRadius: `${!props.borderRadius ? 0 : 10}`,
                     }}
                 >
-                    <TableToolbar
+                    <UnitCustomTableToolbar
                         headerTools={props.headerTools}
                         data-testid="table-toolbar"
                     />
@@ -44,7 +37,9 @@ export function TableCustom<T>(props: TableProps<T>): ReactElement {
                             size={'medium'}
                         >
                             {props.rows.length === 0 && (
-                                <TableEmptyRow caption={props.noDataCaption} />
+                                <UnitCustomTableEmptyRow
+                                    caption={props.noDataCaption}
+                                />
                             )}
                             <TableHead {...props} />
                             <TableBodyCustom {...props} />

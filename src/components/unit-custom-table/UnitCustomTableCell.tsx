@@ -1,21 +1,15 @@
 import TableCell from '@mui/material/TableCell';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
-import { HeadCell } from 'src/components/table/types';
+import { HeadCell, RowKeys } from 'components/unit-custom-table/types';
 import { pixelToRem } from 'src/shared/common';
 import { color } from 'shared/color';
-import TabelCellStatus from 'components/table/TabelCellStatus.tsx';
-
-interface RowKeys {
-    k: string;
-    v: string | number;
-    isNumber: boolean;
-}
+import UnitCustomTableStatusCell from 'components/unit-custom-table/UnitCustomTabelStatusCell';
 
 interface Props<T> {
     headCells: HeadCell<T>[];
     row: T;
 }
-export default function TableCellCustom<T>({
+export default function UnitCustomTableCell<T>({
     headCells,
     row,
 }: Props<T>): ReactElement {
@@ -49,24 +43,20 @@ export default function TableCellCustom<T>({
 
     return (
         <>
-            {keys.map((key) => {
+            {keys.map(({ k, v, isNumber }) => {
                 return (
                     <TableCell
-                        key={key.k}
+                        key={k}
                         component="th"
-                        id={`id-${key}`}
+                        id={`id-${k}`}
                         scope="row"
                         sx={{
                             padding: pixelToRem(16),
                             color: color.secondary.dark,
                         }}
-                        align={key.isNumber ? 'right' : 'left'}
+                        align={isNumber ? 'right' : 'left'}
                     >
-                        {key.k === 'status' ? (
-                            <TabelCellStatus status={key.v as string} />
-                        ) : (
-                            key.v
-                        )}
+                        <UnitCustomTableStatusCell k={k} v={v.toString()} />
                     </TableCell>
                 );
             })}

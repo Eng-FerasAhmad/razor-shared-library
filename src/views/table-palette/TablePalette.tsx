@@ -1,7 +1,12 @@
 import { SortDirection } from '@mui/material/TableCell';
-import { ChangeEvent, useState, ReactElement } from 'react';
-import { TableCustom } from 'src/components/table/Table';
-import { HeadCell, Order } from 'src/components/table/types';
+import {
+    ChangeEvent,
+    useState,
+    ReactElement,
+    MouseEvent as ReactMouseEvent,
+} from 'react';
+import { HeadCell, Order } from 'components/unit-custom-table/types';
+import { UnitCustomTable } from 'components/unit-custom-table/UnitCustomTable';
 
 export interface Data {
     id: string;
@@ -95,12 +100,8 @@ export default function TablePalette(): ReactElement {
     };
 
     return (
-        <TableCustom<Data>
-            headerTools={
-                <>
-                    <>Title</>
-                </>
-            }
+        <UnitCustomTable<Data>
+            headerTools={<>Title</>}
             handleHeaderClick={handleHeaderClick}
             resetSort={resetSort}
             order={order}
@@ -115,13 +116,13 @@ export default function TablePalette(): ReactElement {
             statusFilter={<div style={{ display: 'inline' }}>:</div>}
             onOneClickRow={clickHandler}
             handleChangePage={(
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+                event: ReactMouseEvent<HTMLButtonElement, MouseEvent> | null,
                 page: number
             ) => handleChangePage(event, page)}
             handleChangeRowsPerPage={(event: ChangeEvent<HTMLInputElement>) =>
                 handleChangeRowsPerPage(event)
             }
-            isCustomTable={true}
+            borderRadius={true}
             actionEdit={() => console.log('edit')}
             actionDelete={() => console.log('delete')}
             actionDetails={() => console.log('delete')}

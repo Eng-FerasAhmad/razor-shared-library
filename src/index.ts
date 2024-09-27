@@ -28,7 +28,7 @@ export { ShopCard } from './components/shop-card/ShopCard';
 export { Skeleton } from './components/skeleton/Skeleton';
 export { Stepper } from './components/stepper/Stepper';
 export { TabCustom as Tab } from './components/tab/Tab';
-export { TableCustom as Table } from './components/table/Table';
+export { UnitCustomTable } from 'components/unit-custom-table/UnitCustomTable';
 export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
 export { Toast } from './components/toast/Toast';
 export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
@@ -44,9 +44,16 @@ export type { SelectItems } from './components/form/input-select/types';
 export type { RadioItems } from './components/form/radio-group/types';
 export type { IconOptions } from './components/icon-selector/types';
 export type { TabItem } from './components/tab/types';
-export type { HeadCell } from './components/table/types';
+export type { HeadCell } from 'components/unit-custom-table/types';
 export type { AccordionItems } from './components/accordion/types';
 export type { MenuItems } from './components/menu/types';
+export type {
+    StandardColor,
+    StandardSeverity,
+    StandardLabelPlacement,
+    StandardSize,
+    StandardVariant,
+} from './shared/types';
 
 // icons:
 export { default as AccessAlarmIcon } from '@mui/icons-material/AccessAlarm';

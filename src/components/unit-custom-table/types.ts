@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactNode } from 'react';
+import { ChangeEvent, ReactNode, MouseEvent as ReactMouseEvent } from 'react';
 
 export type Order = 'asc' | 'desc';
 
@@ -19,14 +19,11 @@ export interface TableProps<T> {
     onDlClickRow?: (row: T, selected: number) => void;
     onOneClickRow?: (row: T, selected: number) => void;
     handleChangePage: (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+        event: ReactMouseEvent<HTMLButtonElement, MouseEvent> | null,
         page: number
     ) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
-    isCustomTable?: boolean;
-    noBorderLeft?: boolean;
-    noBorderTop?: boolean;
-    noBorderRight?: boolean;
+    borderRadius?: boolean;
     actionAdd?: () => void;
     actionEdit?: () => void;
     actionDelete?: () => void;
@@ -54,11 +51,8 @@ export const statusLabels = {
     rejected: 'Rejected',
 };
 
-export type StandardColor =
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'info'
-    | 'success'
-    | 'warning';
+export interface RowKeys {
+    k: string;
+    v: string | number;
+    isNumber: boolean;
+}

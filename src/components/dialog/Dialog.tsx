@@ -6,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 import { Template } from 'src/components/_template/Template';
-import { CloseIcon } from 'src/index.ts';
-import { pixelToRem } from 'shared/common.ts';
+import { CloseIcon } from 'src/index';
+import { pixelToRem } from 'shared/common';
 
 interface Props {
     handleClose: () => void;

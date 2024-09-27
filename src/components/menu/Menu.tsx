@@ -19,8 +19,8 @@ import {
 } from 'react';
 import { Template } from 'src/components/_template/Template';
 import { MenuItems } from 'components/menu/types';
-import { color } from 'shared/color.ts';
-import { fontSize } from 'shared/fonts.ts';
+import { color } from 'shared/color';
+import { fontSize } from 'shared/fonts';
 
 interface Props extends Omit<BoxProps, 'position'> {
     items: MenuItems[];

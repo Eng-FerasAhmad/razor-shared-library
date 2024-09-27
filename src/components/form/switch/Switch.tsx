@@ -3,10 +3,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import { Template } from 'src/components/_template/Template';
 import { ReactElement } from 'react';
+import { StandardLabelPlacement } from 'shared/types';
 
 interface Props {
     label?: string;
-    labelPlacement?: 'bottom' | 'start' | 'end' | 'top';
+    labelPlacement?: StandardLabelPlacement;
 }
 
 export function SwitchCustom({

@@ -3,14 +3,16 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { ReactElement, useState } from 'react';
 import { TableProps } from './types';
-import TableCellCustom from 'src/components/table/TableCell';
+import TableCellCustom from 'components/unit-custom-table/UnitCustomTableCell';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
-import { DeleteIcon, MenuItems, MoreHorizIcon } from 'src/index.ts';
-import { MenuCustom } from 'components/menu/Menu.tsx';
+import { DeleteIcon, MenuItems, MoreHorizIcon } from 'src/index';
+import { MenuCustom } from 'components/menu/Menu';
 import { Edit, FormatListBulleted } from '@mui/icons-material';
 
-export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
+export default function UnitCustomTableBody<T>(
+    props: TableProps<T>
+): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
     const [selectedIndex, setSelectedIndex] = useState<number>(
         props.selectedRow
@@ -70,10 +72,6 @@ export default function TableBodyCustom<T>(props: TableProps<T>): ReactElement {
                     tabIndex={-1}
                     key={index}
                     sx={{
-                        borderLeft:
-                            selectedIndex === index
-                                ? `2px solid ${color.primary.main}`
-                                : '',
                         backgroundColor:
                             selectedIndex === index ? color.hover : '',
                         cursor: 'pointer',

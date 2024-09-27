@@ -7,7 +7,9 @@ interface Props {
     headerTools: ReactNode;
 }
 
-export default function TableToolbar({ headerTools }: Props): ReactElement {
+export default function UnitCustomTableToolbar({
+    headerTools,
+}: Props): ReactElement {
     return (
         <Toolbar
             sx={{

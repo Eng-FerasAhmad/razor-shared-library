@@ -1,9 +1,13 @@
 import TablePagination from '@mui/material/TablePagination';
-import { ChangeEvent, ReactElement } from 'react';
+import {
+    ChangeEvent,
+    ReactElement,
+    MouseEvent as ReactMouseEvent,
+} from 'react';
 import { TableProps } from './types';
 import { pixelToRem } from 'src/shared/common';
 
-export default function TablePaginationCustom<T>(
+export default function UnitCustomTablePagination<T>(
     props: TableProps<T>
 ): ReactElement {
     return (
@@ -14,7 +18,7 @@ export default function TablePaginationCustom<T>(
             rowsPerPage={props.pageSize}
             page={props.pageNumber}
             onPageChange={(
-                event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+                event: ReactMouseEvent<HTMLButtonElement, MouseEvent> | null,
                 page: number
             ) => props.handleChangePage(event, page)}
             onRowsPerPageChange={(event: ChangeEvent<HTMLInputElement>) =>

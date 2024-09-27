@@ -1,12 +1,13 @@
 import { Alert, Snackbar, SnackbarProps } from '@mui/material';
 import { Template } from '../_template/Template';
 import { ReactElement } from 'react';
+import { StandardSeverity } from 'shared/types';
 
 interface Props {
     text: string;
     handleClose: () => void;
     open: boolean;
-    severity: 'success' | 'error' | 'warning' | 'info';
+    severity: StandardSeverity;
 }
 
 export function Toast({
