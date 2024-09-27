@@ -18,6 +18,7 @@ import {
 import { fonts } from 'src/shared/fonts';
 import { BadgeCustom } from 'components/badge/Badge';
 import { ChipCustom } from 'components/chip/Chip';
+import { ButtonCustom } from 'components/form/button/Button';
 
 const autoOptions: AutoCompleteOptions[] = [
     {
@@ -74,11 +75,13 @@ export default function FormPalette(): ReactElement {
     return (
         <Box sx={{ fontFamily: fonts.primary }} data-testid="button-palette">
             <Box sx={{ width: 200 }}>
-                <Button
+                <ButtonCustom
                     label="Primary"
                     variant="contained"
                     size="medium"
                     color="primary"
+                    disabled={false}
+                    onClick={() => console.log('click')}
                 />
                 <Button
                     label="Secondary"
