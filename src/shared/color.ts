@@ -3,12 +3,11 @@ export const color = {
     dark: '#22272e',
     darkOpacity80: '#00000080',
     hover: 'rgba(0, 150, 149, 0.08)',
-
-    /* action colors: */
     disabled: '#cccccc',
     fontDark: '#1a1e23',
     border: '#a6a6a6',
     borderLight: '#e6e6e6',
+    background: '#f8f8fa',
 
     /** main colors */
     primary: {
