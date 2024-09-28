@@ -7,11 +7,12 @@ import {
 import { TableProps } from './types';
 import { pixelToRem } from 'src/shared/common';
 
-export default function UnitCustomTablePagination<T>(
+export default function EntityTablePagination<T>(
     props: TableProps<T>
 ): ReactElement {
     return (
         <TablePagination
+            data-testid={'table-pagination'}
             rowsPerPageOptions={[5, 10, 25, 50, 75, 100]}
             component="div"
             count={props.totalResultCounts}

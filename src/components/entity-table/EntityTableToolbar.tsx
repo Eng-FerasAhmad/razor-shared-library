@@ -7,7 +7,7 @@ interface Props {
     headerTools: ReactNode;
 }
 
-export default function UnitCustomTableToolbar({
+export default function EntityTableToolbar({
     headerTools,
 }: Props): ReactElement {
     return (
@@ -17,6 +17,7 @@ export default function UnitCustomTableToolbar({
                 pr: { sm: 2 },
                 borderBottom: `${pixelToRem(1)} solid lightGray`,
             }}
+            data-testid={'entity-table-toolbar'}
         >
             <Typography
                 sx={{ flex: '1 1 100%' }}

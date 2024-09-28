@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { ReactElement, ReactNode, useState } from 'react';
-import { IconOptions } from 'src/components/icon-selector/types';
+import { IconOptions } from 'components/icon-factory/types';
 
 interface Props {
     options: IconOptions[];
@@ -11,7 +11,7 @@ interface Props {
     onChange: (selected: IconOptions | null) => void;
 }
 
-export function IconSelector({
+export function IconFactory({
     options,
     label,
     value,

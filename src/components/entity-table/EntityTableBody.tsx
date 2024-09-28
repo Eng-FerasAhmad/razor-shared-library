@@ -3,16 +3,14 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { ReactElement, useState } from 'react';
 import { TableProps } from './types';
-import TableCellCustom from 'components/unit-custom-table/UnitCustomTableCell';
+import TableCellCustom from 'components/entity-table/EntityTableCell';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { DeleteIcon, MenuItems, MoreHorizIcon } from 'src/index';
 import { MenuCustom } from 'components/menu/Menu';
 import { Edit, FormatListBulleted } from '@mui/icons-material';
 
-export default function UnitCustomTableBody<T>(
-    props: TableProps<T>
-): ReactElement {
+export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
     const [selectedIndex, setSelectedIndex] = useState<number>(
         props.selectedRow
@@ -63,10 +61,10 @@ export default function UnitCustomTableBody<T>(
     };
 
     return (
-        <TableBody>
+        <TableBody data-testid={'table-body'}>
             {props.rows.map((row: T, index) => (
                 <TableRow
-                    role="checkbox"
+                    role="row"
                     onDoubleClick={() => handleDlClick(row, index)}
                     onClick={() => handleOneClick(row, index)}
                     tabIndex={-1}

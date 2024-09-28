@@ -12,8 +12,9 @@ export function Loading({ ...props }: BackdropProps): ReactElement {
                     zIndex: (theme) => theme.zIndex.drawer + 1,
                 }}
                 {...props}
+                data-testid={'progressbar'}
             >
-                <CircularProgress color="inherit" />
+                <CircularProgress color="inherit" role={'progressbar'} />
             </Backdrop>
         </Template>
     );

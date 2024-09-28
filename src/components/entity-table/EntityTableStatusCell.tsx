@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { ChipCustom } from 'components/chip/Chip';
-import { statusLabels } from 'components/unit-custom-table/types';
+import { statusLabels } from 'components/entity-table/types';
 import { fontSize } from 'shared/fonts';
 import { StandardColor } from 'shared/types';
 
@@ -9,10 +9,7 @@ interface Props {
     v: string;
 }
 
-export default function UnitCustomTableStatusCell({
-    k,
-    v,
-}: Props): ReactElement {
+export default function EntityTableStatusCell({ k, v }: Props): ReactElement {
     if (k === 'status' || k === 'statusText') {
         const getColor = (): StandardColor => {
             switch (v) {

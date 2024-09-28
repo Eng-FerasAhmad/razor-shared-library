@@ -5,8 +5,8 @@ import {
     ReactElement,
     MouseEvent as ReactMouseEvent,
 } from 'react';
-import { HeadCell, Order } from 'components/unit-custom-table/types';
-import { UnitCustomTable } from 'components/unit-custom-table/UnitCustomTable';
+import { HeadCell, Order } from 'components/entity-table/types';
+import { EntityTable } from 'components/entity-table/EntityTable';
 
 export interface Data {
     id: string;
@@ -100,7 +100,7 @@ export default function TablePalette(): ReactElement {
     };
 
     return (
-        <UnitCustomTable<Data>
+        <EntityTable<Data>
             headerTools={<>Title</>}
             handleHeaderClick={handleHeaderClick}
             resetSort={resetSort}

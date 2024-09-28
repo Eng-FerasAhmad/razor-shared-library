@@ -2,17 +2,17 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
-import TableBodyCustom from './UnitCustomTableBody';
-import TableHead from './UnitCustomTableHead';
-import UnitCustomTableToolbar from './UnitCustomTableToolbar';
+import TableHead from './EntityTableHead';
+import EntityTableToolbar from './EntityTableToolbar';
 import { Template } from 'src/components/_template/Template';
-import UnitCustomTableEmptyRow from 'components/unit-custom-table/UnitCustomTableEmptyRow';
-import TablePaginationCustom from 'components/unit-custom-table/UnitCustomTablePagination';
-import { TableProps } from 'components/unit-custom-table/types';
+import EntityTableEmptyRow from 'components/entity-table/EntityTableEmptyRow';
+import TablePaginationCustom from 'components/entity-table/EntityTablePagination';
+import { TableProps } from 'components/entity-table/types';
 import { pixelToRem } from 'src/shared/common';
 import { ReactElement } from 'react';
+import EntityTableBody from 'components/entity-table/EntityTableBody';
 
-export function UnitCustomTable<T>(props: TableProps<T>): ReactElement {
+export function EntityTable<T>(props: TableProps<T>): ReactElement {
     return (
         <Template>
             <Box sx={{ width: '100%' }} data-testid="table-container">
@@ -26,7 +26,7 @@ export function UnitCustomTable<T>(props: TableProps<T>): ReactElement {
                         borderRadius: `${!props.borderRadius ? 0 : 10}`,
                     }}
                 >
-                    <UnitCustomTableToolbar
+                    <EntityTableToolbar
                         headerTools={props.headerTools}
                         data-testid="table-toolbar"
                     />
@@ -37,12 +37,12 @@ export function UnitCustomTable<T>(props: TableProps<T>): ReactElement {
                             size={'medium'}
                         >
                             {props.rows.length === 0 && (
-                                <UnitCustomTableEmptyRow
+                                <EntityTableEmptyRow
                                     caption={props.noDataCaption}
                                 />
                             )}
                             <TableHead {...props} />
-                            <TableBodyCustom {...props} />
+                            <EntityTableBody {...props} />
                         </Table>
                     </TableContainer>
                     <TablePaginationCustom {...props} />

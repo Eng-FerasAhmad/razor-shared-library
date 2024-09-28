@@ -29,7 +29,7 @@ export default function FormGenericPalette(): ReactElement {
             controller: 'NUMBER',
             error: false,
             errorLabel: 'none',
-            required: false,
+            required: true,
             disable: false,
         },
         {

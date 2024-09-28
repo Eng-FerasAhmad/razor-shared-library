@@ -1,15 +1,15 @@
 import TableCell from '@mui/material/TableCell';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
-import { HeadCell, RowKeys } from 'components/unit-custom-table/types';
+import { HeadCell, RowKeys } from 'components/entity-table/types';
 import { pixelToRem } from 'src/shared/common';
 import { color } from 'shared/color';
-import UnitCustomTableStatusCell from 'components/unit-custom-table/UnitCustomTabelStatusCell';
+import UnitCustomTableStatusCell from 'components/entity-table/EntityTableStatusCell';
 
 interface Props<T> {
     headCells: HeadCell<T>[];
     row: T;
 }
-export default function UnitCustomTableCell<T>({
+export default function EntityTableCell<T>({
     headCells,
     row,
 }: Props<T>): ReactElement {
