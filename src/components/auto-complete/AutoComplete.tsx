@@ -3,6 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { ReactElement, useState } from 'react';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
+import { color } from 'shared/color';
 
 interface Props {
     options: AutoCompleteOptions[];
@@ -31,6 +32,7 @@ export function AutoCompleteCustom({
         <Autocomplete
             data-testid="auto-complete"
             disablePortal
+            color={color.primary.main}
             id="auto-complete"
             value={value}
             options={options}
