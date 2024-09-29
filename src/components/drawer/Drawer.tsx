@@ -1,13 +1,18 @@
+import { ReactElement, ReactNode } from 'react';
+
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import { ReactElement, ReactNode } from 'react';
+import ChevronRight from '@mui/icons-material/ChevronRight';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import Menu from '@mui/icons-material/Menu';
+
+import { Template } from 'src/components/_template/Template';
+import { pixelToRem } from 'src/shared/common';
+
 import DrawerList from './DrawerList';
 import DrawerToolbar from './DrawerToolbar';
 import { drawerWidth } from './styles';
 import { DrawerListItems } from './types';
-import { Template } from 'src/components/_template/Template';
-import { pixelToRem } from 'src/shared/common';
-import { ChevronRight, ExpandMore, Menu } from '@mui/icons-material';
 
 interface Props {
     appTitle: string;

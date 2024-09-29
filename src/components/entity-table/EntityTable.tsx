@@ -1,16 +1,19 @@
+import { ReactElement } from 'react';
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from './EntityTableHead';
-import EntityTableToolbar from './EntityTableToolbar';
+
 import { Template } from 'src/components/_template/Template';
 import EntityTableEmptyRow from 'components/entity-table/EntityTableEmptyRow';
 import TablePaginationCustom from 'components/entity-table/EntityTablePagination';
 import { TableProps } from 'components/entity-table/types';
 import { pixelToRem } from 'src/shared/common';
-import { ReactElement } from 'react';
 import EntityTableBody from 'components/entity-table/EntityTableBody';
+
+import EntityTableToolbar from './EntityTableToolbar';
+import TableHead from './EntityTableHead';
 
 export function EntityTable<T>(props: TableProps<T>): ReactElement {
     return (

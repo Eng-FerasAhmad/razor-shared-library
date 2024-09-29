@@ -1,7 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { AutoCompleteCustom } from './AutoComplete';
-import { AutoCompleteOptions } from 'components/auto-complete/types';
 import { useState } from 'react';
+
+import { AutoCompleteOptions } from 'components/auto-complete/types';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { AutoCompleteCustom } from './AutoComplete';
 
 const meta: Meta<typeof AutoCompleteCustom> = {
     title: 'Components/form/AutoComplete',

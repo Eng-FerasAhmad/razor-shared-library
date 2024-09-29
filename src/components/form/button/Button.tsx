@@ -1,6 +1,8 @@
-import Button, { ButtonProps } from '@mui/material/Button';
-import { Template } from 'src/components/_template/Template';
 import { ReactElement } from 'react';
+
+import Button, { ButtonProps } from '@mui/material/Button';
+
+import { Template } from 'src/components/_template/Template';
 
 interface Props {
     label: string;

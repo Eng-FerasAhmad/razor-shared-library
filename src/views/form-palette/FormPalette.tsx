@@ -1,5 +1,7 @@
-import { Box, SelectChangeEvent } from '@mui/material';
 import { ChangeEvent, ReactElement, useState } from 'react';
+
+import { Box, SelectChangeEvent } from '@mui/material';
+
 import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 import { RadioGroupCustom } from 'src/components/form/radio-group/RadioGroup';

@@ -1,6 +1,7 @@
+import { DialogCustom } from './Dialog';
+
 import { screen } from '@testing-library/dom';
 import { render } from '@testing-library/react';
-import { DialogCustom } from './Dialog';
 
 describe('<Dialog />', () => {
     test('Should render the component', async () => {

@@ -1,6 +1,8 @@
-import { ThemeProvider, createTheme } from '@mui/material';
 import { ReactElement, ReactNode } from 'react';
+
+import { ThemeProvider, createTheme } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
+
 import { color } from 'shared/color';
 import { fonts, fontSize } from 'shared/fonts';
 

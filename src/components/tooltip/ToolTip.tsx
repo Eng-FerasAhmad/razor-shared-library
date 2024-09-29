@@ -1,5 +1,6 @@
-import Tooltip from '@mui/material/Tooltip';
 import { ReactElement } from 'react';
+
+import Tooltip from '@mui/material/Tooltip';
 
 interface Props {
     title: string;

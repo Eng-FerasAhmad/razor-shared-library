@@ -1,8 +1,9 @@
+import { sbColor, sbSize } from 'shared/storybookConst';
+import { AddIcon } from 'src/index';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { FloatButton } from './FloatButton';
-import { sbColor, sbSize } from 'shared/storybookConst';
-import { AddIcon } from 'src/index';
 
 const meta = {
     title: 'Components/form/FloatButton',

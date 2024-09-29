@@ -1,7 +1,8 @@
+import { RadioItems } from 'components/form/radio-group/types';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { RadioGroupCustom } from './RadioGroup';
-import { RadioItems } from 'components/form/radio-group/types';
 
 const meta = {
     title: 'Components/form/Radio',

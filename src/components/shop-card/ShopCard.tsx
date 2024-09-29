@@ -1,5 +1,6 @@
-import { ShopCardContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { ShopCardContainer } from './styles';
 
 export function ShopCard(): ReactElement {
     return (

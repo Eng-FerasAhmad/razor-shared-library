@@ -1,7 +1,8 @@
+import { sbColor } from 'shared/storybookConst';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { SwitchCustom } from './Switch';
-import { sbColor } from 'shared/storybookConst';
 
 const meta = {
     title: 'Components/form/Switch',

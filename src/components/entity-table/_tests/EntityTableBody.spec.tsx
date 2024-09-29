@@ -1,5 +1,3 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import EntityTableBody from 'components/entity-table/EntityTableBody';
 import {
     mockHeadCells,
@@ -7,9 +5,14 @@ import {
 } from 'components/entity-table/_tests/mockTableProps';
 import { Order } from 'components/entity-table/types';
 
+import { fireEvent, render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
 describe('EntityTableBody', () => {
     const mockHandleChangePage = jest.fn();
     const mockHandleChangeRowsPerPage = jest.fn();
+    const mockOnDlClickRow = jest.fn();
+    const mockOnOneClickRow = jest.fn();
 
     const props = {
         totalResultCounts: 100,
@@ -26,6 +29,8 @@ describe('EntityTableBody', () => {
         order: 'asc' as Order,
         resetSort: jest.fn(),
         handleHeaderClick: jest.fn(),
+        onDlClickRow: mockOnDlClickRow,
+        onOneClickRow: mockOnOneClickRow,
     };
 
     beforeEach(() => {
@@ -36,5 +41,14 @@ describe('EntityTableBody', () => {
         render(<EntityTableBody {...props} />);
 
         expect(screen.getByTestId('table-body')).toBeInTheDocument();
+    });
+
+    it('triggers onDoubleClick and onClick handlers', () => {
+        render(<EntityTableBody {...props} selectedRow={0} />);
+        const row = screen.getAllByRole('row')[0];
+        fireEvent.doubleClick(row);
+        expect(mockOnDlClickRow).toHaveBeenCalledWith(mockRows[0], 0);
+        fireEvent.click(row);
+        expect(mockOnOneClickRow).toHaveBeenCalledWith(mockRows[0], 0);
     });
 });

@@ -1,7 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import { AccordionItems } from 'components/accordion/types';
-import '@testing-library/jest-dom';
 import { AccordionCustom } from 'components/accordion/Accordion';
+
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('AccordionCustom', () => {
     const items: AccordionItems[] = [

@@ -1,13 +1,17 @@
+import { ReactElement } from 'react';
+
 import { TableSortLabel } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { TableProps } from './types';
+import AutoFixHigh from '@mui/icons-material/AutoFixHigh';
+import Autorenew from '@mui/icons-material/Autorenew';
+
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { fontSize } from 'src/shared/fonts';
-import { ReactElement } from 'react';
-import { AutoFixHigh, Autorenew } from '@mui/icons-material';
+
+import { TableProps } from './types';
 
 export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
     const resetSortHandler = (): void => {

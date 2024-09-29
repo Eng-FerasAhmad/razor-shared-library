@@ -1,13 +1,13 @@
-import { Template } from 'src/components/_template/Template';
 import { ReactElement } from 'react';
-import {
-    Accordion,
-    AccordionActions,
-    AccordionDetails,
-    AccordionSummary,
-} from '@mui/material';
+
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+
+import { Template } from 'src/components/_template/Template';
 import { AccordionItems } from 'components/accordion/types';
-import { ExpandLess } from '@mui/icons-material';
 
 interface Props {
     items: AccordionItems[];

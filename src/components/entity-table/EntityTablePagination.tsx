@@ -1,11 +1,14 @@
-import TablePagination from '@mui/material/TablePagination';
 import {
     ChangeEvent,
     ReactElement,
     MouseEvent as ReactMouseEvent,
 } from 'react';
-import { TableProps } from './types';
+
+import TablePagination from '@mui/material/TablePagination';
+
 import { pixelToRem } from 'src/shared/common';
+
+import { TableProps } from './types';
 
 export default function EntityTablePagination<T>(
     props: TableProps<T>

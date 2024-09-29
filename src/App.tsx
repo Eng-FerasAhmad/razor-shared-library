@@ -1,6 +1,8 @@
+import { ReactElement, SyntheticEvent, useState } from 'react';
+
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { ReactElement, SyntheticEvent, useState } from 'react';
+
 import { fonts } from './shared/fonts';
 import { CardPalette } from './views/card-palette/CardPalette';
 import { DateTimePalette } from './views/date-time-palette/DateTimePalette';

@@ -1,5 +1,6 @@
-import { CarouselContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { CarouselContainer } from './styles';
 
 export function Carousel(): ReactElement {
     return (

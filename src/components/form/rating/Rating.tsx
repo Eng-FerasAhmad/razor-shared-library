@@ -1,7 +1,9 @@
+import { ReactElement } from 'react';
+
 import Rating, { RatingProps } from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+
 import { Template } from 'src/components/_template/Template';
-import { ReactElement } from 'react';
 
 interface Props {
     label: string;

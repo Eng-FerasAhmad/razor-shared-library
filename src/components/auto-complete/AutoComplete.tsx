@@ -1,6 +1,10 @@
-import { Box, Typography, TextField } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
 import { ReactElement, useState, useEffect } from 'react';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 
 interface Props {

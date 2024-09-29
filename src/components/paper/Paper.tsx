@@ -1,5 +1,6 @@
-import Paper, { PaperProps } from '@mui/material/Paper';
 import { PropsWithChildren, ReactElement } from 'react';
+
+import Paper, { PaperProps } from '@mui/material/Paper';
 
 export function PaperCustom({
     children,

@@ -1,6 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { RatingCustom } from 'components/form/rating/Rating';
+
+import { render, screen } from '@testing-library/react';
+
+import '@testing-library/jest-dom';
 
 describe('RatingCustom', () => {
     it('renders the correct label', () => {

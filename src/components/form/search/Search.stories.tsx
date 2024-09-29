@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { SearchCustom } from './Search';
 import { CancelIcon, SearchIcon } from 'src/index';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { SearchCustom } from './Search';
 
 const meta: Meta<typeof SearchCustom> = {
     title: 'Components/form/Search',

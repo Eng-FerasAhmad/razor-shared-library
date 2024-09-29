@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { sbColor } from 'shared/storybookConst';
 import { ChipCustom } from 'components/chip/Chip';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ChipCustom> = {
     title: 'Components/Chip',

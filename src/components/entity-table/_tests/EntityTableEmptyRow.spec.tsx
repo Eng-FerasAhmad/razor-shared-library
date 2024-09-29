@@ -1,6 +1,7 @@
+import EntityTableEmptyRow from 'components/entity-table/EntityTableEmptyRow';
+
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import EntityTableEmptyRow from 'components/entity-table/EntityTableEmptyRow';
 
 describe('EntityTableEmptyRow', () => {
     it('renders the caption with the correct alert message', () => {

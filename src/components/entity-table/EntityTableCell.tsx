@@ -1,5 +1,7 @@
-import TableCell from '@mui/material/TableCell';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
+
+import TableCell from '@mui/material/TableCell';
+
 import { HeadCell, RowKeys } from 'components/entity-table/types';
 import { pixelToRem } from 'src/shared/common';
 import { color } from 'shared/color';

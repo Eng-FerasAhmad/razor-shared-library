@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import { statusLabels } from 'components/entity-table/types';
 import UnitCustomTableStatusCell from 'components/entity-table/EntityTableStatusCell';
+
+import { render, screen } from '@testing-library/react';
 
 describe('UnitCustomTableStatusCell', () => {
     it('renders a ChipCustom for status with active label', () => {

@@ -1,10 +1,12 @@
-import { Dialog, DialogProps } from '@mui/material';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
+
+import Dialog, { DialogProps } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
-import { PropsWithChildren, ReactElement, ReactNode } from 'react';
+
 import { Template } from 'src/components/_template/Template';
 import { CloseIcon } from 'src/index';
 import { pixelToRem } from 'shared/common';

@@ -1,4 +1,5 @@
 import { ShopCard } from './ShopCard';
+
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 

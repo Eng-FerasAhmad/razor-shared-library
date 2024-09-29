@@ -1,6 +1,8 @@
-import { Typography } from '@mui/material';
-import Toolbar from '@mui/material/Toolbar';
 import { ReactElement, ReactNode } from 'react';
+
+import Typography from '@mui/material/Typography';
+import Toolbar from '@mui/material/Toolbar';
+
 import { pixelToRem } from 'src/shared/common';
 
 interface Props {

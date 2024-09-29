@@ -1,4 +1,5 @@
 import { SwitchCustom } from './Switch';
+
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 

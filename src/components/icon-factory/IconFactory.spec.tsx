@@ -1,7 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { IconFactory } from './IconFactory';
-import '@testing-library/jest-dom';
 import { IconOptions } from 'components/icon-factory/types';
+
+import { IconFactory } from './IconFactory';
+
+import { render, screen, fireEvent } from '@testing-library/react';
+
+import '@testing-library/jest-dom';
 
 const mockOptions: IconOptions[] = [
     {

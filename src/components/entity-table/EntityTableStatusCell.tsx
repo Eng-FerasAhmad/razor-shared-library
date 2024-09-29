@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+
 import { ChipCustom } from 'components/chip/Chip';
 import { statusLabels } from 'components/entity-table/types';
 import { fontSize } from 'shared/fonts';

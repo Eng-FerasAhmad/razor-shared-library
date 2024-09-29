@@ -1,8 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { InputSelect } from './InputSelect';
-import { SelectItems } from 'components/form/input-select/types';
+
 import { SelectChangeEvent } from '@mui/material';
+
+import { SelectItems } from 'components/form/input-select/types';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { InputSelect } from './InputSelect';
 
 const meta: Meta<typeof InputSelect> = {
     title: 'Components/form/Select',

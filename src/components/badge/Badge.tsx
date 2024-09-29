@@ -1,6 +1,8 @@
-import { Template } from 'src/components/_template/Template';
 import { PropsWithChildren, ReactElement } from 'react';
-import { Badge, BadgeProps } from '@mui/material';
+
+import Badge, { BadgeProps } from '@mui/material/Badge';
+
+import { Template } from 'src/components/_template/Template';
 
 export function BadgeCustom({
     children,

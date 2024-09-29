@@ -1,10 +1,12 @@
+import { ReactElement } from 'react';
+
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs, { TabsProps } from '@mui/material/Tabs';
+
 import { Template } from 'src/components/_template/Template';
 import TabPanel from 'src/components/tab/TabPanel';
 import { TabItem } from 'src/components/tab/types';
-import { ReactElement } from 'react';
 
 interface Props {
     tabItem: TabItem[];

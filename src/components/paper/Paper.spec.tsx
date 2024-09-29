@@ -1,6 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { PaperCustom } from 'components/paper/Paper';
+
+import { render, screen } from '@testing-library/react';
+
+import '@testing-library/jest-dom';
 
 describe('PaperCustom', () => {
     it('renders children correctly', () => {

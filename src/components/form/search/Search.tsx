@@ -1,7 +1,8 @@
+import React, { ReactElement, ReactNode } from 'react';
+
 import IconButton from '@mui/material/IconButton';
 import InputBase, { InputBaseProps } from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
-import React, { ReactElement, ReactNode } from 'react';
 
 interface Props {
     searchIcon: ReactNode;

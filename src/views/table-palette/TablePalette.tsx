@@ -1,10 +1,12 @@
-import { SortDirection } from '@mui/material/TableCell';
 import {
     ChangeEvent,
     useState,
     ReactElement,
     MouseEvent as ReactMouseEvent,
 } from 'react';
+
+import { SortDirection } from '@mui/material/TableCell';
+
 import { HeadCell, Order } from 'components/entity-table/types';
 import { EntityTable } from 'components/entity-table/EntityTable';
 

@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { HeadCell } from 'components/entity-table/types';
 import EntityTableCell from 'components/entity-table/EntityTableCell';
+
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 interface Data {
     name: string;

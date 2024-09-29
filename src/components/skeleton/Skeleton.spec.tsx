@@ -1,4 +1,5 @@
 import { Skeleton } from './Skeleton';
+
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 

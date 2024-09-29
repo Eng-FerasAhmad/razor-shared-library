@@ -1,7 +1,9 @@
+import { ReactElement } from 'react';
+
 import Alert, { AlertProps } from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+
 import { Template } from 'src/components/_template/Template';
-import { ReactElement } from 'react';
 
 interface Props {
     text: string;

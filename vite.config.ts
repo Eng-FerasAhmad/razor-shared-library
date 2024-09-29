@@ -1,18 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
-import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineConfig({
     plugins: [
         react(),
-        tsconfigPaths(),
         dts({
             include: ['src/**/*'],
         }),
-        eslintPlugin,
     ],
     server: {
         port: 3033,
@@ -25,15 +21,24 @@ export default defineConfig({
             fileName: (format) => `index.${format}.js`,
         },
         rollupOptions: {
-            external: ['react', 'react-dom'],
+            external: [
+                'react',
+                'react-dom',
+                '@mui/material',
+                '@mui/icons-material',
+                '@mui/x-date-pickers',
+            ],
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
+                    '@mui/material': 'MaterialUI',
+                    '@mui/icons-material': 'MaterialUIIcons',
+                    '@mui/x-date-pickers': 'MaterialUIXDatePickers',
                 },
             },
         },
-        sourcemap: true,
+        sourcemap: false,
         emptyOutDir: true,
     },
     resolve: {

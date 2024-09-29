@@ -1,6 +1,8 @@
-import { Checkbox, CheckboxProps } from '@mui/material';
-import { Template } from 'src/components/_template/Template';
 import { ReactElement } from 'react';
+
+import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
+
+import { Template } from 'src/components/_template/Template';
 
 interface Props {
     label?: string;

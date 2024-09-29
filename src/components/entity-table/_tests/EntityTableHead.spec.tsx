@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import EntityTableHead from 'components/entity-table/EntityTableHead';
 import {
     mockHeadCells,
     mockRows,
 } from 'components/entity-table/_tests/mockTableProps';
 import { Order } from 'components/entity-table/types';
+
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('EntityTableHead', () => {
     const mockHandleChangePage = jest.fn();

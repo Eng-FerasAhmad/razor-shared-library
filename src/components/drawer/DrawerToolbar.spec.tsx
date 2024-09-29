@@ -1,6 +1,7 @@
+import DrawerToolbar from 'src/components/drawer/DrawerToolbar';
+
 import { screen } from '@testing-library/dom';
 import { render } from '@testing-library/react';
-import DrawerToolbar from 'src/components/drawer/DrawerToolbar';
 
 describe('<DrawerToolbar />', () => {
     test('Should render the component', async () => {

@@ -1,10 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { DialogCustom } from './Dialog';
 import { useState } from 'react';
+
 import { Button } from '@mui/material';
+import Box from '@mui/material/Box';
+
 import { ButtonCustom } from 'components/form/button/Button';
 import { fonts } from 'shared/fonts';
-import Box from '@mui/material/Box';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { DialogCustom } from './Dialog';
 
 const meta: Meta<typeof DialogCustom> = {
     title: 'Components/Dialog',

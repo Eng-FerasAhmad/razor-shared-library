@@ -1,14 +1,13 @@
-import {
-    FormControl,
-    FormHelperText,
-    InputLabel,
-    MenuItem,
-    Select,
-    SelectChangeEvent,
-} from '@mui/material';
+import { ReactElement } from 'react';
+
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import { Template } from 'src/components/_template/Template';
 import { SelectItems } from 'src/components/form/input-select/types';
-import { ReactElement } from 'react';
 
 interface Props {
     items: SelectItems[];

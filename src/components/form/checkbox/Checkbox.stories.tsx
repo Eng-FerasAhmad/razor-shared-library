@@ -1,7 +1,8 @@
+import { sbColor, sbSize } from 'shared/storybookConst';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { CheckboxCustom } from './Checkbox';
-import { sbColor, sbSize } from 'shared/storybookConst';
 
 const meta = {
     title: 'Components/form/Checkbox',

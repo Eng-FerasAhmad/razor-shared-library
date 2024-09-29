@@ -1,5 +1,6 @@
-import { InputDigitContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { InputDigitContainer } from './styles';
 
 export function InputDigit(): ReactElement {
     return (

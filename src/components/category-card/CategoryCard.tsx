@@ -1,5 +1,6 @@
-import { CategoryCardContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { CategoryCardContainer } from './styles';
 
 export function CategoryCard(): ReactElement {
     return (

@@ -1,6 +1,10 @@
-import { Alert, Snackbar, SnackbarProps } from '@mui/material';
-import { Template } from '../_template/Template';
 import { ReactElement } from 'react';
+
+import Alert from '@mui/material/Alert';
+import Snackbar, { SnackbarProps } from '@mui/material/Snackbar';
+
+import { Template } from '../_template/Template';
+
 import { StandardSeverity } from 'shared/types';
 
 interface Props {

@@ -1,5 +1,6 @@
-import { SkeletonContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { SkeletonContainer } from './styles';
 
 export function Skeleton(): ReactElement {
     return (

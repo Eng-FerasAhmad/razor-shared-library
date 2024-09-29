@@ -1,6 +1,8 @@
-import { AlertCustom } from 'src/components/alert/Alert';
 import { ReactElement } from 'react';
-import { InfoOutlined } from '@mui/icons-material';
+
+import InfoOutlined from '@mui/icons-material/InfoOutlined';
+
+import { AlertCustom } from 'src/components/alert/Alert';
 
 interface Props {
     caption: string;

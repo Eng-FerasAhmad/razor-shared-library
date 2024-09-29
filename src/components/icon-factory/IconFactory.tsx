@@ -1,7 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { ReactElement, ReactNode, useState } from 'react';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { ReactElement, ReactNode, useState } from 'react';
+
 import { IconOptions } from 'components/icon-factory/types';
 
 interface Props {

@@ -1,11 +1,12 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import EntityTablePagination from 'components/entity-table/EntityTablePagination';
 import {
     mockHeadCells,
     mockRows,
 } from 'components/entity-table/_tests/mockTableProps';
 import { Order } from 'components/entity-table/types';
+
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('EntityTablePagination', () => {
     const mockHandleChangePage = jest.fn();

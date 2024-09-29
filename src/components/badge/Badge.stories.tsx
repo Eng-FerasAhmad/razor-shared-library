@@ -1,8 +1,9 @@
+import { sbColor } from 'shared/storybookConst';
+import { EmailIcon } from 'src/index';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { BadgeCustom } from './Badge';
-import { sbColor } from 'shared/storybookConst';
-import { EmailIcon } from 'src/index';
 
 const meta = {
     component: BadgeCustom,

@@ -1,7 +1,8 @@
+import { sbColor, sbSize, sbVariant } from 'shared/storybookConst';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ButtonCustom } from './Button';
-import { sbColor, sbSize, sbVariant } from 'shared/storybookConst';
 
 const meta = {
     title: 'Components/form/Button',

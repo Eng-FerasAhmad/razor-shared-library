@@ -1,6 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import EntityTableToolbar from 'components/entity-table/EntityTableToolbar';
+
+import { render, screen } from '@testing-library/react';
+
+import '@testing-library/jest-dom';
 
 describe('EntityTableToolbar', () => {
     it('renders with header tools', () => {

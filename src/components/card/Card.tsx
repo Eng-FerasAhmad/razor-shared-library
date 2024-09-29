@@ -1,5 +1,7 @@
-import { Card, CardProps } from '@mui/material';
 import { PropsWithChildren, ReactElement } from 'react';
+
+import Card, { CardProps } from '@mui/material/Card';
+
 import { Template } from 'src/components/_template/Template';
 
 export function CardCustom({

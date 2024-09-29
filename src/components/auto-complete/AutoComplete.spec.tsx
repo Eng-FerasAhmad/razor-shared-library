@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import { AutoCompleteOptions } from 'src/components/auto-complete/types';
 import { AutoCompleteCustom } from 'components/auto-complete/AutoComplete';
+
+import { render, screen } from '@testing-library/react';
 
 describe('AutoCompleteCustom', () => {
     const mockOnChange = jest.fn();

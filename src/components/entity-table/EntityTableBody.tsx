@@ -1,14 +1,17 @@
+import { ReactElement, useState } from 'react';
+
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { ReactElement, useState } from 'react';
-import { TableProps } from './types';
+import { Edit, FormatListBulleted } from '@mui/icons-material';
+
 import TableCellCustom from 'components/entity-table/EntityTableCell';
 import { color } from 'src/shared/color';
 import { pixelToRem } from 'src/shared/common';
 import { DeleteIcon, MenuItems, MoreHorizIcon } from 'src/index';
 import { MenuCustom } from 'components/menu/Menu';
-import { Edit, FormatListBulleted } from '@mui/icons-material';
+
+import { TableProps } from './types';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
@@ -94,6 +97,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                         <MenuCustom
                             items={itemsMenu}
                             position="bottom-end"
+                            data-testid={'more-horiz-icon'}
                             anchor={
                                 <MoreHorizIcon
                                     fontSize="medium"

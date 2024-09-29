@@ -1,7 +1,8 @@
-import { screen } from '@testing-library/dom';
-import { render } from '@testing-library/react';
 import { DrawerCustom } from 'src/components/drawer/Drawer';
 import { DrawerListItems } from 'src/components/drawer/types';
+
+import { screen } from '@testing-library/dom';
+import { render } from '@testing-library/react';
 
 describe('<DrawerCustom />', () => {
     const listItems: DrawerListItems[] = [

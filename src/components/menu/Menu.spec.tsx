@@ -1,6 +1,7 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MenuItems } from 'components/menu/types';
 import { MenuCustom } from 'components/menu/Menu'; // Adjust the import for your MenuItems type
+
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 describe('MenuCustom Component', () => {
     const mockItems: MenuItems[] = [

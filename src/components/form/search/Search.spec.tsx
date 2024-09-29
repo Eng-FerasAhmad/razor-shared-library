@@ -1,6 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { SearchCustom } from 'components/form/search/Search';
+
+import { render, screen, fireEvent } from '@testing-library/react';
+
+import '@testing-library/jest-dom';
 
 describe('SearchCustom', () => {
     const mockSubmitHandler = jest.fn();

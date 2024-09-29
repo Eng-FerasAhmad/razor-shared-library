@@ -1,8 +1,10 @@
+import { ReactElement } from 'react';
+
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
+
 import { Template } from 'src/components/_template/Template';
-import { ReactElement } from 'react';
 import { StandardLabelPlacement } from 'shared/types';
 
 interface Props {

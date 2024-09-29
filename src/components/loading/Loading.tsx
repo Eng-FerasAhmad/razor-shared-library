@@ -1,7 +1,9 @@
+import { ReactElement } from 'react';
+
 import Backdrop, { BackdropProps } from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+
 import { Template } from '../_template/Template';
-import { ReactElement } from 'react';
 
 export function Loading({ ...props }: BackdropProps): ReactElement {
     return (

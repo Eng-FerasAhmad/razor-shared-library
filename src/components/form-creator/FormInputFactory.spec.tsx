@@ -1,7 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { FormInputFactory } from './FormInputFactory';
-import { FormDataSet } from 'src/components/form-creator/types';
 import dayjs from 'dayjs';
+
+import { FormDataSet } from 'src/components/form-creator/types';
+
+import { FormInputFactory } from './FormInputFactory';
+
+import { render, screen, fireEvent } from '@testing-library/react';
 
 describe('FormInputFactory', () => {
     const mockUpdateDataForm = jest.fn();

@@ -1,7 +1,8 @@
+import { sbAlertColor } from 'shared/storybookConst';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AlertCustom } from './Alert';
-import { sbAlertColor } from 'shared/storybookConst';
 
 const meta = {
     title: 'Components/Alert',

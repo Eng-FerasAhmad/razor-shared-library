@@ -1,6 +1,7 @@
+import { RadioGroupCustom } from 'components/form/radio-group/RadioGroup';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { RadioGroupCustom } from 'components/form/radio-group/RadioGroup';
 
 const mockRadioItems = [
     { value: 'option1', label: 'Option 1' },

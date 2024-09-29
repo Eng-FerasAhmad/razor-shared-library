@@ -1,5 +1,7 @@
-import { Box } from '@mui/material';
 import { useState, ReactElement } from 'react';
+
+import { Box } from '@mui/material';
+
 import { Button, Toast } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 

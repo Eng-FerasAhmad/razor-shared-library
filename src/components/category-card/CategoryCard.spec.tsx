@@ -1,4 +1,5 @@
 import { CategoryCard } from './CategoryCard';
+
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 

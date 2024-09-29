@@ -1,12 +1,15 @@
+import { ReactElement, ReactNode } from 'react';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import { DrawerListItems } from './types';
-import { Collapse } from '@mui/material';
-import { ReactElement, ReactNode } from 'react';
+import Collapse from '@mui/material/Collapse';
 import Box from '@mui/material/Box';
+
 import { fontSize } from 'shared/fonts';
+
+import { DrawerListItems } from './types';
 
 interface Props {
     listItems: DrawerListItems[];

@@ -1,5 +1,6 @@
-import { StepperContainer } from './styles';
 import { ReactElement } from 'react';
+
+import { StepperContainer } from './styles';
 
 export function Stepper(): ReactElement {
     return (

@@ -1,6 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { FormCreator } from './FormCreator'; // Adjust the import path accordingly
 import { FormDataSet } from 'src/components/form-creator/types';
+
+import { FormCreator } from './FormCreator'; // Adjust the import path accordingly
+
+import { render, screen, fireEvent } from '@testing-library/react';
 
 describe('FormCreator', () => {
     const mockUpdateFrom = jest.fn();

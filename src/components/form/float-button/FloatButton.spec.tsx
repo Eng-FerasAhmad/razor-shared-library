@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { FloatButton } from './FloatButton';
+
+import { render, screen } from '@testing-library/react';
 
 describe('FloatButton', () => {
     const icon = <span>Icon</span>;
