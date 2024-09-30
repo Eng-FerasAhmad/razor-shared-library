@@ -54,7 +54,7 @@
         "test:coverage": "cross-env NODE_ENV=test npm run test",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "deploy-storybook": "storybook build && gh-pages -d storybook-static"
+        "deploy-storybook": "gh-pages -d storybook-static"
     },
     "dependencies": {
         "@mui/icons-material": "^6.1.1",
