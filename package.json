@@ -13,8 +13,7 @@
     "exports": {
         ".": {
             "import": "./dist/index.es.js",
-            "require": "./dist/index.umd.js",
-            "types": "./dist/index.d.ts"
+            "require": "./dist/index.umd.js"
         }
     },
     "files": [
@@ -30,7 +29,9 @@
     "keywords": [
         "react",
         "vite",
-        "razor"
+        "razor",
+        "mui",
+        "storybook"
     ],
     "license": "MIT",
     "bugs": {
@@ -57,25 +58,27 @@
         "deploy-storybook": "storybook build && gh-pages -d storybook-static"
     },
     "dependencies": {
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
         "@mui/icons-material": "^6.1.1",
         "@mui/material": "^6.1.1",
         "@mui/x-date-pickers": "^7.18.0",
         "@types/node": "^20.11.16",
         "dayjs": "^1.11.10",
         "path": "^0.12.7",
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0",
-        "storybook-dark-mode": "^4.0.2"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "devDependencies": {
-        "@storybook/addon-essentials": "^8.3.3",
-        "@storybook/addon-interactions": "^8.3.3",
-        "@storybook/addon-links": "^8.3.3",
-        "@storybook/addon-onboarding": "^8.3.3",
-        "@storybook/blocks": "^8.3.3",
-        "@storybook/react": "^8.3.3",
-        "@storybook/react-vite": "^8.3.3",
-        "@storybook/test": "^8.3.3",
+        "@storybook/addon-essentials": "^8.3.4",
+        "@storybook/addon-interactions": "^8.3.4",
+        "@storybook/addon-links": "^8.3.4",
+        "@storybook/blocks": "^8.3.4",
+        "@storybook/manager-api": "^8.3.4",
+        "@storybook/react": "^8.3.4",
+        "@storybook/react-vite": "^8.3.4",
+        "@storybook/test": "^8.3.4",
+        "@storybook/theming": "^8.3.4",
         "@testing-library/dom": "^9.3.4",
         "@testing-library/jest-dom": "^6.1.4",
         "@testing-library/react": "^14.0.0",
@@ -118,15 +121,15 @@
         "stylelint-config-standard": "^36.0.0",
         "ts-jest": "^29.1.1",
         "ts-node": "^10.9.2",
-        "tslib": "^2.6.2",
-        "typescript": "^5.2.2",
-        "vite": "^5.0.8",
-        "vite-plugin-dts": "^4.0.3"
+        "tslib": "^2.6.3",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8",
+        "vite-plugin-dts": "^4.2.3"
     },
     "peerDependencies": {
         "@mui/icons-material": "^6.1.1",
         "@mui/material": "^6.1.1",
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     }
 }

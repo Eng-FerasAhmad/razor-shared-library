@@ -4,12 +4,7 @@ import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-    plugins: [
-        react(),
-        dts({
-            include: ['src/**/*'],
-        }),
-    ],
+    plugins: [react()],
     server: {
         port: 3033,
         origin: ' http://127.0.0.1:3033',
