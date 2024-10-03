@@ -2,8 +2,8 @@ import { ReactElement, useState } from 'react';
 
 import { Box } from '@mui/material';
 
-import { DrawerCustom } from 'src/components/drawer/Drawer';
-import { DrawerListItems } from 'src/components/drawer/types';
+import { DrawerCustom } from 'components/navigation/drawer/Drawer';
+import { DrawerListItems } from 'components/navigation/drawer/types';
 
 export function DrawerPalette(): ReactElement {
     const [open, setOpen] = useState(true);

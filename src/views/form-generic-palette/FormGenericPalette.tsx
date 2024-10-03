@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import { ReactElement, useCallback, useState } from 'react';
 
-import { FormCreator } from 'src/components/form-creator/FormCreator';
-import { FormDataSet } from 'src/components/form-creator/types';
+import { FormCreator } from 'components/factory/form-creator/FormCreator';
+import { FormDataSet } from 'components/factory/form-creator/types';
 
 export default function FormGenericPalette(): ReactElement {
     const d: FormDataSet[] = [

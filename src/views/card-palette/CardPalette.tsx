@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { Box } from '@mui/material';
 
-import { ButtonCustom } from 'src/components/form/button/Button';
+import { ButtonCustom } from 'components/inputs/button/Button';
 import { Card } from 'src/index';
 import { fontSize } from 'src/shared/fonts';
 

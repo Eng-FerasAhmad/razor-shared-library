@@ -2,12 +2,12 @@ import { ChangeEvent, ReactElement, useState } from 'react';
 
 import { Box, SelectChangeEvent } from '@mui/material';
 
-import { AutoCompleteCustom } from 'src/components/auto-complete/AutoComplete';
-import { AutoCompleteOptions } from 'src/components/auto-complete/types';
-import { RadioGroupCustom } from 'src/components/form/radio-group/RadioGroup';
-import { RatingCustom } from 'src/components/form/rating/Rating';
-import { SearchCustom } from 'src/components/form/search/Search';
-import { SwitchCustom } from 'src/components/form/switch/Switch';
+import { AutoCompleteCustom } from 'components/inputs/auto-complete/AutoComplete';
+import { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
+import { RadioGroupCustom } from 'components/inputs/radio-group/RadioGroup';
+import { RatingCustom } from 'components/inputs/rating/Rating';
+import { SearchCustom } from 'components/inputs/search/Search';
+import { SwitchCustom } from 'components/inputs/switch/Switch';
 import {
     AddIcon,
     Button,
@@ -18,9 +18,9 @@ import {
     Textarea,
 } from 'src/index';
 import { fonts } from 'src/shared/fonts';
-import { BadgeCustom } from 'components/badge/Badge';
-import { ChipCustom } from 'components/chip/Chip';
-import { ButtonCustom } from 'components/form/button/Button';
+import { BadgeCustom } from 'components/data-display/badge/Badge';
+import { ChipCustom } from 'components/data-display/chip/Chip';
+import { ButtonCustom } from 'components/inputs/button/Button';
 
 const autoOptions: AutoCompleteOptions[] = [
     {

@@ -2,7 +2,7 @@ import { useState, ReactElement } from 'react';
 
 import { Box } from '@mui/material';
 
-import { Button, Toast } from 'src/index';
+import { Button, Snackbar } from 'src/index';
 import { fonts } from 'src/shared/fonts';
 
 export function ToastPalette(): ReactElement {
@@ -22,13 +22,13 @@ export function ToastPalette(): ReactElement {
             data-testid="dialog-palette"
         >
             <Button
-                label="Open Toast"
+                label="Open Snackbar"
                 variant="contained"
                 size="medium"
                 onClick={handleClickOpen}
             />
 
-            <Toast
+            <Snackbar
                 handleClose={handleClose}
                 open={open}
                 severity="success"

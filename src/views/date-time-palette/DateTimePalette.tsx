@@ -3,8 +3,8 @@ import { ReactElement, useState } from 'react';
 
 import { Box } from '@mui/material';
 
-import { DatepickerCustom } from 'src/components/datepicker/Datepicker';
-import { TimePickerCustom } from 'src/components/time-picker/TimePicker';
+import { DatepickerCustom } from 'components/datepicker/date-picker/Datepicker';
+import { TimePickerCustom } from 'components/datepicker/time-picker/TimePicker';
 
 export function DateTimePalette(): ReactElement {
     const [value, setValue] = useState<Dayjs | null>(null);

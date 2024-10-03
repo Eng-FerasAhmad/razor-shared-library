@@ -1,9 +1,9 @@
 import { ReactElement, SyntheticEvent, useState } from 'react';
 
-import { TabCustom } from 'src/components/tab/Tab';
-import { TabItem } from 'src/components/tab/types';
-import { AccordionCustom } from 'components/accordion/Accordion';
-import { AccordionItems } from 'components/accordion/types';
+import { TabCustom } from 'components/navigation/tab/Tab';
+import { TabItem } from 'components/navigation/tab/types';
+import { AccordionCustom } from 'components/surfaces/accordion/Accordion';
+import { AccordionItems } from 'components/surfaces/accordion/types';
 
 const tabItem: TabItem[] = [
     {

@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { color } from 'shared/color';
-import { fonts, fontSize } from 'shared/fonts';
+import { fonts } from 'shared/fonts';
 
 interface Props {
     children: ReactNode;
@@ -22,24 +22,8 @@ const theme = createTheme({
             primary: color.fontDark,
         },
     },
-
     typography: {
         fontFamily: fonts.primary,
-        h1: {
-            fontSize: fontSize.font24,
-            fontWeight: 500,
-            color: color.fontDark,
-        },
-        h2: {
-            fontSize: fontSize.font22,
-            fontWeight: 500,
-            color: color.fontDark,
-        },
-        body1: {
-            fontSize: fontSize.font16,
-            fontWeight: 400,
-            color: color.fontDark,
-        },
     },
     transitions: {
         duration: {

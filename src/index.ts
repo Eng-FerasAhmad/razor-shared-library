@@ -1,52 +1,70 @@
 // components:
-export { AlertCustom as Alert } from './components/alert/Alert';
-export { AutoCompleteCustom as AutoComplete } from './components/auto-complete/AutoComplete';
-export { CardCustom as Card } from './components/card/Card';
-export { Carousel } from './components/carousel/Carousel';
-export { CategoryCard } from './components/category-card/CategoryCard';
-export { DatepickerCustom as Datepicker } from './components/datepicker/Datepicker';
-export { DialogCustom as Dialog } from './components/dialog/Dialog';
-export { DrawerCustom as Drawer } from './components/drawer/Drawer';
-export { FormCreator } from './components/form-creator/FormCreator';
-export { ButtonCustom as Button } from './components/form/button/Button';
-export { CheckboxCustom as Checkbox } from './components/form/checkbox/Checkbox';
-export { FloatButton } from './components/form/float-button/FloatButton';
-export { InputDigit } from './components/form/input-digit/InputDigit';
-export { InputNumber } from './components/form/input-number/InputNumber';
-export { InputSelect } from './components/form/input-select/InputSelect';
-export { InputText } from './components/form/input-text/InputText';
-export { RadioGroupCustom as RadioGroup } from './components/form/radio-group/RadioGroup';
-export { RatingCustom as Rating } from './components/form/rating/Rating';
-export { SearchCustom as Search } from './components/form/search/Search';
-export { SwitchCustom as Switch } from './components/form/switch/Switch';
-export { Textarea } from './components/form/textarea/Textarea';
-export { IconFactory } from 'components/icon-factory/IconFactory';
-export { Loading } from './components/loading/Loading';
-export { MenuCustom as Menu } from './components/menu/Menu';
-export { PaperCustom as Paper } from './components/paper/Paper';
-export { ShopCard } from './components/shop-card/ShopCard';
-export { Skeleton } from './components/skeleton/Skeleton';
-export { Stepper } from './components/stepper/Stepper';
-export { TabCustom as Tab } from './components/tab/Tab';
-export { EntityTable } from 'components/entity-table/EntityTable';
-export { TimePickerCustom as TimePicker } from './components/time-picker/TimePicker';
-export { Toast } from './components/toast/Toast';
-export { ToolTipCustom as ToolTip } from './components/tooltip/ToolTip';
-export { BadgeCustom as Badge } from './components/badge/Badge';
-export { AccordionCustom as Accordion } from './components/accordion/Accordion';
-export { ChipCustom as Chip } from './components/chip/Chip';
+// -------------------------
+// Data Display
+export { AvatarCustom as Avatar } from 'components/data-display/avatar/Avatar';
+export { BadgeCustom as Badge } from 'components/data-display/badge/Badge';
+export { ChipCustom as Chip } from 'components/data-display/chip/Chip';
+export { DividerCustom as Divider } from 'components/data-display/divider/Divider';
+export { ListCustom as List } from 'components/data-display/list/List';
+export { ToolTipCustom as ToolTip } from 'components/data-display/tooltip/ToolTip';
+export { TableCustom as Table } from 'components/data-display/table/Table';
+
+// Datepicker
+export { DatepickerCustom as Datepicker } from 'components/datepicker/date-picker/Datepicker';
+export { TimePickerCustom as TimePicker } from 'components/datepicker/time-picker/TimePicker';
+
+// Factory
+export { EntityTable } from 'components/factory/entity-table/EntityTable';
+export { FormCreator } from 'components/factory/form-creator/FormCreator';
+export { IconFactory } from 'components/factory/icon-factory/IconFactory';
+
+// Feedback
+export { AlertCustom as Alert } from 'components/feedback/alert/Alert';
+export { DialogCustom as Dialog } from 'components/feedback/dialog/Dialog';
+export { Loading } from 'components/feedback/loading/Loading';
+export { Skeleton } from 'components/feedback/skeleton/Skeleton';
+export { SnackbarCustom as Snackbar } from 'components/feedback/snackbar/Snackbar';
+export { CircularProgressCustom as CircularProgress } from 'components/feedback/progress-circular/CircularProgress';
+export { LinearProgressCustom as LinearProgress } from 'components/feedback/progress-linear/LinearProgress';
+
+// Input
+export { AutoCompleteCustom as AutoComplete } from 'components/inputs/auto-complete/AutoComplete';
+export { ButtonCustom as Button } from 'components/inputs/button/Button';
+export { CheckboxCustom as Checkbox } from 'components/inputs/checkbox/Checkbox';
+export { FloatButton } from 'components/inputs/float-button/FloatButton';
+export { InputDigit } from 'components/inputs/input-digit/InputDigit';
+export { InputNumber } from 'components/inputs/input-number/InputNumber';
+export { InputSelect } from 'components/inputs/input-select/InputSelect';
+export { InputText } from 'components/inputs/input-text/InputText';
+export { RadioGroupCustom as RadioGroup } from 'components/inputs/radio-group/RadioGroup';
+export { RatingCustom as Rating } from 'components/inputs/rating/Rating';
+export { SearchCustom as Search } from 'components/inputs/search/Search';
+export { SwitchCustom as Switch } from 'components/inputs/switch/Switch';
+export { Textarea } from 'components/inputs/textarea/Textarea';
+
+// Navigation
+export { DrawerCustom as Drawer } from 'components/navigation/drawer/Drawer';
+export { MenuCustom as Menu } from 'components/navigation/menu/Menu';
+export { Stepper } from 'components/navigation/stepper/Stepper';
+export { TabCustom as Tab } from 'components/navigation/tab/Tab';
+
+// Surfaces
+export { AccordionCustom as Accordion } from 'components/surfaces/accordion/Accordion';
+export { CardCustom as Card } from 'components/surfaces/card/Card';
+export { Carousel } from 'components/surfaces/carousel/Carousel';
+export { PaperCustom as Paper } from 'components/surfaces/paper/Paper';
 
 // Types:
-export type { AutoCompleteOptions } from './components/auto-complete/types';
-export type { DrawerListItems } from './components/drawer/types';
-export type { FormDataSet } from './components/form-creator/types';
-export type { SelectItems } from './components/form/input-select/types';
-export type { RadioItems } from './components/form/radio-group/types';
-export type { IconOptions } from 'components/icon-factory/types';
-export type { TabItem } from './components/tab/types';
-export type { HeadCell } from 'components/entity-table/types';
-export type { AccordionItems } from './components/accordion/types';
-export type { MenuItems } from './components/menu/types';
+export type { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
+export type { DrawerListItems } from 'components/navigation/drawer/types';
+export type { FormDataSet } from 'components/factory/form-creator/types';
+export type { SelectItems } from 'components/inputs/input-select/types';
+export type { RadioItems } from 'components/inputs/radio-group/types';
+export type { IconOptions } from 'components/factory/icon-factory/types';
+export type { TabItem } from 'components/navigation/tab/types';
+export type { HeadCell } from 'components/factory/entity-table/types';
+export type { AccordionItems } from 'components/surfaces/accordion/types';
+export type { MenuItems } from 'components/navigation/menu/types';
 export type {
     StandardColor,
     StandardSeverity,

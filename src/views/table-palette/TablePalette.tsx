@@ -7,8 +7,8 @@ import {
 
 import { SortDirection } from '@mui/material/TableCell';
 
-import { HeadCell, Order } from 'components/entity-table/types';
-import { EntityTable } from 'components/entity-table/EntityTable';
+import { HeadCell, Order } from 'components/factory/entity-table/types';
+import { EntityTable } from 'components/factory/entity-table/EntityTable';
 
 export interface Data {
     id: string;

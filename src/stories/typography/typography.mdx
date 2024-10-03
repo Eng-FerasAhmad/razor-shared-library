@@ -1,0 +1,93 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Typography/Typography" />
+
+export const typography = {
+    type: {
+        primary: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    },
+    weight: {
+        regular: '400',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
+    },
+    size: {
+        s1: 12,
+        s2: 14,
+        s3: 16,
+        m1: 20,
+        m2: 24,
+        m3: 28,
+        l1: 32,
+        l2: 40,
+        l3: 48,
+    },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+**Font:** Roboto
+
+**Weights:** 400 (regular), 700 (bold), 800 (extrabold), 900 (black)
+
+## Headers
+
+Here are the different header styles available (h1 to h6):
+
+### Heading 1 (h1)
+
+<h1 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H1 Heading - {SampleText}
+</h1>
+
+### Heading 2 (h2)
+
+<h2 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H2 Heading - {SampleText}
+</h2>
+
+### Heading 3 (h3)
+
+<h3 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H3 Heading - {SampleText}
+</h3>
+
+### Heading 4 (h4)
+
+<h4 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H4 Heading - {SampleText}
+</h4>
+
+### Heading 5 (h5)
+
+<h5 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H5 Heading - {SampleText}
+</h5>
+
+### Heading 6 (h6)
+
+<h6 style={{ fontFamily: typography.type.primary, fontWeight: typography.weight.bold }}>
+    H6 Heading - {SampleText}
+</h6>
+
+## Font Sizes
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.s1),
+        Number(typography.size.s2),
+        Number(typography.size.s3),
+        Number(typography.size.m1),
+        Number(typography.size.m2),
+        Number(typography.size.m3),
+        Number(typography.size.l1),
+        Number(typography.size.l2),
+        Number(typography.size.l3),
+    ]}
+    fontWeight={typography.weight.black}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>

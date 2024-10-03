@@ -10,7 +10,6 @@ const config: StorybookConfig = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        'storybook-dark-mode',
     ],
     framework: {
         name: '@storybook/react-vite',
@@ -20,6 +19,7 @@ const config: StorybookConfig = {
         config.base = '/razor-shared-library/';
         return config;
     },
+    staticDirs: ['../public'],
 };
 
 export default config;

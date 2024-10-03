@@ -2,11 +2,11 @@ import { ReactElement, useState } from 'react';
 
 import { Box } from '@mui/material';
 
-import { AlertCustom } from 'src/components/alert/Alert';
-import { ButtonCustom } from 'src/components/form/button/Button';
-import { MenuCustom } from 'src/components/menu/Menu';
-import { PaperCustom } from 'src/components/paper/Paper';
-import { ToolTipCustom } from 'src/components/tooltip/ToolTip';
+import { AlertCustom } from 'components/feedback/alert/Alert';
+import { ButtonCustom } from 'components/inputs/button/Button';
+import { MenuCustom } from 'components/navigation/menu/Menu';
+import { PaperCustom } from 'components/surfaces/paper/Paper';
+import { ToolTipCustom } from 'components/data-display/tooltip/ToolTip';
 
 export function MenuPalette(): ReactElement {
     const [selected, setSelected] = useState<string>('');

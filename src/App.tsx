@@ -79,7 +79,7 @@ export default function VerticalTabs(): ReactElement {
                 <Tab label="Date & Time" {...a11yProps(3)} />
                 <Tab label="Card" {...a11yProps(4)} />
                 <Tab label="Carousel" {...a11yProps(5)} />
-                <Tab label="Toast" {...a11yProps(6)} />
+                <Tab label="Snackbar" {...a11yProps(6)} />
                 <Tab label="Drawer" {...a11yProps(7)} />
                 <Tab label="Table" {...a11yProps(8)} />
                 <Tab label="Tab" {...a11yProps(9)} />
