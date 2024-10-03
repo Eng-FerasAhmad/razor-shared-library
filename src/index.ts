@@ -65,6 +65,8 @@ export type { TabItem } from 'components/navigation/tab/types';
 export type { HeadCell } from 'components/factory/entity-table/types';
 export type { AccordionItems } from 'components/surfaces/accordion/types';
 export type { MenuItems } from 'components/navigation/menu/types';
+export type { ListItemsType } from 'components/data-display/list/types';
+export type { TableColumns } from 'components/data-display/table/types';
 export type {
     StandardColor,
     StandardSeverity,

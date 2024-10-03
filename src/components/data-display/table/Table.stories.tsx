@@ -1,4 +1,5 @@
 import { TableCustom } from 'components/data-display/table/Table';
+import { TableColumns } from 'components/data-display/table/types';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -10,11 +11,7 @@ interface DessertData {
     protein: number;
 }
 
-const columns: {
-    id: keyof DessertData;
-    label: string;
-    align?: 'left' | 'right' | 'center';
-}[] = [
+const columns: TableColumns<DessertData>[] = [
     { id: 'name', label: 'Dessert (100g serving)' },
     { id: 'calories', label: 'Calories', align: 'right' },
     { id: 'fat', label: 'Fat (g)', align: 'right' },

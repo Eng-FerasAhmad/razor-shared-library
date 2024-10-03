@@ -5,15 +5,15 @@ import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 
+import EntityTableToolbar from './table-toobar/EntityTableToolbar';
+import TableHead from './table-head/EntityTableHead';
+
 import { Template } from 'components/_template/Template';
-import EntityTableEmptyRow from 'components/factory/entity-table/EntityTableEmptyRow';
-import TablePaginationCustom from 'components/factory/entity-table/EntityTablePagination';
+import EntityTableEmptyRow from 'components/factory/entity-table/table-empty-row/EntityTableEmptyRow';
+import TablePaginationCustom from 'components/factory/entity-table/table-pagination/EntityTablePagination';
 import { TableProps } from 'components/factory/entity-table/types';
 import { pixelToRem } from 'shared/common';
-import EntityTableBody from 'components/factory/entity-table/EntityTableBody';
-
-import EntityTableToolbar from './EntityTableToolbar';
-import TableHead from './EntityTableHead';
+import EntityTableBody from 'components/factory/entity-table/table-body/EntityTableBody';
 
 export function EntityTable<T>(props: TableProps<T>): ReactElement {
     return (

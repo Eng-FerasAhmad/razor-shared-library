@@ -1,19 +1,34 @@
-import { Snackbar } from './Snackbar';
+import { SnackbarCustom } from 'components/feedback/snackbar/Snackbar';
 
-import { render } from '@testing-library/react';
-import { screen } from '@testing-library/dom';
+import { render, screen } from '@testing-library/react';
 
-describe('<Snackbar />', () => {
-    test('should render the component', () => {
+describe('SnackbarCustom', () => {
+    const handleClose = jest.fn();
+
+    test('renders Snackbar with text', () => {
         render(
-            <Snackbar
+            <SnackbarCustom
+                text="Test message"
+                handleClose={handleClose}
                 open={true}
                 severity="success"
-                text="I'm Snackbar"
-                handleClose={jest.fn()}
             />
         );
 
-        expect(screen.getByTestId('toast')).toBeInTheDocument();
+        expect(screen.getByText('Test message')).toBeInTheDocument();
+    });
+
+    test('calls handleClose when Snackbar is closed', () => {
+        render(
+            <SnackbarCustom
+                text="Test message"
+                handleClose={handleClose}
+                open={true}
+                severity="success"
+            />
+        );
+
+        const snackbar = screen.getByTestId('toast');
+        snackbar.dispatchEvent(new MouseEvent('close', { bubbles: true }));
     });
 });
