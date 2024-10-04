@@ -11,7 +11,7 @@ import { DrawerListItems } from './types';
 
 const meta: Meta<typeof DrawerCustom> = {
     component: DrawerCustom,
-    title: 'Navigation/DrawerCustom',
+    title: 'Navigation/Drawer',
     tags: ['autodocs'],
     argTypes: {
         appTitle: {
