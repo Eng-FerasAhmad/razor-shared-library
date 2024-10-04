@@ -2,12 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import { createFilter } from '@rollup/pluginutils';
 
 export default defineConfig({
     plugins: [
         react(),
         dts({
             include: ['src/**/*'],
+            exclude: ['**/*.stories.tsx', '**/*.stories.ts'],
         }),
     ],
     server: {
@@ -37,6 +39,23 @@ export default defineConfig({
                     '@mui/x-date-pickers': 'MaterialUIXDatePickers',
                 },
             },
+            plugins: [
+                {
+                    name: 'exclude-stories',
+                    buildStart() {
+                        const filter = createFilter(
+                            ['**/*.stories.ts', '**/*.stories.tsx'],
+                            null,
+                            { resolve: false }
+                        );
+                        this.addWatchFile = function (id) {
+                            if (!filter(id)) {
+                                this.emitFile({ type: 'chunk', id });
+                            }
+                        };
+                    },
+                },
+            ],
         },
         sourcemap: false,
         emptyOutDir: true,
