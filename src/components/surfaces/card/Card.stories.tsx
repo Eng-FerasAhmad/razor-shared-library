@@ -5,7 +5,7 @@ import { CardCustom } from 'components/surfaces/card/Card';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CardCustom> = {
-    title: 'Surfaces/CardCustom',
+    title: 'Surfaces/Card',
     tags: ['autodocs'],
     component: CardCustom,
     argTypes: {
