@@ -1,9 +1,19 @@
 import { ReactElement } from 'react';
 
-export default function LinkCustom(): ReactElement {
+import { Link } from '@mui/material';
+
+import { Template } from 'components/_template/Template';
+
+interface Props {
+    text: string;
+}
+
+export function LinkCustom({ text }: Props): ReactElement {
     return (
-        <>
-            <>Link</>
-        </>
+        <Template>
+            <Link href="#" underline="hover">
+                {text}
+            </Link>
+        </Template>
     );
 }

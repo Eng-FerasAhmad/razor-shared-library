@@ -1,7 +1,7 @@
 import { Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import BreadcrumbsCustom from 'components/navigation/breadcrumbs/Breadcrumbs';
+import { BreadcrumbsCustom } from 'components/navigation/breadcrumbs/Breadcrumbs';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

@@ -49,6 +49,8 @@ export { StepperCustom as Stepper } from './components/navigation/stepper/Steppe
 export { SpeedDialCustom as SpeedDial } from './components/navigation/speed-dial/SpeedDial';
 export { TabCustom as Tab } from './components/navigation/tab/Tab';
 export { BreadcrumbsCustom as Breadcrumbs } from './components/navigation/breadcrumbs/Breadcrumbs';
+export { LinkCustom as Link } from './components/navigation/link/Link';
+export { PaginationCustom as Pagination } from './components/navigation/pagination/Pagination';
 
 // Surfaces
 export { AccordionCustom as Accordion } from './components/surfaces/accordion/Accordion';

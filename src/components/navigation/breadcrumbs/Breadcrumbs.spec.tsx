@@ -1,6 +1,6 @@
 import { Link } from '@mui/material';
 
-import BreadcrumbsCustom from 'components/navigation/breadcrumbs/Breadcrumbs';
+import { BreadcrumbsCustom } from 'components/navigation/breadcrumbs/Breadcrumbs';
 
 import { render, screen } from '@testing-library/react';
 
