@@ -31,7 +31,7 @@ export default function EntityTablePagination<T>(
                 props.handleChangeRowsPerPage(event)
             }
             sx={{
-                borderTop: `${pixelToRem(2)} solid lightgrey`,
+                borderTop: `${pixelToRem(1)} solid lightgrey`,
                 marginTop: `${pixelToRem(-1)}`,
             }}
         />

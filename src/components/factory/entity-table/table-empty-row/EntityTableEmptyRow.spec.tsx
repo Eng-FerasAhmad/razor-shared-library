@@ -1,10 +1,10 @@
+import { mockHeadCells } from 'components/factory/entity-table/mockTableProps';
+import { Order } from 'components/factory/entity-table/types';
 import EntityTableEmptyRow from 'components/factory/entity-table/table-empty-row/EntityTableEmptyRow';
 
 import { render, screen } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
-import { mockHeadCells } from 'components/factory/entity-table/mockTableProps';
-import { Order } from 'components/factory/entity-table/types';
 
 describe('EntityTableEmptyRow', () => {
     const mockHandleChangePage = jest.fn();

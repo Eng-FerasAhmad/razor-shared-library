@@ -56,7 +56,7 @@ export const Default: Story = {
     },
 };
 
-export const noData: Story = {
+export const NoData: Story = {
     render: () => {
         const props = {
             totalResultCounts: 100,

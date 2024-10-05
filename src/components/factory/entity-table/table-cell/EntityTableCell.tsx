@@ -54,7 +54,7 @@ export default function EntityTableCell<T>({
                         scope="row"
                         sx={{
                             padding: pixelToRem(16),
-                            color: color.secondary.dark,
+                            color: color.fontDark,
                         }}
                         align={isNumber ? 'right' : 'left'}
                     >

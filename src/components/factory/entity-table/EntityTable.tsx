@@ -14,11 +14,15 @@ import TablePaginationCustom from 'components/factory/entity-table/table-paginat
 import { TableProps } from 'components/factory/entity-table/types';
 import { pixelToRem } from 'shared/common';
 import EntityTableBody from 'components/factory/entity-table/table-body/EntityTableBody';
+import { color } from 'shared/color';
 
 export function EntityTable<T>(props: TableProps<T>): ReactElement {
     return (
         <Template>
-            <Box sx={{ width: '100%' }} data-testid="table-container">
+            <Box
+                sx={{ width: '100%', color: color.fontDark }}
+                data-testid="table-container"
+            >
                 <Paper
                     sx={{
                         width: '100%',
@@ -33,8 +37,9 @@ export function EntityTable<T>(props: TableProps<T>): ReactElement {
                         headerTools={props.headerTools}
                         data-testid="table-toolbar"
                     />
-                    <TableContainer>
+                    <TableContainer sx={{ maxHeight: 'calc(100vh - 160px)' }}>
                         <Table
+                            stickyHeader
                             sx={{ minWidth: 750 }}
                             aria-labelledby="tableTitle"
                             size={'medium'}
