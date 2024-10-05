@@ -45,7 +45,8 @@ export { Textarea } from './components/inputs/textarea/Textarea';
 // Navigation
 export { DrawerCustom as Drawer } from './components/navigation/drawer/Drawer';
 export { MenuCustom as Menu } from './components/navigation/menu/Menu';
-export { Stepper } from './components/navigation/stepper/Stepper';
+export { StepperCustom as Stepper } from './components/navigation/stepper/Stepper';
+export { SpeedDialCustom as SpeedDial } from './components/navigation/speed-dial/SpeedDial';
 export { TabCustom as Tab } from './components/navigation/tab/Tab';
 
 // Surfaces
@@ -67,6 +68,7 @@ export type { AccordionItems } from './components/surfaces/accordion/types';
 export type { MenuItems } from './components/navigation/menu/types';
 export type { ListItemsType } from './components/data-display/list/types';
 export type { TableColumns } from './components/data-display/table/types';
+export type { SpeedDialActionType } from './components/navigation/speed-dial/types';
 export type {
     StandardColor,
     StandardSeverity,
