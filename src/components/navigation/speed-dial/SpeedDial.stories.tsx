@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SpeedDialCustom> = {
     component: SpeedDialCustom,
-    title: 'Navigation/SpeedDialCustom',
+    title: 'Navigation/Speed Dial',
     tags: ['autodocs'],
     argTypes: {
         ariaLabel: {
