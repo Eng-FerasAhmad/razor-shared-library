@@ -1,72 +1,72 @@
 // components:
 // -------------------------
 // Data Display
-export { AvatarCustom as Avatar } from 'components/data-display/avatar/Avatar';
-export { BadgeCustom as Badge } from 'components/data-display/badge/Badge';
-export { ChipCustom as Chip } from 'components/data-display/chip/Chip';
-export { DividerCustom as Divider } from 'components/data-display/divider/Divider';
-export { ListCustom as List } from 'components/data-display/list/List';
-export { ToolTipCustom as ToolTip } from 'components/data-display/tooltip/ToolTip';
-export { TableCustom as Table } from 'components/data-display/table/Table';
+export { AvatarCustom as Avatar } from './components/data-display/avatar/Avatar';
+export { BadgeCustom as Badge } from './components/data-display/badge/Badge';
+export { ChipCustom as Chip } from './components/data-display/chip/Chip';
+export { DividerCustom as Divider } from './components/data-display/divider/Divider';
+export { ListCustom as List } from './components/data-display/list/List';
+export { ToolTipCustom as ToolTip } from './components/data-display/tooltip/ToolTip';
+export { TableCustom as Table } from './components/data-display/table/Table';
 
 // Datepicker
-export { DatepickerCustom as Datepicker } from 'components/datepicker/date-picker/Datepicker';
-export { TimePickerCustom as TimePicker } from 'components/datepicker/time-picker/TimePicker';
+export { DatepickerCustom as Datepicker } from './components/datepicker/date-picker/Datepicker';
+export { TimePickerCustom as TimePicker } from './components/datepicker/time-picker/TimePicker';
 
 // Factory
-export { EntityTable } from 'components/factory/entity-table/EntityTable';
-export { FormCreator } from 'components/factory/form-creator/FormCreator';
-export { IconFactory } from 'components/factory/icon-factory/IconFactory';
+export { EntityTable } from './components/factory/entity-table/EntityTable';
+export { FormCreator } from './components/factory/form-creator/FormCreator';
+export { IconFactory } from './components/factory/icon-factory/IconFactory';
 
 // Feedback
-export { AlertCustom as Alert } from 'components/feedback/alert/Alert';
-export { DialogCustom as Dialog } from 'components/feedback/dialog/Dialog';
-export { Loading } from 'components/feedback/loading/Loading';
-export { Skeleton } from 'components/feedback/skeleton/Skeleton';
-export { SnackbarCustom as Snackbar } from 'components/feedback/snackbar/Snackbar';
-export { CircularProgressCustom as CircularProgress } from 'components/feedback/progress-circular/CircularProgress';
-export { LinearProgressCustom as LinearProgress } from 'components/feedback/progress-linear/LinearProgress';
+export { AlertCustom as Alert } from './components/feedback/alert/Alert';
+export { DialogCustom as Dialog } from './components/feedback/dialog/Dialog';
+export { Loading } from './components/feedback/loading/Loading';
+export { Skeleton } from './components/feedback/skeleton/Skeleton';
+export { SnackbarCustom as Snackbar } from './components/feedback/snackbar/Snackbar';
+export { CircularProgressCustom as CircularProgress } from './components/feedback/progress-circular/CircularProgress';
+export { LinearProgressCustom as LinearProgress } from './components/feedback/progress-linear/LinearProgress';
 
 // Input
-export { AutoCompleteCustom as AutoComplete } from 'components/inputs/auto-complete/AutoComplete';
+export { AutoCompleteCustom as AutoComplete } from './components/inputs/auto-complete/AutoComplete';
 export { ButtonCustom as Button } from './components/inputs/button/Button';
-export { CheckboxCustom as Checkbox } from 'components/inputs/checkbox/Checkbox';
-export { FloatButton } from 'components/inputs/float-button/FloatButton';
-export { InputDigit } from 'components/inputs/input-digit/InputDigit';
-export { InputNumber } from 'components/inputs/input-number/InputNumber';
-export { InputSelect } from 'components/inputs/input-select/InputSelect';
-export { InputText } from 'components/inputs/input-text/InputText';
-export { RadioGroupCustom as RadioGroup } from 'components/inputs/radio-group/RadioGroup';
-export { RatingCustom as Rating } from 'components/inputs/rating/Rating';
-export { SearchCustom as Search } from 'components/inputs/search/Search';
-export { SwitchCustom as Switch } from 'components/inputs/switch/Switch';
-export { Textarea } from 'components/inputs/textarea/Textarea';
+export { CheckboxCustom as Checkbox } from './components/inputs/checkbox/Checkbox';
+export { FloatButton } from './components/inputs/float-button/FloatButton';
+export { InputDigit } from './components/inputs/input-digit/InputDigit';
+export { InputNumber } from './components/inputs/input-number/InputNumber';
+export { InputSelect } from './components/inputs/input-select/InputSelect';
+export { InputText } from './components/inputs/input-text/InputText';
+export { RadioGroupCustom as RadioGroup } from './components/inputs/radio-group/RadioGroup';
+export { RatingCustom as Rating } from './components/inputs/rating/Rating';
+export { SearchCustom as Search } from './components/inputs/search/Search';
+export { SwitchCustom as Switch } from './components/inputs/switch/Switch';
+export { Textarea } from './components/inputs/textarea/Textarea';
 
 // Navigation
-export { DrawerCustom as Drawer } from 'components/navigation/drawer/Drawer';
-export { MenuCustom as Menu } from 'components/navigation/menu/Menu';
-export { Stepper } from 'components/navigation/stepper/Stepper';
-export { TabCustom as Tab } from 'components/navigation/tab/Tab';
+export { DrawerCustom as Drawer } from './components/navigation/drawer/Drawer';
+export { MenuCustom as Menu } from './components/navigation/menu/Menu';
+export { Stepper } from './components/navigation/stepper/Stepper';
+export { TabCustom as Tab } from './components/navigation/tab/Tab';
 
 // Surfaces
-export { AccordionCustom as Accordion } from 'components/surfaces/accordion/Accordion';
-export { CardCustom as Card } from 'components/surfaces/card/Card';
-export { Carousel } from 'components/surfaces/carousel/Carousel';
-export { PaperCustom as Paper } from 'components/surfaces/paper/Paper';
+export { AccordionCustom as Accordion } from './components/surfaces/accordion/Accordion';
+export { CardCustom as Card } from './components/surfaces/card/Card';
+export { Carousel } from './components/surfaces/carousel/Carousel';
+export { PaperCustom as Paper } from './components/surfaces/paper/Paper';
 
 // Types:
-export type { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
-export type { DrawerListItems } from 'components/navigation/drawer/types';
-export type { FormDataSet } from 'components/factory/form-creator/types';
-export type { SelectItems } from 'components/inputs/input-select/types';
-export type { RadioItems } from 'components/inputs/radio-group/types';
-export type { IconOptions } from 'components/factory/icon-factory/types';
-export type { TabItem } from 'components/navigation/tab/types';
+export type { AutoCompleteOptions } from './components/inputs/auto-complete/types';
+export type { DrawerListItems } from './components/navigation/drawer/types';
+export type { FormDataSet } from './components/factory/form-creator/types';
+export type { SelectItems } from './components/inputs/input-select/types';
+export type { RadioItems } from './components/inputs/radio-group/types';
+export type { IconOptions } from './components/factory/icon-factory/types';
+export type { TabItem } from './components/navigation/tab/types';
 export type { HeadCell } from 'components/factory/entity-table/types';
-export type { AccordionItems } from 'components/surfaces/accordion/types';
-export type { MenuItems } from 'components/navigation/menu/types';
-export type { ListItemsType } from 'components/data-display/list/types';
-export type { TableColumns } from 'components/data-display/table/types';
+export type { AccordionItems } from './components/surfaces/accordion/types';
+export type { MenuItems } from './components/navigation/menu/types';
+export type { ListItemsType } from './components/data-display/list/types';
+export type { TableColumns } from './components/data-display/table/types';
 export type {
     StandardColor,
     StandardSeverity,
