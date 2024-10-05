@@ -73,6 +73,7 @@ export type {
     StandardLabelPlacement,
     StandardSize,
     StandardVariant,
+    StandardColorUnion,
 } from './shared/types';
 
 // colors:
