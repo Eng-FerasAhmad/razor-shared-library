@@ -2,10 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineConfig({
     plugins: [
         react(),
+        tsconfigPaths(),
+        eslintPlugin,
         dts({
             include: ['src/**/*'],
             exclude: ['**/*.stories.tsx', '**/*.stories.ts'],
@@ -25,21 +29,15 @@ export default defineConfig({
             external: [
                 'react',
                 'react-dom',
-                '@mui/material',
-                '@mui/icons-material',
-                '@mui/x-date-pickers',
             ],
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
-                    '@mui/material': 'MaterialUI',
-                    '@mui/icons-material': 'MaterialUIIcons',
-                    '@mui/x-date-pickers': 'MaterialUIXDatePickers',
                 },
             },
         },
-        sourcemap: false,
+        sourcemap: true,
         emptyOutDir: true,
     },
     resolve: {

@@ -125,7 +125,9 @@
         "tslib": "^2.6.3",
         "typescript": "^5.6.2",
         "vite": "^5.4.8",
-        "vite-plugin-dts": "^4.2.3"
+        "vite-plugin-dts": "^4.2.3",
+        "vite-tsconfig-paths": "^4.3.1",
+        "vite-plugin-eslint": "^1.8.1"
     },
     "peerDependencies": {
         "@mui/icons-material": "^6.1.1",
