@@ -13,6 +13,8 @@ import { pixelToRem } from 'shared/common';
 export default function EntityTablePagination<T>(
     props: TableProps<T>
 ): ReactElement {
+    if (props.rows.length === 0) return <></>;
+
     return (
         <TablePagination
             data-testid={'table-pagination'}

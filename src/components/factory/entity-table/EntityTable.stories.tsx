@@ -55,3 +55,26 @@ export const Default: Story = {
         return <EntityTable {...props} />;
     },
 };
+
+export const noData: Story = {
+    render: () => {
+        const props = {
+            totalResultCounts: 100,
+            pageSize: 10,
+            pageNumber: 0,
+            handleChangePage: () => console.log(''),
+            handleChangeRowsPerPage: () => console.log(''),
+            rows: [],
+            headCells: mockHeadCells,
+            headerTools: <>Title</>,
+            selectedRow: -1,
+            noDataCaption: 'No data available',
+            orderBy: '',
+            order: 'asc' as Order,
+            resetSort: () => console.log(''),
+            handleHeaderClick: () => console.log(''),
+        };
+
+        return <EntityTable {...props} />;
+    },
+};

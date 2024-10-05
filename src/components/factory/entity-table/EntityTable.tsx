@@ -39,16 +39,12 @@ export function EntityTable<T>(props: TableProps<T>): ReactElement {
                             aria-labelledby="tableTitle"
                             size={'medium'}
                         >
-                            {props.rows.length === 0 && (
-                                <EntityTableEmptyRow
-                                    caption={props.noDataCaption}
-                                />
-                            )}
                             <TableHead {...props} />
                             <EntityTableBody {...props} />
                         </Table>
                     </TableContainer>
                     <TablePaginationCustom {...props} />
+                    <EntityTableEmptyRow {...props} />
                 </Paper>
             </Box>
         </Template>
