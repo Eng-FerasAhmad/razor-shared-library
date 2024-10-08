@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 import Button, { ButtonProps } from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -7,7 +7,7 @@ import { Template } from 'src/components/_template/Template';
 
 interface Props {
     label: string;
-    startIcon: ReactElement;
+    startIcon: ReactNode;
     loading: boolean;
 }
 
