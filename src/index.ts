@@ -30,6 +30,7 @@ export { LinearProgressCustom as LinearProgress } from './components/feedback/pr
 // Input
 export { AutoCompleteCustom as AutoComplete } from './components/inputs/auto-complete/AutoComplete';
 export { ButtonCustom as Button } from './components/inputs/button/Button';
+export { LoadingButtonCustom as LoadingButton } from './components/inputs/loading-button/LoadingButton';
 export { CheckboxCustom as Checkbox } from './components/inputs/checkbox/Checkbox';
 export { FloatButton } from './components/inputs/float-button/FloatButton';
 export { InputDigit } from './components/inputs/input-digit/InputDigit';
