@@ -33,7 +33,6 @@ export function LoadingButtonCustom({
                         startIcon
                     )
                 }
-                disabled={loading}
             >
                 {label}
             </Button>
