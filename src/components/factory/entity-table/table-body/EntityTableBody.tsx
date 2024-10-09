@@ -82,7 +82,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                     <TableCell
                         component="th"
                         scope="row"
-                        sx={{ padding: pixelToRem(6, 16) }}
+                        sx={{ padding: pixelToRem(10, 16) }}
                         align="center"
                     >
                         {index + 1 + props.pageSize * props.pageNumber}
@@ -91,7 +91,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                     <TableCell
                         component="th"
                         scope="row"
-                        sx={{ padding: pixelToRem(6, 16) }}
+                        sx={{ padding: pixelToRem(10, 16) }}
                         align="right"
                     >
                         <MenuCustom

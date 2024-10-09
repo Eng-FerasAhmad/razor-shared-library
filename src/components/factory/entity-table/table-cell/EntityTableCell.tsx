@@ -53,7 +53,7 @@ export default function EntityTableCell<T>({
                         id={`id-${k}`}
                         scope="row"
                         sx={{
-                            padding: pixelToRem(16),
+                            padding: pixelToRem(10, 16),
                             color: color.fontDark,
                         }}
                         align={isNumber ? 'right' : 'left'}
