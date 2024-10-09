@@ -15,22 +15,16 @@ import { MenuCustom } from 'components/navigation/menu/Menu';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
-    const [selectedIndex, setSelectedIndex] = useState<number>(
-        props.selectedRow
-    );
-
     const handleDlClick = (row: T, index: number): void => {
         if (props.onDlClickRow) {
             props.onDlClickRow(row, index);
         }
-        setSelectedIndex(index);
     };
 
     const handleOneClick = (row: T, index: number): void => {
         if (props.onOneClickRow) {
             props.onOneClickRow(row, index);
         }
-        setSelectedIndex(index);
 
         // Construct the new menu items based on props
         const newItemsMenu: MenuItems[] = [];
@@ -74,7 +68,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                     key={index}
                     sx={{
                         backgroundColor:
-                            selectedIndex === index ? color.hover : '',
+                            props.selectedRow === index ? color.hover : '',
                         cursor: 'pointer',
                         ':hover': { backgroundColor: color.hover },
                     }}

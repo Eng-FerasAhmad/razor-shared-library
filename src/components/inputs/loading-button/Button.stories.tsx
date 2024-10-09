@@ -6,7 +6,7 @@ import { LoadingButtonCustom } from 'components/inputs/loading-button/LoadingBut
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-    title: 'Inputs/LoadingButton',
+    title: 'Inputs/Loading Button',
     tags: ['autodocs'],
     component: LoadingButtonCustom,
     argTypes: {
