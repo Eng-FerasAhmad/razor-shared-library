@@ -25,9 +25,9 @@ export const color = {
         border: '#b3b3b3',
     },
     error: {
-        light: '#fca5a5',
-        main: '#fb8383',
-        dark: '#c50707',
+        light: '#ed919c',
+        main: '#e04355',
+        dark: '#c52033',
         contrastText: '#fff',
         border: '#fb8383',
     },
@@ -56,9 +56,9 @@ export const color = {
 
 export const RazorBrandColor = {
     red: {
-        light: '#fdcece',
-        primary: '#fca5a5',
-        dark: '#fb8383',
+        light: '#fb9d9d',
+        primary: '#fa6b6b',
+        dark: '#f83a3a',
         darker: '#c50707',
     },
     blue: {
@@ -66,6 +66,12 @@ export const RazorBrandColor = {
         primary: '#66a3ff',
         dark: '#3385ff',
         darker: '#0052cc',
+    },
+    cyan: {
+        light: '#90dcee',
+        primary: '#1EA7C9',
+        dark: '#17819b',
+        darker: '#146e85',
     },
     yellow: {
         light: '#ffe3c7',
