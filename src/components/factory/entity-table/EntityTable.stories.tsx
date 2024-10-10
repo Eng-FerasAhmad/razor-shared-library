@@ -50,6 +50,8 @@ export const Default: Story = {
             order: 'asc' as Order,
             resetSort: () => console.log(''),
             handleHeaderClick: () => console.log(''),
+            hasAutoId: true,
+            hasPagination: true,
         };
 
         return <EntityTable {...props} />;

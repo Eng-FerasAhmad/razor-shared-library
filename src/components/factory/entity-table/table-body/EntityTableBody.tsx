@@ -15,9 +15,6 @@ import { MenuCustom } from 'components/navigation/menu/Menu';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
-    const [visibleMenuRow, setVisibleMenuRow] = useState<number | null>(null);
-    const [hoveredRow, setHoveredRow] = useState<number | null>(null);
-
     const handleDlClick = (row: T, index: number): void => {
         if (props.onDlClickRow) {
             props.onDlClickRow(row, index);
@@ -58,20 +55,6 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
 
         // Update the itemsMenu state
         setItemsMenu(newItemsMenu);
-        setVisibleMenuRow(index); // Set the clicked row as the visible menu row
-    };
-
-    const handleMenuClick = (event: React.MouseEvent, index: number) => {
-        event.stopPropagation(); // Prevent row click from triggering when interacting with the menu
-        setVisibleMenuRow(index); // Ensure the menu stays visible for the clicked row
-    };
-
-    const handleRowHover = (index: number) => {
-        setHoveredRow(index);
-    };
-
-    const handleRowLeave = () => {
-        setHoveredRow(null);
     };
 
     return (
@@ -81,8 +64,6 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                     role="row"
                     onDoubleClick={() => handleDlClick(row, index)}
                     onClick={() => handleOneClick(row, index)}
-                    onMouseEnter={() => handleRowHover(index)}
-                    onMouseLeave={handleRowLeave}
                     tabIndex={-1}
                     key={index}
                     sx={{
@@ -109,19 +90,11 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                         scope="row"
                         sx={{ padding: pixelToRem(10, 16) }}
                         align="right"
-                        onClick={(event) => handleMenuClick(event, index)} // Prevent row click
                     >
                         <MenuCustom
                             items={itemsMenu}
                             position="bottom-end"
                             data-testid={'more-horiz-icon'}
-                            style={{
-                                visibility:
-                                    visibleMenuRow === index ||
-                                    hoveredRow === index
-                                        ? 'visible'
-                                        : 'hidden',
-                            }}
                             anchor={
                                 <MoreHorizIcon
                                     fontSize="medium"
