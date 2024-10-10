@@ -98,7 +98,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                             anchor={
                                 <MoreHorizIcon
                                     fontSize="medium"
-                                    color="primary"
+                                    color={props.color}
                                 />
                             }
                         />
