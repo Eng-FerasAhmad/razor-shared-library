@@ -92,14 +92,16 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                         ':hover': { backgroundColor: color.hover },
                     }}
                 >
-                    <TableCell
-                        component="th"
-                        scope="row"
-                        sx={{ padding: pixelToRem(10, 16) }}
-                        align="center"
-                    >
-                        {index + 1 + props.pageSize * props.pageNumber}
-                    </TableCell>
+                    {props.hasAutoId && (
+                        <TableCell
+                            component="th"
+                            scope="row"
+                            sx={{ padding: pixelToRem(10, 16) }}
+                            align="center"
+                        >
+                            {index + 1 + props.pageSize * props.pageNumber}
+                        </TableCell>
+                    )}
                     <TableCellCustom headCells={props.headCells} row={row} />
                     <TableCell
                         data-testid="table-cell-action-menu"

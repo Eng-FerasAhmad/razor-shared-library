@@ -15,7 +15,7 @@ import { fontSize } from 'shared/fonts';
 
 export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
     const resetSortHandler = (): void => {
-        props.resetSort();
+        props.resetSort && props.resetSort();
     };
 
     const headerClick = (sortLabel: string): void => {
@@ -27,20 +27,22 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
             <TableRow
                 sx={{ color: color.primary.main, paddingRight: pixelToRem(16) }}
             >
-                <TableCell
-                    align={'center'}
-                    data-testid={'reset-button'}
-                    sx={{
-                        fontSize: pixelToRem(fontSize.font17),
-                        padding: pixelToRem(10, 16),
-                        color: color.primary.main,
-                        cursor: 'pointer',
-                        width: '50px',
-                    }}
-                    onClick={resetSortHandler}
-                >
-                    <Autorenew />
-                </TableCell>
+                {props.resetSort && (
+                    <TableCell
+                        align={'center'}
+                        data-testid={'reset-button'}
+                        sx={{
+                            fontSize: pixelToRem(fontSize.font17),
+                            padding: pixelToRem(10, 16),
+                            color: color.primary.main,
+                            cursor: 'pointer',
+                            width: '50px',
+                        }}
+                        onClick={resetSortHandler}
+                    >
+                        <Autorenew />
+                    </TableCell>
+                )}
                 {props.headCells.map((headCell, idx) => (
                     <TableCell
                         key={idx}

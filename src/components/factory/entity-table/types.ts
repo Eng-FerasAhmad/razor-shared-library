@@ -14,7 +14,7 @@ export interface TableProps<T> {
     orderBy: string;
     order: Order;
     statusFilter?: ReactNode;
-    resetSort: () => void;
+    resetSort?: () => void;
     handleHeaderClick: (sortLabel: string) => void;
     onDlClickRow?: (row: T, selected: number) => void;
     onOneClickRow?: (row: T, selected: number) => void;
@@ -24,6 +24,8 @@ export interface TableProps<T> {
     ) => void;
     handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
     borderRadius?: boolean;
+    hasPagination?: boolean;
+    hasAutoId?: boolean;
     actionAdd?: () => void;
     actionEdit?: () => void;
     actionDelete?: () => void;

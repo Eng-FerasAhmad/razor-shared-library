@@ -48,7 +48,9 @@ export function EntityTable<T>(props: TableProps<T>): ReactElement {
                             <EntityTableBody {...props} />
                         </Table>
                     </TableContainer>
-                    <TablePaginationCustom {...props} />
+                    {props.hasPagination && (
+                        <TablePaginationCustom {...props} />
+                    )}
                     <EntityTableEmptyRow {...props} />
                 </Paper>
             </Box>
