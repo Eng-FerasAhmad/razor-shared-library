@@ -52,7 +52,10 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
                         sx={{
                             fontSize: pixelToRem(fontSize.font16),
                             padding: pixelToRem(10, 16),
-                            color: color.primary.main,
+                            color:
+                                props.color === 'info'
+                                    ? color.info.main
+                                    : color.primary.main,
                             cursor: 'pointer',
                             width: headCell.width,
                         }}
@@ -84,7 +87,7 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
                     }}
                     onClick={resetSortHandler}
                 >
-                    <AutoFixHigh fontSize={'small'} color={'primary'} />
+                    <AutoFixHigh fontSize={'small'} color={props.color} />
                 </TableCell>
             </TableRow>
         </TableHead>
