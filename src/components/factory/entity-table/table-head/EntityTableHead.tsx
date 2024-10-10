@@ -15,7 +15,9 @@ import { fontSize } from 'shared/fonts';
 
 export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
     const resetSortHandler = (): void => {
-        props.resetSort && props.resetSort();
+        if (props?.resetSort) {
+            props.resetSort();
+        }
     };
 
     const headerClick = (sortLabel: string): void => {
@@ -27,7 +29,7 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
             <TableRow
                 sx={{ color: color.primary.main, paddingRight: pixelToRem(16) }}
             >
-                {props.resetSort && (
+                {props.hasAutoId && (
                     <TableCell
                         align={'center'}
                         data-testid={'reset-button'}
