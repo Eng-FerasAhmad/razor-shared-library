@@ -30,7 +30,7 @@ export interface TableProps<T> {
     actionEdit?: () => void;
     actionDelete?: () => void;
     actionDetails?: () => void;
-    color: 'info' | 'primary';
+    color?: 'info' | 'primary';
 }
 
 export interface HeadCell<T> {
