@@ -8,6 +8,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 
+import { Template } from 'components/_template/Template';
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -52,7 +54,7 @@ export function Checkmarks({
     };
 
     return (
-        <div>
+        <Template>
             <FormControl sx={{ minWidth: '100%' }}>
                 <InputLabel id="checkbox-label" sx={{ width: 'fit-content' }}>
                     {label}
@@ -91,6 +93,6 @@ export function Checkmarks({
                     ))}
                 </Select>
             </FormControl>
-        </div>
+        </Template>
     );
 }
