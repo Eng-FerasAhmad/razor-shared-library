@@ -54,7 +54,7 @@ export function Checkmarks({
     return (
         <div>
             <FormControl sx={{ minWidth: '100%' }}>
-                <InputLabel id="demo-multiple-checkbox-label">
+                <InputLabel id="checkbox-label" sx={{ width: 'fit-content' }}>
                     {label}
                 </InputLabel>
                 <Select
@@ -63,7 +63,7 @@ export function Checkmarks({
                     multiple
                     value={selectedItems}
                     onChange={handleChange}
-                    input={<OutlinedInput label="Select" />}
+                    input={<OutlinedInput label={label} />}
                     renderValue={(selected) => {
                         const selectedLabels = options
                             .filter((option) =>
