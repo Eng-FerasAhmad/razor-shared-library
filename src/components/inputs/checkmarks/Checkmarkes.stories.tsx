@@ -1,10 +1,10 @@
-import { MultipleSelectCheckmarks } from 'components/inputs/checkmarks/CheckMarkes';
+import { Checkmarks } from 'components/inputs/checkmarks/Checkmarkes';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof MultipleSelectCheckmarks> = {
+const meta: Meta<typeof Checkmarks> = {
     title: 'Inputs/Checkmarks',
-    component: MultipleSelectCheckmarks,
+    component: Checkmarks,
     tags: ['autodocs'],
     argTypes: {
         labelKey: {
@@ -33,6 +33,7 @@ const options = [
 
 export const Default: Story = {
     args: {
+        label: 'Select',
         options: options,
         labelKey: 'name',
         valueKey: 'id',

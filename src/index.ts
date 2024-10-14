@@ -42,7 +42,7 @@ export { RatingCustom as Rating } from './components/inputs/rating/Rating';
 export { SearchCustom as Search } from './components/inputs/search/Search';
 export { SwitchCustom as Switch } from './components/inputs/switch/Switch';
 export { Textarea } from './components/inputs/textarea/Textarea';
-export { MultipleSelectCheckmarks as CheckMarks } from './components/inputs/checkmarks/CheckMarkes';
+export { Checkmarks } from 'components/inputs/checkmarks/Checkmarkes';
 
 // Navigation
 export { DrawerCustom as Drawer } from './components/navigation/drawer/Drawer';

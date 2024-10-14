@@ -27,7 +27,7 @@ interface Props {
     onChange: (selectedItems: Record<string, string>[]) => void;
 }
 
-export function MultipleSelectCheckmarks({
+export function Checkmarks({
     label,
     options,
     labelKey,

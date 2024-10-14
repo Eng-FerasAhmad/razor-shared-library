@@ -1,8 +1,8 @@
-import { MultipleSelectCheckmarks } from 'components/inputs/checkmarks/CheckMarkes';
+import { Checkmarks } from 'components/inputs/checkmarks/Checkmarkes';
 
 import { render, screen, fireEvent } from '@testing-library/react';
 
-describe('MultipleSelectCheckmarks component', () => {
+describe('Checkmarks component', () => {
     const options = [
         { id: '1', name: 'Option 1' },
         { id: '2', name: 'Option 2' },
@@ -19,7 +19,8 @@ describe('MultipleSelectCheckmarks component', () => {
 
     test('renders with options', () => {
         render(
-            <MultipleSelectCheckmarks
+            <Checkmarks
+                label={'Select'}
                 options={options}
                 labelKey={labelKey}
                 valueKey={valueKey}
@@ -41,7 +42,8 @@ describe('MultipleSelectCheckmarks component', () => {
 
     test('selects and displays multiple options', () => {
         render(
-            <MultipleSelectCheckmarks
+            <Checkmarks
+                label={'Select'}
                 options={options}
                 labelKey={labelKey}
                 valueKey={valueKey}
