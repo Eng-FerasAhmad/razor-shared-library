@@ -19,7 +19,8 @@ const MenuProps = {
     },
 };
 
-interface MultipleSelectCheckmarksProps {
+interface Props {
+    label: string;
     options: Record<string, string>[];
     labelKey: keyof Record<string, string>;
     valueKey: keyof Record<string, string>;
@@ -27,11 +28,12 @@ interface MultipleSelectCheckmarksProps {
 }
 
 export function MultipleSelectCheckmarks({
+    label,
     options,
     labelKey,
     valueKey,
     onChange,
-}: MultipleSelectCheckmarksProps) {
+}: Props) {
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
     const handleChange = (event: SelectChangeEvent<typeof selectedItems>) => {
@@ -53,7 +55,7 @@ export function MultipleSelectCheckmarks({
         <div>
             <FormControl sx={{ minWidth: '100%' }}>
                 <InputLabel id="demo-multiple-checkbox-label">
-                    Select
+                    {label}
                 </InputLabel>
                 <Select
                     labelId="demo-multiple-checkbox-label"
