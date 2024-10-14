@@ -1,7 +1,0 @@
-import{s as p,b as e}from"./storybookConst-D5qO3_Ry.js";import{C as i}from"./Checkbox-Dqy2HAZb.js";import"./extends-BZziWbxp.js";import"./index-BP8_t0zE.js";import"./Template-L755xNcz.js";import"./color-CPEZdfOT.js";import"./DefaultPropsProvider-DxvFDAWb.js";import"./index-DiL3kUBv.js";import"./index-FTyV09dj.js";import"./emotion-react.browser.esm-DJu5jVRJ.js";import"./extendSxProp-sjffJwDd.js";import"./SwitchBase-CjcMMgnt.js";import"./useFormControl-D0zEVldg.js";import"./ButtonBase-92e3o3lK.js";import"./useTimeout-BN_3i7zA.js";import"./TransitionGroupContext-CV-AyoRm.js";import"./assertThisInitialized-B9jnkVVz.js";import"./inheritsLoose-DR8r8Ogv.js";import"./useForkRef-rM2yqL0Y.js";import"./isFocusVisible-B8k4qzLc.js";import"./useControlled-im5M3O13.js";import"./createSvgIcon-KETvyI5g.js";import"./createSimplePaletteValueFilter-bm0fmN_7.js";const j={title:"Inputs/Checkbox",component:i,tags:["autodocs"],argTypes:{color:{options:p,control:{type:"select"}},size:{options:e,control:{type:"radio"}}}},o={args:{label:"Checkbox",size:"medium",color:"primary"}};var r,t,m;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`{
-  args: {
-    label: 'Checkbox',
-    size: 'medium',
-    color: 'primary'
-  }
-}`,...(m=(t=o.parameters)==null?void 0:t.docs)==null?void 0:m.source}}};const q=["Default"];export{o as Default,q as __namedExportsOrder,j as default};

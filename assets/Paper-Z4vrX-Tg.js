@@ -1,0 +1,1 @@
+import{j as s}from"./extends-BZziWbxp.js";import{P as t}from"./Paper-CjD7ugLR.js";function e({children:o,...r}){return s.jsx(t,{...r,children:o})}e.__docgenInfo={description:"",methods:[],displayName:"PaperCustom"};export{e as P};

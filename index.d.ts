@@ -19,6 +19,7 @@ export { CircularProgressCustom as CircularProgress } from './components/feedbac
 export { LinearProgressCustom as LinearProgress } from './components/feedback/progress-linear/LinearProgress';
 export { AutoCompleteCustom as AutoComplete } from './components/inputs/auto-complete/AutoComplete';
 export { ButtonCustom as Button } from './components/inputs/button/Button';
+export { LoadingButtonCustom as LoadingButton } from './components/inputs/loading-button/LoadingButton';
 export { CheckboxCustom as Checkbox } from './components/inputs/checkbox/Checkbox';
 export { FloatButton } from './components/inputs/float-button/FloatButton';
 export { InputDigit } from './components/inputs/input-digit/InputDigit';
@@ -30,6 +31,7 @@ export { RatingCustom as Rating } from './components/inputs/rating/Rating';
 export { SearchCustom as Search } from './components/inputs/search/Search';
 export { SwitchCustom as Switch } from './components/inputs/switch/Switch';
 export { Textarea } from './components/inputs/textarea/Textarea';
+export { MultipleSelectCheckmarks as CheckMarks } from './components/inputs/checkmarks/CheckMarkes';
 export { DrawerCustom as Drawer } from './components/navigation/drawer/Drawer';
 export { MenuCustom as Menu } from './components/navigation/menu/Menu';
 export { StepperCustom as Stepper } from './components/navigation/stepper/Stepper';

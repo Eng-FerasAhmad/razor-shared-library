@@ -1,0 +1,5 @@
+import{R as p}from"./Rating-CEcdUKyb.js";import"./extends-BZziWbxp.js";import"./index-BP8_t0zE.js";import"./Template-Ns2mqNLl.js";import"./color-DCc551Ku.js";import"./DefaultPropsProvider-CBZfYqC6.js";import"./index-DiL3kUBv.js";import"./index-CJDT4czw.js";import"./emotion-react.browser.esm-B5xgBJJi.js";import"./extendSxProp-igbevVD-.js";import"./Typography-Chqap8zl.js";import"./createSimplePaletteValueFilter-bm0fmN_7.js";import"./createSvgIcon-Aui0-xl2.js";import"./useId-BFAM3bkQ.js";import"./useControlled-im5M3O13.js";import"./useForkRef-rM2yqL0Y.js";import"./isFocusVisible-B8k4qzLc.js";const C={title:"Inputs/Rating",tags:["autodocs"],component:p,argTypes:{label:{control:{type:"text"}}}},t={args:{label:"Rating"}};var r,o,a;t.parameters={...t.parameters,docs:{...(r=t.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {
+    label: 'Rating'
+  }
+}`,...(a=(o=t.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};const E=["Default"];export{t as Default,E as __namedExportsOrder,C as default};

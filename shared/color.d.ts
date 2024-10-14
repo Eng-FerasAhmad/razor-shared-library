@@ -4,6 +4,7 @@ export declare const color: {
     darkOpacity80: string;
     hover: string;
     disabled: string;
+    fontDarker: string;
     fontDark: string;
     border: string;
     borderLight: string;
@@ -60,6 +61,12 @@ export declare const RazorBrandColor: {
         darker: string;
     };
     blue: {
+        light: string;
+        primary: string;
+        dark: string;
+        darker: string;
+    };
+    cyan: {
         light: string;
         primary: string;
         dark: string;

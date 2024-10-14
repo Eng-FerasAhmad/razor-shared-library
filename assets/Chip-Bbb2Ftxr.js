@@ -1,1 +1,0 @@
-import{j as t}from"./extends-BZziWbxp.js";import{T as i}from"./Template-L755xNcz.js";import{C as s}from"./Chip-CTeO5tof.js";function m({...o}){return t.jsx(i,{children:t.jsx(s,{...o,"data-testid":"chip"})})}m.__docgenInfo={description:"",methods:[],displayName:"ChipCustom"};export{m as C};
