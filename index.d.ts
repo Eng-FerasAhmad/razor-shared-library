@@ -31,7 +31,7 @@ export { RatingCustom as Rating } from './components/inputs/rating/Rating';
 export { SearchCustom as Search } from './components/inputs/search/Search';
 export { SwitchCustom as Switch } from './components/inputs/switch/Switch';
 export { Textarea } from './components/inputs/textarea/Textarea';
-export { MultipleSelectCheckmarks as CheckMarks } from './components/inputs/checkmarks/CheckMarkes';
+export { Checkmarks } from '../../../../../src/components/inputs/checkmarks/Checkmarkes';
 export { DrawerCustom as Drawer } from './components/navigation/drawer/Drawer';
 export { MenuCustom as Menu } from './components/navigation/menu/Menu';
 export { StepperCustom as Stepper } from './components/navigation/stepper/Stepper';
