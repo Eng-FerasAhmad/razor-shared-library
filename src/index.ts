@@ -153,3 +153,4 @@ export { default as WarningIcon } from '@mui/icons-material/Warning';
 export { default as AutoAwesomeMosaicIcon } from '@mui/icons-material/AutoAwesomeMosaic';
 export { default as ReplayIcon } from '@mui/icons-material/Replay';
 export { default as SaveIcon } from '@mui/icons-material/Save';
+export { default as ContentCopyIcon } from '@mui/icons-material/ContentCopy';
