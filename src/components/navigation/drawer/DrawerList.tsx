@@ -28,6 +28,8 @@ export default function DrawerList({
     selectedSubItemIndex,
     selectedItemIndex,
 }: Props): ReactElement {
+    const hoverColor = '#e6e6e6';
+
     return (
         <List data-testid="drawer-list">
             {listItems.map((item, index) => (
@@ -35,9 +37,12 @@ export default function DrawerList({
                     <ListItem key={index} disablePadding>
                         <ListItemButton
                             onClick={item.clickHandler}
-                            style={{
+                            sx={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
+                                '&:hover': {
+                                    backgroundColor: hoverColor,
+                                },
                             }}
                         >
                             <ListItemIcon
@@ -77,12 +82,15 @@ export default function DrawerList({
                                             sx={{
                                                 pl: 4,
                                                 fontSize: fontSize.font15,
+                                                '&:hover': {
+                                                    backgroundColor: hoverColor,
+                                                },
                                                 backgroundColor:
                                                     selectedItemIndex ===
                                                         index &&
                                                     selectedSubItemIndex ===
                                                         subIndex
-                                                        ? '#e0e0e0'
+                                                        ? hoverColor
                                                         : 'inherit',
                                             }}
                                         >
