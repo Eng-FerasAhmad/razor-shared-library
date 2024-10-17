@@ -16,6 +16,8 @@ interface Props {
     collapseIconOpen?: ReactNode;
     collapseIconClose?: ReactNode;
     handleClick: (index: number) => void;
+    selectedSubItemIndex?: number;
+    selectedItemIndex?: number;
 }
 
 export default function DrawerList({
@@ -23,6 +25,8 @@ export default function DrawerList({
     collapseIconOpen,
     collapseIconClose,
     handleClick,
+    selectedSubItemIndex,
+    selectedItemIndex,
 }: Props): ReactElement {
     return (
         <List data-testid="drawer-list">
@@ -73,6 +77,13 @@ export default function DrawerList({
                                             sx={{
                                                 pl: 4,
                                                 fontSize: fontSize.font15,
+                                                backgroundColor:
+                                                    selectedItemIndex ===
+                                                        index &&
+                                                    selectedSubItemIndex ===
+                                                        subIndex
+                                                        ? '#e0e0e0'
+                                                        : 'inherit',
                                             }}
                                         >
                                             <ListItemIcon>

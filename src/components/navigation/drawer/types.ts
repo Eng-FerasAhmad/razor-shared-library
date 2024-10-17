@@ -5,4 +5,5 @@ export interface DrawerListItems {
     clickHandler: () => void;
     subMenu?: DrawerListItems[];
     isOpen?: boolean;
+    isSubItemSelected?: boolean;
 }

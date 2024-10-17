@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof DrawerCustom>;
 
-// Sample list items with icons and click handlers
+// Sample list items with icons, click handlers, and sub-items expanded by default
 const sampleListItems: DrawerListItems[] = [
     {
         icon: (
@@ -47,6 +47,7 @@ const sampleListItems: DrawerListItems[] = [
             </>
         ),
         clickHandler: () => console.log('Item 1 clicked'),
+        isOpen: true, // Set to true to open sub-items by default
         subMenu: [
             {
                 icon: (
@@ -76,6 +77,7 @@ const sampleListItems: DrawerListItems[] = [
             </>
         ),
         clickHandler: () => console.log('Item 2 clicked'),
+        isOpen: true, // Set to true to open sub-items by default
         subMenu: [
             {
                 icon: (
@@ -90,7 +92,7 @@ const sampleListItems: DrawerListItems[] = [
                 icon: (
                     <>
                         <Home />
-                        Profil
+                        Profile
                     </>
                 ),
                 clickHandler: () => console.log('Subitem 2b clicked'),
@@ -127,6 +129,8 @@ export const Default: Story = {
                     handleSubItemClick={(index: number) => {
                         console.log(`Subitem clicked: ${index}`);
                     }}
+                    selectedSubItemIndex={1}
+                    selectedItemIndex={1}
                 />
             </Box>
         );

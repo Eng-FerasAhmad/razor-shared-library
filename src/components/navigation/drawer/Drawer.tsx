@@ -23,6 +23,8 @@ interface Props {
     open: boolean;
     handleDrawerOpen: () => void;
     handleSubItemClick: (index: number) => void;
+    selectedSubItemIndex?: number;
+    selectedItemIndex?: number;
 }
 
 export function DrawerCustom({
@@ -32,6 +34,8 @@ export function DrawerCustom({
     open,
     handleDrawerOpen,
     handleSubItemClick,
+    selectedSubItemIndex,
+    selectedItemIndex,
 }: Props): ReactElement {
     return (
         <Template>
@@ -68,6 +72,8 @@ export function DrawerCustom({
                         collapseIconClose={<ChevronRight color={'secondary'} />}
                         data-testid="drawer-list"
                         handleClick={handleSubItemClick}
+                        selectedSubItemIndex={selectedSubItemIndex}
+                        selectedItemIndex={selectedItemIndex}
                     />
                 </Drawer>
             </Box>
