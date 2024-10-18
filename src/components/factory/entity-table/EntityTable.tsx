@@ -39,7 +39,6 @@ export function EntityTable<T>(props: TableProps<T>): ReactElement {
                     />
                     <TableContainer sx={{ maxHeight: 'calc(100vh - 260px)' }}>
                         <Table
-                            stickyHeader
                             sx={{ minWidth: 750 }}
                             aria-labelledby="tableTitle"
                             size={'small'}

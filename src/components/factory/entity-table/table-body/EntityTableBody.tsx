@@ -4,6 +4,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { Edit, FormatListBulleted } from '@mui/icons-material';
+import { Box } from '@mui/material';
 
 import { TableProps } from '../types';
 
@@ -15,6 +16,7 @@ import { MenuCustom } from 'components/navigation/menu/Menu';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
+
     const handleDlClick = (row: T, index: number): void => {
         if (props.onDlClickRow) {
             props.onDlClickRow(row, index);
@@ -53,7 +55,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
             });
         }
 
-        // Update the itemsMenu state
+        // Update the itemsMenu state and toggle menu index
         setItemsMenu(newItemsMenu);
     };
 
@@ -88,20 +90,36 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                         data-testid="table-cell-action-menu"
                         component="th"
                         scope="row"
-                        sx={{ padding: pixelToRem(10, 16) }}
                         align="right"
                     >
-                        <MenuCustom
-                            items={itemsMenu}
-                            position="bottom-end"
-                            data-testid={'more-horiz-icon'}
-                            anchor={
-                                <MoreHorizIcon
-                                    fontSize="medium"
-                                    color={props.color}
-                                />
-                            }
-                        />
+                        <Box
+                            sx={{
+                                borderRadius: '50%',
+                                width: '30px',
+                                height: '30px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                '&:hover': { backgroundColor: '#e6e6e6' },
+                            }}
+                        >
+                            <MenuCustom
+                                items={itemsMenu}
+                                position="bottom-end"
+                                data-testid={'more-horiz-icon'}
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                                anchor={
+                                    <MoreHorizIcon
+                                        fontSize="medium"
+                                        color={props.color}
+                                    />
+                                }
+                            />
+                        </Box>
                     </TableCell>
                 </TableRow>
             ))}
