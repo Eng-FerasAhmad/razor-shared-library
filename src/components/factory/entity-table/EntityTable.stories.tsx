@@ -33,8 +33,6 @@ type Story = StoryObj<typeof EntityTable>;
 
 export const Default: Story = {
     render: () => {
-        //const [rows, setRows] = useState(sampleRows); // State to manage table rows
-
         const props = {
             totalResultCounts: 100,
             pageSize: 10,
