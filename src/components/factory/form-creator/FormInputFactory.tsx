@@ -24,6 +24,7 @@ interface UseFormControllerProps {
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
         index: number
     ) => void;
+    submit?: boolean;
 }
 
 export function FormInputFactory({
@@ -31,6 +32,7 @@ export function FormInputFactory({
     index,
     updateDataForm,
     handleInputChange,
+    submit,
 }: UseFormControllerProps): ReactElement | null {
     switch (item.controller) {
         case 'TEXT':
@@ -41,7 +43,7 @@ export function FormInputFactory({
                     label={item.label}
                     size="medium"
                     onChange={(e) => handleInputChange(e, index)}
-                    error={item.required && !item.value}
+                    error={item.required && !item.value && submit}
                     disabled={item.disable}
                     required={item.required}
                 />
@@ -55,7 +57,7 @@ export function FormInputFactory({
                     handleChange={(e: SelectChangeEvent) =>
                         updateDataForm(index, e.target.value)
                     }
-                    error={item.required && !item.value}
+                    error={item.required && !item.value && submit}
                     disabled={item.disable}
                 />
             );
@@ -84,7 +86,7 @@ export function FormInputFactory({
                     label={item.label}
                     size="medium"
                     onChange={(e) => handleInputChange(e, index)}
-                    error={item.required && !item.value}
+                    error={item.required && !item.value && submit}
                     disabled={item.disable}
                     required={item.required}
                 />

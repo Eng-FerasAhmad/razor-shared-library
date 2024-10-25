@@ -16,11 +16,13 @@ import ConditionalRender from 'components/_conditional-render/ConditionalRender'
 interface Props {
     formDataSet: FormDataSet[];
     onUpdateFrom: (formData: FormDataSet[]) => void;
+    submit?: boolean;
 }
 
 export function FormCreator({
     formDataSet,
     onUpdateFrom,
+    submit,
 }: Props): ReactElement {
     const [formData, setFormData] = useState<FormDataSet[]>(formDataSet);
 
@@ -58,6 +60,7 @@ export function FormCreator({
                         index={index}
                         updateDataForm={updateDataForm}
                         handleInputChange={handleInputChange}
+                        submit={submit}
                     />
                 </Box>
             ))}
