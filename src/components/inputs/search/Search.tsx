@@ -44,7 +44,7 @@ export function SearchCustom({
             />
             <IconButton
                 type="button"
-                sx={{ p: '10px' }}
+                sx={{ p: '5px' }}
                 aria-label="search"
                 onClick={clearHandler}
             >
@@ -52,7 +52,7 @@ export function SearchCustom({
             </IconButton>
             <IconButton
                 type="button"
-                sx={{ p: '10px' }}
+                sx={{ p: '5px' }}
                 aria-label="search"
                 onClick={clickSubmitHandler}
             >

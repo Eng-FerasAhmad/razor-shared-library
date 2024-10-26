@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { TableSortLabel } from '@mui/material';
+import { Box, TableSortLabel } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -60,18 +60,27 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
                             width: headCell.width,
                         }}
                     >
-                        <TableSortLabel
-                            data-testid={'table-sort-label'}
-                            active={props.orderBy === headCell.sortLabel}
-                            direction={
-                                props.orderBy === headCell.sortLabel
-                                    ? props.order
-                                    : 'asc'
-                            }
-                            onClick={() => headerClick(headCell.sortLabel)}
-                        >
-                            {headCell.label}
-                        </TableSortLabel>
+                        {headCell.sortable ? (
+                            <TableSortLabel
+                                data-testid={'table-sort-label'}
+                                active={props.orderBy === headCell.sortLabel}
+                                direction={
+                                    props.orderBy === headCell.sortLabel
+                                        ? props.order
+                                        : 'asc'
+                                }
+                                onClick={() => headerClick(headCell.sortLabel)}
+                            >
+                                {headCell.label}
+                            </TableSortLabel>
+                        ) : (
+                            <Box
+                                data-testid={'table-no-sort-label'}
+                                onClick={() => headerClick(headCell.sortLabel)}
+                            >
+                                {headCell.label}
+                            </Box>
+                        )}
                         {headCell.id === 'statusText' && props.statusFilter && (
                             <>{props.statusFilter}</>
                         )}

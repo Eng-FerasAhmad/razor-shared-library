@@ -73,6 +73,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                             props.selectedRow === index ? color.hover : '',
                         cursor: 'pointer',
                         ':hover': { backgroundColor: color.hover },
+                        '&:last-child td, &:last-child th': { border: 0 },
                     }}
                 >
                     {props.hasAutoId && (

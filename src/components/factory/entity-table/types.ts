@@ -40,6 +40,7 @@ export interface HeadCell<T> {
     sortLabel: string;
     filterIcon?: boolean;
     width?: string;
+    sortable?: boolean;
 }
 
 export const statusLabels = {
