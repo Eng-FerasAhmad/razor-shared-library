@@ -12,6 +12,7 @@ import { TableProps } from '../types';
 import { color } from 'shared/color';
 import { pixelToRem } from 'shared/common';
 import { fontSize } from 'shared/fonts';
+import { ToolTipCustom } from 'components/data-display/tooltip/ToolTip';
 
 export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
     const resetSortHandler = (): void => {
@@ -42,7 +43,11 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
                         }}
                         onClick={resetSortHandler}
                     >
-                        <Autorenew />
+                        <ToolTipCustom
+                            title={'Clear all Filter, sort and Search params'}
+                        >
+                            <Autorenew />
+                        </ToolTipCustom>
                     </TableCell>
                 )}
                 {props.headCells.map((headCell, idx) => (
