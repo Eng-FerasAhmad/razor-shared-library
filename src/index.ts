@@ -16,6 +16,9 @@ export { TimePickerCustom as TimePicker } from './components/datepicker/time-pic
 // Factory
 export { EntityTable } from './components/factory/entity-table/EntityTable';
 export { FormCreator } from './components/factory/form-creator/FormCreator';
+export { IconGenerator } from './components/factory/icon-generator/IconGenerator';
+export { IconViewer } from './components/factory/icon-viewer/IconViewer';
+export { IconSelectList } from './components/factory/icon-select-list/IconSelectList';
 
 // Feedback
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';

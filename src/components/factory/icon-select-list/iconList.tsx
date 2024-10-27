@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import WifiIcon from '@mui/icons-material/Wifi';
 import PoolIcon from '@mui/icons-material/Pool';
@@ -18,6 +20,7 @@ import LocalBarIcon from '@mui/icons-material/LocalBar';
 import KitchenIcon from '@mui/icons-material/Kitchen';
 import BalconyIcon from '@mui/icons-material/Balcony';
 import AccessibleIcon from '@mui/icons-material/Accessible';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 import { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
 
@@ -59,3 +62,26 @@ export const amenityOptions: AutoCompleteOptions[] = [
     { value: 'KitchenIcon', label: 'Kitchen', icon: <KitchenIcon /> },
     { value: 'BalconyIcon', label: 'Balcony', icon: <BalconyIcon /> },
 ];
+
+export const amenityOptionsMap: Record<string, ReactElement> = {
+    LocalParking: <LocalParkingIcon />,
+    Wifi: <WifiIcon />,
+    Pool: <PoolIcon />,
+    FitnessCenter: <FitnessCenterIcon />,
+    Restaurant: <RestaurantIcon />,
+    Spa: <SpaIcon />,
+    SmokeFree: <SmokeFreeIcon />,
+    AcUnit: <AcUnitIcon />,
+    FreeBreakfast: <FreeBreakfastIcon />,
+    Pets: <PetsIcon />,
+    LocalLaundryService: <LocalLaundryServiceIcon />,
+    AirportShuttle: <AirportShuttleIcon />,
+    ChildCare: <ChildCareIcon />,
+    Bathtub: <BathtubIcon />,
+    Elevator: <ElevatorIcon />,
+    RoomService: <RoomServiceIcon />,
+    AccessibilityNew: <AccessibilityNewIcon />,
+    LocalBar: <LocalBarIcon />,
+    Kitchen: <KitchenIcon />,
+    Balcony: <BalconyIcon />,
+};
