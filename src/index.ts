@@ -16,7 +16,6 @@ export { TimePickerCustom as TimePicker } from './components/datepicker/time-pic
 // Factory
 export { EntityTable } from './components/factory/entity-table/EntityTable';
 export { FormCreator } from './components/factory/form-creator/FormCreator';
-export { IconFactory } from './components/factory/icon-factory/IconFactory';
 
 // Feedback
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';
@@ -66,7 +65,6 @@ export type { DrawerListItems } from './components/navigation/drawer/types';
 export type { FormDataSet } from './components/factory/form-creator/types';
 export type { SelectItems } from './components/inputs/input-select/types';
 export type { RadioItems } from './components/inputs/radio-group/types';
-export type { IconOptions } from './components/factory/icon-factory/types';
 export type { TabItem } from './components/navigation/tab/types';
 export type { HeadCell } from 'components/factory/entity-table/types';
 export type { AccordionItems } from './components/surfaces/accordion/types';
@@ -141,12 +139,10 @@ export { default as ViewListIcon } from '@mui/icons-material/ViewList';
 export { default as VisibilityOffIcon } from '@mui/icons-material/VisibilityOff';
 export { default as VisibilityIcon } from '@mui/icons-material/Visibility';
 export { default as WhatsAppIcon } from '@mui/icons-material/WhatsApp';
-export { default as WifiIcon } from '@mui/icons-material/Wifi';
 export { default as StorefrontIcon } from '@mui/icons-material/Storefront';
 export { default as StoreIcon } from '@mui/icons-material/Store';
 export { default as CalendarViewMonthIcon } from '@mui/icons-material/CalendarViewMonth';
 export { default as CameraEnhanceIcon } from '@mui/icons-material/CameraEnhance';
-export { default as ChildCareIcon } from '@mui/icons-material/ChildCare';
 export { default as SearchIcon } from '@mui/icons-material/Search';
 export { default as InstagramIcon } from '@mui/icons-material/Instagram';
 export { default as WarningIcon } from '@mui/icons-material/Warning';
@@ -155,3 +151,26 @@ export { default as ReplayIcon } from '@mui/icons-material/Replay';
 export { default as SaveIcon } from '@mui/icons-material/Save';
 export { default as ContentCopyIcon } from '@mui/icons-material/ContentCopy';
 export { default as FilterListOffIcon } from '@mui/icons-material/FilterListOff';
+
+// icon select list:
+export { default as AccessibleIcon } from '@mui/icons-material/Accessible';
+export { default as LocalParkingIcon } from '@mui/icons-material/LocalParking';
+export { default as WifiIcon } from '@mui/icons-material/Wifi';
+export { default as PoolIcon } from '@mui/icons-material/Pool';
+export { default as FitnessCenterIcon } from '@mui/icons-material/FitnessCenter';
+export { default as RestaurantIcon } from '@mui/icons-material/Restaurant';
+export { default as SpaIcon } from '@mui/icons-material/Spa';
+export { default as SmokeFreeIcon } from '@mui/icons-material/SmokeFree';
+export { default as AcUnitIcon } from '@mui/icons-material/AcUnit';
+export { default as FreeBreakfastIcon } from '@mui/icons-material/FreeBreakfast';
+export { default as PetsIcon } from '@mui/icons-material/Pets';
+export { default as LocalLaundryServiceIcon } from '@mui/icons-material/LocalLaundryService';
+export { default as AirportShuttleIcon } from '@mui/icons-material/AirportShuttle';
+export { default as ChildCareIcon } from '@mui/icons-material/ChildCare';
+export { default as BathtubIcon } from '@mui/icons-material/Bathtub';
+export { default as ElevatorIcon } from '@mui/icons-material/Elevator';
+export { default as RoomServiceIcon } from '@mui/icons-material/RoomService';
+export { default as AccessibilityNewIcon } from '@mui/icons-material/AccessibilityNew';
+export { default as LocalBarIcon } from '@mui/icons-material/LocalBar';
+export { default as KitchenIcon } from '@mui/icons-material/Kitchen';
+export { default as BalconyIcon } from '@mui/icons-material/Balcony';

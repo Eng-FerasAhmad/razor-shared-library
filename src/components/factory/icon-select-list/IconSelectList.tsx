@@ -1,12 +1,18 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { ReactElement, useState, useEffect, ReactNode } from 'react';
 
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Box } from '@mui/material';
 
-import { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
+import { amenityOptions } from 'components/factory/icon-select-list/iconList';
 import { Template } from 'components/_template/Template';
+
+interface AutoCompleteOptions {
+    value: string | number;
+    label: string;
+    icon?: ReactNode;
+}
 
 interface Props {
     options: AutoCompleteOptions[];
@@ -15,8 +21,8 @@ interface Props {
     onChange: (selected: AutoCompleteOptions | null) => void;
 }
 
-export function AutoCompleteCustom({
-    options,
+export function IconSelectList({
+    options = amenityOptions,
     label,
     value,
     onChange,
@@ -40,7 +46,9 @@ export function AutoCompleteCustom({
                 options={options}
                 sx={{ width: '100%' }}
                 value={value}
-                onChange={() => onChange}
+                onChange={(_event, selected) =>
+                    onChange(selected as AutoCompleteOptions | null)
+                }
                 inputValue={inputValue}
                 onInputChange={(_e, newInputValue) =>
                     setInputValue(newInputValue)
@@ -51,16 +59,25 @@ export function AutoCompleteCustom({
                 renderInput={(params) => (
                     <TextField {...params} label={label} />
                 )}
-                renderOption={(props, option) => (
-                    <Box
-                        component="li"
-                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                        {...props}
-                    >
-                        {option.icon}
-                        <Typography sx={{ ml: 2 }}>{option.label}</Typography>
-                    </Box>
-                )}
+                renderOption={(props, option) => {
+                    // eslint-disable-next-line react/prop-types
+                    const { key, ...otherProps } = props;
+                    return (
+                        <Box
+                            key={option.value}
+                            component="li"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                            }}
+                            {...otherProps} // Spread remaining props without key
+                        >
+                            {option.icon}
+                            <Typography>{option.label}</Typography>
+                        </Box>
+                    );
+                }}
             />
         </Template>
     );
