@@ -154,3 +154,4 @@ export { default as AutoAwesomeMosaicIcon } from '@mui/icons-material/AutoAwesom
 export { default as ReplayIcon } from '@mui/icons-material/Replay';
 export { default as SaveIcon } from '@mui/icons-material/Save';
 export { default as ContentCopyIcon } from '@mui/icons-material/ContentCopy';
+export { default as FilterListOffIcon } from '@mui/icons-material/FilterListOff';
