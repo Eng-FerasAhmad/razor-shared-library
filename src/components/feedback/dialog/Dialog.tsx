@@ -1,15 +1,16 @@
-import { PropsWithChildren, ReactElement, ReactNode } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode, useState } from 'react';
 
-import Dialog, { DialogProps } from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
+import { DialogProps } from '@mui/material/Dialog';
 
 import { Template } from 'components/_template/Template';
 import { CloseIcon } from 'src/index';
-import { pixelToRem } from 'shared/common';
+import {
+    BootstrapDialog,
+    StyledDialogActions,
+    StyledDialogContent,
+    StyledDialogTitle,
+    StyledIconButton,
+} from 'components/feedback/dialog/styles';
 
 interface Props {
     handleClose: () => void;
@@ -19,18 +20,6 @@ interface Props {
     headerColor?: string;
     headerFontColor?: string;
 }
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-    '& .MuiDialog-paper': {
-        maxWidth: 1000,
-    },
-}));
 
 export function DialogCustom({
     handleClose,
@@ -42,63 +31,55 @@ export function DialogCustom({
     children,
     ...props
 }: PropsWithChildren<DialogProps & Props>): ReactElement {
+    const [animate, setAnimate] = useState(false);
+
+    const handleBackdropClick = (
+        _event: unknown,
+        reason: 'backdropClick' | 'escapeKeyDown'
+    ) => {
+        if (reason === 'backdropClick') {
+            setAnimate(true);
+            setTimeout(() => setAnimate(false), 300);
+        }
+    };
+
     return (
         <Template>
             <BootstrapDialog
-                onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
+                onClose={handleBackdropClick}
+                animate={animate}
                 {...props}
                 data-testid="dialog"
             >
                 {title && (
-                    <DialogTitle data-testid="dialog-title" id="dialog-title">
+                    <StyledDialogTitle
+                        data-testid="dialog-title"
+                        id="dialog-title"
+                        headerColor={headerColor}
+                        headerFontColor={headerFontColor}
+                    >
                         {title}
-                    </DialogTitle>
+                    </StyledDialogTitle>
                 )}
 
-                <IconButton
+                <StyledIconButton
                     aria-label="close"
                     onClick={handleClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        fontFamily: 'inherit',
-                    }}
                     data-testid="dialog-close-icon"
                 >
                     <CloseIcon />
-                </IconButton>
+                </StyledIconButton>
 
-                <DialogContent
-                    dividers
-                    sx={{
-                        fontFamily: 'inherit',
-                        '&.MuiDialogContent-root': {
-                            p: pixelToRem(16, 24),
-                            margin: 0,
-                        },
-                    }}
-                    data-testid="dialog-content"
-                >
+                <StyledDialogContent dividers data-testid="dialog-content">
                     {children}
-                </DialogContent>
+                </StyledDialogContent>
 
                 {actions && (
-                    <DialogActions
-                        sx={{
-                            fontFamily: 'inherit',
-                            margin: pixelToRem(16, 24),
-                            p: 0,
-                            '&.MuiDialogActions-root': {
-                                p: 0,
-                            },
-                        }}
-                        data-testid="dialog-action"
-                    >
+                    <StyledDialogActions data-testid="dialog-action">
                         {actions}
-                    </DialogActions>
+                    </StyledDialogActions>
                 )}
             </BootstrapDialog>
         </Template>
