@@ -31,15 +31,15 @@ export function DialogCustom({
     children,
     ...props
 }: PropsWithChildren<DialogProps & Props>): ReactElement {
-    const [animate, setAnimate] = useState(false);
+    const [animateBorder, setAnimateBorder] = useState(false);
 
     const handleBackdropClick = (
         _event: unknown,
         reason: 'backdropClick' | 'escapeKeyDown'
     ) => {
         if (reason === 'backdropClick') {
-            setAnimate(true);
-            setTimeout(() => setAnimate(false), 300);
+            setAnimateBorder(true);
+            setTimeout(() => setAnimateBorder(false), 500); // Reset animation state after it completes
         }
     };
 
@@ -49,7 +49,7 @@ export function DialogCustom({
                 aria-labelledby="customized-dialog-title"
                 open={open}
                 onClose={handleBackdropClick}
-                animate={animate}
+                animateBorder={animateBorder}
                 {...props}
                 data-testid="dialog"
             >

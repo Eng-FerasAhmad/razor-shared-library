@@ -6,21 +6,22 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
 import { pixelToRem } from 'shared/common';
+import { color } from 'shared/color';
 
-const bounceAnimation = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+const borderGlowAnimation = keyframes`
+    0% {
+        box-shadow: 0 0 0px ${color.light};
+    }
+    50% {
+        box-shadow: 0 0 3px ${color.light};
+    }
+    100% {
+        box-shadow: 0 0 0px ${color.light};
+    }
 `;
 
-export const BootstrapDialog = styled(Dialog)<{ animate: boolean }>(
-    ({ theme, animate }) => ({
+export const BootstrapDialog = styled(Dialog)<{ animateBorder: boolean }>(
+    ({ theme, animateBorder }) => ({
         '& .MuiDialogContent-root': {
             padding: theme.spacing(2),
         },
@@ -29,8 +30,10 @@ export const BootstrapDialog = styled(Dialog)<{ animate: boolean }>(
         },
         '& .MuiDialog-paper': {
             maxWidth: 1000,
-            animation: animate ? `${bounceAnimation} 0.3s ease` : 'none',
-            transformOrigin: 'center',
+            borderRadius: theme.shape.borderRadius,
+            animation: animateBorder
+                ? `${borderGlowAnimation} 0.3s ease`
+                : 'none',
         },
     })
 );
