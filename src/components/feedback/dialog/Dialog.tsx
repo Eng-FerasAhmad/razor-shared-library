@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement, ReactNode, useState } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode } from 'react';
 
 import { DialogProps } from '@mui/material/Dialog';
 
@@ -31,25 +31,11 @@ export function DialogCustom({
     children,
     ...props
 }: PropsWithChildren<DialogProps & Props>): ReactElement {
-    const [animateBorder, setAnimateBorder] = useState(false);
-
-    const handleBackdropClick = (
-        _event: unknown,
-        reason: 'backdropClick' | 'escapeKeyDown'
-    ) => {
-        if (reason === 'backdropClick') {
-            setAnimateBorder(true);
-            setTimeout(() => setAnimateBorder(false), 500); // Reset animation state after it completes
-        }
-    };
-
     return (
         <Template>
             <BootstrapDialog
                 aria-labelledby="customized-dialog-title"
                 open={open}
-                onClose={handleBackdropClick}
-                animateBorder={animateBorder}
                 {...props}
                 data-testid="dialog"
             >

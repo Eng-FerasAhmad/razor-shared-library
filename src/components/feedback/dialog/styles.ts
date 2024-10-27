@@ -1,4 +1,4 @@
-import { keyframes, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
@@ -6,37 +6,19 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
 import { pixelToRem } from 'shared/common';
-import { color } from 'shared/color';
 
-const borderGlowAnimation = keyframes`
-    0% {
-        box-shadow: 0 0 0px ${color.light};
-    }
-    50% {
-        box-shadow: 0 0 3px ${color.light};
-    }
-    100% {
-        box-shadow: 0 0 0px ${color.light};
-    }
-`;
-
-export const BootstrapDialog = styled(Dialog)<{ animateBorder: boolean }>(
-    ({ theme, animateBorder }) => ({
-        '& .MuiDialogContent-root': {
-            padding: theme.spacing(2),
-        },
-        '& .MuiDialogActions-root': {
-            padding: theme.spacing(1),
-        },
-        '& .MuiDialog-paper': {
-            maxWidth: 1000,
-            borderRadius: theme.shape.borderRadius,
-            animation: animateBorder
-                ? `${borderGlowAnimation} 0.3s ease`
-                : 'none',
-        },
-    })
-);
+export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+    '& .MuiDialog-paper': {
+        maxWidth: 1000,
+        borderRadius: theme.shape.borderRadius,
+    },
+}));
 
 export const StyledDialogTitle = styled(DialogTitle)<{
     headerColor?: string;
