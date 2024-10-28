@@ -87,7 +87,7 @@ export const MenuCustom = ({
                 anchorEl={anchorRef.current}
                 placement={position}
                 transition
-                disablePortal
+                disablePortal={false}
                 style={{ zIndex: 1000 }}
             >
                 {({ TransitionProps, placement }) => (

@@ -58,7 +58,7 @@ export function AmenityIcons({ label, value, onChange }: Props): ReactElement {
         <Template>
             <Autocomplete
                 data-testid="auto-complete"
-                disablePortal={true}
+                disablePortal={false}
                 id="auto-complete"
                 options={options}
                 sx={{ width: '100%' }}
