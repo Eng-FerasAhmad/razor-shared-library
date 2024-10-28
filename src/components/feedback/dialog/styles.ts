@@ -20,7 +20,10 @@ export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export const StyledDialogTitle = styled(DialogTitle)<{
+export const StyledDialogTitle = styled(DialogTitle, {
+    shouldForwardProp: (prop) =>
+        prop !== 'headerColor' && prop !== 'headerFontColor',
+})<{
     headerColor?: string;
     headerFontColor?: string;
 }>`

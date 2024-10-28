@@ -17,40 +17,57 @@ interface AutoCompleteOptions {
 interface Props {
     label: string;
     value: string | number;
-    onChange: (selectedIconName: string) => void;
+    onChange: (selectedIconName: string | null) => void;
 }
 
 export function AmenityIcons({ label, value, onChange }: Props): ReactElement {
     const options: AutoCompleteOptions[] = amenityOptions;
     const [inputValue, setInputValue] = useState('');
+    const [selectedValue, setSelectedValue] =
+        useState<AutoCompleteOptions | null>(null);
 
     useEffect(() => {
         const selectedOption = options.find((option) => option.value === value);
         if (selectedOption) {
             setInputValue(selectedOption.label);
+            setSelectedValue(selectedOption);
         } else {
             setInputValue('');
+            setSelectedValue(null);
         }
     }, [value, options]);
+
+    const handleInputChange = (_event: unknown, newInputValue: string) => {
+        setInputValue(newInputValue);
+    };
+
+    const handleChange = (
+        _event: unknown,
+        selectedOption: AutoCompleteOptions | null
+    ) => {
+        if (selectedOption) {
+            onChange(selectedOption.value as string);
+            setSelectedValue(selectedOption);
+        } else {
+            onChange(null);
+            setSelectedValue(null);
+        }
+    };
 
     return (
         <Template>
             <Autocomplete
                 data-testid="auto-complete"
-                disablePortal
+                disablePortal={true}
                 id="auto-complete"
                 options={options}
                 sx={{ width: '100%' }}
-                value={options.find((option) => option.value === value)}
-                onChange={(_event, selected) =>
-                    onChange(selected!.value as string)
-                }
+                value={selectedValue}
+                onChange={handleChange}
                 inputValue={inputValue}
-                onInputChange={(_e, newInputValue) =>
-                    setInputValue(newInputValue)
-                }
+                onInputChange={handleInputChange}
                 isOptionEqualToValue={(option, val) =>
-                    option.value === val.value
+                    option.value === val?.value
                 }
                 renderInput={(params) => (
                     <TextField {...params} label={label} />

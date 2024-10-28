@@ -127,7 +127,7 @@ export function FormInputFactory({
                 <AmenityIcons
                     label={item.label}
                     value={item.value as string}
-                    onChange={(e: string) => updateDataForm(index, e)}
+                    onChange={(e: string | null) => updateDataForm(index, e!)}
                 />
             );
         default:
