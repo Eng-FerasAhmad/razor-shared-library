@@ -2,73 +2,95 @@ import { Checkmarks } from 'components/inputs/checkmarks/Checkmarkes';
 
 import { render, screen, fireEvent } from '@testing-library/react';
 
-describe('Checkmarks component', () => {
-    const options = [
-        { id: '1', name: 'Option 1' },
-        { id: '2', name: 'Option 2' },
-        { id: '3', name: 'Option 3' },
-    ];
+describe('Checkmarks', () => {
+    const mockOnChange = jest.fn();
 
-    const labelKey = 'name';
-    const valueKey = 'id';
-    const onChangeMock = jest.fn();
+    const props = {
+        label: 'Select Items',
+        options: [
+            { id: '1', name: 'Option 1' },
+            { id: '2', name: 'Option 2' },
+            { id: '3', name: 'Option 3' },
+        ],
+        labelKey: 'name',
+        valueKey: 'id',
+        onChange: mockOnChange,
+    };
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        mockOnChange.mockClear();
     });
 
-    test('renders with options', () => {
-        render(
-            <Checkmarks
-                label={'Select'}
-                options={options}
-                labelKey={labelKey}
-                valueKey={valueKey}
-                onChange={onChangeMock}
-            />
-        );
+    it('renders the component with the correct label', () => {
+        render(<Checkmarks {...props} />);
+        expect(screen.getByLabelText('Select Items')).toBeInTheDocument();
+    });
 
-        // Check if the input field is rendered
-        expect(screen.getByLabelText('Select')).toBeInTheDocument();
+    it('opens the dropdown and displays all options', () => {
+        render(<Checkmarks {...props} />);
+        const selectInput = screen.getByLabelText('Select Items'); // Target the select by label
+        fireEvent.mouseDown(selectInput); // Open dropdown
 
-        // Open the select dropdown
-        fireEvent.mouseDown(screen.getByLabelText('Select'));
-
-        // Check if all options are displayed
-        options.forEach((option) => {
+        props.options.forEach((option) => {
             expect(screen.getByText(option.name)).toBeInTheDocument();
         });
     });
 
-    test('selects and displays multiple options', () => {
-        render(
-            <Checkmarks
-                label={'Select'}
-                options={options}
-                labelKey={labelKey}
-                valueKey={valueKey}
-                onChange={onChangeMock}
-            />
-        );
+    it('selects multiple options and calls onChange with the correct values', () => {
+        render(<Checkmarks {...props} />);
+        const selectInput = screen.getAllByLabelText('Select Items');
+        fireEvent.mouseDown(selectInput[0]); // Open dropdown
 
-        // Open the select dropdown
-        fireEvent.mouseDown(screen.getAllByLabelText('Select')[0]);
+        // Select multiple options
+        fireEvent.click(screen.getByText('Option 1'));
+        fireEvent.click(screen.getByText('Option 3'));
 
-        // Select two options
-        const option1 = screen.getByText('Option 1').closest('li');
-        const option2 = screen.getByText('Option 2').closest('li');
-        fireEvent.click(option1!);
-        fireEvent.click(option2!);
-
-        // Check if the selected options are displayed in the input field
-        expect(screen.getAllByLabelText('Select')[0]).toHaveTextContent(
-            'Option 1, Option 2'
-        );
-
-        // Check if onChange callback was called with correct values
-        expect(onChangeMock).toHaveBeenCalledWith([
+        // Check that the options are rendered as selected
+        expect(mockOnChange).toHaveBeenCalledWith([
             { id: '1', name: 'Option 1' },
-            { id: '2', name: 'Option 2' },
+            { id: '3', name: 'Option 3' },
         ]);
+
+        const selectedValues =
+            screen.getAllByLabelText('Select Items')[0].textContent;
+        expect(selectedValues).toContain('Option 1');
+        expect(selectedValues).toContain('Option 3');
+    });
+
+    it('deselects an option and updates the selected values', () => {
+        render(<Checkmarks {...props} />);
+        const selectInput = screen.getAllByLabelText('Select Items');
+        fireEvent.mouseDown(selectInput[0]); // Open dropdown
+
+        // Select options to start with multiple selections
+        fireEvent.click(screen.getByText('Option 1'));
+        fireEvent.click(screen.getByText('Option 3'));
+
+        // Deselect one option
+        fireEvent.click(screen.getByText('Option 3'));
+
+        expect(mockOnChange).toHaveBeenLastCalledWith([
+            { id: '1', name: 'Option 1' },
+        ]);
+
+        const selectedValues =
+            screen.getAllByLabelText('Select Items')[0].textContent;
+        expect(selectedValues).toContain('Option 1');
+        expect(selectedValues).not.toContain('Option 3');
+    });
+
+    it('displays selected options correctly in the input field', () => {
+        render(<Checkmarks {...props} />);
+        const selectInput = screen.getByLabelText('Select Items');
+        fireEvent.mouseDown(selectInput); // Open dropdown
+
+        // Select multiple options
+        fireEvent.click(screen.getByText('Option 1'));
+        fireEvent.click(screen.getByText('Option 2'));
+
+        // Check rendered value
+        const selectedValues =
+            screen.getAllByLabelText('Select Items')[0].textContent;
+        expect(selectedValues).toContain('Option 1, Option 2');
     });
 });

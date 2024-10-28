@@ -12,6 +12,7 @@ import { DatepickerCustom } from 'components/datepicker/date-picker/Datepicker';
 import { CheckboxCustom } from 'components/inputs/checkbox/Checkbox';
 import { FormDataSet } from 'components/factory/form-creator/types';
 import { TimePickerCustom } from 'components/datepicker/time-picker/TimePicker';
+import { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
 
 interface UseFormControllerProps {
     item: FormDataSet;
@@ -119,6 +120,14 @@ export function FormInputFactory({
                     locale={item.locale!}
                     onChange={(newValue) => updateDataForm(index, newValue!)}
                     disabled={item.disable}
+                />
+            );
+        case 'AMENITY_ICONS':
+            return (
+                <AmenityIcons
+                    label={item.label}
+                    value={item.value as string}
+                    onChange={(e: string) => updateDataForm(index, e)}
                 />
             );
         default:

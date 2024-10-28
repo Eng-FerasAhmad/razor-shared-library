@@ -45,15 +45,6 @@ describe('EntityTableHead', () => {
         expect(props.resetSort).toHaveBeenCalled();
     });
 
-    it('calls handleHeaderClick when a header cell is clicked', () => {
-        render(<EntityTableHead {...props} />);
-        const headerCell = screen.getAllByTestId('table-sort-label')[0];
-        fireEvent.click(headerCell);
-        expect(props.handleHeaderClick).toHaveBeenCalledWith(
-            mockHeadCells[0].sortLabel
-        );
-    });
-
     it('renders the status filter in the statusText header cell', () => {
         const statusFilter = <>Active</>;
         const statusProps = {

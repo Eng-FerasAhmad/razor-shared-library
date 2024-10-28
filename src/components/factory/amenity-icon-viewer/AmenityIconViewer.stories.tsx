@@ -4,11 +4,11 @@ import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import WifiIcon from '@mui/icons-material/Wifi';
 import PoolIcon from '@mui/icons-material/Pool';
 
-import { IconViewer } from './IconViewer';
+import { AmenityIconViewer } from './AmenityIconViewer';
 
-const meta: Meta<typeof IconViewer> = {
-    title: 'Components/IconViewer',
-    component: IconViewer,
+const meta: Meta<typeof AmenityIconViewer> = {
+    title: 'Factory/Amenity Icon Viewer',
+    component: AmenityIconViewer,
     tags: ['autodocs'],
     argTypes: {
         icons: { control: { type: 'object' } },
@@ -17,7 +17,7 @@ const meta: Meta<typeof IconViewer> = {
 
 export default meta;
 
-type Story = StoryObj<typeof IconViewer>;
+type Story = StoryObj<typeof AmenityIconViewer>;
 
 export const Default: Story = {
     args: {

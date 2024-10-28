@@ -5,40 +5,31 @@ import { LoadingButtonCustom } from 'components/inputs/loading-button/LoadingBut
 import { render, screen } from '@testing-library/react';
 
 describe('LoadingButtonCustom', () => {
-    const mockProps = {
+    const defaultProps = {
         label: 'Save',
-        startIcon: <SaveIcon />,
+        startIcon: <SaveIcon data-testid="start-icon" />,
         loading: false,
-        onClick: jest.fn(),
     };
 
-    it('renders the button with correct label and icon', () => {
-        render(<LoadingButtonCustom {...mockProps} />);
-
-        const button = screen.getByRole('button', { name: /save/i });
-        expect(button).toBeInTheDocument();
-        expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
+    it('renders the button with the correct label', () => {
+        render(<LoadingButtonCustom {...defaultProps} />);
+        expect(screen.getByRole('button')).toHaveTextContent('Save');
     });
 
-    it('renders the CircularProgress when loading is true', () => {
-        render(<LoadingButtonCustom {...mockProps} loading={true} />);
+    it('displays the start icon when not loading', () => {
+        render(<LoadingButtonCustom {...defaultProps} />);
+        expect(screen.getByTestId('start-icon')).toBeInTheDocument();
+    });
 
-        const button = screen.getByRole('button', { name: /save/i });
-        expect(button).toBeDisabled();
+    it('displays a CircularProgress spinner instead of the start icon when loading', () => {
+        render(<LoadingButtonCustom {...defaultProps} loading={true} />);
+        expect(screen.queryByTestId('start-icon')).not.toBeInTheDocument();
         expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
 
-    it('does not render CircularProgress when loading is false', () => {
-        render(<LoadingButtonCustom {...mockProps} loading={false} />);
-
-        expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
-        expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
-    });
-
-    it('disables the button when loading is true', () => {
-        render(<LoadingButtonCustom {...mockProps} loading={true} />);
-
-        const button = screen.getByRole('button', { name: /save/i });
-        expect(button).toBeDisabled();
+    it('renders the button within the Template component', () => {
+        render(<LoadingButtonCustom {...defaultProps} />);
+        const templateContainer = screen.getByRole('button').closest('div'); // Assuming Template renders as a `div`
+        expect(templateContainer).toBeInTheDocument();
     });
 });

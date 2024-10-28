@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box } from '@mui/material';
 
-import { amenityOptions } from 'components/factory/icon-select-list/iconList';
+import { amenityOptions } from 'components/factory/amenity-icons/iconList';
 import { Template } from 'components/_template/Template';
 
 interface AutoCompleteOptions {
@@ -15,27 +15,23 @@ interface AutoCompleteOptions {
 }
 
 interface Props {
-    options: AutoCompleteOptions[];
     label: string;
-    value: AutoCompleteOptions | null;
-    onChange: (selected: AutoCompleteOptions | null) => void;
+    value: string | number;
+    onChange: (selectedIconName: string) => void;
 }
 
-export function IconSelectList({
-    options = amenityOptions,
-    label,
-    value,
-    onChange,
-}: Props): ReactElement {
+export function AmenityIcons({ label, value, onChange }: Props): ReactElement {
+    const options: AutoCompleteOptions[] = amenityOptions;
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
-        if (value) {
-            setInputValue(value.label);
+        const selectedOption = options.find((option) => option.value === value);
+        if (selectedOption) {
+            setInputValue(selectedOption.label);
         } else {
             setInputValue('');
         }
-    }, [value]);
+    }, [value, options]);
 
     return (
         <Template>
@@ -45,9 +41,9 @@ export function IconSelectList({
                 id="auto-complete"
                 options={options}
                 sx={{ width: '100%' }}
-                value={value}
+                value={options.find((option) => option.value === value)}
                 onChange={(_event, selected) =>
-                    onChange(selected as AutoCompleteOptions | null)
+                    onChange(selected!.value as string)
                 }
                 inputValue={inputValue}
                 onInputChange={(_e, newInputValue) =>
@@ -60,7 +56,7 @@ export function IconSelectList({
                     <TextField {...params} label={label} />
                 )}
                 renderOption={(props, option) => {
-                    // eslint-disable-next-line react/prop-types
+                    // eslint-disable-next-line
                     const { key, ...otherProps } = props;
                     return (
                         <Box
@@ -71,7 +67,7 @@ export function IconSelectList({
                                 alignItems: 'center',
                                 gap: '10px',
                             }}
-                            {...otherProps} // Spread remaining props without key
+                            {...otherProps}
                         >
                             {option.icon}
                             <Typography>{option.label}</Typography>

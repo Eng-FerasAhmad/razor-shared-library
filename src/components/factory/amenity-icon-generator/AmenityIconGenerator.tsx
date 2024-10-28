@@ -1,6 +1,6 @@
 import { cloneElement, ReactElement } from 'react';
 
-import { amenityOptionsMap } from 'components/factory/icon-select-list/iconList';
+import { amenityOptionsMap } from 'components/factory/amenity-icons/iconList';
 import { Template } from 'components/_template/Template';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
         | 'disabled';
 }
 
-export function IconGenerator({
+export function AmenityIconGenerator({
     iconName,
     size = 'medium',
     color = 'inherit',

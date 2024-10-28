@@ -92,6 +92,7 @@ export default function EntityTableHead<T>(props: TableProps<T>): ReactElement {
                     </TableCell>
                 ))}
                 <TableCell
+                    data-testid="reset-button"
                     align={'right'}
                     sx={{
                         fontSize: pixelToRem(fontSize.font17),

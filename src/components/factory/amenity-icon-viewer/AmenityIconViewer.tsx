@@ -12,7 +12,7 @@ interface IconViewerProps {
     icons: IconItem[];
 }
 
-export function IconViewer({ icons }: IconViewerProps): ReactElement {
+export function AmenityIconViewer({ icons }: IconViewerProps): ReactElement {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {icons.map((iconItem) => (

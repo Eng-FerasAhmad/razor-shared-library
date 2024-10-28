@@ -56,12 +56,12 @@ export function Checkmarks({
     return (
         <Template>
             <FormControl sx={{ minWidth: '100%' }}>
-                <InputLabel id="checkbox-label" sx={{ width: 'fit-content' }}>
+                <InputLabel id="checkbox-label" htmlFor="multiple-checkbox">
                     {label}
                 </InputLabel>
                 <Select
-                    labelId="demo-multiple-checkbox-label"
-                    id="demo-multiple-checkbox"
+                    labelId="checkbox-label"
+                    id="multiple-checkbox"
                     multiple
                     value={selectedItems}
                     onChange={handleChange}
