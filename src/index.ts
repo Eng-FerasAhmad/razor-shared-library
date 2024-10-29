@@ -19,6 +19,7 @@ export { FormCreator } from './components/factory/form-creator/FormCreator';
 export { AmenityIconGenerator } from 'components/factory/amenity-icon-generator/AmenityIconGenerator';
 export { AmenityIconViewer } from 'components/factory/amenity-icon-viewer/AmenityIconViewer';
 export { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
+export { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 
 // Feedback
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';

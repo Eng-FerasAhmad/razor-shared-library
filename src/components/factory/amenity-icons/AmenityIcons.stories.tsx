@@ -26,8 +26,8 @@ export const Default: Story = {
     render: (args) => {
         const [selectedValue, setSelectedValue] = useState(args.value);
 
-        const handleChange = (newSelectedValue: string) => {
-            setSelectedValue(newSelectedValue);
+        const handleChange = (newSelectedValue: string | null) => {
+            setSelectedValue(newSelectedValue!);
             if (args.onChange) {
                 args.onChange(newSelectedValue);
             }
