@@ -154,6 +154,7 @@ export { default as ReplayIcon } from '@mui/icons-material/Replay';
 export { default as SaveIcon } from '@mui/icons-material/Save';
 export { default as ContentCopyIcon } from '@mui/icons-material/ContentCopy';
 export { default as FilterListOffIcon } from '@mui/icons-material/FilterListOff';
+export { default as TranslateIcon } from '@mui/icons-material/Translate';
 
 // icon select list:
 export { default as AccessibleIcon } from '@mui/icons-material/Accessible';
