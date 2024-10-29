@@ -27,9 +27,9 @@ export function LanguageSwitch({
         useState<string>(defaultLanguage);
 
     const flagMap: Record<string, string> = {
-        EN: '🇬🇧',
-        DE: '🇩🇪',
-        FR: '🇫🇷',
+        en: '🇬🇧',
+        de: '🇩🇪',
+        fr: '🇫🇷',
     };
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -56,16 +56,21 @@ export function LanguageSwitch({
                 sx={{
                     display: 'inline-block',
                     borderRadius: '8px',
-                    transition: 'border 0.3s',
-                    border: '1px solid #fff',
+                    boxShadow: '0 0 0 1px transparent',
+                    transition: 'box-shadow 0.3s',
+                    fontSize: '14px',
                     '&:hover': {
-                        border: '1px solid #ccc',
+                        boxShadow: '0 0 0 1px #ccc',
                     },
                 }}
             >
                 <Button
                     onClick={handleClick}
-                    sx={{ textTransform: 'none', color: 'black' }}
+                    sx={{
+                        textTransform: 'none',
+                        color: 'black',
+                        padding: '3px 6px',
+                    }}
                 >
                     <Box
                         component="span"
@@ -78,7 +83,7 @@ export function LanguageSwitch({
                             borderRadius: '50%',
                             backgroundColor: color.borderLight,
                             color: 'white',
-                            fontSize: 16,
+                            fontSize: '14px',
                             mr: 1,
                         }}
                     >
@@ -86,7 +91,11 @@ export function LanguageSwitch({
                     </Box>
                     <Typography
                         variant="body1"
-                        sx={{ marginRight: '4px', minWidth: '60px' }}
+                        sx={{
+                            marginRight: '4px',
+                            minWidth: '60px',
+                            fontSize: '14px',
+                        }}
                     >
                         {selectedLang?.nativeName || 'Select Language'}
                     </Typography>

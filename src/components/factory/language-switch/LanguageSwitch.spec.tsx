@@ -5,11 +5,11 @@ import '@testing-library/jest-dom';
 
 describe('LanguageSwitch', () => {
     const languages = [
-        { lang: 'DE', nativeName: 'Deutsch' },
-        { lang: 'EN', nativeName: 'English' },
-        { lang: 'FR', nativeName: 'French' },
+        { lang: 'de', nativeName: 'Deutsch' },
+        { lang: 'en', nativeName: 'English' },
+        { lang: 'fr', nativeName: 'Française' },
     ];
-    const defaultLanguage = 'GB';
+    const defaultLanguage = 'en';
     const onSelect = jest.fn();
 
     beforeEach(() => {
