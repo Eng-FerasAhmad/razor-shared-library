@@ -1,12 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 
 import { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 
 const languages = [
-    { lang: 'German', nativeName: 'DE' },
-    { lang: 'English', nativeName: 'GB' },
-    { lang: 'French', nativeName: 'FR' },
+    { lang: 'DE', nativeName: 'Deutsch' },
+    { lang: 'EN', nativeName: 'English' },
+    { lang: 'FR', nativeName: 'French' },
 ];
 
 const meta: Meta<typeof LanguageSwitch> = {
@@ -27,12 +26,7 @@ type Story = StoryObj<typeof LanguageSwitch>;
 
 export const Default: Story = {
     render: (args) => {
-        const [selectedLanguage, setSelectedLanguage] = useState(
-            args.defaultLanguage
-        );
-
         const handleSelect = (newSelectedLanguage: string) => {
-            setSelectedLanguage(newSelectedLanguage);
             if (args.onSelect) {
                 args.onSelect(newSelectedLanguage);
             }
@@ -41,7 +35,7 @@ export const Default: Story = {
         return (
             <LanguageSwitch
                 {...args}
-                defaultLanguage={selectedLanguage}
+                defaultLanguage={'DE'}
                 onSelect={handleSelect}
                 languages={languages}
             />

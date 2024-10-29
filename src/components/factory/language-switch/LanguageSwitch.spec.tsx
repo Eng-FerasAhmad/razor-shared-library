@@ -5,9 +5,9 @@ import '@testing-library/jest-dom';
 
 describe('LanguageSwitch', () => {
     const languages = [
-        { lang: 'German', nativeName: 'DE' },
-        { lang: 'English', nativeName: 'GB' },
-        { lang: 'French', nativeName: 'FR' },
+        { lang: 'DE', nativeName: 'Deutsch' },
+        { lang: 'EN', nativeName: 'English' },
+        { lang: 'FR', nativeName: 'French' },
     ];
     const defaultLanguage = 'GB';
     const onSelect = jest.fn();

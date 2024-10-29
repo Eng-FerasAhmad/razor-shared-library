@@ -27,7 +27,7 @@ export function LanguageSwitch({
         useState<string>(defaultLanguage);
 
     const flagMap: Record<string, string> = {
-        GB: '🇬🇧',
+        EN: '🇬🇧',
         DE: '🇩🇪',
         FR: '🇫🇷',
     };
