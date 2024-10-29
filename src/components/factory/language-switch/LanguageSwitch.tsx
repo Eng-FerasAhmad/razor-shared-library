@@ -4,7 +4,6 @@ import { Menu, MenuItem, Button, Box, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { color } from 'shared/color';
-import { Template } from 'components/_template/Template';
 
 type Language = {
     lang: string;
@@ -51,78 +50,75 @@ export function LanguageSwitch({
     );
 
     return (
-        <Template>
-            <Box
+        <Box
+            sx={{
+                display: 'inline-block',
+            }}
+        >
+            <Button
+                onClick={handleClick}
                 sx={{
-                    display: 'inline-block',
-                    borderRadius: '8px',
-                    boxShadow: '0 0 0 1px transparent',
-                    transition: 'box-shadow 0.3s',
+                    textTransform: 'none',
+                    padding: '6px 8px',
+                    color: color.primary.dark,
                     fontSize: '14px',
+                    backgroundColor: color.light,
+                    borderRadius: 10,
+                    border: '1px solid #d7f4e8',
                     '&:hover': {
-                        boxShadow: '0 0 0 1px #ccc',
+                        backgroundColor: color.primary.main,
+                        color: color.light,
                     },
                 }}
             >
-                <Button
-                    onClick={handleClick}
+                <Box
+                    component="span"
                     sx={{
-                        textTransform: 'none',
-                        color: 'black',
-                        padding: '3px 6px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 24,
+                        height: 24,
+                        borderRadius: '50%',
+
+                        color: 'white',
+                        fontSize: '14px',
+                        mr: 1,
                     }}
                 >
-                    <Box
-                        component="span"
-                        sx={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: 24,
-                            height: 24,
-                            borderRadius: '50%',
-                            backgroundColor: color.borderLight,
-                            color: 'white',
-                            fontSize: '14px',
-                            mr: 1,
-                        }}
-                    >
-                        {flagMap[selectedLanguage]}
-                    </Box>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            marginRight: '4px',
-                            minWidth: '60px',
-                            fontSize: '14px',
-                        }}
-                    >
-                        {selectedLang?.nativeName || 'Select Language'}
-                    </Typography>
-                    <ExpandMoreIcon
-                        sx={{
-                            transition: 'transform 0.5s',
-                            transform: anchorEl
-                                ? 'rotate(180deg)'
-                                : 'rotate(0deg)',
-                        }}
-                    />
-                </Button>
-                <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
+                    {flagMap[selectedLanguage]}
+                </Box>
+                <Typography
+                    variant="body1"
+                    sx={{
+                        marginRight: '4px',
+                        minWidth: '60px',
+                        fontSize: '14px',
+                    }}
                 >
-                    {languages.map(({ nativeName, lang }) => (
-                        <MenuItem key={lang} onClick={() => handleSelect(lang)}>
-                            <Box component="span" sx={{ mr: 1 }}>
-                                {flagMap[lang] || '🏳️'}
-                            </Box>
-                            {nativeName}
-                        </MenuItem>
-                    ))}
-                </Menu>
-            </Box>
-        </Template>
+                    {selectedLang?.nativeName || 'Select Language'}
+                </Typography>
+                <ExpandMoreIcon
+                    sx={{
+                        transition: 'transform 0.5s',
+                        transform: anchorEl ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}
+                />
+            </Button>
+            <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+            >
+                {languages.map(({ nativeName, lang }) => (
+                    <MenuItem key={lang} onClick={() => handleSelect(lang)}>
+                        <Box component="span" sx={{ mr: 1 }}>
+                            {flagMap[lang] || '🏳️'}
+                        </Box>
+                        {nativeName}
+                    </MenuItem>
+                ))}
+            </Menu>
+        </Box>
     );
 }

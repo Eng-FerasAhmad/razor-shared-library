@@ -20,6 +20,7 @@ export { AmenityIconGenerator } from 'components/factory/amenity-icon-generator/
 export { AmenityIconViewer } from 'components/factory/amenity-icon-viewer/AmenityIconViewer';
 export { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
 export { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
+export { Account } from 'components/factory/account/Account';
 
 // Feedback
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';
