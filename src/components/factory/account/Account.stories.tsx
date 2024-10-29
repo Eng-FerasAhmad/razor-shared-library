@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { AccountCircle, Google, Facebook } from '@mui/icons-material';
 
-import LoginSwitch from 'components/factory/account/Account';
+import { Account } from 'components/factory/account/Account';
 
 const loginItems = [
     {
@@ -22,9 +22,9 @@ const loginItems = [
     },
 ];
 
-const meta: Meta<typeof LoginSwitch> = {
+const meta: Meta<typeof Account> = {
     title: 'Factory/LoginSwitch',
-    component: LoginSwitch,
+    component: Account,
     argTypes: {
         title: { control: 'text' },
     },
@@ -32,10 +32,10 @@ const meta: Meta<typeof LoginSwitch> = {
 
 export default meta;
 
-type Story = StoryObj<typeof LoginSwitch>;
+type Story = StoryObj<typeof Account>;
 
 export const Default: Story = {
-    render: (args) => <LoginSwitch {...args} items={loginItems} />,
+    render: (args) => <Account {...args} items={loginItems} />,
     args: {
         title: 'Login',
     },

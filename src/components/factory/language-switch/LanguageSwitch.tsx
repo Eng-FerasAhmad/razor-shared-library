@@ -62,12 +62,11 @@ export function LanguageSwitch({
                     padding: '6px 8px',
                     color: color.primary.dark,
                     fontSize: '14px',
-                    backgroundColor: color.light,
+                    backgroundColor: '#f0fcf8',
                     borderRadius: 10,
                     border: '1px solid #d7f4e8',
                     '&:hover': {
-                        backgroundColor: color.primary.main,
-                        color: color.light,
+                        border: `1px solid ${color.primary.main}`,
                     },
                 }}
             >
