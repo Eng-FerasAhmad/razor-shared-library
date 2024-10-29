@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 
 const languages = [
-    { name: 'German', short: 'DE' },
-    { name: 'English', short: 'GB' },
-    { name: 'French', short: 'FR' },
+    { lang: 'German', nativeName: 'DE' },
+    { lang: 'English', nativeName: 'GB' },
+    { lang: 'French', nativeName: 'FR' },
 ];
 
 const meta: Meta<typeof LanguageSwitch> = {
@@ -15,7 +15,7 @@ const meta: Meta<typeof LanguageSwitch> = {
     argTypes: {
         defaultLanguage: {
             control: 'select',
-            options: languages.map((lang) => lang.short),
+            options: languages.map((lang) => lang.lang),
         },
         onSelect: { action: 'selected' },
     },

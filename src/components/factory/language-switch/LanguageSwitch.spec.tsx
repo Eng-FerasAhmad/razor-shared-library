@@ -1,13 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { LanguageSwitch } from './LanguageSwitch';
 
 describe('LanguageSwitch', () => {
     const languages = [
-        { name: 'German', short: 'DE' },
-        { name: 'English', short: 'GB' },
-        { name: 'French', short: 'FR' },
+        { lang: 'German', nativeName: 'DE' },
+        { lang: 'English', nativeName: 'GB' },
+        { lang: 'French', nativeName: 'FR' },
     ];
     const defaultLanguage = 'GB';
     const onSelect = jest.fn();

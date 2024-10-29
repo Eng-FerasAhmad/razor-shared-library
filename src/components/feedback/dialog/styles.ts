@@ -51,7 +51,4 @@ export const StyledDialogActions = styled(DialogActions)`
     font-family: inherit;
     margin: ${pixelToRem(16, 24)};
     padding: 0;
-    &.MuiDialogActions-root {
-        padding: 0;
-    }
 `;
