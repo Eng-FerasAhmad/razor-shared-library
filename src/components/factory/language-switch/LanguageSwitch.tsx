@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { Menu, MenuItem, Button, Box, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { color } from 'shared/color';
+import EnIcon from 'components/factory/language-switch/En';
+import DeIcon from 'components/factory/language-switch/De';
+import FrIcon from 'components/factory/language-switch/Fr';
 
 type Language = {
     lang: string;
@@ -25,10 +28,10 @@ export function LanguageSwitch({
     const [selectedLanguage, setSelectedLanguage] =
         useState<string>(defaultLanguage);
 
-    const flagMap: Record<string, string> = {
-        en: '🇬🇧',
-        de: '🇩🇪',
-        fr: '🇫🇷',
+    const flagMap: Record<string, ReactElement> = {
+        en: <EnIcon />,
+        de: <DeIcon />,
+        fr: <FrIcon />,
     };
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -107,9 +110,14 @@ export function LanguageSwitch({
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                sx={{ p: 0 }}
             >
                 {languages.map(({ nativeName, lang }) => (
-                    <MenuItem key={lang} onClick={() => handleSelect(lang)}>
+                    <MenuItem
+                        key={lang}
+                        onClick={() => handleSelect(lang)}
+                        sx={{ fontSize: 14 }}
+                    >
                         <Box component="span" sx={{ mr: 1 }}>
                             {flagMap[lang] || '🏳️'}
                         </Box>
