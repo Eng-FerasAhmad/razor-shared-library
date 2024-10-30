@@ -2,6 +2,7 @@ import { ReactNode, useState, MouseEvent } from 'react';
 
 import { Menu, MenuItem, Button, Box, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { VerifiedUser } from '@mui/icons-material';
 
 import { color } from 'shared/color';
 
@@ -42,9 +43,16 @@ export function Account({ items, title }: LoginSwitchProps) {
             >
                 <Typography
                     variant="body1"
-                    sx={{ marginRight: '8px', marginLeft: '8px', fontSize: 14 }}
+                    sx={{
+                        marginRight: '8px',
+                        marginLeft: '8px',
+                        fontSize: 14,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                    }}
                 >
-                    {title}
+                    <VerifiedUser fontSize={'small'} /> <>{title}</>
                 </Typography>
                 <ExpandMoreIcon
                     sx={{
@@ -65,7 +73,11 @@ export function Account({ items, title }: LoginSwitchProps) {
                             onClick();
                             handleClose();
                         }}
-                        sx={{ display: 'flex', alignItems: 'center' }}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            fontSize: 14,
+                        }}
                     >
                         <Box component="span" sx={{ mr: 1, display: 'flex' }}>
                             {icon}
