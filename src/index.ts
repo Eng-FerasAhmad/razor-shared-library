@@ -149,7 +149,6 @@ export { default as StoreIcon } from '@mui/icons-material/Store';
 export { default as CalendarViewMonthIcon } from '@mui/icons-material/CalendarViewMonth';
 export { default as CameraEnhanceIcon } from '@mui/icons-material/CameraEnhance';
 export { default as SearchIcon } from '@mui/icons-material/Search';
-export { default as InstagramIcon } from '@mui/icons-material/Instagram';
 export { default as WarningIcon } from '@mui/icons-material/Warning';
 export { default as AutoAwesomeMosaicIcon } from '@mui/icons-material/AutoAwesomeMosaic';
 export { default as ReplayIcon } from '@mui/icons-material/Replay';
@@ -157,6 +156,11 @@ export { default as SaveIcon } from '@mui/icons-material/Save';
 export { default as ContentCopyIcon } from '@mui/icons-material/ContentCopy';
 export { default as FilterListOffIcon } from '@mui/icons-material/FilterListOff';
 export { default as TranslateIcon } from '@mui/icons-material/Translate';
+
+export { default as FacebookIcon } from '@mui/icons-material/Facebook';
+export { default as XIcon } from '@mui/icons-material/X';
+export { default as LinkedInIcon } from '@mui/icons-material/LinkedIn';
+export { default as InstagramIcon } from '@mui/icons-material/Instagram';
 
 // icon select list:
 export { default as AccessibleIcon } from '@mui/icons-material/Accessible';
