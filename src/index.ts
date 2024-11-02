@@ -59,6 +59,7 @@ export { TabCustom as Tab } from './components/navigation/tab/Tab';
 export { BreadcrumbsCustom as Breadcrumbs } from './components/navigation/breadcrumbs/Breadcrumbs';
 export { LinkCustom as Link } from './components/navigation/link/Link';
 export { PaginationCustom as Pagination } from './components/navigation/pagination/Pagination';
+export { Sidebar } from './components/navigation/sidebar/Sidebar';
 
 // Surfaces
 export { AccordionCustom as Accordion } from './components/surfaces/accordion/Accordion';
