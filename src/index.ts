@@ -1,6 +1,7 @@
 // components:
 // -------------------------
 // Data Display
+export { MuiTemplate } from './components/mui-template/MuiTemplate';
 export { AvatarCustom as Avatar } from './components/data-display/avatar/Avatar';
 export { BadgeCustom as Badge } from './components/data-display/badge/Badge';
 export { ChipCustom as Chip } from './components/data-display/chip/Chip';
@@ -8,6 +9,7 @@ export { DividerCustom as Divider } from './components/data-display/divider/Divi
 export { ListCustom as List } from './components/data-display/list/List';
 export { ToolTipCustom as ToolTip } from './components/data-display/tooltip/ToolTip';
 export { TableCustom as Table } from './components/data-display/table/Table';
+export { Box } from '@mui/material';
 
 // Datepicker
 export { DatepickerCustom as Datepicker } from './components/datepicker/date-picker/Datepicker';
