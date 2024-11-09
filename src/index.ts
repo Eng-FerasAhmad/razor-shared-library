@@ -88,6 +88,7 @@ export type {
     StandardVariant,
     StandardColorUnion,
 } from './shared/types';
+export type { SelectChangeEvent } from '@mui/material/Select';
 
 // colors:
 export { RazorBrandColor, color } from './shared/color';
