@@ -17,6 +17,7 @@ interface Props {
     helperText?: string;
     error?: boolean;
     disabled?: boolean;
+    size?: 'small' | 'medium';
     handleChange: (event: SelectChangeEvent) => void;
 }
 export function InputSelect({
@@ -28,12 +29,13 @@ export function InputSelect({
     error,
     disabled,
     handleChange,
+    size = 'small',
 }: Props): ReactElement {
     return (
         <Template>
             <FormControl
                 sx={{ width: '100%' }}
-                size="medium"
+                size={size}
                 data-testid="input-select-form"
             >
                 <InputLabel id="input-select-label">{label}</InputLabel>
