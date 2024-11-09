@@ -12,7 +12,7 @@ import { SelectItems } from 'components/inputs/input-select/types';
 interface Props {
     items: SelectItems[];
     value: string;
-    label: string;
+    label?: string; // Made optional to handle conditional rendering
     noneValue?: boolean;
     helperText?: string;
     error?: boolean;
@@ -20,6 +20,7 @@ interface Props {
     size?: 'small' | 'medium';
     handleChange: (event: SelectChangeEvent) => void;
 }
+
 export function InputSelect({
     value,
     items,
@@ -38,12 +39,14 @@ export function InputSelect({
                 size={size}
                 data-testid="input-select-form"
             >
-                <InputLabel id="input-select-label">{label}</InputLabel>
+                {label && (
+                    <InputLabel id="input-select-label">{label}</InputLabel>
+                )}
                 <Select
-                    labelId="input-select-label"
+                    labelId={label ? 'input-select-label' : undefined}
                     id="input-select"
                     value={value}
-                    label={label}
+                    label={label || undefined}
                     error={error}
                     disabled={disabled}
                     onChange={handleChange}
