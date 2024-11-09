@@ -5,6 +5,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SxProps, Theme } from '@mui/material/styles';
 
 import { Template } from 'src/components/_template/Template';
 import { SelectItems } from 'components/inputs/input-select/types';
@@ -12,13 +13,15 @@ import { SelectItems } from 'components/inputs/input-select/types';
 interface Props {
     items: SelectItems[];
     value: string;
-    label?: string; // Made optional to handle conditional rendering
+    label?: string;
     noneValue?: boolean;
     helperText?: string;
     error?: boolean;
     disabled?: boolean;
     size?: 'small' | 'medium';
     handleChange: (event: SelectChangeEvent) => void;
+    formControlSx?: SxProps<Theme>;
+    selectSx?: SxProps<Theme>;
 }
 
 export function InputSelect({
@@ -31,11 +34,13 @@ export function InputSelect({
     disabled,
     handleChange,
     size = 'small',
+    formControlSx,
+    selectSx,
 }: Props): ReactElement {
     return (
         <Template>
             <FormControl
-                sx={{ width: '100%' }}
+                sx={{ width: '100%', ...formControlSx }}
                 size={size}
                 data-testid="input-select-form"
             >
@@ -50,7 +55,7 @@ export function InputSelect({
                     error={error}
                     disabled={disabled}
                     onChange={handleChange}
-                    sx={{ width: '100%' }}
+                    sx={{ width: '100%', ...selectSx }}
                 >
                     {noneValue && (
                         <MenuItem value="">
