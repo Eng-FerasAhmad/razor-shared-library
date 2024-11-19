@@ -88,7 +88,7 @@ export const MenuCustom = ({
                 placement={position}
                 transition
                 disablePortal={false}
-                style={{ zIndex: 1000 }}
+                style={{ zIndex: 1101 }}
             >
                 {({ TransitionProps, placement }) => (
                     <Grow

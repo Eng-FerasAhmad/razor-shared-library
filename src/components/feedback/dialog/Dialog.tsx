@@ -13,7 +13,7 @@ import {
 } from 'components/feedback/dialog/styles';
 
 interface Props {
-    handleClose: () => void;
+    handleClose?: () => void;
     title?: string;
     actions?: ReactNode;
     open: boolean;
@@ -50,13 +50,15 @@ export function DialogCustom({
                     </StyledDialogTitle>
                 )}
 
-                <StyledIconButton
-                    aria-label="close"
-                    onClick={handleClose}
-                    data-testid="dialog-close-icon"
-                >
-                    <CloseIcon />
-                </StyledIconButton>
+                {handleClose && (
+                    <StyledIconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        data-testid="dialog-close-icon"
+                    >
+                        <CloseIcon />
+                    </StyledIconButton>
+                )}
 
                 <StyledDialogContent dividers data-testid="dialog-content">
                     {children}
