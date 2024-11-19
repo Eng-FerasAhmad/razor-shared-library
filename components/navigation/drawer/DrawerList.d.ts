@@ -5,6 +5,8 @@ interface Props {
     collapseIconOpen?: ReactNode;
     collapseIconClose?: ReactNode;
     handleClick: (index: number) => void;
+    selectedSubItemIndex?: number;
+    selectedItemIndex?: number;
 }
-export default function DrawerList({ listItems, collapseIconOpen, collapseIconClose, handleClick, }: Props): ReactElement;
+export default function DrawerList({ listItems, collapseIconOpen, collapseIconClose, handleClick, selectedSubItemIndex, selectedItemIndex, }: Props): ReactElement;
 export {};

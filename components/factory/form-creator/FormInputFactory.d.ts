@@ -6,6 +6,7 @@ interface UseFormControllerProps {
     index: number;
     updateDataForm: (index: number, value: string | number | boolean | Dayjs) => void;
     handleInputChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => void;
+    submit?: boolean;
 }
-export declare function FormInputFactory({ item, index, updateDataForm, handleInputChange, }: UseFormControllerProps): ReactElement | null;
+export declare function FormInputFactory({ item, index, updateDataForm, handleInputChange, submit, }: UseFormControllerProps): ReactElement | null;
 export {};

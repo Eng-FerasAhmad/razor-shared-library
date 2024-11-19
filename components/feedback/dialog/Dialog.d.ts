@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement, ReactNode } from '../../../../node_modules/react';
 import { DialogProps } from '@mui/material/Dialog';
 interface Props {
-    handleClose: () => void;
+    handleClose?: () => void;
     title?: string;
     actions?: ReactNode;
     open: boolean;

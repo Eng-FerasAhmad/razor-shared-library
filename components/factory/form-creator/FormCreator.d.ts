@@ -3,6 +3,7 @@ import { FormDataSet } from '../../../../../../../../src/components/factory/form
 interface Props {
     formDataSet: FormDataSet[];
     onUpdateFrom: (formData: FormDataSet[]) => void;
+    submit?: boolean;
 }
-export declare function FormCreator({ formDataSet, onUpdateFrom, }: Props): ReactElement;
+export declare function FormCreator({ formDataSet, onUpdateFrom, submit, }: Props): ReactElement;
 export {};

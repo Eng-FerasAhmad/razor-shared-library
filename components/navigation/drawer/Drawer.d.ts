@@ -9,6 +9,8 @@ interface Props {
     open: boolean;
     handleDrawerOpen: () => void;
     handleSubItemClick: (index: number) => void;
+    selectedSubItemIndex?: number;
+    selectedItemIndex?: number;
 }
-export declare function DrawerCustom({ appTitle, header, listItems, open, handleDrawerOpen, handleSubItemClick, }: Props): ReactElement;
+export declare function DrawerCustom({ appTitle, header, listItems, open, handleDrawerOpen, handleSubItemClick, selectedSubItemIndex, selectedItemIndex, }: Props): ReactElement;
 export {};
