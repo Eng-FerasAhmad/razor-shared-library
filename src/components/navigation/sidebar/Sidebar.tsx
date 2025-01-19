@@ -7,6 +7,7 @@ interface Props {
     toggleDrawer: () => void;
     top: number;
     children: ReactNode;
+    width: number | undefined;
 }
 
 export function Sidebar({
@@ -14,6 +15,7 @@ export function Sidebar({
     toggleDrawer,
     top = 65,
     children,
+    width = 256,
 }: Props): ReactElement {
     return (
         <Drawer
@@ -23,7 +25,7 @@ export function Sidebar({
             variant="persistent"
             sx={{
                 '& .MuiDrawer-paper': {
-                    width: 256,
+                    width: width,
                     boxSizing: 'border-box',
                     position: 'fixed',
                     top: `${top}px`,
