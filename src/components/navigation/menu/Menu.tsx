@@ -5,7 +5,6 @@ import {
     SyntheticEvent,
     useEffect,
     useRef,
-    useState,
 } from 'react';
 
 import Box, { BoxProps } from '@mui/material/Box';
@@ -26,6 +25,8 @@ interface Props extends Omit<BoxProps, 'position'> {
     selected?: string;
     anchor: ReactNode;
     position?: 'bottom-start' | 'bottom-end';
+    open: boolean; // Controlled state
+    onClose: () => void; // Close function
 }
 
 export const MenuCustom = ({
@@ -33,40 +34,28 @@ export const MenuCustom = ({
     selected,
     anchor,
     position = 'bottom-start',
+    open,
+    onClose,
     ...props
 }: Props): ReactElement => {
-    const [open, setOpen] = useState(false);
     const anchorRef = useRef<HTMLDivElement>(null);
-    const prevOpen = useRef(open);
 
     useEffect(() => {
-        if (prevOpen.current && !open) {
+        if (!open) {
             anchorRef.current?.focus();
         }
-        prevOpen.current = open;
     }, [open]);
-
-    const handleToggle = (): void => {
-        setOpen((prev) => !prev);
-    };
-
-    const handleClose = (event: Event | SyntheticEvent): void => {
-        if (anchorRef.current?.contains(event.target as HTMLElement)) {
-            return;
-        }
-        setOpen(false);
-    };
 
     const handleListKeyDown = (event: KeyboardEvent): void => {
         if (event.key === 'Tab' || event.key === 'Escape') {
             event.preventDefault();
-            setOpen(false);
+            onClose(); // Close menu on Escape or Tab
         }
     };
 
-    const handleClickItem = (event: SyntheticEvent, item: MenuItems): void => {
+    const handleClickItem = (_event: SyntheticEvent, item: MenuItems): void => {
         item.action();
-        handleClose(event);
+        onClose(); // Close menu after selecting an item
     };
 
     return (
@@ -76,7 +65,6 @@ export const MenuCustom = ({
                 aria-controls={open ? 'composition-menu' : undefined}
                 aria-expanded={open}
                 aria-haspopup="true"
-                onClick={handleToggle}
                 {...props}
             >
                 {anchor}
@@ -103,7 +91,7 @@ export const MenuCustom = ({
                         }}
                     >
                         <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
+                            <ClickAwayListener onClickAway={onClose}>
                                 <MenuList
                                     autoFocusItem={open}
                                     id="composition-menu"

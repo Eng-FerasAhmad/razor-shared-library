@@ -16,6 +16,7 @@ import { MenuCustom } from 'components/navigation/menu/Menu';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
+    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
 
     const handleDlClick = (row: T, index: number): void => {
         if (props.onDlClickRow) {
@@ -23,12 +24,26 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
         }
     };
 
-    const handleOneClick = (row: T, index: number): void => {
+    const handleRowClick = (
+        row: T,
+        index: number,
+        event: React.MouseEvent
+    ): void => {
+        if (
+            (event.target as HTMLElement).closest('[data-menu-button="true"]')
+        ) {
+            return; // Prevent row click when clicking on the menu button
+        }
         if (props.onOneClickRow) {
             props.onOneClickRow(row, index);
         }
+    };
 
-        // Construct the new menu items based on props
+    const handleMenuClick = (_row: T, index: number): void => {
+        // Ensure menu closes if clicking another row
+        setOpenMenuIndex((prevIndex) => (prevIndex === index ? null : index));
+
+        // Construct the menu items
         const newItemsMenu: MenuItems[] = [];
         if (props.actionDetails) {
             newItemsMenu.push({
@@ -55,7 +70,6 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
             });
         }
 
-        // Update the itemsMenu state and toggle menu index
         setItemsMenu(newItemsMenu);
     };
 
@@ -65,17 +79,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                 <TableRow
                     role="row"
                     onDoubleClick={() => handleDlClick(row, index)}
-                    onClick={(event) => {
-                        if (
-                            (event.target as HTMLElement).closest(
-                                '[data-menu-item="true"]'
-                            )
-                        ) {
-                            event.stopPropagation(); // Prevent row click when clicking on menu
-                            return;
-                        }
-                        handleOneClick(row, index);
-                    }}
+                    onClick={(event) => handleRowClick(row, index, event)}
                     tabIndex={-1}
                     key={index}
                     sx={{
@@ -118,16 +122,22 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                                 items={itemsMenu}
                                 position="bottom-end"
                                 data-testid={'more-horiz-icon'}
-                                data-menu-item="true"
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                 }}
+                                open={openMenuIndex === index} // Controlled state
+                                onClose={() => setOpenMenuIndex(null)} // Close menu when clicking outside
                                 anchor={
                                     <MoreHorizIcon
                                         fontSize="medium"
                                         color={props.color}
+                                        data-menu-button="true"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleMenuClick(row, index);
+                                        }} // Ensure only menu opens on click
                                     />
                                 }
                             />
