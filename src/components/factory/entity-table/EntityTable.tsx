@@ -37,7 +37,7 @@ export function EntityTable<T>(props: TableProps<T>): ReactElement {
                         headerTools={props.headerTools}
                         data-testid="table-toolbar"
                     />
-                    <TableContainer sx={{ maxHeight: 'calc(100vh - 260px)' }}>
+                    <TableContainer sx={{ maxHeight: 'calc(100vh - 227px)' }}>
                         <Table
                             sx={{ minWidth: 750 }}
                             aria-labelledby="tableTitle"

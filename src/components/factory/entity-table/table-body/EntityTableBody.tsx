@@ -65,7 +65,17 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                 <TableRow
                     role="row"
                     onDoubleClick={() => handleDlClick(row, index)}
-                    onClick={() => handleOneClick(row, index)}
+                    onClick={(event) => {
+                        if (
+                            (event.target as HTMLElement).closest(
+                                '[data-menu-item="true"]'
+                            )
+                        ) {
+                            event.stopPropagation(); // Prevent row click when clicking on menu
+                            return;
+                        }
+                        handleOneClick(row, index);
+                    }}
                     tabIndex={-1}
                     key={index}
                     sx={{
@@ -108,6 +118,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                                 items={itemsMenu}
                                 position="bottom-end"
                                 data-testid={'more-horiz-icon'}
+                                data-menu-item="true"
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
