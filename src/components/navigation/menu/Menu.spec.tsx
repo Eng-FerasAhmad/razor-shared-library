@@ -1,5 +1,7 @@
+import { useState } from 'react';
+
+import { MenuCustom } from 'components/navigation/menu/Menu';
 import { MenuItems } from 'components/navigation/menu/types';
-import { MenuCustom } from 'components/navigation/menu/Menu'; // Adjust the import for your MenuItems type
 
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
@@ -9,30 +11,46 @@ describe('MenuCustom Component', () => {
         { title: 'Item 2', action: jest.fn(), icon: <div>Icon 2</div> },
     ];
 
-    const anchorElement = <button>Open Menu</button>;
+    // Wrapper component to control open state
+    const MenuWrapper = () => {
+        const [open, setOpen] = useState(false);
+
+        return (
+            <MenuCustom
+                items={mockItems}
+                anchor={
+                    <button onClick={() => setOpen(!open)}>Open Menu</button>
+                }
+                open={open}
+                onClose={() => setOpen(false)}
+            />
+        );
+    };
 
     beforeEach(() => {
         jest.clearAllMocks(); // Clear mock function calls before each test
     });
 
     test('renders the anchor element', () => {
-        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+        render(<MenuWrapper />);
         expect(
             screen.getByRole('button', { name: /open menu/i })
         ).toBeInTheDocument();
     });
 
-    test('opens the menu when anchor is clicked', () => {
-        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+    test('opens the menu when anchor is clicked', async () => {
+        render(<MenuWrapper />);
 
         // Click the anchor to open the menu
         fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
 
-        expect(screen.getByRole('menu')).toBeInTheDocument(); // Ensure menu is rendered
+        await waitFor(() => {
+            expect(screen.getByRole('menu')).toBeInTheDocument(); // Ensure menu is rendered
+        });
     });
 
-    test('calls the action of the clicked item', () => {
-        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+    test('calls the action of the clicked item', async () => {
+        render(<MenuWrapper />);
 
         // Open the menu
         fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
@@ -40,11 +58,13 @@ describe('MenuCustom Component', () => {
         // Click on the first menu item
         fireEvent.click(screen.getByText('Item 1'));
 
-        expect(mockItems[0].action).toHaveBeenCalled(); // Ensure the action was called
+        await waitFor(() => {
+            expect(mockItems[0].action).toHaveBeenCalled(); // Ensure the action was called
+        });
     });
 
     test('closes the menu when an item is clicked', async () => {
-        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+        render(<MenuWrapper />);
 
         // Open the menu
         fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
@@ -58,7 +78,7 @@ describe('MenuCustom Component', () => {
     });
 
     test('closes the menu when escape key is pressed', async () => {
-        render(<MenuCustom items={mockItems} anchor={anchorElement} />);
+        render(<MenuWrapper />);
 
         // Open the menu
         fireEvent.click(screen.getByRole('button', { name: /open menu/i }));
