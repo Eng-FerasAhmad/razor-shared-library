@@ -91,6 +91,7 @@ export function MediaBarView(props: StudioProps): ReactElement {
                     infoButton={props.infoButton}
                     fullscreen={props.fullscreen}
                     onFullscreen={handleFullscreen}
+                    info={carouselImages[index].alt}
                 />
                 <CarouselContainer>
                     <CarouselButton

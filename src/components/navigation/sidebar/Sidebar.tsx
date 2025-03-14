@@ -8,6 +8,7 @@ interface Props {
     top: number;
     children: ReactNode;
     width: number | undefined;
+    hasBorder: boolean;
 }
 
 export function Sidebar({
@@ -16,6 +17,7 @@ export function Sidebar({
     top = 65,
     children,
     width = 256,
+    hasBorder,
 }: Props): ReactElement {
     return (
         <Drawer
@@ -30,7 +32,7 @@ export function Sidebar({
                     position: 'fixed',
                     top: `${top}px`,
                     height: `calc(100vh - ${top - 1}px)`,
-                    borderRight: '1px solid #e0e0e0',
+                    borderRight: hasBorder ? '1px solid #e0e0e0' : 'none',
                     transition: 'transform 0.3s ease-in-out',
                     transform: isDrawerOpen
                         ? 'translateX(0)'
