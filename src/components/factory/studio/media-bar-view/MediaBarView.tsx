@@ -1,10 +1,12 @@
-import { ReactElement, useState, useRef } from 'react';
+import { ReactElement, useState } from 'react';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import { color } from 'shared/color';
 import { StudioProps } from 'components/factory/studio/types';
+import OptionItems from 'components/factory/studio/option-items/OptionItems';
+import FullscreenView from 'components/factory/studio/fullscreen/Fullscreen';
 
 import {
     CarouselButton,
@@ -22,12 +24,10 @@ export function MediaBarView(props: StudioProps): ReactElement {
     const [index, setIndex] = useState(1);
     const [isTransitioning, setIsTransitioning] = useState(true);
     const [thumbIndex, setThumbIndex] = useState(0);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     const totalSlides = props.media.length;
     const visibleThumbnails = 8;
-    const touchStartX = useRef(0);
-    const touchEndX = useRef(0);
-
     const carouselImages = [
         props.media[totalSlides - 1],
         ...props.media,
@@ -76,73 +76,89 @@ export function MediaBarView(props: StudioProps): ReactElement {
         );
     };
 
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartX.current = e.touches[0].clientX;
+    const handleFullscreen = () => {
+        setIsFullscreen(true);
     };
 
-    const handleTouchMove = (e: React.TouchEvent) => {
-        touchEndX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-        const deltaX = touchStartX.current - touchEndX.current;
-        if (deltaX > 50) {
-            nextThumbnails();
-        } else if (deltaX < -50) {
-            prevThumbnails();
-        }
+    const closeFullscreen = () => {
+        setIsFullscreen(false);
     };
 
     return (
-        <CarouselWrapper>
-            <CarouselContainer>
-                <CarouselButton onClick={prevSlide} style={{ left: '10px' }}>
-                    <ChevronLeftIcon sx={{ fontSize: 32 }} />
-                </CarouselButton>
+        <>
+            <CarouselWrapper>
+                <OptionItems
+                    infoButton={props.infoButton}
+                    fullscreen={props.fullscreen}
+                    onFullscreen={handleFullscreen}
+                />
+                <CarouselContainer>
+                    <CarouselButton
+                        onClick={prevSlide}
+                        style={{ left: '10px' }}
+                    >
+                        <ChevronLeftIcon sx={{ fontSize: 32 }} />
+                    </CarouselButton>
 
-                <ImageWrapper index={index} isTransitioning={isTransitioning}>
-                    {carouselImages.map((img, i) => (
-                        <Image key={i} src={img.url} alt={img.alt} />
-                    ))}
-                </ImageWrapper>
+                    <ImageWrapper
+                        index={index}
+                        isTransitioning={isTransitioning}
+                    >
+                        {carouselImages.map((img, i) => (
+                            <Image key={i} src={img.url} alt={img.alt} />
+                        ))}
+                    </ImageWrapper>
 
-                <CarouselButton onClick={nextSlide} style={{ right: '10px' }}>
-                    <ChevronRightIcon sx={{ fontSize: 32 }} />
-                </CarouselButton>
-            </CarouselContainer>
+                    <CarouselButton
+                        onClick={nextSlide}
+                        style={{ right: '10px' }}
+                    >
+                        <ChevronRightIcon sx={{ fontSize: 32 }} />
+                    </CarouselButton>
+                </CarouselContainer>
 
-            <ThumbnailContainer
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-            >
-                <ThumbnailScrollButton onClick={prevThumbnails}>
-                    <ChevronLeftIcon
-                        sx={{ fontSize: 24, color: color.darkOpacity80 }}
-                    />
-                </ThumbnailScrollButton>
+                <ThumbnailContainer>
+                    <ThumbnailScrollButton onClick={prevThumbnails}>
+                        <ChevronLeftIcon
+                            sx={{ fontSize: 24, color: color.darkOpacity80 }}
+                        />
+                    </ThumbnailScrollButton>
 
-                <ThumbnailWrapper>
-                    {Array.from({ length: visibleThumbnails }).map((_, i) => {
-                        const actualIndex = (thumbIndex + i) % totalSlides;
-                        return (
-                            <Thumbnail
-                                key={actualIndex}
-                                src={props.media[actualIndex].url}
-                                alt={props.media[actualIndex].alt}
-                                onClick={() => selectThumbnail(actualIndex)}
-                                isSelected={index === actualIndex + 1}
-                            />
-                        );
-                    })}
-                </ThumbnailWrapper>
+                    <ThumbnailWrapper>
+                        {Array.from({ length: visibleThumbnails }).map(
+                            (_, i) => {
+                                const actualIndex =
+                                    (thumbIndex + i) % totalSlides;
+                                return (
+                                    <Thumbnail
+                                        key={actualIndex}
+                                        src={props.media[actualIndex].url}
+                                        alt={props.media[actualIndex].alt}
+                                        onClick={() =>
+                                            selectThumbnail(actualIndex)
+                                        }
+                                        isSelected={index === actualIndex + 1}
+                                    />
+                                );
+                            }
+                        )}
+                    </ThumbnailWrapper>
 
-                <ThumbnailScrollButton onClick={nextThumbnails}>
-                    <ChevronRightIcon
-                        sx={{ fontSize: 24, color: color.darkOpacity80 }}
-                    />
-                </ThumbnailScrollButton>
-            </ThumbnailContainer>
-        </CarouselWrapper>
+                    <ThumbnailScrollButton onClick={nextThumbnails}>
+                        <ChevronRightIcon
+                            sx={{ fontSize: 24, color: color.darkOpacity80 }}
+                        />
+                    </ThumbnailScrollButton>
+                </ThumbnailContainer>
+            </CarouselWrapper>
+
+            {isFullscreen && (
+                <FullscreenView
+                    imageSrc={carouselImages[index].url}
+                    imageAlt={carouselImages[index].alt}
+                    onClose={closeFullscreen}
+                />
+            )}
+        </>
     );
 }

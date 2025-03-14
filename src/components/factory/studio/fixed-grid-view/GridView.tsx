@@ -91,7 +91,6 @@ export function GridView(props: StudioProps): ReactElement {
                 </ButtonContainer>
             </GridContainer>
 
-            {/* Dialog to show enlarged image */}
             <Dialog
                 open={!!selectedImage}
                 onClose={handleCloseDialog}

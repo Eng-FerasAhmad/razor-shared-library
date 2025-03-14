@@ -19,7 +19,7 @@ export const ImageWrapper = styled('div')<{
     display: 'flex',
     width: '100%',
     height: '100%',
-    transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none', // ✅ Transition only disabled when resetting
+    transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
     transform: `translateX(-${index * 100}%)`,
 }));
 
@@ -34,7 +34,7 @@ export const CarouselButton = styled('button')({
     position: 'absolute',
     top: '50%',
     transform: 'translateY(-50%)',
-    background: 'rgba(0, 0, 0, 0.3)', // Light dark background
+    background: 'rgba(0, 0, 0, 0.3)',
     color: '#fff',
     border: 'none',
     cursor: 'pointer',
