@@ -17,7 +17,7 @@ export function Sidebar({
     top = 65,
     children,
     width = 256,
-    hasBorder,
+    hasBorder = true,
 }: Props): ReactElement {
     return (
         <Drawer
