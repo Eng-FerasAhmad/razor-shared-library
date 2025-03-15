@@ -4,7 +4,6 @@ export const StudioContainer = styled('div')({
     width: '100%',
     maxWidth: '700px',
     maxHeight: '500px',
-    margin: 'auto',
     borderRadius: '10px',
     position: 'relative',
     display: 'flex',
