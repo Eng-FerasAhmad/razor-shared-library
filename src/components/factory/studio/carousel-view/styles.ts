@@ -4,6 +4,7 @@ export const CarouselContainer = styled('div')({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
     height: '438px',
     overflow: 'hidden',
     position: 'relative',

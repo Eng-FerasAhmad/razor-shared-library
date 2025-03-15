@@ -8,6 +8,7 @@ export const CarouselWrapper = styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
     height: '438px',
+    width: '100%',
 });
 
 export const CarouselContainer = styled('div')({
@@ -15,7 +16,6 @@ export const CarouselContainer = styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    maxWidth: '700px',
     maxHeight: '340px',
     overflow: 'hidden',
     position: 'relative',
@@ -25,12 +25,11 @@ export const CarouselContainer = styled('div')({
 
 export const ImageWrapper = styled('div')<{
     index: number;
-    isTransitioning: boolean;
-}>(({ index, isTransitioning }) => ({
+}>(({ index }) => ({
     display: 'flex',
     width: '100%',
     height: '100%',
-    transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
+    transition: 'transform 0.5s ease-in-out',
     transform: `translateX(-${index * 100}%)`,
 }));
 
@@ -51,10 +50,6 @@ export const CarouselButton = styled('button')({
     cursor: 'pointer',
     padding: '8px',
     borderRadius: '50%',
-    transition: 'background 0.3s ease-in-out',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     zIndex: 10,
 
     '&:hover': {
@@ -67,11 +62,10 @@ export const ThumbnailContainer = styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    maxWidth: '700px',
     height: '80px',
     position: 'relative',
     marginTop: '5px',
-    overflow: 'hidden',
+    overflowX: 'auto',
     background: '#fff',
     borderRadius: '10px',
     padding: '5px 0',
@@ -81,24 +75,26 @@ export const ThumbnailContainer = styled('div')({
 export const ThumbnailWrapper = styled('div')({
     display: 'flex',
     gap: '10px',
-    overflow: 'hidden',
-    width: 'calc(100% - 80px)',
-    justifyContent: 'center',
+    overflowX: 'auto',
     whiteSpace: 'nowrap',
+    scrollbarWidth: 'none',
+    alignItems: 'center',
+
+    '&::-webkit-scrollbar': {
+        display: 'none',
+    },
 });
 
 export const Thumbnail = styled('img')<{ isSelected: boolean }>(
     ({ isSelected }) => ({
-        width: '65px',
-        height: '60px',
+        width: isSelected ? '80px' : '55px',
+        height: isSelected ? '70px' : '50px',
         objectFit: 'cover',
         borderRadius: '10px',
         cursor: 'pointer',
-        border: isSelected ? '1px solid #aaa' : '1px solid transparent',
-
-        '&:hover': {
-            border: '1px solid #aaa',
-        },
+        transition:
+            'width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out',
+        filter: !isSelected ? 'brightness(0.6)' : 'brightness(1)',
     })
 );
 
@@ -107,51 +103,6 @@ export const ThumbnailScrollButton = styled('button')({
     border: 'none',
     cursor: 'pointer',
     padding: '6px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     background: 'transparent',
     borderRadius: '50%',
-
-    '&:hover': {
-        background: 'rgba(0, 0, 0, 0.1)',
-        transition: 'background 0.3s ease-in-out',
-    },
-});
-
-export const FullscreenOverlay = styled('div')({
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'rgba(0, 0, 0, 0.9)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999,
-});
-
-export const FullscreenImage = styled('img')({
-    borderRadius: '10px',
-});
-
-export const CloseButton = styled('button')({
-    position: 'absolute',
-    top: '20px',
-    right: '20px',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    color: '#fff',
-    padding: '8px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'background 0.3s ease-in-out',
-
-    '&:hover': {
-        background: 'rgba(255, 255, 255, 0.2)',
-    },
 });

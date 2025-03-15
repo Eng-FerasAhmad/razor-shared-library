@@ -1,9 +1,10 @@
 import { styled } from '@mui/material/styles';
+import { DialogContent, IconButton } from '@mui/material';
 
 import { color } from 'shared/color';
 
 export const GridContainer = styled('div')({
-    width: '700px',
+    width: '100%',
     height: '438px',
     borderRadius: '10px',
     border: `1px solid ${color.borderLight}`,
@@ -34,9 +35,9 @@ export const GridItem = styled('img')({
     objectFit: 'cover',
     borderRadius: '4px',
     transition: 'transform 0.3s ease-in-out',
+    cursor: 'pointer',
     '&:hover': {
         transform: 'scale(1.06)',
-        cursor: 'pointer',
     },
 });
 
@@ -66,4 +67,23 @@ export const ActionButton = styled('button')({
         backgroundColor: color.borderLight,
         cursor: 'auto',
     },
+});
+
+export const StyledDialogContent = styled(DialogContent)({
+    position: 'relative',
+    padding: 0,
+});
+
+export const CloseButton = styled(IconButton)({
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    background: 'rgba(0,0,0,0.5)',
+    color: 'white',
+});
+
+export const EnlargedImage = styled('img')({
+    width: '100%',
+    height: 'auto',
+    maxHeight: '90vh',
 });

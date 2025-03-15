@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useRef, useState, useCallback } from 'react';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -21,59 +21,53 @@ import {
 } from './styles';
 
 export function MediaBarView(props: StudioProps): ReactElement {
-    const [index, setIndex] = useState(1);
-    const [isTransitioning, setIsTransitioning] = useState(true);
-    const [thumbIndex, setThumbIndex] = useState(0);
+    const [index, setIndex] = useState(0);
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const thumbnailRef = useRef<HTMLDivElement>(null);
 
     const totalSlides = props.media.length;
-    const visibleThumbnails = 8;
-    const carouselImages = [
-        props.media[totalSlides - 1],
-        ...props.media,
-        props.media[0],
-    ];
+
+    useEffect(() => {
+        setIndex(0);
+    }, []);
 
     const prevSlide = () => {
-        if (index === 0) {
-            setIsTransitioning(false);
-            setIndex(totalSlides);
-            setTimeout(() => {
-                setIsTransitioning(true);
-                setIndex(totalSlides - 1);
-            }, 50);
-        } else {
-            setIndex((prev) => prev - 1);
-        }
+        setIndex((prev) => (prev - 1 < 0 ? totalSlides - 1 : prev - 1));
     };
 
     const nextSlide = () => {
-        if (index === totalSlides) {
-            setTimeout(() => {
-                setIsTransitioning(false);
-                setIndex(1);
-            }, 500);
-            setIndex(totalSlides + 1);
-        } else {
-            setIndex((prev) => prev + 1);
-        }
-        setIsTransitioning(true);
+        setIndex((prev) => (prev + 1 >= totalSlides ? 0 : prev + 1));
     };
 
     const selectThumbnail = (i: number) => {
-        setIndex(i + 1);
+        setIndex(i);
     };
 
+    const scrollToThumbnail = useCallback(() => {
+        if (thumbnailRef.current) {
+            const selectedThumbnail = thumbnailRef.current.children[
+                index
+            ] as HTMLElement;
+            if (selectedThumbnail) {
+                selectedThumbnail.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center',
+                });
+            }
+        }
+    }, [index]);
+
+    useEffect(() => {
+        scrollToThumbnail();
+    }, [scrollToThumbnail]);
+
     const prevThumbnails = () => {
-        setThumbIndex((prev) =>
-            prev - 1 < 0 ? totalSlides - visibleThumbnails : prev - 1
-        );
+        setIndex((prev) => (prev - 1 < 0 ? totalSlides - 1 : prev - 1));
     };
 
     const nextThumbnails = () => {
-        setThumbIndex((prev) =>
-            prev + 1 > totalSlides - visibleThumbnails ? 0 : prev + 1
-        );
+        setIndex((prev) => (prev + 1 >= totalSlides ? 0 : prev + 1));
     };
 
     const handleFullscreen = () => {
@@ -91,9 +85,9 @@ export function MediaBarView(props: StudioProps): ReactElement {
                     infoButton={props.infoButton}
                     fullscreen={props.fullscreen}
                     onFullscreen={handleFullscreen}
-                    info={carouselImages[index].alt}
+                    info={props.media[index].alt}
                 />
-                <CarouselContainer>
+                <CarouselContainer data-testid="carousel-container">
                     <CarouselButton
                         onClick={prevSlide}
                         style={{ left: '10px' }}
@@ -101,11 +95,8 @@ export function MediaBarView(props: StudioProps): ReactElement {
                         <ChevronLeftIcon sx={{ fontSize: 32 }} />
                     </CarouselButton>
 
-                    <ImageWrapper
-                        index={index}
-                        isTransitioning={isTransitioning}
-                    >
-                        {carouselImages.map((img, i) => (
+                    <ImageWrapper index={index}>
+                        {props.media.map((img, i) => (
                             <Image key={i} src={img.url} alt={img.alt} />
                         ))}
                     </ImageWrapper>
@@ -125,24 +116,16 @@ export function MediaBarView(props: StudioProps): ReactElement {
                         />
                     </ThumbnailScrollButton>
 
-                    <ThumbnailWrapper>
-                        {Array.from({ length: visibleThumbnails }).map(
-                            (_, i) => {
-                                const actualIndex =
-                                    (thumbIndex + i) % totalSlides;
-                                return (
-                                    <Thumbnail
-                                        key={actualIndex}
-                                        src={props.media[actualIndex].url}
-                                        alt={props.media[actualIndex].alt}
-                                        onClick={() =>
-                                            selectThumbnail(actualIndex)
-                                        }
-                                        isSelected={index === actualIndex + 1}
-                                    />
-                                );
-                            }
-                        )}
+                    <ThumbnailWrapper ref={thumbnailRef}>
+                        {props.media.map((img, i) => (
+                            <Thumbnail
+                                key={i}
+                                src={img.url}
+                                alt={img.alt}
+                                onClick={() => selectThumbnail(i)}
+                                isSelected={index === i}
+                            />
+                        ))}
                     </ThumbnailWrapper>
 
                     <ThumbnailScrollButton onClick={nextThumbnails}>
@@ -155,8 +138,8 @@ export function MediaBarView(props: StudioProps): ReactElement {
 
             {isFullscreen && (
                 <FullscreenView
-                    imageSrc={carouselImages[index].url}
-                    imageAlt={carouselImages[index].alt}
+                    imageSrc={props.media[index].url}
+                    imageAlt={props.media[index].alt}
                     onClose={closeFullscreen}
                 />
             )}

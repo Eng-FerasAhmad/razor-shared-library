@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles';
 
 export const StudioContainer = styled('div')({
     width: '100%',
-    maxWidth: '700px',
     maxHeight: '500px',
     borderRadius: '10px',
     position: 'relative',
