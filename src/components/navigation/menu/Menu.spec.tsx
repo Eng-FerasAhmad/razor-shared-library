@@ -21,8 +21,6 @@ describe('MenuCustom Component', () => {
                 anchor={
                     <button onClick={() => setOpen(!open)}>Open Menu</button>
                 }
-                open={open}
-                onClose={() => setOpen(false)}
             />
         );
     };
