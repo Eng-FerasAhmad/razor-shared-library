@@ -5,6 +5,7 @@ import {
     SyntheticEvent,
     useEffect,
     useRef,
+    useState,
 } from 'react';
 
 import Box, { BoxProps } from '@mui/material/Box';
@@ -25,8 +26,6 @@ interface Props extends Omit<BoxProps, 'position'> {
     selected?: string;
     anchor: ReactNode;
     position?: 'bottom-start' | 'bottom-end';
-    open: boolean; // Controlled state
-    onClose: () => void; // Close function
 }
 
 export const MenuCustom = ({
@@ -34,11 +33,10 @@ export const MenuCustom = ({
     selected,
     anchor,
     position = 'bottom-start',
-    open,
-    onClose,
     ...props
 }: Props): ReactElement => {
     const anchorRef = useRef<HTMLDivElement>(null);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         if (!open) {
@@ -46,16 +44,20 @@ export const MenuCustom = ({
         }
     }, [open]);
 
+    const toggleMenu = () => {
+        setOpen((prev) => !prev);
+    };
+
     const handleListKeyDown = (event: KeyboardEvent): void => {
         if (event.key === 'Tab' || event.key === 'Escape') {
             event.preventDefault();
-            onClose(); // Close menu on Escape or Tab
+            setOpen(false);
         }
     };
 
     const handleClickItem = (_event: SyntheticEvent, item: MenuItems): void => {
         item.action();
-        onClose(); // Close menu after selecting an item
+        setOpen(false);
     };
 
     return (
@@ -65,6 +67,7 @@ export const MenuCustom = ({
                 aria-controls={open ? 'composition-menu' : undefined}
                 aria-expanded={open}
                 aria-haspopup="true"
+                onClick={toggleMenu}
                 {...props}
             >
                 {anchor}
@@ -91,7 +94,9 @@ export const MenuCustom = ({
                         }}
                     >
                         <Paper>
-                            <ClickAwayListener onClickAway={onClose}>
+                            <ClickAwayListener
+                                onClickAway={() => setOpen(false)}
+                            >
                                 <MenuList
                                     autoFocusItem={open}
                                     id="composition-menu"

@@ -3,20 +3,25 @@ import { ReactElement, useState } from 'react';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { Edit, FormatListBulleted } from '@mui/icons-material';
-import { Box } from '@mui/material';
+import {
+    Edit,
+    FormatListBulleted,
+    MoreHoriz,
+    Delete,
+} from '@mui/icons-material';
+import { Box, Menu, MenuItem, IconButton } from '@mui/material';
 
 import { TableProps } from '../types';
 
 import TableCellCustom from 'components/factory/entity-table/table-cell/EntityTableCell';
 import { color } from 'shared/color';
 import { pixelToRem } from 'shared/common';
-import { DeleteIcon, MenuItems, MoreHorizIcon } from 'src/index';
-import { MenuCustom } from 'components/navigation/menu/Menu';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
-    const [itemsMenu, setItemsMenu] = useState<MenuItems[]>([]);
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [selectedRowIndex, setSelectedRowIndex] = useState<number | null>(
+        null
+    );
 
     const handleDlClick = (row: T, index: number): void => {
         if (props.onDlClickRow) {
@@ -32,49 +37,28 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
         if (
             (event.target as HTMLElement).closest('[data-menu-button="true"]')
         ) {
-            return; // Prevent row click when clicking on the menu button
+            return;
         }
         if (props.onOneClickRow) {
             props.onOneClickRow(row, index);
         }
     };
 
-    const handleMenuClick = (_row: T, index: number): void => {
-        // Ensure menu closes if clicking another row
-        setOpenMenuIndex((prevIndex) => (prevIndex === index ? null : index));
+    const handleMenuClick = (
+        event: React.MouseEvent<HTMLElement>,
+        index: number
+    ): void => {
+        setAnchorEl(event.currentTarget);
+        setSelectedRowIndex(index);
+    };
 
-        // Construct the menu items
-        const newItemsMenu: MenuItems[] = [];
-        if (props.actionDetails) {
-            newItemsMenu.push({
-                title: 'Details',
-                icon: (
-                    <FormatListBulleted fontSize={'small'} color={'primary'} />
-                ),
-                action: props.actionDetails,
-            });
-        }
-
-        if (props.actionEdit) {
-            newItemsMenu.push({
-                title: 'Edit',
-                icon: <Edit fontSize={'small'} color={'primary'} />,
-                action: props.actionEdit,
-            });
-        }
-        if (props.actionDelete) {
-            newItemsMenu.push({
-                title: 'Delete',
-                icon: <DeleteIcon fontSize={'small'} color={'error'} />,
-                action: props.actionDelete,
-            });
-        }
-
-        setItemsMenu(newItemsMenu);
+    const handleCloseMenu = (): void => {
+        setAnchorEl(null);
+        setSelectedRowIndex(null);
     };
 
     return (
-        <TableBody data-testid={'table-body'}>
+        <TableBody data-testid="table-body">
             {props.rows.map((row: T, index) => (
                 <TableRow
                     role="row"
@@ -118,29 +102,63 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                                 '&:hover': { backgroundColor: '#e6e6e6' },
                             }}
                         >
-                            <MenuCustom
-                                items={itemsMenu}
-                                position="bottom-end"
-                                data-testid={'more-horiz-icon'}
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                                open={openMenuIndex === index} // Controlled state
-                                onClose={() => setOpenMenuIndex(null)} // Close menu when clicking outside
-                                anchor={
-                                    <MoreHorizIcon
-                                        fontSize="medium"
-                                        color={props.color}
-                                        data-menu-button="true"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleMenuClick(row, index);
-                                        }} // Ensure only menu opens on click
-                                    />
+                            <IconButton
+                                size="small"
+                                data-menu-button="true"
+                                onClick={(e) => handleMenuClick(e, index)}
+                            >
+                                <MoreHoriz
+                                    fontSize="medium"
+                                    color={props.color}
+                                />
+                            </IconButton>
+                            <Menu
+                                anchorEl={anchorEl}
+                                open={
+                                    Boolean(anchorEl) &&
+                                    selectedRowIndex === index
                                 }
-                            />
+                                onClose={handleCloseMenu}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                            >
+                                {props.actionDetails && (
+                                    <MenuItem onClick={props.actionDetails}>
+                                        <FormatListBulleted
+                                            fontSize="small"
+                                            color="primary"
+                                            sx={{ marginRight: 1 }}
+                                        />
+                                        Details
+                                    </MenuItem>
+                                )}
+                                {props.actionEdit && (
+                                    <MenuItem onClick={props.actionEdit}>
+                                        <Edit
+                                            fontSize="small"
+                                            color="primary"
+                                            sx={{ marginRight: 1 }}
+                                        />
+                                        Edit
+                                    </MenuItem>
+                                )}
+                                {props.actionDelete && (
+                                    <MenuItem onClick={props.actionDelete}>
+                                        <Delete
+                                            fontSize="small"
+                                            color="error"
+                                            sx={{ marginRight: 1 }}
+                                        />
+                                        Delete
+                                    </MenuItem>
+                                )}
+                            </Menu>
                         </Box>
                     </TableCell>
                 </TableRow>
