@@ -19,9 +19,6 @@ const meta: Meta<typeof Studio> = {
         buttonMore: {
             control: 'text',
         },
-        buttonReset: {
-            control: 'text',
-        },
     },
 };
 
@@ -41,6 +38,6 @@ export const Default: Story = {
         fullscreen: true,
         infoButton: true,
         buttonMore: 'Show more',
-        buttonReset: 'Reset',
+        defaultView: 'fixedGrid',
     },
 };

@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export type ViewType = 'carousel' | 'mediaBar' | 'fixedGrid';
 export type MediaType = 'image' | 'video';
 
@@ -16,8 +14,7 @@ export interface StudioProps {
     viewsPanel?: boolean;
     infoButton?: boolean;
     fullscreen?: boolean;
-    controlPanel?: ReactNode;
     noMediaTitle: string;
     buttonMore: string;
-    buttonReset: string;
+    defaultView?: ViewType;
 }

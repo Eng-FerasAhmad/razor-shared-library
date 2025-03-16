@@ -12,7 +12,7 @@ import { StudioContainer, StudioHeader, ViewButton } from './styles';
 import { StudioProps, ViewType } from './types';
 
 export function Studio(props: StudioProps): ReactElement {
-    const [view, setView] = useState<ViewType>('carousel');
+    const [view, setView] = useState<ViewType>(props.defaultView || 'carousel');
 
     const hasMedia = props.media.length > 0;
     return (
