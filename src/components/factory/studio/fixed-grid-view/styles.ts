@@ -24,9 +24,9 @@ export const FixedGridContainer = styled('div')({
     gap: '8px',
     maxWidth: '100%',
     width: '100%',
-    maxHeight: '370px',
+    maxHeight: '380px',
     overflowY: 'auto',
-    padding: '10px',
+    padding: '5px 10px',
 });
 
 export const GridItem = styled('img')({

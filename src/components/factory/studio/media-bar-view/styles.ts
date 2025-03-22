@@ -88,7 +88,7 @@ export const ThumbnailWrapper = styled('div')({
 export const Thumbnail = styled('img')<{ isSelected: boolean }>(
     ({ isSelected }) => ({
         width: isSelected ? '80px' : '55px',
-        height: isSelected ? '70px' : '50px',
+        height: isSelected ? '67px' : '50px',
         objectFit: 'cover',
         borderRadius: '10px',
         cursor: 'pointer',
