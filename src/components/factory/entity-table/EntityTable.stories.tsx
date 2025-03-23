@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import { EntityTable } from 'components/factory/entity-table/EntityTable';
 import {
+    Data,
     mockHeadCells,
     mockRows,
 } from 'components/factory/entity-table/mockTableProps';
@@ -30,9 +33,27 @@ const meta: Meta<typeof EntityTable> = {
 export default meta;
 
 type Story = StoryObj<typeof EntityTable>;
-
 export const Default: Story = {
     render: () => {
+        const [selectedRow, setSelectedRow] = useState<number>(-1);
+
+        const handleRowSelect = (row: Data, index: number) => {
+            console.log('Row selected:', index, row);
+            setSelectedRow(index);
+        };
+
+        const handleDetails = () => {
+            console.log('Details clicked for row:', selectedRow);
+        };
+
+        const handleEdit = () => {
+            console.log('Edit clicked for row:', selectedRow);
+        };
+
+        const handleDelete = () => {
+            console.log('Delete clicked for row:', selectedRow);
+        };
+
         const props = {
             totalResultCounts: 100,
             pageSize: 10,
@@ -43,13 +64,16 @@ export const Default: Story = {
             rows: mockRows,
             headCells: mockHeadCells,
             headerTools: <>Title</>,
-            selectedRow: -1,
+            selectedRow,
             noDataCaption: 'No data available',
             orderBy: '',
             order: 'asc' as Order,
             resetSort: () => console.log('resetSort'),
             handleHeaderClick: () => console.log('handleHeaderClick'),
-            actionDetails: () => console.log('actionDetails'),
+            onOneClickRow: handleRowSelect,
+            actionDetails: handleDetails,
+            actionEdit: handleEdit,
+            actionDelete: handleDelete,
             hasAutoId: true,
             hasPagination: true,
         };

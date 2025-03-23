@@ -1,7 +1,7 @@
 {
     "name": "razor-shared-library",
     "private": false,
-    "version": "1.4.8",
+    "version": "1.4.9",
     "type": "module",
     "author": {
         "email": "feras.ahmad@gmx.de",

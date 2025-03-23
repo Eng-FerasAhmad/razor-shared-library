@@ -40,6 +40,10 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
         event.stopPropagation();
         setAnchorEl(event.currentTarget);
         setSelectedRowIndex(index);
+
+        if (props.onOneClickRow) {
+            props.onOneClickRow(props.rows[index], index);
+        }
     };
 
     const handleCloseMenu = (): void => {

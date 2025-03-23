@@ -8,8 +8,8 @@ and follows accessibility best practices. The components are documented and show
 providing an interactive environment for testing and visualization.
 
 ## Storybook
-Hier are the components and how to use them in [storybook](https://eng-ferasahmad.github.io/razor-shared-library/?path=/docs/get-started--docs)
 
+Hier are the components and how to use them in [storybook](https://eng-ferasahmad.github.io/razor-shared-library/?path=/docs/get-started--docs)
 
 ## Install
 
@@ -92,7 +92,6 @@ To test your changes locally you can check user stoy locally with this script:
 ```bash
 npm run storybook
 ```
-
 
 ## Used technology
 
