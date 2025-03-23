@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, MouseEvent } from 'react';
 
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,8 +14,8 @@ import { Box, Menu, MenuItem, IconButton } from '@mui/material';
 import { TableProps } from '../types';
 
 import TableCellCustom from 'components/factory/entity-table/table-cell/EntityTableCell';
-import { color } from 'shared/color';
-import { pixelToRem } from 'shared/common';
+
+import * as styles from './styles';
 
 export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -24,30 +24,20 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
     );
 
     const handleDlClick = (row: T, index: number): void => {
-        if (props.onDlClickRow) {
-            props.onDlClickRow(row, index);
-        }
+        if (props.onDlClickRow) props.onDlClickRow(row, index);
     };
 
-    const handleRowClick = (
-        row: T,
-        index: number,
-        event: React.MouseEvent
-    ): void => {
-        if (
-            (event.target as HTMLElement).closest('[data-menu-button="true"]')
-        ) {
+    const handleRowClick = (row: T, index: number, event: MouseEvent): void => {
+        if ((event.target as HTMLElement).closest('[data-menu-button="true"]'))
             return;
-        }
-        if (props.onOneClickRow) {
-            props.onOneClickRow(row, index);
-        }
+        if (props.onOneClickRow) props.onOneClickRow(row, index);
     };
 
     const handleMenuClick = (
-        event: React.MouseEvent<HTMLElement>,
+        event: MouseEvent<HTMLElement>,
         index: number
     ): void => {
+        event.stopPropagation();
         setAnchorEl(event.currentTarget);
         setSelectedRowIndex(index);
     };
@@ -56,6 +46,13 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
         setAnchorEl(null);
         setSelectedRowIndex(null);
     };
+
+    const handleMenuItemClick =
+        (action?: () => void) => (event: MouseEvent) => {
+            event.stopPropagation();
+            handleCloseMenu();
+            action?.();
+        };
 
     return (
         <TableBody data-testid="table-body">
@@ -66,19 +63,13 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                     onClick={(event) => handleRowClick(row, index, event)}
                     tabIndex={-1}
                     key={index}
-                    sx={{
-                        backgroundColor:
-                            props.selectedRow === index ? color.hover : '',
-                        cursor: 'pointer',
-                        ':hover': { backgroundColor: color.hover },
-                        '&:last-child td, &:last-child th': { border: 0 },
-                    }}
+                    sx={styles.getRowStyle(props.selectedRow === index)}
                 >
                     {props.hasAutoId && (
                         <TableCell
                             component="th"
                             scope="row"
-                            sx={{ padding: pixelToRem(10, 16) }}
+                            sx={styles.autoIdCell}
                             align="center"
                         >
                             {index + 1 + props.pageSize * props.pageNumber}
@@ -91,17 +82,7 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                         scope="row"
                         align="right"
                     >
-                        <Box
-                            sx={{
-                                borderRadius: '50%',
-                                width: '30px',
-                                height: '30px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                '&:hover': { backgroundColor: '#e6e6e6' },
-                            }}
-                        >
+                        <Box sx={styles.actionBox}>
                             <IconButton
                                 size="small"
                                 data-menu-button="true"
@@ -129,31 +110,43 @@ export default function EntityTableBody<T>(props: TableProps<T>): ReactElement {
                                 }}
                             >
                                 {props.actionDetails && (
-                                    <MenuItem onClick={props.actionDetails}>
+                                    <MenuItem
+                                        onClick={handleMenuItemClick(
+                                            props.actionDetails
+                                        )}
+                                    >
                                         <FormatListBulleted
                                             fontSize="small"
                                             color="primary"
-                                            sx={{ marginRight: 1 }}
+                                            sx={styles.menuIcon}
                                         />
                                         Details
                                     </MenuItem>
                                 )}
                                 {props.actionEdit && (
-                                    <MenuItem onClick={props.actionEdit}>
+                                    <MenuItem
+                                        onClick={handleMenuItemClick(
+                                            props.actionEdit
+                                        )}
+                                    >
                                         <Edit
                                             fontSize="small"
                                             color="primary"
-                                            sx={{ marginRight: 1 }}
+                                            sx={styles.menuIcon}
                                         />
                                         Edit
                                     </MenuItem>
                                 )}
                                 {props.actionDelete && (
-                                    <MenuItem onClick={props.actionDelete}>
+                                    <MenuItem
+                                        onClick={handleMenuItemClick(
+                                            props.actionDelete
+                                        )}
+                                    >
                                         <Delete
                                             fontSize="small"
                                             color="error"
-                                            sx={{ marginRight: 1 }}
+                                            sx={styles.menuIcon}
                                         />
                                         Delete
                                     </MenuItem>

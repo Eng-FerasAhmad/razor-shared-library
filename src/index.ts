@@ -25,6 +25,7 @@ export { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
 export { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 export { Account } from 'components/factory/account/Account';
 export { Studio } from 'components/factory/studio/Studio';
+export { AuthAvatar } from 'components/factory/auth-avatar/AuthAvatar';
 
 // Feedback
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';
@@ -97,6 +98,10 @@ export type {
     ViewType as StudioViewType,
     MediaType,
 } from 'components/factory/studio/types';
+export type {
+    AuthMenuItemType,
+    MenuGroup,
+} from 'components/factory/auth-avatar/types';
 
 // colors:
 export { RazorBrandColor, color } from './shared/color';
