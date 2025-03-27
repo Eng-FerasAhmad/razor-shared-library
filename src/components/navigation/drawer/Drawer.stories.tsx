@@ -108,6 +108,36 @@ const sampleListItems: DrawerListItems[] = [
         ),
         clickHandler: () => console.log('Item 3 clicked'),
     },
+    {
+        icon: (
+            <>
+                <AccountCircle />
+                Settings
+            </>
+        ),
+        clickHandler: () => console.log('Item 2 clicked'),
+        isOpen: true, // Set to true to open sub-items by default
+        subMenu: [
+            {
+                icon: (
+                    <>
+                        <Home />
+                        User
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 2a clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Profile
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 2b clicked'),
+            },
+        ],
+    },
 ];
 
 export const Default: Story = {

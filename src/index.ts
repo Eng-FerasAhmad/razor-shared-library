@@ -10,7 +10,7 @@ export { DividerCustom as Divider } from './components/data-display/divider/Divi
 export { ListCustom as List } from './components/data-display/list/List';
 export { ToolTipCustom as ToolTip } from './components/data-display/tooltip/ToolTip';
 export { TableCustom as Table } from './components/data-display/table/Table';
-export { Box } from '@mui/material';
+export { BoxCustom as Box } from './components/data-display/box/Box';
 
 // Datepicker
 export { DatepickerCustom as Datepicker } from './components/datepicker/date-picker/Datepicker';
