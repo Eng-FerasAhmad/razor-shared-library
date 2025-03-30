@@ -67,6 +67,69 @@ const sampleListItems: DrawerListItems[] = [
                 ),
                 clickHandler: () => console.log('Subitem 1b clicked'),
             },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting1
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting2
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting3
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting4
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting5
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting6
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
+            {
+                icon: (
+                    <>
+                        <Home />
+                        Setting7
+                    </>
+                ),
+                clickHandler: () => console.log('Subitem 1b clicked'),
+            },
         ],
     },
     {

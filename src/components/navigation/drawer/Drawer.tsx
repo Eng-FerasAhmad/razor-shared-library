@@ -59,6 +59,8 @@ export function DrawerCustom({
                         '& .MuiDrawer-paper': {
                             top: pixelToRem(50),
                             width: drawerWidth,
+                            height: 'calc(100vh - 50px)',
+                            overflowY: 'auto',
                             boxSizing: 'border-box',
                         },
                     }}
