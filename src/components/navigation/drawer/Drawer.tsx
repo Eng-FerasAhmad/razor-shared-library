@@ -42,7 +42,6 @@ export function DrawerCustom({
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    height: '100vh',
                 }}
                 data-testid="drawer"
             >
