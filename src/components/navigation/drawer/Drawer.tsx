@@ -7,7 +7,6 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import Menu from '@mui/icons-material/Menu';
 
 import { Template } from 'components/_template/Template';
-import { pixelToRem } from 'shared/common';
 
 import DrawerList from './DrawerList';
 import DrawerToolbar from './DrawerToolbar';
@@ -42,6 +41,8 @@ export function DrawerCustom({
             <Box
                 sx={{
                     display: 'flex',
+                    flexDirection: 'column',
+                    height: '100vh',
                 }}
                 data-testid="drawer"
             >
@@ -52,32 +53,37 @@ export function DrawerCustom({
                     headerIcon={<Menu />}
                     header={header}
                 />
-                <Drawer
-                    sx={{
-                        width: drawerWidth,
-                        flexShrink: 0,
-                        '& .MuiDrawer-paper': {
-                            top: pixelToRem(50),
+
+                <Box sx={{ display: 'flex', flex: 1 }}>
+                    <Drawer
+                        sx={{
                             width: drawerWidth,
-                            height: 'calc(100vh - 50px)',
-                            overflowY: 'auto',
-                            boxSizing: 'border-box',
-                        },
-                    }}
-                    variant="persistent"
-                    anchor="left"
-                    open={open}
-                >
-                    <DrawerList
-                        listItems={listItems}
-                        collapseIconOpen={<ExpandMore color={'secondary'} />}
-                        collapseIconClose={<ChevronRight color={'secondary'} />}
-                        data-testid="drawer-list"
-                        handleClick={handleSubItemClick}
-                        selectedSubItemIndex={selectedSubItemIndex}
-                        selectedItemIndex={selectedItemIndex}
-                    />
-                </Drawer>
+                            flexShrink: 0,
+                            '& .MuiDrawer-paper': {
+                                width: drawerWidth,
+                                height: 'calc(100vh - 50px)',
+                                marginTop: '50px',
+                                overflowY: 'auto',
+                                boxSizing: 'border-box',
+                            },
+                        }}
+                        variant="persistent"
+                        anchor="left"
+                        open={open}
+                    >
+                        <DrawerList
+                            listItems={listItems}
+                            collapseIconOpen={<ExpandMore color="secondary" />}
+                            collapseIconClose={
+                                <ChevronRight color="secondary" />
+                            }
+                            data-testid="drawer-list"
+                            handleClick={handleSubItemClick}
+                            selectedSubItemIndex={selectedSubItemIndex}
+                            selectedItemIndex={selectedItemIndex}
+                        />
+                    </Drawer>
+                </Box>
             </Box>
         </Template>
     );
