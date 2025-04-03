@@ -9,6 +9,8 @@ interface Props {
     children: ReactNode;
     width: number | undefined;
     hasBorder: boolean;
+    minView?: boolean;
+    minWidth?: number;
 }
 
 export function Sidebar({
@@ -18,30 +20,28 @@ export function Sidebar({
     children,
     width = 256,
     hasBorder = true,
+    minView = false,
+    minWidth = 30,
 }: Props): ReactElement {
+    const sidebarWidth = isDrawerOpen ? width : minView ? minWidth : 0;
+
     return (
         <Drawer
             anchor="left"
-            open={isDrawerOpen}
+            open={isDrawerOpen || minView}
             onClose={toggleDrawer}
             variant="persistent"
             sx={{
                 '& .MuiDrawer-paper': {
-                    width: width,
+                    width: sidebarWidth,
                     boxSizing: 'border-box',
                     position: 'fixed',
                     top: `${top}px`,
                     height: `calc(100vh - ${top - 1}px)`,
                     borderRight: hasBorder ? '1px solid #e0e0e0' : 'none',
-                    transition: 'transform 0.3s ease-in-out',
-                    transform: isDrawerOpen
-                        ? 'translateX(0)'
-                        : 'translateX(-100%)',
+                    transition: 'width 0.3s ease-in-out',
+                    overflowX: 'hidden',
                 },
-            }}
-            ModalProps={{
-                keepMounted: true,
-                BackdropProps: { invisible: true },
             }}
         >
             {children}
