@@ -63,6 +63,7 @@ export { BreadcrumbsCustom as Breadcrumbs } from './components/navigation/breadc
 export { LinkCustom as Link } from './components/navigation/link/Link';
 export { PaginationCustom as Pagination } from './components/navigation/pagination/Pagination';
 export { Sidebar } from './components/navigation/sidebar/Sidebar';
+export { Toolpad } from './components/navigation/toolpad/Toolpad';
 
 // Surfaces
 export { AccordionCustom as Accordion } from './components/surfaces/accordion/Accordion';
@@ -102,6 +103,11 @@ export type {
     AuthMenuItemType,
     MenuGroup,
 } from 'components/factory/auth-avatar/types';
+export type {
+    MenuItemType,
+    SidebarMenuProps,
+    MenuGroup as ToolpadMenuGroup,
+} from 'components/navigation/toolpad/types';
 
 // colors:
 export { RazorBrandColor, color } from './shared/color';

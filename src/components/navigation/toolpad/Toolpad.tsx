@@ -7,7 +7,7 @@ import PopupMenu from './PopupMenu';
 import { drawerSx } from './styles';
 import { MenuItemType, SidebarMenuProps } from './types';
 
-export default function Toolpad({
+export function Toolpad({
     isOpen,
     items,
     width = 240,

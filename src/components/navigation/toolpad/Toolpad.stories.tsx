@@ -3,7 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 
-import Toolpad from 'components/navigation/toolpad/Toolpad';
+import { Toolpad } from 'components/navigation/toolpad/Toolpad';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
