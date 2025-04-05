@@ -78,7 +78,7 @@ export default function SidebarMenuItem({
                     <ListItemText
                         data-testid="list-item-text"
                         primary={
-                            <Typography sx={{ fontSize: '15px' }}>
+                            <Typography sx={{ fontSize: '16px' }}>
                                 {item.label}
                             </Typography>
                         }

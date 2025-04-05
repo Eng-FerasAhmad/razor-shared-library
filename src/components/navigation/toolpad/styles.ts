@@ -36,7 +36,7 @@ export const menuItemButtonSx = (selected: boolean): SxProps => ({
     position: 'relative',
     borderRadius: '8px',
     padding: '4px 8px',
-    margin: '5px 0',
+    margin: '6px 0',
     ...(selected
         ? selectedStyles
         : {
@@ -47,8 +47,8 @@ export const menuItemButtonSx = (selected: boolean): SxProps => ({
 });
 
 export const menuItemIconSx = (isOpen: boolean): SxProps => ({
-    minWidth: 0,
     mr: isOpen ? 2 : 'auto',
+    minWidth: isOpen ? 0 : '100%',
     justifyContent: 'center',
 });
 

@@ -45,7 +45,7 @@ export default function PopupMenu({
                         <ListItemText
                             sx={popupListItemTextSx}
                             primary={
-                                <Typography sx={{ fontSize: '15px' }}>
+                                <Typography sx={{ fontSize: '16px' }}>
                                     {child.label}
                                 </Typography>
                             }
