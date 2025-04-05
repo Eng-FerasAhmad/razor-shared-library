@@ -31,12 +31,15 @@ export const groupTitleSx: SxProps = {
     color: 'text.secondary',
 };
 
-export const menuItemButtonSx = (selected: boolean): SxProps => ({
-    justifyContent: 'initial',
+export const menuItemButtonSx = (
+    selected: boolean,
+    isOpen: boolean
+): SxProps => ({
     position: 'relative',
     borderRadius: '8px',
-    padding: '4px 8px',
+    padding: isOpen ? '1px 8px' : 0,
     margin: '6px 0',
+    width: isOpen ? '100%' : '35px',
     ...(selected
         ? selectedStyles
         : {
@@ -48,7 +51,11 @@ export const menuItemButtonSx = (selected: boolean): SxProps => ({
 
 export const menuItemIconSx = (isOpen: boolean): SxProps => ({
     mr: isOpen ? 2 : 'auto',
-    minWidth: isOpen ? 0 : '100%',
+    minWidth: isOpen ? 0 : '35px',
+    width: isOpen ? 'auto' : '35px',
+    height: isOpen ? 'auto' : '35px',
+    display: 'flex',
+    alignItems: 'center',
     justifyContent: 'center',
 });
 
@@ -78,6 +85,12 @@ export const popupListItemTextSx: SxProps = {
     ml: 1,
 };
 
-export const MenuGroupContainer = styled('div')({
-    margin: '8px',
-});
+export const MenuGroupContainer = styled('div')<{ isOpen: boolean }>(
+    ({ isOpen }) => ({
+        display: isOpen ? 'inherit' : 'flex',
+        flexDirection: 'column',
+        justifyContent: isOpen ? 'flex-start' : 'center',
+        alignItems: isOpen ? 'flex-start' : 'center',
+        margin: '8px',
+    })
+);

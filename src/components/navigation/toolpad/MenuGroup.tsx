@@ -28,7 +28,7 @@ export default function MenuGroupComponent({
     onPopupOpen: (e: MouseEvent<HTMLElement>, children: MenuItemType[]) => void;
 }) {
     return (
-        <MenuGroupContainer data-testid="menu-group-container">
+        <MenuGroupContainer isOpen={isOpen} data-testid="menu-group-container">
             {group.title && isOpen && (
                 <Typography
                     variant="caption"
@@ -51,7 +51,7 @@ export default function MenuGroupComponent({
                     onPopupOpen={onPopupOpen}
                 />
             ))}
-            {!isLast && <Divider sx={{ my: 1 }} />}
+            {!isLast && <Divider sx={{ my: 1, alignSelf: 'stretch' }} />}
         </MenuGroupContainer>
     );
 }

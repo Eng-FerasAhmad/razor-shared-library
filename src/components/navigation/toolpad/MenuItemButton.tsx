@@ -59,7 +59,7 @@ export default function SidebarMenuItem({
             <ListItemButton
                 selected={isSelected}
                 onClick={handleClick}
-                sx={menuItemButtonSx(isSelected)}
+                sx={menuItemButtonSx(isSelected, isOpen)}
                 data-testid="list-item-button"
             >
                 <LightTooltip
