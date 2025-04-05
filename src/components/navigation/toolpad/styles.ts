@@ -38,7 +38,7 @@ export const menuItemButtonSx = (
     position: 'relative',
     borderRadius: '8px',
     padding: isOpen ? '1px 8px' : 0,
-    margin: '6px 0',
+    margin: isOpen ? '6px 0' : '3px 0',
     width: isOpen ? '100%' : '35px',
     ...(selected
         ? selectedStyles

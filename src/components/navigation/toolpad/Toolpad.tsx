@@ -54,7 +54,7 @@ export function Toolpad({
                 sx={drawerSx(isOpen, width, collapsedWidth, top)}
                 data-testid="toolpad"
             >
-                <List data-testid="toolpad-list">
+                <List data-testid="toolpad-list" sx={{ p: 0 }}>
                     {items.map((group, idx) => (
                         <MenuGroup
                             key={`group-${idx}`}
