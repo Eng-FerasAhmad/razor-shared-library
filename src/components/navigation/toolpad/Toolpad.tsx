@@ -14,11 +14,16 @@ export function Toolpad({
     collapsedWidth = 56,
     top = 0,
     selectedColor = '#e6e6e6',
+    selectedKey,
 }: SidebarMenuProps) {
     const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
-    const [selectedKey, setSelectedKey] = useState<string | null>(null);
+    const [internalSelectedKey, setInternalSelectedKey] = useState<
+        string | null
+    >(null);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [hoverMenuItems, setHoverMenuItems] = useState<MenuItemType[]>([]);
+
+    const selected = selectedKey ?? internalSelectedKey;
 
     const handleClosePopupMenu = () => {
         setAnchorEl(null);
@@ -33,7 +38,7 @@ export function Toolpad({
         setOpenMenus((prev) => ({ ...prev, [label]: !prev[label] }));
 
     const handleSelect = (key: string, onClick?: () => void) => {
-        setSelectedKey(key);
+        if (selectedKey === undefined) setInternalSelectedKey(key);
         onClick?.();
     };
 
@@ -62,7 +67,7 @@ export function Toolpad({
                             isOpen={isOpen}
                             isLast={idx === items.length - 1}
                             openMenus={openMenus}
-                            selectedKey={selectedKey}
+                            selectedKey={selected}
                             selectedColor={selectedColor}
                             onToggleSubMenu={handleToggleSubMenu}
                             onSelect={handleSelect}
@@ -76,7 +81,7 @@ export function Toolpad({
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 hoverMenuItems={hoverMenuItems}
-                selectedKey={selectedKey}
+                selectedKey={selected}
                 onClose={handleClosePopupMenu}
                 onSelect={handleSelect}
             />

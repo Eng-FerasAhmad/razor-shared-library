@@ -28,6 +28,14 @@ const meta: Meta<typeof Toolpad> = {
             control: { type: 'number' },
             description: 'Top offset from viewport',
         },
+        selectedColor: {
+            control: { type: 'color' },
+            description: 'Background color of selected item',
+        },
+        selectedKey: {
+            control: { type: 'text' },
+            description: 'Key of the currently selected menu item (controlled)',
+        },
     },
 };
 
@@ -88,5 +96,6 @@ export const Default: Story = {
         collapsedWidth: 56,
         top: 0,
         selectedColor: '#429d06',
+        selectedKey: 'dashboard',
     },
 };

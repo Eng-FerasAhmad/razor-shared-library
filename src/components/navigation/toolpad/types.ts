@@ -20,4 +20,5 @@ export interface SidebarMenuProps {
     collapsedWidth?: number;
     top?: number;
     selectedColor?: string;
+    selectedKey?: string;
 }
