@@ -59,7 +59,7 @@ export default function SidebarMenuItem({
             <ListItemButton
                 selected={isSelected}
                 onClick={handleClick}
-                sx={menuItemButtonSx(isSelected, isOpen)}
+                sx={menuItemButtonSx(isSelected, isOpen, selectedColor)}
                 data-testid="list-item-button"
             >
                 <LightTooltip
@@ -78,7 +78,9 @@ export default function SidebarMenuItem({
                     <ListItemText
                         data-testid="list-item-text"
                         primary={
-                            <Typography sx={{ fontSize: '16px' }}>
+                            <Typography
+                                sx={{ fontSize: '15px', fontWeight: 560 }}
+                            >
                                 {item.label}
                             </Typography>
                         }

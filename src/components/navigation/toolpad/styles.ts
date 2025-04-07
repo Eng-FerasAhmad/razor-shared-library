@@ -14,7 +14,8 @@ export const drawerSx = (
     isOpen: boolean,
     width: number,
     collapsedWidth: number,
-    top: number
+    top: number,
+    backgroundColor?: string
 ): SxProps => ({
     '& .MuiDrawer-paper': {
         width: isOpen ? width : collapsedWidth,
@@ -22,6 +23,7 @@ export const drawerSx = (
         top,
         height: `calc(100vh - ${top}px)`,
         overflowX: 'hidden',
+        backgroundColor: backgroundColor,
     },
 });
 
@@ -33,7 +35,8 @@ export const groupTitleSx: SxProps = {
 
 export const menuItemButtonSx = (
     selected: boolean,
-    isOpen: boolean
+    isOpen: boolean,
+    selectedColor: string
 ): SxProps => ({
     position: 'relative',
     borderRadius: '8px',
@@ -41,10 +44,15 @@ export const menuItemButtonSx = (
     margin: isOpen ? '6px 0' : '3px 0',
     width: isOpen ? '100%' : '35px',
     ...(selected
-        ? selectedStyles
+        ? {
+              backgroundColor: `${selectedColor} !important`,
+              '&:hover': {
+                  backgroundColor: `${selectedColor} !important`,
+              },
+          }
         : {
               '&:hover': {
-                  backgroundColor: color.hover,
+                  backgroundColor: `${selectedColor} !important`,
               },
           }),
 });
@@ -57,27 +65,39 @@ export const menuItemIconSx = (isOpen: boolean): SxProps => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: '10px',
 });
 
-export const submenuItemSx = (selected: boolean): SxProps => ({
+export const submenuItemSx = (
+    selected: boolean,
+    selectedColor: string
+): SxProps => ({
     pl: 4,
     borderRadius: '8px',
     padding: '3px 8px 3px 25px',
     margin: '5px 0',
     ...(selected
-        ? selectedStyles
+        ? {
+              backgroundColor: `${selectedColor} !important`,
+              '&:hover': {
+                  backgroundColor: `${selectedColor} !important`,
+              },
+          }
         : {
               '&:hover': {
-                  backgroundColor: color.hover,
+                  backgroundColor: `${selectedColor} !important`,
               },
           }),
 });
 
-export const popupItemSx = (selected: boolean): SxProps => ({
+export const popupItemSx = (
+    selected: boolean,
+    selectedColor: string
+): SxProps => ({
     padding: '10px 16px',
-    backgroundColor: selected ? `${color.hover} !important` : 'transparent',
+    backgroundColor: selected ? `${selectedColor} !important` : 'transparent',
     '&:hover': {
-        backgroundColor: `${color.hover} !important`,
+        backgroundColor: `${selectedColor} !important`,
     },
 });
 

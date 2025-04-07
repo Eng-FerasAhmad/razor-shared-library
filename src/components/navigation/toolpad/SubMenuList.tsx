@@ -20,6 +20,7 @@ export default function SubMenuList({
     menuItems,
     selectedKey,
     onSelect,
+    selectedColor,
 }: Props) {
     return (
         <List component="div" disablePadding data-testid="list-container">
@@ -30,14 +31,16 @@ export default function SubMenuList({
                         key={child.key}
                         selected={isSelected}
                         onClick={() => onSelect(child.key, child.onClick)}
-                        sx={submenuItemSx(isSelected)}
+                        sx={submenuItemSx(isSelected, selectedColor)}
                     >
-                        <ListItemIcon sx={{ minWidth: '40px' }}>
+                        <ListItemIcon sx={{ minWidth: '36px' }}>
                             {child.icon}
                         </ListItemIcon>
                         <ListItemText
                             primary={
-                                <Typography sx={{ fontSize: '15px' }}>
+                                <Typography
+                                    sx={{ fontSize: '15px', fontWeight: 560 }}
+                                >
                                     {child.label}
                                 </Typography>
                             }

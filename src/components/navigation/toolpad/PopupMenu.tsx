@@ -11,6 +11,7 @@ export default function PopupMenu({
     selectedKey,
     onSelect,
     onClose,
+    selectedColor,
 }: {
     anchorEl: HTMLElement | null;
     open: boolean;
@@ -18,6 +19,7 @@ export default function PopupMenu({
     selectedKey: string | null;
     onSelect: (key: string, onClick?: () => void) => void;
     onClose: () => void;
+    selectedColor: string;
 }) {
     return (
         <Popover
@@ -39,13 +41,15 @@ export default function PopupMenu({
                             onSelect(child.key, child.onClick);
                             setTimeout(() => onClose(), 50);
                         }}
-                        sx={popupItemSx(isSelected)}
+                        sx={popupItemSx(isSelected, selectedColor)}
                     >
                         {child.icon}
                         <ListItemText
                             sx={popupListItemTextSx}
                             primary={
-                                <Typography sx={{ fontSize: '16px' }}>
+                                <Typography
+                                    sx={{ fontSize: '15px', fontWeight: 560 }}
+                                >
                                     {child.label}
                                 </Typography>
                             }

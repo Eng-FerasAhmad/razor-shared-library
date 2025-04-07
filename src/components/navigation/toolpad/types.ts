@@ -20,5 +20,8 @@ export interface SidebarMenuProps {
     collapsedWidth?: number;
     top?: number;
     selectedColor?: string;
+    backgroundColor?: string;
     selectedKey?: string;
+    header?: ReactNode;
+    footer?: ReactNode;
 }

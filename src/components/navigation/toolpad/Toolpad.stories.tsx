@@ -77,6 +77,56 @@ const items = [
                         label: 'Traffic',
                         icon: <ShoppingCartIcon />,
                     },
+                    {
+                        key: 'sales',
+                        label: 'Sales',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'traffic',
+                        label: 'Traffic',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'sales',
+                        label: 'Sales',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'traffic',
+                        label: 'Traffic',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'sales',
+                        label: 'Sales',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'traffic',
+                        label: 'Traffic',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'sales',
+                        label: 'Sales',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'traffic',
+                        label: 'Traffic',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'sales',
+                        label: 'Sales',
+                        icon: <ShoppingCartIcon />,
+                    },
+                    {
+                        key: 'traffic',
+                        label: 'Traffic',
+                        icon: <ShoppingCartIcon />,
+                    },
                 ],
             },
             {
@@ -97,5 +147,8 @@ export const Default: Story = {
         top: 0,
         selectedColor: '#429d06',
         selectedKey: 'dashboard',
+        backgroundColor: '#d1f6b9',
+        header: <div style={{ padding: '16px' }}>Header</div>,
+        footer: <div style={{ padding: '16px' }}>Footer</div>,
     },
 };
