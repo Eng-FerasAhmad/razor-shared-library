@@ -1,0 +1,1 @@
+import{r as t,f as p}from"./memoTheme-BaJynKMn.js";function m(r){const{theme:e,name:o,props:s}=r;return!e||!e.components||!e.components[o]||!e.components[o].defaultProps?s:t(e.components[o].defaultProps,s)}function f({props:r,name:e,defaultTheme:o,themeId:s}){let n=p(o);return s&&(n=n[s]||n),m({theme:n,name:e,props:r})}export{m as g,f as u};

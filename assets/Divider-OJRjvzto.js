@@ -1,0 +1,1 @@
+import{j as i}from"./jsx-runtime-DiklIkkE.js";import{T as r}from"./Template-Cay0yqF_.js";import{D as e}from"./Divider-Dkta2SrK.js";function s({...o}){return i.jsx(r,{children:i.jsx(e,{...o})})}s.__docgenInfo={description:"",methods:[],displayName:"DividerCustom"};export{s as D};

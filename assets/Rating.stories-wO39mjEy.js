@@ -1,0 +1,5 @@
+import{R as m}from"./Rating-C4UntiRW.js";import"./jsx-runtime-DiklIkkE.js";import"./index-DRjF_FHU.js";import"./Template-Cay0yqF_.js";import"./color-EH4scy8d.js";import"./memoTheme-BaJynKMn.js";import"./index-CMNX_ky1.js";import"./useEnhancedEffect-CvtZChyo.js";import"./index-DOKlo5zk.js";import"./extendSxProp-BY8sS3zF.js";import"./emotion-react.browser.esm-BpUWAXVR.js";import"./Typography-jz8gJ3s3.js";import"./createSimplePaletteValueFilter-bm0fmN_7.js";import"./createSvgIcon-Bbh683OF.js";import"./useSlot-ClC-LrAR.js";import"./resolveComponentProps-B0Alaaw9.js";import"./useForkRef-YSw3xV27.js";import"./useId-C4t5wyTG.js";import"./useControlled-DEjX-IBh.js";import"./visuallyHidden-Dan1xhjv.js";import"./isFocusVisible-B8k4qzLc.js";const S={title:"Inputs/Rating",tags:["autodocs"],component:m,argTypes:{label:{control:{type:"text"}}}},t={args:{label:"Rating"}};var r,o,p;t.parameters={...t.parameters,docs:{...(r=t.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {
+    label: 'Rating'
+  }
+}`,...(p=(o=t.parameters)==null?void 0:o.docs)==null?void 0:p.source}}};const T=["Default"];export{t as Default,T as __namedExportsOrder,S as default};

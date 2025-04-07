@@ -1,0 +1,1 @@
+const s=["primary","secondary","error","info","success","warning"],r=["error","info","success","warning"],o=["large","medium","small"],n=["text","outlined","contained"];export{r as a,n as b,o as c,s};

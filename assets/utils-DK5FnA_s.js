@@ -1,0 +1,1 @@
+function i({props:n,states:e,muiFormControl:f}){return e.reduce((u,r)=>(u[r]=n[r],f&&typeof n[r]>"u"&&(u[r]=f[r]),u),{})}function t(n){return n!=null&&!(Array.isArray(n)&&n.length===0)}function l(n,e=!1){return n&&(t(n.value)&&n.value!==""||e&&t(n.defaultValue)&&n.defaultValue!=="")}function a(n){return n.startAdornment}export{l as a,i as f,a as i};

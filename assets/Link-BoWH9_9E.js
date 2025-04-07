@@ -1,1 +1,0 @@
-import{j as e}from"./extends-BZziWbxp.js";import{T as t}from"./Template-Ns2mqNLl.js";import{L as i}from"./Link-Ts5oMdFo.js";function o({text:r}){return e.jsx(t,{children:e.jsx(i,{href:"#",underline:"hover",children:r})})}o.__docgenInfo={description:"",methods:[],displayName:"LinkCustom",props:{text:{required:!0,tsType:{name:"string"},description:""}}};export{o as L};
