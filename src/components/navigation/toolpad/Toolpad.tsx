@@ -1,6 +1,7 @@
 import { useEffect, useState, MouseEvent } from 'react';
 
 import { Drawer, List } from '@mui/material';
+import Box from '@mui/material/Box';
 
 import MenuGroup from './MenuGroup';
 import PopupMenu from './PopupMenu';
@@ -77,8 +78,8 @@ export function Toolpad({
                         flexDirection: 'column',
                     }}
                 >
-                    <div
-                        style={{
+                    <Box
+                        sx={{
                             position: 'sticky',
                             top: 0,
                             zIndex: 1,
@@ -86,8 +87,14 @@ export function Toolpad({
                         }}
                     >
                         {header}
-                    </div>
-                    <div style={{ overflowY: 'auto', flexGrow: 1 }}>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            overflowY: 'auto',
+                        }}
+                    >
                         {items.map((group, idx) => (
                             <MenuGroup
                                 key={`group-${idx}`}
@@ -102,9 +109,10 @@ export function Toolpad({
                                 onPopupOpen={handleOpenPopupMenu}
                             />
                         ))}
-                    </div>
-                    <div
-                        style={{
+                    </Box>
+
+                    <Box
+                        sx={{
                             position: 'sticky',
                             bottom: 0,
                             zIndex: 1,
@@ -112,7 +120,7 @@ export function Toolpad({
                         }}
                     >
                         {footer}
-                    </div>
+                    </Box>
                 </List>
             </Drawer>
 
