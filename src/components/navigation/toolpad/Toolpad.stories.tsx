@@ -111,5 +111,6 @@ export const Default: Story = {
         backgroundColor: '#d1f6b9',
         header: <div style={{ padding: '16px' }}>Header</div>,
         footer: <FooterWithPopper />,
+        fontColor: '#a84646',
     },
 };

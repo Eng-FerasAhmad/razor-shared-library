@@ -15,7 +15,8 @@ export const drawerSx = (
     width: number,
     collapsedWidth: number,
     top: number,
-    backgroundColor?: string
+    backgroundColor?: string,
+    fontColor?: string
 ): SxProps => ({
     '& .MuiDrawer-paper': {
         width: isOpen ? width : collapsedWidth,
@@ -24,13 +25,13 @@ export const drawerSx = (
         height: `calc(100vh - ${top}px)`,
         overflowX: 'hidden',
         backgroundColor: backgroundColor,
+        color: fontColor,
     },
 });
 
 export const groupTitleSx: SxProps = {
     padding: '2px 10px',
     display: 'block',
-    color: 'text.secondary',
 };
 
 export const menuItemButtonSx = (

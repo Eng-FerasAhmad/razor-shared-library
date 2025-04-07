@@ -19,6 +19,7 @@ export function Toolpad({
     backgroundColor,
     header,
     footer,
+    fontColor,
 }: SidebarMenuProps) {
     const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
     const [internalSelectedKey, setInternalSelectedKey] = useState<
@@ -65,7 +66,8 @@ export function Toolpad({
                     width,
                     collapsedWidth,
                     top,
-                    backgroundColor
+                    backgroundColor,
+                    fontColor
                 )}
                 data-testid="toolpad"
             >

@@ -22,6 +22,7 @@ export interface SidebarMenuProps {
     selectedColor?: string;
     backgroundColor?: string;
     selectedKey?: string;
+    fontColor?: string;
     header?: ReactNode;
     footer?: ReactNode;
 }
