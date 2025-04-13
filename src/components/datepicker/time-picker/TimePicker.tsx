@@ -10,19 +10,32 @@ import { Template } from 'components/_template/Template';
 
 interface DatepickerProps {
     locale: DatepickerLocale;
+    is24Format: boolean;
+    time?: string;
 }
 
 export function TimePickerCustom({
     locale,
+    time,
+    is24Format,
     ...props
-}: TimePickerProps<DateTime> & DatepickerProps): ReactElement {
+}: Omit<TimePickerProps<DateTime>, 'value'> & DatepickerProps): ReactElement {
+    const timeValue = time
+        ? DateTime.fromFormat(time, 'HH:mm:ss')
+        : DateTime.now();
+
     return (
         <Template>
             <LocalizationProvider
                 dateAdapter={AdapterLuxon}
                 adapterLocale={locale}
             >
-                <TimePicker {...props} data-testid="time-picker" />
+                <TimePicker
+                    {...props}
+                    value={timeValue}
+                    data-testid="time-picker"
+                    ampm={!is24Format}
+                />
             </LocalizationProvider>
         </Template>
     );

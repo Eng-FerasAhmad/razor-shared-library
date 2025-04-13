@@ -116,7 +116,8 @@ export function FormInputFactory({
             return (
                 <TimePickerCustom
                     label={item.label}
-                    value={item.value as DateTime}
+                    time={item.value as string}
+                    is24Format={item.is24Format || false}
                     locale={item.locale!}
                     onChange={(newValue) => updateDataForm(index, newValue!)}
                     disabled={item.disable}

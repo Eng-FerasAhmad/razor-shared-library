@@ -15,9 +15,13 @@ const meta: Meta<typeof TimePickerCustom> = {
             control: { type: 'select' },
             description: 'Locale for the time picker',
         },
-        value: {
-            control: { type: 'date' },
-            description: 'Selected time value',
+        time: {
+            control: { type: 'text' },
+            description: 'Initial time in HH:mm:ss format',
+        },
+        is24Format: {
+            control: { type: 'boolean' },
+            description: 'Toggle 24-hour format',
         },
         onChange: {
             action: 'onChange',
@@ -33,8 +37,9 @@ type Story = StoryObj<typeof TimePickerCustom>;
 export const Default: Story = {
     args: {
         locale: 'en-GB' as DatepickerLocale,
-        value: DateTime.now(),
-        onChange: (newValue: DateTime | null) => {
+        time: DateTime.now().toFormat('HH:mm:ss'),
+        is24Format: true,
+        onChange: (newValue) => {
             console.log(newValue?.toISOTime());
         },
     },

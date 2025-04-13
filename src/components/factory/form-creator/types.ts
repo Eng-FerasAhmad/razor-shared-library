@@ -15,4 +15,5 @@ export interface FormDataSet {
     error?: boolean;
     errorLabel?: string;
     locale?: DatepickerLocale;
+    is24Format?: boolean;
 }
