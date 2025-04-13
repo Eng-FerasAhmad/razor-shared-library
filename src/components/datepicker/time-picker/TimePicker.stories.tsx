@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import { DateTime } from 'luxon';
 
 import { DatepickerLocale } from 'components/datepicker/date-picker/types';
 import { TimePickerCustom } from 'components/datepicker/time-picker/TimePicker';
@@ -11,7 +11,7 @@ const meta: Meta<typeof TimePickerCustom> = {
     tags: ['autodocs'],
     argTypes: {
         locale: {
-            options: ['en-gb', 'de'],
+            options: ['en-GB', 'de'],
             control: { type: 'select' },
             description: 'Locale for the time picker',
         },
@@ -32,10 +32,10 @@ type Story = StoryObj<typeof TimePickerCustom>;
 
 export const Default: Story = {
     args: {
-        locale: 'en-gb' as DatepickerLocale,
-        value: null,
-        onChange: (newValue: Dayjs | null) => {
-            console.log(newValue);
+        locale: 'en-GB' as DatepickerLocale,
+        value: DateTime.now(),
+        onChange: (newValue: DateTime | null) => {
+            console.log(newValue?.toISOTime());
         },
     },
 };

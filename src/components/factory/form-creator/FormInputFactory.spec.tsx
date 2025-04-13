@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import { DateTime } from 'luxon';
 
 import { FormDataSet } from 'components/factory/form-creator/types';
 
@@ -134,17 +134,16 @@ describe('FormInputFactory', () => {
             />
         );
 
-        //const radio = screen.getByLabelText('Option 1');
         fireEvent.click(screen.getByLabelText('Option 2'));
         expect(mockUpdateDataForm).toHaveBeenCalledWith(0, 'option2');
     });
 
     it('renders DatepickerCustom for DATEPICKER controller', () => {
-        const dayjsInstance = dayjs();
+        const dateTimeInstance = DateTime.now();
         const item = {
             ...baseItem,
             controller: 'DATEPICKER',
-            value: dayjsInstance,
+            value: dateTimeInstance,
         };
         render(
             <FormInputFactory
@@ -157,17 +156,17 @@ describe('FormInputFactory', () => {
 
         const datepicker = screen.getByLabelText('Test Label');
         fireEvent.change(datepicker, {
-            target: { value: dayjsInstance.format('YYYY-MM-DD') },
+            target: { value: dateTimeInstance.toFormat('yyyy-MM-dd') },
         });
         expect(mockUpdateDataForm).toHaveBeenCalledWith(0, null);
     });
 
     it('renders TimePickerCustom for TIMEPICKER controller', () => {
-        const dayjsInstance = dayjs();
+        const timeInstance = DateTime.fromFormat('08:30', 'HH:mm');
         const item = {
             ...baseItem,
             controller: 'TIMEPICKER',
-            value: dayjsInstance,
+            value: timeInstance,
         };
         render(
             <FormInputFactory

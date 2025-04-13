@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import { DateTime } from 'luxon';
 import {
     ChangeEvent,
     ReactElement,
@@ -31,7 +31,7 @@ export function FormCreator({
     }, [formDataSet]);
 
     const updateDataForm = useCallback(
-        (index: number, value: string | number | boolean | Dayjs) => {
+        (index: number, value: string | number | boolean | DateTime) => {
             const updatedFormData = formData.map((item, i) =>
                 i === index ? { ...item, value } : item
             );

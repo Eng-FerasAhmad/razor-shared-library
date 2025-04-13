@@ -1,12 +1,10 @@
 import { ReactElement } from 'react';
-import { Dayjs } from 'dayjs';
+import { DateTime } from 'luxon';
 
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
-import 'dayjs/locale/de';
-import 'dayjs/locale/en-gb';
 import { Template } from 'components/_template/Template';
 import { DatepickerLocale } from 'components/datepicker/date-picker/types';
 
@@ -17,11 +15,11 @@ interface DatepickerProps {
 export function DatepickerCustom({
     locale,
     ...props
-}: DatePickerProps<Dayjs> & DatepickerProps): ReactElement {
+}: DatePickerProps<DateTime> & DatepickerProps): ReactElement {
     return (
         <Template>
             <LocalizationProvider
-                dateAdapter={AdapterDayjs}
+                dateAdapter={AdapterLuxon}
                 adapterLocale={locale}
                 data-testid="datepicker"
             >

@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import { DateTime } from 'luxon';
 import { ChangeEvent, ReactElement } from 'react';
 
 import { SelectChangeEvent } from '@mui/material';
@@ -19,7 +19,7 @@ interface UseFormControllerProps {
     index: number;
     updateDataForm: (
         index: number,
-        value: string | number | boolean | Dayjs
+        value: string | number | boolean | DateTime
     ) => void;
     handleInputChange: (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -106,7 +106,7 @@ export function FormInputFactory({
             return (
                 <DatepickerCustom
                     label={item.label}
-                    value={item.value as Dayjs}
+                    value={item.value as DateTime}
                     locale={item.locale!}
                     onChange={(newValue) => updateDataForm(index, newValue!)}
                     disabled={item.disable}
@@ -116,7 +116,7 @@ export function FormInputFactory({
             return (
                 <TimePickerCustom
                     label={item.label}
-                    value={item.value as Dayjs}
+                    value={item.value as DateTime}
                     locale={item.locale!}
                     onChange={(newValue) => updateDataForm(index, newValue!)}
                     disabled={item.disable}

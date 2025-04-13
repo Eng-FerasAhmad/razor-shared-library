@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import dayjs from 'dayjs';
+import { DateTime } from 'luxon';
 
 import { FormCreator } from 'components/factory/form-creator/FormCreator';
 import { FormDataSet } from 'components/factory/form-creator/types';
@@ -25,6 +25,8 @@ const meta: Meta<typeof FormCreator> = {
 export default meta;
 
 type Story = StoryObj<typeof FormCreator>;
+
+const now = DateTime.now();
 
 const dataSet: FormDataSet[] = [
     {
@@ -171,7 +173,7 @@ const dataSet: FormDataSet[] = [
     },
     {
         label: 'datepicker',
-        value: dayjs(),
+        value: now,
         locale: 'en-gb',
         controller: 'DATEPICKER',
         error: false,
@@ -181,7 +183,7 @@ const dataSet: FormDataSet[] = [
     },
     {
         label: 'datepicker2',
-        value: dayjs(),
+        value: now,
         locale: 'en-gb',
         controller: 'DATEPICKER',
         error: false,
@@ -191,7 +193,7 @@ const dataSet: FormDataSet[] = [
     },
     {
         label: 'time picker',
-        value: dayjs(),
+        value: now,
         locale: 'de',
         controller: 'TIMEPICKER',
         error: false,
@@ -201,7 +203,7 @@ const dataSet: FormDataSet[] = [
     },
     {
         label: 'time picker2',
-        value: dayjs(),
+        value: now,
         locale: 'de',
         controller: 'TIMEPICKER',
         error: false,
