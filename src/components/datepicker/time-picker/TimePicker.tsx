@@ -35,6 +35,17 @@ export function TimePickerCustom({
                     value={timeValue}
                     data-testid="time-picker"
                     ampm={!is24Format}
+                    sx={{
+                        '& .MuiInputBase-root': {
+                            backgroundColor: 'white',
+                            borderRadius: '8px',
+                            padding: '0 16px',
+                            width: '150px',
+                        },
+                        '& .MuiInputBase-input': {
+                            padding: '10px 0',
+                        },
+                    }}
                 />
             </LocalizationProvider>
         </Template>
