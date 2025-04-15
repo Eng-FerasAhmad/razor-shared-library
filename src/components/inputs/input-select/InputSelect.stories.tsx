@@ -13,30 +13,14 @@ const meta: Meta<typeof InputSelect> = {
     tags: ['autodocs'],
     component: InputSelect,
     argTypes: {
-        label: {
-            control: { type: 'text' },
-        },
-        items: {
-            control: { type: 'object' },
-        },
-        value: {
-            control: { type: 'text' },
-        },
-        noneValue: {
-            control: { type: 'boolean' },
-        },
-        helperText: {
-            control: { type: 'text' },
-        },
-        error: {
-            control: { type: 'boolean' },
-        },
-        disabled: {
-            control: { type: 'boolean' },
-        },
-        handleChange: {
-            action: 'changed',
-        },
+        label: { control: 'text' },
+        items: { control: 'object' },
+        noneValue: { control: 'boolean' },
+        helperText: { control: 'text' },
+        error: { control: 'boolean' },
+        disabled: { control: 'boolean' },
+        handleChange: { action: 'changed' },
+        value: { control: false },
     },
 };
 
@@ -47,18 +31,20 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: (args) => {
         const [selectedValue, setSelectedValue] = useState(args.value);
-
+        const items = [
+            { value: 'option1', label: 'Option 1' },
+            { value: 'option2', label: 'Option 2' },
+        ] as SelectItems[];
         const handleChange = (event: SelectChangeEvent) => {
             const newValue = event.target.value;
             setSelectedValue(newValue);
-            if (args.handleChange) {
-                args.handleChange(event);
-            }
+            args.handleChange?.(event);
         };
 
         return (
             <InputSelect
                 {...args}
+                items={items}
                 value={selectedValue}
                 handleChange={handleChange}
             />
