@@ -31,7 +31,7 @@ export { AuthAvatar } from 'components/factory/auth-avatar/AuthAvatar';
 export { AlertCustom as Alert } from './components/feedback/alert/Alert';
 export { DialogCustom as Dialog } from './components/feedback/dialog/Dialog';
 export { Loading } from './components/feedback/loading/Loading';
-export { Skeleton } from './components/feedback/skeleton/Skeleton';
+export { SkeletonCustom as Skeleton } from './components/feedback/skeleton/Skeleton';
 export { SnackbarCustom as Snackbar } from './components/feedback/snackbar/Snackbar';
 export { CircularProgressCustom as CircularProgress } from './components/feedback/progress-circular/CircularProgress';
 export { LinearProgressCustom as LinearProgress } from './components/feedback/progress-linear/LinearProgress';
