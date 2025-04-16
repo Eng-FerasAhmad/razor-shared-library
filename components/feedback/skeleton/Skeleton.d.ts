@@ -1,2 +1,3 @@
 import { ReactElement } from '../../../../node_modules/react';
-export declare function Skeleton(): ReactElement;
+import { SkeletonProps } from '@mui/material';
+export declare function SkeletonCustom({ ...props }: SkeletonProps): ReactElement;

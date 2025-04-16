@@ -5,5 +5,5 @@ interface Props {
     selectedColor: string;
     onSelect: (key: string, onClick?: () => void) => void;
 }
-export default function SubMenuList({ menuItems, selectedKey, onSelect, }: Props): import("react/jsx-runtime").JSX.Element;
+export default function SubMenuList({ menuItems, selectedKey, onSelect, selectedColor, }: Props): import("react/jsx-runtime").JSX.Element;
 export {};
