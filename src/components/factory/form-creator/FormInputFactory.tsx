@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
 import { ChangeEvent, ReactElement } from 'react';
-import { AmenityIcons } from 'components/factory/amenity-icons/AmenityIconsSelectList';
 
 import { SelectChangeEvent } from '@mui/material';
 
+import { AmenityIconsSelectList } from 'components/factory/amenity-icons/AmenityIconsSelectList';
 import { InputSelect } from 'components/inputs/input-select/InputSelect';
 import { InputText } from 'components/inputs/input-text/InputText';
 import { RadioGroupCustom } from 'components/inputs/radio-group/RadioGroup';
@@ -125,7 +125,7 @@ export function FormInputFactory({
             );
         case 'AMENITY_ICONS':
             return (
-                <AmenityIcons
+                <AmenityIconsSelectList
                     label={item.label}
                     value={item.value as string}
                     onChange={(e: string | null) => updateDataForm(index, e!)}
