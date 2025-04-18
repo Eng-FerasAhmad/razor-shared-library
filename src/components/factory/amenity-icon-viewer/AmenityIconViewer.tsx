@@ -1,36 +1,28 @@
 import { ReactElement } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { SvgIconProps } from '@mui/material';
 
-interface IconItem {
-    id: string | number;
-    name: string;
-    icon: ReactElement;
+import { amenityOptions } from 'components/factory/amenity-icons/iconList';
+
+interface Props {
+    iconName: string;
+    size?: number;
+    color?: string;
 }
 
-interface IconViewerProps {
-    icons: IconItem[];
-}
+export function AmenityIconViewer({
+    iconName,
+    size,
+    color,
+}: Props): ReactElement {
+    const matched = amenityOptions.find((opt) => opt.value === iconName);
 
-export function AmenityIconViewer({ icons }: IconViewerProps): ReactElement {
-    return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            {icons.map((iconItem) => (
-                <Box
-                    key={iconItem.id}
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '8px',
-                        borderRadius: '4px',
-                        backgroundColor: 'background.paper',
-                    }}
-                >
-                    {iconItem.icon}
-                    <Typography variant="body1">{iconItem.name}</Typography>
-                </Box>
-            ))}
-        </Box>
-    );
+    if (!matched) return <></>;
+
+    const props: SvgIconProps = {
+        fontSize: size ? 'inherit' : 'medium',
+        sx: { fontSize: size, color },
+    };
+
+    return matched.icon(props);
 }

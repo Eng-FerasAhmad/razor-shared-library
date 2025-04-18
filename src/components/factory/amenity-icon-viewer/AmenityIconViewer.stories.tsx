@@ -1,9 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import LocalParkingIcon from '@mui/icons-material/LocalParking';
-import WifiIcon from '@mui/icons-material/Wifi';
-import PoolIcon from '@mui/icons-material/Pool';
-
 import { AmenityIconViewer } from './AmenityIconViewer';
 
 const meta: Meta<typeof AmenityIconViewer> = {
@@ -11,7 +7,41 @@ const meta: Meta<typeof AmenityIconViewer> = {
     component: AmenityIconViewer,
     tags: ['autodocs'],
     argTypes: {
-        icons: { control: { type: 'object' } },
+        iconName: {
+            control: {
+                type: 'select',
+                options: [
+                    'AccessibleIcon',
+                    'LocalParkingIcon',
+                    'WifiIcon',
+                    'PoolIcon',
+                    'FitnessCenterIcon',
+                    'RestaurantIcon',
+                    'SpaIcon',
+                    'SmokeFreeIcon',
+                    'AcUnitIcon',
+                    'FreeBreakfastIcon',
+                    'PetsIcon',
+                    'LocalLaundryServiceIcon',
+                    'AirportShuttleIcon',
+                    'ChildCareIcon',
+                    'BathtubIcon',
+                    'ElevatorIcon',
+                    'RoomServiceIcon',
+                    'LocalBarIcon',
+                    'KitchenIcon',
+                    'BalconyIcon',
+                ],
+            },
+        },
+        size: {
+            control: {
+                type: 'number',
+            },
+        },
+        color: {
+            control: 'color',
+        },
     },
 };
 
@@ -21,10 +51,8 @@ type Story = StoryObj<typeof AmenityIconViewer>;
 
 export const Default: Story = {
     args: {
-        icons: [
-            { id: 1, name: 'Parking', icon: <LocalParkingIcon /> },
-            { id: 2, name: 'Wi-Fi', icon: <WifiIcon /> },
-            { id: 3, name: 'Swimming Pool', icon: <PoolIcon /> },
-        ],
+        iconName: 'LocalParkingIcon',
+        size: 40,
+        color: '#1976d2',
     },
 };

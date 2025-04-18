@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import { SvgIconProps } from '@mui/material';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import WifiIcon from '@mui/icons-material/Wifi';
 import PoolIcon from '@mui/icons-material/Pool';
@@ -20,68 +21,108 @@ import LocalBarIcon from '@mui/icons-material/LocalBar';
 import KitchenIcon from '@mui/icons-material/Kitchen';
 import BalconyIcon from '@mui/icons-material/Balcony';
 import AccessibleIcon from '@mui/icons-material/Accessible';
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
-import { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
+export interface AutoCompleteOptions {
+    value: string;
+    label: string;
+    icon: (props: SvgIconProps) => ReactElement;
+}
 
 export const amenityOptions: AutoCompleteOptions[] = [
-    { value: 'AccessibleIcon', label: 'Accessible', icon: <AccessibleIcon /> },
-    { value: 'LocalParkingIcon', label: 'Parking', icon: <LocalParkingIcon /> },
-    { value: 'WifiIcon', label: 'Wi-Fi', icon: <WifiIcon /> },
-    { value: 'PoolIcon', label: 'Swimming Pool', icon: <PoolIcon /> },
-    { value: 'FitnessCenterIcon', label: 'Gym', icon: <FitnessCenterIcon /> },
-    { value: 'RestaurantIcon', label: 'Restaurant', icon: <RestaurantIcon /> },
-    { value: 'SpaIcon', label: 'Spa', icon: <SpaIcon /> },
-    { value: 'SmokeFreeIcon', label: 'Non-Smoking', icon: <SmokeFreeIcon /> },
-    { value: 'AcUnitIcon', label: 'Air Conditioning', icon: <AcUnitIcon /> },
+    {
+        value: 'AccessibleIcon',
+        label: 'Accessible',
+        icon: (props) => <AccessibleIcon {...props} />,
+    },
+    {
+        value: 'LocalParkingIcon',
+        label: 'Parking',
+        icon: (props) => <LocalParkingIcon {...props} />,
+    },
+    {
+        value: 'WifiIcon',
+        label: 'Wi-Fi',
+        icon: (props) => <WifiIcon {...props} />,
+    },
+    {
+        value: 'PoolIcon',
+        label: 'Swimming Pool',
+        icon: (props) => <PoolIcon {...props} />,
+    },
+    {
+        value: 'FitnessCenterIcon',
+        label: 'Gym',
+        icon: (props) => <FitnessCenterIcon {...props} />,
+    },
+    {
+        value: 'RestaurantIcon',
+        label: 'Restaurant',
+        icon: (props) => <RestaurantIcon {...props} />,
+    },
+    { value: 'SpaIcon', label: 'Spa', icon: (props) => <SpaIcon {...props} /> },
+    {
+        value: 'SmokeFreeIcon',
+        label: 'Non-Smoking',
+        icon: (props) => <SmokeFreeIcon {...props} />,
+    },
+    {
+        value: 'AcUnitIcon',
+        label: 'Air Conditioning',
+        icon: (props) => <AcUnitIcon {...props} />,
+    },
     {
         value: 'FreeBreakfastIcon',
         label: 'Free Breakfast',
-        icon: <FreeBreakfastIcon />,
+        icon: (props) => <FreeBreakfastIcon {...props} />,
     },
-    { value: 'PetsIcon', label: 'Pet Friendly', icon: <PetsIcon /> },
+    {
+        value: 'PetsIcon',
+        label: 'Pet Friendly',
+        icon: (props) => <PetsIcon {...props} />,
+    },
     {
         value: 'LocalLaundryServiceIcon',
         label: 'Laundry Service',
-        icon: <LocalLaundryServiceIcon />,
+        icon: (props) => <LocalLaundryServiceIcon {...props} />,
     },
     {
         value: 'AirportShuttleIcon',
         label: 'Shuttle Service',
-        icon: <AirportShuttleIcon />,
+        icon: (props) => <AirportShuttleIcon {...props} />,
     },
-    { value: 'ChildCareIcon', label: 'Childcare', icon: <ChildCareIcon /> },
-    { value: 'BathtubIcon', label: 'Bathtub', icon: <BathtubIcon /> },
-    { value: 'ElevatorIcon', label: 'Elevator', icon: <ElevatorIcon /> },
+    {
+        value: 'ChildCareIcon',
+        label: 'Childcare',
+        icon: (props) => <ChildCareIcon {...props} />,
+    },
+    {
+        value: 'BathtubIcon',
+        label: 'Bathtub',
+        icon: (props) => <BathtubIcon {...props} />,
+    },
+    {
+        value: 'ElevatorIcon',
+        label: 'Elevator',
+        icon: (props) => <ElevatorIcon {...props} />,
+    },
     {
         value: 'RoomServiceIcon',
         label: 'Room Service',
-        icon: <RoomServiceIcon />,
+        icon: (props) => <RoomServiceIcon {...props} />,
     },
-    { value: 'LocalBarIcon', label: 'Bar', icon: <LocalBarIcon /> },
-    { value: 'KitchenIcon', label: 'Kitchen', icon: <KitchenIcon /> },
-    { value: 'BalconyIcon', label: 'Balcony', icon: <BalconyIcon /> },
+    {
+        value: 'LocalBarIcon',
+        label: 'Bar',
+        icon: (props) => <LocalBarIcon {...props} />,
+    },
+    {
+        value: 'KitchenIcon',
+        label: 'Kitchen',
+        icon: (props) => <KitchenIcon {...props} />,
+    },
+    {
+        value: 'BalconyIcon',
+        label: 'Balcony',
+        icon: (props) => <BalconyIcon {...props} />,
+    },
 ];
-
-export const amenityOptionsMap: Record<string, ReactElement> = {
-    LocalParkingIcon: <LocalParkingIcon />,
-    WifiIcon: <WifiIcon />,
-    PoolIcon: <PoolIcon />,
-    FitnessCenterIcon: <FitnessCenterIcon />,
-    RestaurantIcon: <RestaurantIcon />,
-    SpaIcon: <SpaIcon />,
-    SmokeFreeIcon: <SmokeFreeIcon />,
-    AcUnitIcon: <AcUnitIcon />,
-    FreeBreakfastIcon: <FreeBreakfastIcon />,
-    PetsIcon: <PetsIcon />,
-    LocalLaundryServiceIcon: <LocalLaundryServiceIcon />,
-    AirportShuttleIcon: <AirportShuttleIcon />,
-    ChildCareIcon: <ChildCareIcon />,
-    BathtubIcon: <BathtubIcon />,
-    ElevatorIcon: <ElevatorIcon />,
-    RoomServiceIcon: <RoomServiceIcon />,
-    AccessibilityNewIcon: <AccessibilityNewIcon />,
-    LocalBarIcon: <LocalBarIcon />,
-    KitchenIcon: <KitchenIcon />,
-    BalconyIcon: <BalconyIcon />,
-};

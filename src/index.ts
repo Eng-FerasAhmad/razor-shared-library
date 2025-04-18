@@ -19,9 +19,8 @@ export { TimePickerCustom as TimePicker } from './components/datepicker/time-pic
 // Factory
 export { EntityTable } from './components/factory/entity-table/EntityTable';
 export { FormCreator } from './components/factory/form-creator/FormCreator';
-export { AmenityIconGenerator } from 'components/factory/amenity-icon-generator/AmenityIconGenerator';
 export { AmenityIconViewer } from 'components/factory/amenity-icon-viewer/AmenityIconViewer';
-export { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
+export { AmenityIconsSelectList } from 'components/factory/amenity-icons/AmenityIconsSelectList';
 export { LanguageSwitch } from 'components/factory/language-switch/LanguageSwitch';
 export { Account } from 'components/factory/account/Account';
 export { Studio } from 'components/factory/studio/Studio';

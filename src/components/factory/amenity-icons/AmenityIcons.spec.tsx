@@ -1,6 +1,6 @@
 import { amenityOptions } from 'components/factory/amenity-icons/iconList';
 
-import { AmenityIcons } from './AmenityIcons';
+import { AmenityIcons } from './AmenityIconsSelectList';
 
 import { render, screen } from '@testing-library/react';
 

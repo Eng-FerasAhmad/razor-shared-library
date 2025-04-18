@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
+import { AmenityIconsSelectList } from 'components/factory/amenity-icons/AmenityIconsSelectList';
 
 import { amenityOptions } from 'components/factory/amenity-icons/iconList';
 
-import { AmenityIcons } from './AmenityIcons';
-
-const meta: Meta<typeof AmenityIcons> = {
-    title: 'Factory/Amenity Icons',
-    component: AmenityIcons,
+const meta: Meta<typeof AmenityIconsSelectList> = {
+    title: 'Factory/Amenity Icons Select List',
+    component: AmenityIconsSelectList,
     argTypes: {
         label: { control: 'text' },
         value: {
@@ -20,7 +19,7 @@ const meta: Meta<typeof AmenityIcons> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AmenityIcons>;
+type Story = StoryObj<typeof AmenityIconsSelectList>;
 
 export const Default: Story = {
     render: (args) => {
@@ -28,13 +27,11 @@ export const Default: Story = {
 
         const handleChange = (newSelectedValue: string | null) => {
             setSelectedValue(newSelectedValue!);
-            if (args.onChange) {
-                args.onChange(newSelectedValue);
-            }
+            args.onChange?.(newSelectedValue);
         };
 
         return (
-            <AmenityIcons
+            <AmenityIconsSelectList
                 {...args}
                 value={selectedValue}
                 onChange={handleChange}

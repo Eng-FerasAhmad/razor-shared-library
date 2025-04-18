@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import { ChangeEvent, ReactElement } from 'react';
+import { AmenityIcons } from 'components/factory/amenity-icons/AmenityIconsSelectList';
 
 import { SelectChangeEvent } from '@mui/material';
 
@@ -12,7 +13,6 @@ import { DatepickerCustom } from 'components/datepicker/date-picker/Datepicker';
 import { CheckboxCustom } from 'components/inputs/checkbox/Checkbox';
 import { FormDataSet } from 'components/factory/form-creator/types';
 import { TimePickerCustom } from 'components/datepicker/time-picker/TimePicker';
-import { AmenityIcons } from 'components/factory/amenity-icons/AmenityIcons';
 
 interface UseFormControllerProps {
     item: FormDataSet;
