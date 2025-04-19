@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionActions from '@mui/material/AccordionActions';
@@ -12,12 +12,32 @@ import { AccordionItems } from 'components/surfaces/accordion/types';
 interface Props {
     items: AccordionItems[];
 }
+
 export function AccordionCustom({ items, ...props }: Props): ReactElement {
+    const [expandedIndex, setExpandedIndex] = useState<number | false>(false);
+
+    const handleChange =
+        (index: number) =>
+        (_event: React.SyntheticEvent, isExpanded: boolean) => {
+            setExpandedIndex(isExpanded ? index : false);
+        };
+
     return (
         <Template>
             {items.map((item, index) => {
+                const isExpanded = expandedIndex === index;
                 return (
-                    <Accordion {...props} key={index}>
+                    <Accordion
+                        {...props}
+                        key={index}
+                        expanded={isExpanded}
+                        onChange={handleChange(index)}
+                        sx={{
+                            borderTop: index !== 0 ? 'none' : undefined,
+                            borderRadius: isExpanded ? '4px' : 0,
+                            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+                        }}
+                    >
                         <AccordionSummary
                             expandIcon={<ExpandLess />}
                             onClick={item.onOpenAction}

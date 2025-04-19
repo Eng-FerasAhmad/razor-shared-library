@@ -110,6 +110,7 @@ export type {
 
 // colors:
 export { RazorBrandColor, color } from './shared/color';
+export { darken, lighten } from '@mui/material';
 
 // fonts
 export { fonts, fontSize } from './shared/fonts';
