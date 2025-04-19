@@ -1,4 +1,7 @@
-// components:
+// Template
+export { Template as SharedTheme } from 'components/_template/Template';
+export { createTheme } from '@mui/material';
+
 // -------------------------
 // Data Display
 export { MuiTemplate } from './components/mui-template/MuiTemplate';
