@@ -8,8 +8,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 
-import { Template } from 'components/_template/Template';
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -54,45 +52,36 @@ export function Checkmarks({
     };
 
     return (
-        <Template>
-            <FormControl sx={{ minWidth: '100%' }}>
-                <InputLabel id="checkbox-label" htmlFor="multiple-checkbox">
-                    {label}
-                </InputLabel>
-                <Select
-                    labelId="checkbox-label"
-                    id="multiple-checkbox"
-                    multiple
-                    value={selectedItems}
-                    onChange={handleChange}
-                    input={<OutlinedInput label={label} />}
-                    renderValue={(selected) => {
-                        const selectedLabels = options
-                            .filter((option) =>
-                                (selected as string[]).includes(
-                                    option[valueKey]
-                                )
-                            )
-                            .map((option) => option[labelKey]);
-                        return selectedLabels.join(', ');
-                    }}
-                    MenuProps={MenuProps}
-                >
-                    {options.map((option) => (
-                        <MenuItem
-                            key={option[valueKey]}
-                            value={option[valueKey]}
-                        >
-                            <Checkbox
-                                checked={selectedItems.includes(
-                                    option[valueKey]
-                                )}
-                            />
-                            <ListItemText primary={option[labelKey]} />
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-        </Template>
+        <FormControl sx={{ minWidth: '100%' }}>
+            <InputLabel id="checkbox-label" htmlFor="multiple-checkbox">
+                {label}
+            </InputLabel>
+            <Select
+                labelId="checkbox-label"
+                id="multiple-checkbox"
+                multiple
+                value={selectedItems}
+                onChange={handleChange}
+                input={<OutlinedInput label={label} />}
+                renderValue={(selected) => {
+                    const selectedLabels = options
+                        .filter((option) =>
+                            (selected as string[]).includes(option[valueKey])
+                        )
+                        .map((option) => option[labelKey]);
+                    return selectedLabels.join(', ');
+                }}
+                MenuProps={MenuProps}
+            >
+                {options.map((option) => (
+                    <MenuItem key={option[valueKey]} value={option[valueKey]}>
+                        <Checkbox
+                            checked={selectedItems.includes(option[valueKey])}
+                        />
+                        <ListItemText primary={option[labelKey]} />
+                    </MenuItem>
+                ))}
+            </Select>
+        </FormControl>
     );
 }

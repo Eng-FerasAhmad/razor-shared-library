@@ -4,8 +4,6 @@ import Card, { CardProps } from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-import { Template } from 'components/_template/Template';
-
 interface Props extends CardProps {
     width: number;
     height: number;
@@ -22,43 +20,41 @@ export function CardCustom({
     ...props
 }: PropsWithChildren<Props>): ReactElement {
     return (
-        <Template>
-            <Box
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: 'fit-content',
+            }}
+        >
+            <Card
+                data-testid="card"
+                {...props}
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    width: 'fit-content',
+                    fontFamily: 'inherit',
+                    padding: 2,
+                    width: width,
+                    height: height,
+                    margin: 'auto',
+                    borderRadius: 5,
                 }}
             >
-                <Card
-                    data-testid="card"
-                    {...props}
+                {children}
+            </Card>
+            {actionButtonLabel && (
+                <Button
                     sx={{
-                        fontFamily: 'inherit',
-                        padding: 2,
-                        width: width,
-                        height: height,
-                        margin: 'auto',
+                        width: 'fit-content',
+                        margin: '15px auto',
+                        height: '35px',
                         borderRadius: 5,
                     }}
+                    onClick={actionButton}
+                    variant={'outlined'}
                 >
-                    {children}
-                </Card>
-                {actionButtonLabel && (
-                    <Button
-                        sx={{
-                            width: 'fit-content',
-                            margin: '15px auto',
-                            height: '35px',
-                            borderRadius: 5,
-                        }}
-                        onClick={actionButton}
-                        variant={'outlined'}
-                    >
-                        {actionButtonLabel}
-                    </Button>
-                )}
-            </Box>
-        </Template>
+                    {actionButtonLabel}
+                </Button>
+            )}
+        </Box>
     );
 }

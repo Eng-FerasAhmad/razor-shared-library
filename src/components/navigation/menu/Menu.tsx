@@ -16,7 +16,6 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import Grow from '@mui/material/Grow';
 
-import { Template } from 'components/_template/Template';
 import { MenuItems } from 'components/navigation/menu/types';
 import { color } from 'shared/color';
 import { fontSize } from 'shared/fonts';
@@ -61,7 +60,7 @@ export const MenuCustom = ({
     };
 
     return (
-        <Template data-testid="menu">
+        <>
             <Box
                 ref={anchorRef}
                 aria-controls={open ? 'composition-menu' : undefined}
@@ -129,6 +128,6 @@ export const MenuCustom = ({
                     </Grow>
                 )}
             </Popper>
-        </Template>
+        </>
     );
 };

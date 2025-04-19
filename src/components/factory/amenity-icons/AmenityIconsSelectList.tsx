@@ -5,8 +5,6 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box } from '@mui/material';
 
-import { Template } from 'components/_template/Template';
-
 import { amenityOptions, AutoCompleteOptions } from './iconList';
 
 interface Props {
@@ -54,40 +52,34 @@ export function AmenityIconsSelectList({
     };
 
     return (
-        <Template>
-            <Autocomplete
-                data-testid="auto-complete"
-                disablePortal={false}
-                id="auto-complete"
-                options={options}
-                sx={{ width: '100%' }}
-                value={selectedValue}
-                onChange={handleChange}
-                inputValue={inputValue}
-                onInputChange={handleInputChange}
-                isOptionEqualToValue={(option, val) =>
-                    option.value === val?.value
-                }
-                renderInput={(params) => (
-                    <TextField {...params} label={label} />
-                )}
-                renderOption={(props, option) => {
-                    return (
-                        <Box
-                            component="li"
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px',
-                            }}
-                            {...props}
-                        >
-                            {option.icon({ fontSize: 'small' })}
-                            <Typography>{option.label}</Typography>
-                        </Box>
-                    );
-                }}
-            />
-        </Template>
+        <Autocomplete
+            data-testid="auto-complete"
+            disablePortal={false}
+            id="auto-complete"
+            options={options}
+            sx={{ width: '100%' }}
+            value={selectedValue}
+            onChange={handleChange}
+            inputValue={inputValue}
+            onInputChange={handleInputChange}
+            isOptionEqualToValue={(option, val) => option.value === val?.value}
+            renderInput={(params) => <TextField {...params} label={label} />}
+            renderOption={(props, option) => {
+                return (
+                    <Box
+                        component="li"
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                        }}
+                        {...props}
+                    >
+                        {option.icon({ fontSize: 'small' })}
+                        <Typography>{option.label}</Typography>
+                    </Box>
+                );
+            }}
+        />
     );
 }

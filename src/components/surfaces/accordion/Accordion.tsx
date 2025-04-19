@@ -6,7 +6,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 
-import { Template } from 'components/_template/Template';
 import { AccordionItems } from 'components/surfaces/accordion/types';
 
 interface Props {
@@ -23,7 +22,7 @@ export function AccordionCustom({ items, ...props }: Props): ReactElement {
         };
 
     return (
-        <Template>
+        <>
             {items.map((item, index) => {
                 const isExpanded = expandedIndex === index;
                 return (
@@ -54,6 +53,6 @@ export function AccordionCustom({ items, ...props }: Props): ReactElement {
                     </Accordion>
                 );
             })}
-        </Template>
+        </>
     );
 }

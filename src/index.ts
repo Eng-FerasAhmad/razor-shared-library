@@ -4,7 +4,6 @@ export { createTheme } from '@mui/material';
 
 // -------------------------
 // Data Display
-export { MuiTemplate } from './components/mui-template/MuiTemplate';
 export { AvatarCustom as Avatar } from './components/data-display/avatar/Avatar';
 export { AvatarGroupCustom } from './components/data-display/avatar/AvatarGroup';
 export { BadgeCustom as Badge } from './components/data-display/badge/Badge';

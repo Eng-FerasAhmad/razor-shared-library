@@ -6,8 +6,6 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup, { RadioGroupProps } from '@mui/material/RadioGroup';
 
-import { Template } from 'src/components/_template/Template';
-
 import { RadioItems } from './types'; // Ensure RadioItems is typed correctly
 
 interface Props extends Omit<RadioGroupProps, 'onChange'> {
@@ -37,30 +35,28 @@ export function RadioGroupCustom({
     };
 
     return (
-        <Template>
-            <FormControl component="fieldset">
-                <FormLabel component="legend" id="radio-buttons-group-label">
-                    {label}
-                </FormLabel>
-                <RadioGroup
-                    aria-labelledby="radio-buttons-group-label"
-                    value={selectedValue}
-                    onChange={handleChange}
-                    name="radio-buttons-group"
-                    row
-                    {...props}
-                >
-                    {radioItems.map((item) => (
-                        <FormControlLabel
-                            key={item.value}
-                            value={item.value}
-                            control={<Radio />}
-                            label={item.label}
-                            disabled={disabled}
-                        />
-                    ))}
-                </RadioGroup>
-            </FormControl>
-        </Template>
+        <FormControl component="fieldset">
+            <FormLabel component="legend" id="radio-buttons-group-label">
+                {label}
+            </FormLabel>
+            <RadioGroup
+                aria-labelledby="radio-buttons-group-label"
+                value={selectedValue}
+                onChange={handleChange}
+                name="radio-buttons-group"
+                row
+                {...props}
+            >
+                {radioItems.map((item) => (
+                    <FormControlLabel
+                        key={item.value}
+                        value={item.value}
+                        control={<Radio />}
+                        label={item.label}
+                        disabled={disabled}
+                    />
+                ))}
+            </RadioGroup>
+        </FormControl>
     );
 }

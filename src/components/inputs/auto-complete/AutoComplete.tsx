@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 import { AutoCompleteOptions } from 'components/inputs/auto-complete/types';
-import { Template } from 'components/_template/Template';
 
 interface Props {
     options: AutoCompleteOptions[];
@@ -32,36 +31,28 @@ export function AutoCompleteCustom({
     }, [value]);
 
     return (
-        <Template>
-            <Autocomplete
-                data-testid="auto-complete"
-                disablePortal
-                id="auto-complete"
-                options={options}
-                sx={{ width: '100%' }}
-                value={value}
-                onChange={() => onChange}
-                inputValue={inputValue}
-                onInputChange={(_e, newInputValue) =>
-                    setInputValue(newInputValue)
-                }
-                isOptionEqualToValue={(option, val) =>
-                    option.value === val.value
-                }
-                renderInput={(params) => (
-                    <TextField {...params} label={label} />
-                )}
-                renderOption={(props, option) => (
-                    <Box
-                        component="li"
-                        sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-                        {...props}
-                    >
-                        {option.icon}
-                        <Typography sx={{ ml: 2 }}>{option.label}</Typography>
-                    </Box>
-                )}
-            />
-        </Template>
+        <Autocomplete
+            data-testid="auto-complete"
+            disablePortal
+            id="auto-complete"
+            options={options}
+            sx={{ width: '100%' }}
+            value={value}
+            onChange={() => onChange}
+            inputValue={inputValue}
+            onInputChange={(_e, newInputValue) => setInputValue(newInputValue)}
+            isOptionEqualToValue={(option, val) => option.value === val.value}
+            renderInput={(params) => <TextField {...params} label={label} />}
+            renderOption={(props, option) => (
+                <Box
+                    component="li"
+                    sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+                    {...props}
+                >
+                    {option.icon}
+                    <Typography sx={{ ml: 2 }}>{option.label}</Typography>
+                </Box>
+            )}
+        />
     );
 }

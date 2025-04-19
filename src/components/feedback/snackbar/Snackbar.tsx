@@ -4,7 +4,6 @@ import Alert from '@mui/material/Alert';
 import Snackbar, { SnackbarProps } from '@mui/material/Snackbar';
 
 import { StandardSeverity } from 'shared/types';
-import { Template } from 'components/_template/Template';
 
 interface Props {
     text: string;
@@ -21,23 +20,21 @@ export function SnackbarCustom({
     ...props
 }: Props & SnackbarProps): ReactElement {
     return (
-        <Template>
-            <Snackbar
-                open={open}
-                autoHideDuration={6000}
+        <Snackbar
+            open={open}
+            autoHideDuration={6000}
+            onClose={handleClose}
+            {...props}
+            data-testid="toast"
+        >
+            <Alert
                 onClose={handleClose}
-                {...props}
-                data-testid="toast"
+                severity={severity}
+                variant="filled"
+                sx={{ width: '100%' }}
             >
-                <Alert
-                    onClose={handleClose}
-                    severity={severity}
-                    variant="filled"
-                    sx={{ width: '100%' }}
-                >
-                    {text}
-                </Alert>
-            </Snackbar>
-        </Template>
+                {text}
+            </Alert>
+        </Snackbar>
     );
 }
