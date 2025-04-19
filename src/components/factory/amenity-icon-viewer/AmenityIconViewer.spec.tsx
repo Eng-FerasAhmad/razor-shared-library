@@ -10,14 +10,26 @@ describe('AmenityIconViewer', () => {
     ];
 
     it('renders without crashing', () => {
-        render(<AmenityIconViewer icons={icons} />);
+        render(
+            <AmenityIconViewer
+                iconName={icons[0].name}
+                size={20}
+                color={'#ccc'}
+            />
+        );
         expect(screen.getByText('Wifi')).toBeInTheDocument();
         expect(screen.getByText('Parking')).toBeInTheDocument();
         expect(screen.getByText('Pool')).toBeInTheDocument();
     });
 
     it('displays each icon and its corresponding name', () => {
-        render(<AmenityIconViewer icons={icons} />);
+        render(
+            <AmenityIconViewer
+                iconName={icons[0].name}
+                size={20}
+                color={'#ccc'}
+            />
+        );
 
         icons.forEach((icon) => {
             expect(screen.getByText(icon.name)).toBeInTheDocument();
@@ -26,7 +38,13 @@ describe('AmenityIconViewer', () => {
     });
 
     it('renders the correct structure for each icon item', () => {
-        render(<AmenityIconViewer icons={icons} />);
+        render(
+            <AmenityIconViewer
+                iconName={icons[0].name}
+                size={20}
+                color={'#ccc'}
+            />
+        );
 
         icons.forEach((icon) => {
             const iconBox = screen.getByText(icon.name).closest('div');

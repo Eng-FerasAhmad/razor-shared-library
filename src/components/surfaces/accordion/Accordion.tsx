@@ -33,9 +33,12 @@ export function AccordionCustom({ items, ...props }: Props): ReactElement {
                         expanded={isExpanded}
                         onChange={handleChange(index)}
                         sx={{
-                            borderTop: index !== 0 ? 'none' : undefined,
+                            border: 0,
                             borderRadius: isExpanded ? '4px' : 0,
                             boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+                            '&:before': {
+                                display: isExpanded ? '' : 'none',
+                            },
                         }}
                     >
                         <AccordionSummary
