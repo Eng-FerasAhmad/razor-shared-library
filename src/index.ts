@@ -1,8 +1,8 @@
 // Template
 export { Template as SharedTheme } from 'components/_template/Template';
 export { createTheme } from '@mui/material';
+export { useTheme as useSharedTheme } from '@mui/material/styles';
 
-// -------------------------
 // Data Display
 export { AvatarCustom as Avatar } from './components/data-display/avatar/Avatar';
 export { AvatarGroupCustom } from './components/data-display/avatar/AvatarGroup';
